@@ -4,19 +4,23 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next export",
-    "start": "next start",
-    "export": "next export",
-    "lint": "next lint",
-    "deploy": "rm -rf node_modules/.cache && next build && next export && touch out/.nojekyll && git add out/ && git commit -m \"Deploy Next.js to gh-pages\" && git subtree push --prefix out origin gh-pages"
+    "gcp-predeploy": "find ./build -name '\\[...*' -exec bash -c 'mv \"$1\" \"${1/.../@@@}\"' -- {} \\;",
+    "gcp-build": "find ./build -name '\\[@@@*' -exec bash -c 'mv \"$1\" \"${1/@@@/...}\"' -- {} \\;",
+    "build": "rm -rf ./build && NODE_ENV=production next build",
+    "start": "next start -p 8080",
+    "deploy": "npm run build && npm run gcp-predeploy && gcloud app deploy",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "@nivo/bar": "^0.72.0",
+    "@nivo/core": "^0.72.0",
+    "@nivo/pie": "^0.72.0",
     "bootstrap": "4.5.3",
     "next": "11.0.1",
+    "node-sass": "^4.10.0",
     "react": "17.0.2",
     "react-bootstrap": "^1.4.3",
     "react-dom": "17.0.2",
-    "node-sass": "^4.10.0",
     "react-icons": "^4.2.0"
   },
   "devDependencies": {

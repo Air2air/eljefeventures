@@ -1,5 +1,5 @@
 import React from "react";
-import { PieChart } from "./../components/charts/pie";
+// import { PieChart } from "./../components/charts/pie";
 
 const data1 = [
   {
@@ -37,7 +37,7 @@ const data1 = [
 const AllocationPage = () => {
   return (
     <>
-      <PieChart title="Allocations" data={data1} updatedTime="12" />
+      {/* <PieChart title="Allocations" data={data1} updatedTime="12" /> */}
     </>
   );
 };

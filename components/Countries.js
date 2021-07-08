@@ -1,5 +1,5 @@
 import { useQuery, gql } from "@apollo/client";
-import styles from "../styles/Home.module.css";
+import styles from "../styles/Home.module.scss";
 
 const QUERY = gql`
   query Countries {

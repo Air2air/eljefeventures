@@ -2,7 +2,6 @@ import { ApolloProvider } from "@apollo/client";
 import client from "../apollo-client";
 import "../styles/globals.scss";
 
-
 function MyApp({ Component, pageProps }) {
   return (
     <ApolloProvider client={client}>
@@ -11,5 +10,3 @@ function MyApp({ Component, pageProps }) {
   );
 }
 export default MyApp;
-
-

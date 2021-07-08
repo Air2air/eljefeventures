@@ -1,20 +1,16 @@
 @import "./../../styles/variables.scss";
 
+$navbar-height: 84px;
+$logo-block-height: 22px;
+
 nav.navbar {
   height: $navbar-height;
   .container {
     height: $navbar-height;
-    a.nav-link {
-      font-weight: 300;
-      letter-spacing: 0.02em;
-      font-size: 1.1em;
-      text-decoration: none;
-    }
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
   }
-}
-
-nav.navbar {
-  background: transparentize($color-base, 0.3);
 }
 
 nav.navbar {
@@ -26,8 +22,6 @@ nav.navbar {
         font-size: 1.3em;
         color: $color-contrast;
       }
-    }
-    .nav-item {
     }
   }
 }

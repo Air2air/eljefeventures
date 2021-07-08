@@ -1,10 +1,7 @@
 import React from "react";
 import { ResponsivePie } from "@nivo/pie";
-import {data} from "./data-1";
 
-const chartData = data;
-
-const PieChart = ({chartData}) => (
+const PieChart = (props) => (
   <>
     <div className="styles.card">
       <div className={`styles.card-header`}>{data.title}</div>

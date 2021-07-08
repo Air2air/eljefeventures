@@ -1,5 +1,4 @@
-// install (please make sure versions match peerDependencies)
-// yarn add @nivo/core @nivo/bar
+
 import { ResponsiveBar } from '@nivo/bar'
 // make sure parent container have a defined height when using
 // responsive component, otherwise height will be 0 and

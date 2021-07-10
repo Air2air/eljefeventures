@@ -1,54 +1,47 @@
-import Head from "next/head";
-import Header from "./../components/header";
-import { gql } from "@apollo/client";
-import client from "../apollo-client";
-import styles from "../styles/Home.module.scss";
+import Link from "next/link";
+import fetch from "isomorphic-unfetch";
+import { Button, Card } from "semantic-ui-react";
 
-export default function Home({ countries }) {
+const Index = ({ notes }) => {
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>El Jefe</title>
-        <meta name="description" content="Family Office Services" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <Header />
-
-      <main className={styles.main}>
-        <div className={styles.grid}>
-          {countries.map((country) => (
-            <div key={country.code} className={styles.card}>
-              <h3>{country.name}</h3>
-              <p>
-                {country.code} - {country.emoji}
-              </p>
-            </div>
-          ))}
+    <>
+      <div className="notes-container">
+        <h1>Notes</h1>
+        <div className="grid wrapper">
+          {notes.map((note) => {
+            return (
+              <div key={note._id}>
+                <Card>
+                  <Card.Content>
+                    <Card.Header>
+                      <Link href={`/${note._id}`}>
+                        <a>{note.title}</a>
+                      </Link>
+                    </Card.Header>
+                  </Card.Content>
+                  <Card.Content extra>
+                    <Link href={`/${note._id}`}>
+                      <Button primary>View</Button>
+                    </Link>
+                    <Link href={`/${note._id}/edit`}>
+                      <Button primary>Edit</Button>
+                    </Link>
+                  </Card.Content>
+                </Card>
+              </div>
+            );
+          })}
         </div>
-      </main>
-
-      <footer className={styles.footer}>Doodle</footer>
-    </div>
+      </div>
+    </>
   );
-}
+};
 
-export async function getStaticProps() {
-  const { data } = await client.query({
-    query: gql`
-      query Countries {
-        countries {
-          code
-          name
-          emoji
-        }
-      }
-    `,
-  });
+Index.getInitialProps = async () => {
+  const res = await fetch("http://localhost:3000/api/notes");
+  const { data } = await res.json();
 
-  return {
-    props: {
-      countries: data.countries.slice(0, 4),
-    },
-  };
-}
+  return { notes: data };
+};
+
+export default Index;

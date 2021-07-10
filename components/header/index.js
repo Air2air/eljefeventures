@@ -1,5 +1,4 @@
 import React from "react";
-import { Navbar, Nav, Container } from "react-bootstrap";
 import { AiFillHome } from "react-icons/ai";
 import { FaUserAlt } from "react-icons/fa";
 import Link from "next/link";
@@ -8,19 +7,22 @@ import { motion } from "framer-motion";
 import styles from "./Header.module.scss"
 
 
-const Header = () => {
-  return (
-    <Navbar className="mb-5">
-      <Container className={styles.container}>
-        <Link href="/allocation">
+const Header = () => (
+    <nav className="navbar">
+        <Link href="/">
+            <a className="navbar-brand">Note App</a>
+        </Link>
+
+        <Link href="/">
           <motion.div
             whileHover={{ scale: 1.07}}
             whileTap={{ scale: 1 }}
             transition={{ duration: 0.15 }}
           >
-            <AiFillHome size="2em" />
+            <AiFillHome size="2em" />Home
           </motion.div>
         </Link>
+
 
         <motion.div
           whileHover={{ scale: 1.03}}
@@ -31,18 +33,18 @@ const Header = () => {
           <Image src="/el-jefe.svg" alt="El Jefe" width="100" height="40" />
         </motion.div>
 
-        <Link href="/">
+
+
+        <Link href="/new">
           <motion.div
             whileHover={{ scale: 1.05}}
             whileTap={{ scale: 1 }}
             transition={{ duration: 0.15 }}
           >
-            <FaUserAlt size="2em" />
+            <FaUserAlt size="2em" />New
           </motion.div>
         </Link>
-      </Container>
-    </Navbar>
-  );
-};
+    </nav>
+)
 
 export default Header;

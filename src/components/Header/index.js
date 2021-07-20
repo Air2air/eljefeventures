@@ -4,7 +4,7 @@ import "./styles.scss";
 
 const Header = () => {
   return (
-    <Navbar expand="md" className="navbar navbar-expand-lg mb-5 navbar-dark navbar-fixed" fixed>
+    <Navbar expand="md" className="navbar navbar-expand-lg mb-5 navbar-dark navbar-fixed" fixed="top">
       <Container fluid className="d-flex justify-content-center">
         <Nav.Link
           href="mailto:contact@eljefeventures.com?subject=Inquiry for El Jefe"

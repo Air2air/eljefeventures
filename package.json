@@ -1,5 +1,5 @@
 {
-  "name": "kleck",
+  "name": "eljefe",
   "version": "0.1.0",
   "private": true,
   "homepage": ".",
@@ -31,11 +31,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "gh-deploy": "gh-pages -d build",
-    "gh-push": "react-scripts build && gh-pages -d build",
     "gcp-predeploy": "find ./build -name '\\[...*' -exec bash -c 'mv \"$1\" \"${1/.../@@@}\"' -- {} \\;",
     "gcp-build": "find ./build -name '\\[@@@*' -exec bash -c 'mv \"$1\" \"${1/@@@/...}\"' -- {} \\;",
-    "gcp-deploy": "npm run build && npm run gcp-predeploy && gcloud app deploy"
+    "gcp-deploy": "npm run build && npm run gcp-predeploy && gcloud app deploy -q --project eljefewebsite"
   },
   "eslintConfig": {
     "extends": "react-app"

@@ -1,29 +1,60 @@
 {
-  "name": "eljefeapp",
+  "name": "kleck",
   "version": "0.1.0",
   "private": true,
+  "homepage": ".",
+  "dependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "axios": "^0.20.0",
+    "bootstrap": "^4.6.0",
+    "framer-motion": "^4.1.17",
+    "react": "^16.13.1",
+    "react-bootstrap": "^1.6.1",
+    "react-bootstrap-floating-label": "^1.6.0",
+    "react-copy-to-clipboard": "^5.0.3",
+    "react-dom": "^16.13.1",
+    "react-icons": "^4.2.0",
+    "react-redux": "^7.2.1",
+    "react-router-dom": "^5.2.0",
+    "react-screentype-hook": "^1.0.17",
+    "react-scripts": "3.4.3",
+    "react-stack-grid": "^0.7.1",
+    "react-validation": "^3.0.7",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0",
+    "sass": "^1.35.2",
+    "validator": "^13.1.1"
+  },
   "scripts": {
-    "dev": "next dev",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "gh-deploy": "gh-pages -d build",
+    "gh-push": "react-scripts build && gh-pages -d build",
     "gcp-predeploy": "find ./build -name '\\[...*' -exec bash -c 'mv \"$1\" \"${1/.../@@@}\"' -- {} \\;",
     "gcp-build": "find ./build -name '\\[@@@*' -exec bash -c 'mv \"$1\" \"${1/@@@/...}\"' -- {} \\;",
-    "build": "rm -rf ./build && NODE_ENV=production next build",
-    "start": "next start -p 8080",
-    "deploy": "npm run build && npm run gcp-predeploy && gcloud app deploy",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "gcp-deploy": "npm run build && npm run gcp-predeploy && gcloud app deploy"
   },
-  "dependencies": {
-    "framer-motion": "^4.1.17",
-    "isomorphic-unfetch": "^3.1.0",
-    "mongodb": "^3.6.8",
-    "mongoose": "^5.13.2",
-    "next": "11.0.1",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "react-icons": "^4.2.0",
-    "semantic-ui-css": "^2.4.1",
-    "semantic-ui-react": "^2.0.3"
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   },
   "devDependencies": {
+    "redux-devtools-extension": "^2.13.8",
+    "sass-loader": "^12.1.0",
     "@nivo/bar": "^0.72.0",
     "@nivo/core": "^0.72.0",
     "@nivo/pie": "^0.72.0",
@@ -32,7 +63,10 @@
     "@types/react-dom": "^17.0.9",
     "eslint": "7.30.0",
     "eslint-config-next": "11.0.1",
-    "sass": "^1.35.2",
     "typescript": "^4.3.5"
+  },
+  "resolutions": {
+    "webpack": "5.41.1"
   }
 }
+

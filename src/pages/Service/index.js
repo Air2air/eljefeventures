@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Button } from "react-bootstrap";
 import { motion } from "framer-motion";
 
-const Mission = () => {
+const Service = () => {
   return (
     <>
       <motion.div
@@ -11,7 +11,7 @@ const Mission = () => {
         transition={{ duration: .5 }}
       >
         <Container>
-          <h1>Mission stuff here.</h1>
+          <h1>Service stuff here.</h1>
           <p>
             <Button href="#portfolio"> See Portfolio</Button>
           </p>
@@ -21,4 +21,4 @@ const Mission = () => {
   );
 };
 
-export default Mission;
+export default Service;

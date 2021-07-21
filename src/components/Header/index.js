@@ -19,7 +19,7 @@ const Header = () => {
   const shadowMotion = {
     rest: { scale: 1 },
     hover: {
-      scale: 0.8,
+      scale: 0.6,
       transition: {
         duration: 0.2,
       },

@@ -10,6 +10,7 @@ nav.navbar {
     height: inherit;
     .blur-box {
       height: $logo-height;
+      width:$logo-height;
       position: relative;
     }
     .header-logo, .header-logo img,
@@ -17,9 +18,10 @@ nav.navbar {
       height: $logo-height;
     }
     .header-logo {
-      z-index: +100;
+      position: absolute;
+      top: 0;
+      left: 0;
     }
-
     .header-logo-blur {
       position: absolute;
       top: 0;
@@ -33,7 +35,7 @@ nav.navbar {
   .container-fluid {
     background: none;
     .header-logo-blur {
-      filter: blur(12px);
+      filter: blur(20px);
     }
   }
 }
@@ -42,9 +44,8 @@ nav.navbar {
 //   background: gold;
 //   .container-fluid {
 //     background: red;
-//     .header-logo {
-//       height: 34px;
-//       margin: 0 auto;
+//     .blur-box {
+//       background: blues;
 //     }
 //   }
 // }

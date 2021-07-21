@@ -4,8 +4,8 @@ import "./styles.scss";
 const Home = () => {
   return (
     <>
-      <div class="loading">
-        <div class="main"></div>
+      <div className="loading">
+        <div className="main"></div>
       </div>
     </>
   );

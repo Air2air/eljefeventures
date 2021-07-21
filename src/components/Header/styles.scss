@@ -1,31 +1,29 @@
 $navbar-height: 80px;
+$logo-height: 70px;
 
-.nav-link {
-  font-size: 2em;
-  color: #fff;
-}
-
-.nav-link span {
-  transition: all 300ms;
-  transform: scale(1);
-}
-
-.nav-link span:hover {
-  color: #fff;
-  transform: scale(1.05);
-}
-
-/*
 nav.navbar {
   padding: 0;
-  margin: none;
+  margin-top: 20px;
   height: $navbar-height;
   .container-fluid {
-    padding: 0 40px;
     display: flex;
     height: inherit;
+    .blur-box {
+      height: $logo-height;
+      position: relative;
+    }
+    .header-logo, .header-logo img,
+    .header-logo-blur, .header-logo-blur img {
+      height: $logo-height;
+    }
     .header-logo {
-      height: 28px;
+      z-index: +100;
+    }
+
+    .header-logo-blur {
+      position: absolute;
+      top: 0;
+      left: 0;
     }
   }
 }
@@ -34,28 +32,11 @@ nav.navbar {
   background: none;
   .container-fluid {
     background: none;
-    .header-logo {
-      opacity: 0.8;
-      transition: all 300ms;
-      transform: scale(0.92);
-      &:hover {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
-    a.nav-link {
-      color: $site-text;
-      opacity: 0.8;
-      transition: all 300ms;
-      margin-left:10px;
-      &:hover {
-        color: $site-text;
-        opacity: 1;
-      }
+    .header-logo-blur {
+      filter: blur(12px);
     }
   }
 }
-*/
 
 // nav.navbar {
 //   background: gold;

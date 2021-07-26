@@ -1,0 +1,31 @@
+$navbar-height: 80px;
+$logo-height: 60px;
+
+nav.navbar.logged-in {
+  padding: 0;
+  height: $navbar-height;
+  .container-fluid {
+    display: flex;
+    height: inherit;
+    .header-logo {
+      height: $logo-height;
+    }
+  }
+}
+
+nav.navbar.logged-in {
+  background: none;
+  .container-fluid {
+    background: none;
+  }
+}
+
+// nav.navbar.logged-in {
+//   background: gold;
+//   .container-fluid {
+//     background: red;
+//     .blur-box {
+//       background: blues;
+//     }
+//   }
+// }

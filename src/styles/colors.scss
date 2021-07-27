@@ -1,3 +1,22 @@
+$background-color: #384149;
+$text-color: #eeeeee;
 
-$site-background: #b5b5b5;
-$site-text: #EEE;
+$gray: lighten($background-color,15%);
+$red: rgb(150, 69, 69);
+$orange: rgb(216, 111, 13);
+$gold: rgb(235, 174, 5);
+$green: rgb(89, 153, 63);
+$blue: rgb(63, 92, 153);
+$purple: rgb(102, 63, 153);
+
+:export {
+  backgroundColor: $background-color;
+  textColor: $text-color;
+  gray: $gray;
+  red: $red;
+  orange: $orange;
+  gold: $gold;
+  green: $green;
+  blue: $blue;
+  purple: $purple;
+}

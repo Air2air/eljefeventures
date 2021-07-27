@@ -2,8 +2,6 @@ import React from "react";
 import { ResponsivePie } from "@nivo/pie";
 import "./styles.scss";
 
-
-
 const ChartPie = (props) => (
   <div className="chart-pie-wrapper">
     <ResponsivePie

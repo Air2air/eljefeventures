@@ -1,9 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap");
+@import "./variables.scss";
 
 body {
   margin: 0;
-  font-size: 16px;
-  font-family: "Rubik", sans-serif;
+  font-size: $font-size;
+  font-family: $font-family;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   p {

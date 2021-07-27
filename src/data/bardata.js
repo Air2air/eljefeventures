@@ -1,42 +1,87 @@
-export const bardata = [
+export const bardata1 = [
   {
     map: "Stocks",
-    me: 120,
-    benchmark: 193,
+    me: 5,
+    benchmark: 10,
   },
   {
     map: "Bonds",
-    me: 35,
-    benchmark: 160,
+    me: 8,
+    benchmark: 6,
   },
   {
     map: "Mutuals",
-    me: 33,
-    benchmark: 120,
+    me: 9,
+    benchmark: 2,
   },
   {
     map: "ETF",
-    me: 27,
-    benchmark: 3,
+    me: 3,
+    benchmark: 4,
   },
   {
     map: "Options",
-    me: 199,
-    benchmark: 19,
+    me: 8,
+    benchmark: 7,
   },
   {
     map: "Annuities",
-    me: 117,
-    benchmark: 107,
+    me: 2,
+    benchmark: 6,
   },
   {
     map: "Cash",
-    me: 195,
-    benchmark: 156,
+    me: 4,
+    benchmark: 3,
   },
   {
     map: "Real Estate",
-    me: 195,
-    benchmark: 156,
+    me: 7,
+    benchmark: 1,
+  },
+];
+
+
+
+export const bardata2 = [
+  {
+    map: "Stocks",
+    me: 7,
+    benchmark: 9,
+  },
+  {
+    map: "Bonds",
+    me: 6,
+    benchmark: 2,
+  },
+  {
+    map: "Mutuals",
+    me: 8,
+    benchmark: 4,
+  },
+  {
+    map: "ETF",
+    me: 7,
+    benchmark: 6,
+  },
+  {
+    map: "Options",
+    me: 9,
+    benchmark: 7,
+  },
+  {
+    map: "Annuities",
+    me: 7,
+    benchmark: 6,
+  },
+  {
+    map: "Cash",
+    me: 2,
+    benchmark: 1,
+  },
+  {
+    map: "Real Estate",
+    me: 4,
+    benchmark: 3,
   },
 ];

@@ -25,13 +25,13 @@ const axisLeft = {
 const theme = {
   background: "none",
   axis: {
-    fontSize: text.fontSize,
     tickColor: "#eee",
     ticks: {
       line: {
         stroke: "#555555",
       },
       text: {
+        fontSize: text.fontSize,
         fill: "#ffffff",
       },
     },

@@ -20,8 +20,8 @@ const Minidash = (props) => {
 
   const [active, setActive] = useState(0);
 
-  const textButton1 = "vs. previous period";
-  const textButton2 = "vs. Benchmark";
+  const textButton1 = "Last 12 months";
+  const textButton2 = "Current quarter";
 
 
 

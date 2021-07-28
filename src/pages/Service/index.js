@@ -1,18 +1,20 @@
 import React from "react";
-import { Container, Row } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import Minidash from "../../components/Minidash";
+// import { proxy } from 'valtio'
 import Chart from "../../components/Chart";
+
+// const loginState = proxy({ isLoggedIn: 0 });
+
+
 
 const Service = () => {
   return (
     <>
-      <div className="top-padding" />
       <Container>
-        <Row>
-          <Minidash title="Summary" />
-          <Chart chartType="bar" title="Allocation" study="allocation" />
-          <Chart chartType="line" title="Yield" study="yield" />
-        </Row>
+        <Minidash title="Snapshot" />
+        <Chart chartType="bar" title="Allocation" study="allocation" />
+        <Chart chartType="line" title="Yield" study="yield" />
       </Container>
     </>
   );

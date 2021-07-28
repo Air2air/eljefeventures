@@ -5,11 +5,8 @@ import { Nav, Navbar, Container } from "react-bootstrap";
 import "./logged-in.scss";
 import "./logged-out.scss";
 
-
-
-const Header = () => {
-  return (
-
+const Header = (props) => {
+return (
     <Navbar
       expand="md"
       className="navbar navbar-expand-lg mb-3 navbar-dark logged-out"
@@ -23,8 +20,8 @@ const Header = () => {
           <span className="navbar-toggler-icon"></span>
         </Nav.Link>
       </Container>
-    </Navbar>
-  );
+    </Navbar>)
+ 
 };
 
 export default Header;

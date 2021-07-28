@@ -15,6 +15,7 @@
     "react-bootstrap": "^1.6.1",
     "react-bootstrap-floating-label": "^1.6.0",
     "react-copy-to-clipboard": "^5.0.3",
+    "react-countup": "^5.1.0",
     "react-dom": "^16.13.1",
     "react-icons": "^4.2.0",
     "react-redux": "^7.2.1",

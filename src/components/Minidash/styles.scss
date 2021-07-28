@@ -35,7 +35,7 @@ $minidash-panel-height: $minidash-component-height - $minidash-header-height;
         font-size: 2em;
         .count {
           transition: all 800ms;
-          span {
+          span.percent {
             opacity: 0.5;
           }
         }

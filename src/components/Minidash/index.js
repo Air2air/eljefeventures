@@ -2,13 +2,30 @@ import React, { useState } from "react";
 import { Row, Col, Button } from "react-bootstrap";
 import { dashData1, dashData2 } from "./../../data/minidash";
 import { BsFillCaretUpFill, BsFillCaretDownFill } from "react-icons/bs";
+import { motion } from "framer-motion";
+import CountUp from 'react-countup';
 import "./styles.scss";
 
+const variants = {
+  visible: (i) => ({
+    opacity: 1,
+    transition: {
+      delay: i * 0.3,
+    },
+  }),
+  hidden: { opacity: 0 },
+};
+
 const Minidash = (props) => {
+
   const [active, setActive] = useState(0);
 
   const textButton1 = "vs. previous period";
   const textButton2 = "vs. Benchmark";
+
+
+
+  /*----- DATA ------*/
 
   let data;
 
@@ -17,9 +34,16 @@ const Minidash = (props) => {
   } else {
     data = dashData2;
   }
-  const dashitems = data.map((item) => (
+
+
+
+
+  const dashitems = data.map((item, i) => (
     <Col key={item.id}>
-      <div
+      <motion.div
+        custom={i}
+        animate="visible"
+        variants={variants}
         className={`minidash-panel d-flex flex-column align-items-center ${item.direction}`}
       >
         <div className="title d-flex align-items-end">{item.name}</div>
@@ -29,11 +53,11 @@ const Minidash = (props) => {
             {item.arrow === "down" && <BsFillCaretDownFill size=".7em" />}
           </div>
           <div className="count">
-            {item.count}
-            <span>%</span>
+          <CountUp start={0} end={item.count} delay={2} duration={.1}/>
+            <span className="percent">%</span>
           </div>
         </div>
-      </div>
+      </motion.div>
     </Col>
   ));
 

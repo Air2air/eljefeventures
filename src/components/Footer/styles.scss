@@ -1,0 +1,15 @@
+@import "./../../styles/variables.scss";
+
+$footer-height: 250px;
+$logo-height: 50px;
+
+div.footer {
+  height: $footer-height;
+  .footer-logo {
+    height: $logo-height;
+  }
+}
+
+div.footer {
+  background: darken($background-color, 10%);
+}

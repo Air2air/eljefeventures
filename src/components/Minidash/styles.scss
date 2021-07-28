@@ -1,6 +1,5 @@
 @import "./../../styles/variables.scss";
 
-
 $minidash-component-height: 220px;
 $minidash-header-height: 100px;
 $minidash-panel-height: $minidash-component-height - $minidash-header-height;
@@ -35,6 +34,7 @@ $minidash-panel-height: $minidash-component-height - $minidash-header-height;
       .value {
         font-size: 2em;
         .count {
+          transition: all 800ms;
           span {
             opacity: 0.5;
           }

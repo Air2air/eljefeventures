@@ -8,8 +8,7 @@ const HeaderLoggedIn = () => {
   return (
     <Navbar
       expand="md"
-      className="navbar navbar-expand-lg mb-5 navbar-dark navbar-fixed logged-in"
-      fixed="top"
+      className="navbar navbar-expand-lg mb-3 navbar-dark logged-in"
     >
       <Container fluid className="d-flex justify-content-center">
         <Nav.Link href="mailto:contact@eljefeventures.com?subject=Inquiry for El Jefe">
@@ -24,8 +23,7 @@ const HeaderLoggedOut = () => {
   return (
     <Navbar
       expand="md"
-      className="navbar navbar-expand-lg mb-5 navbar-dark navbar-fixed logged-out"
-      fixed="top"
+      className="navbar navbar-expand-lg mb-3 navbar-dark logged-out"
     >
       <Container fluid className="d-flex justify-content-center">
         <Nav.Link

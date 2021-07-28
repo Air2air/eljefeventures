@@ -36,15 +36,13 @@ const Minidash = (props) => {
   }
 
 
-
-
   const dashitems = data.map((item, i) => (
-    <Col key={item.id}>
+    <Col key={item.id} xs={4} sm={4} md={2} className="px-1">
       <motion.div
         custom={i}
         animate="visible"
         variants={variants}
-        className={`minidash-panel d-flex flex-column align-items-center ${item.direction}`}
+        className={`minidash-panel mb-1 d-flex flex-column align-items-center ${item.direction}`}
       >
         <div className="title d-flex align-items-end">{item.name}</div>
         <div className="value d-flex">
@@ -63,7 +61,7 @@ const Minidash = (props) => {
 
   return (
     <>
-      <div className="minidash-component-wrapper px-4 mb-5">
+      <div className="minidash-component-wrapper mb-5">
         <div className="minidash-header d-flex align-items-center justify-content-between">
           <h4>{props.title}</h4>
           <div>
@@ -81,7 +79,7 @@ const Minidash = (props) => {
             </Button>
           </div>
         </div>
-        <Row className="minidash-wrapper">{dashitems}</Row>
+        <Row className="minidash-wrapper px-0">{dashitems}</Row>
       </div>
     </>
   );

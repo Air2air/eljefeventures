@@ -31,7 +31,7 @@ const Chart = (props) => {
 
   return (
     <>
-      <div className="chart-component-wrapper px-4 mb-3">
+      <div className="chart-component-wrapper px-0 mb-3">
         <div className="chart-header d-flex align-items-center justify-content-between">
           <h4>{props.title}</h4>
           <div>

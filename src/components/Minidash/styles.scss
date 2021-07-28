@@ -5,14 +5,15 @@ $minidash-header-height: 100px;
 $minidash-panel-height: $minidash-component-height - $minidash-header-height;
 
 .minidash-component-wrapper {
-  height: $minidash-component-height;
+  min-height: $minidash-component-height;
+  height: auto;
   width: 100%;
   .minidash-header {
     height: $minidash-header-height;
   }
   .minidash-wrapper {
-    height: $minidash-panel-height;
-    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
     .minidash-panel {
       transition: all 400ms;
       border-radius: 5px;
@@ -41,10 +42,41 @@ $minidash-panel-height: $minidash-component-height - $minidash-header-height;
           width: 70%;
           span.percent {
             opacity: 0.5;
-            font-size: .8em;
+            font-size: 0.8em;
           }
         }
       }
     }
   }
 }
+
+// .minidash-component-wrapper {
+//   background: gold;
+//   .minidash-header {
+//     background: blue;
+//   }
+//   .minidash-wrapper {
+//     background: red;
+//     .minidash-panel {
+//       &.good {
+//         background-color: $green;
+//       }
+//       &.bad {
+//         background-color: $red;
+//       }
+//       &.unchanged {
+//         background-color: $gray;
+//       }
+//       .title {
+//       }
+//       .value {
+//         .arrow {
+//         }
+//         .count {
+//           span.percent {
+//           }
+//         }
+//       }
+//     }
+//   }
+// }

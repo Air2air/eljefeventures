@@ -10,8 +10,12 @@
 }
 
 .btn {
-  border: none;
+  border: 2px solid transparent;
   background-color: $muted;
+  &.active{
+    background-color: darken($muted, 20%) !important;
+    border: 2px solid $muted!important;
+  }
   &:hover {
     background-color: lighten($muted, 10%);
   }

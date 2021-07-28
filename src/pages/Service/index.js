@@ -10,7 +10,7 @@ const Service = () => {
       <Container>
         <Row>
           <Chart chartType="bar" title="Allocation" study="allocation"/>
-          {/* <Chart chartType="pie" title="Allocation" study="allocation"/> */}
+          <Chart chartType="line" title="Yield" study="yield"/>
         </Row>
       </Container>
     </>

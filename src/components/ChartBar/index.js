@@ -7,6 +7,7 @@ const theme = {
   background: "none",
   axis: {
     tickColor: colors.gray,
+    tickPadding: 20,
     ticks: {
       line: {
         stroke: colors.gray,
@@ -21,6 +22,12 @@ const theme = {
         fontSize: text.fontSize,
         fill: colors.muted,
       },
+    },
+  },
+  labels: {
+    text: {
+      fontSize: text.fontSize,
+      fill: colors.textColor
     },
   },
   grid: {
@@ -66,10 +73,10 @@ const ChartBar = (props) => (
       data={props.dataSource}
       keys={["me", "benchmark"]}
       indexBy="map"
-      labelTextColor="inherit:darker(2.4)"
       labelSkipWidth={12}
       labelSkipHeight={12}
       enableGridX={false}
+      padding={0.3}
       colors={colorBy}
       theme={theme}
       legends={legends}

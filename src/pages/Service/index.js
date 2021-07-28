@@ -1,8 +1,7 @@
 import React from "react";
 import { Container, Row } from "react-bootstrap";
-import ChartBarComponent from "./../../components/ChartBar";
-import ChartPie from "./../../components/ChartPie";
-import { allocations } from "./../../data/allocations.js";
+import Chart from "../../components/Chart";
+
 
 const Service = () => {
   return (
@@ -10,8 +9,8 @@ const Service = () => {
       <div className="top-padding" />
       <Container>
         <Row>
-          <ChartBarComponent title="Allocation" study="allocation"/>
-          <ChartPie dataSource={allocations} />
+          <Chart chartType="bar" title="Allocation" study="allocation"/>
+          {/* <Chart chartType="pie" title="Allocation" study="allocation"/> */}
         </Row>
       </Container>
     </>

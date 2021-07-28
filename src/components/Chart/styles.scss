@@ -1,5 +1,5 @@
 $chart-component-height: 300px;
-$chart-header-height: 40px;
+$chart-header-height: 70px;
 
 .chart-component-wrapper {
   height: $chart-component-height;
@@ -12,13 +12,3 @@ $chart-header-height: 40px;
     width: 100%;
   }
 }
-
-// .chart-component-wrapper {
-//   background-color: red;
-//   .chart-header {
-//     background-color: blue;
-//   }
-//   .chart-wrapper {
-//     background-color: gold;
-//   }
-// }

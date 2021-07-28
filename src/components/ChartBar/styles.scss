@@ -1,4 +1,24 @@
-.chart-bar-wrapper {
-    height:400px;
-    width:100%;
+$chart-component-height: 300px;
+$chart-header-height: 40px;
+
+.chart-component-wrapper {
+  height: $chart-component-height;
+  width: 100%;
+  .chart-header {
+    height: $chart-header-height;
+  }
+  .chart-wrapper {
+    height: $chart-component-height - $chart-header-height;
+    width: 100%;
+  }
 }
+
+// .chart-component-wrapper {
+//   background-color: red;
+//   .chart-header {
+//     background-color: blue;
+//   }
+//   .chart-wrapper {
+//     background-color: gold;
+//   }
+// }

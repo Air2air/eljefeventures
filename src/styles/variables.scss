@@ -1,6 +1,7 @@
 /*----- Colors ------*/
 $background-color: #384149;
 $text-color: #eeeeee;
+$muted: lighten($background-color, 15%);
 
 $gray: lighten($background-color, 15%);
 $red: rgb(150, 69, 69);
@@ -13,6 +14,7 @@ $purple: rgb(102, 63, 153);
 :export {
   backgroundColor: $background-color;
   textColor: $text-color;
+  muted:$muted;
   gray: $gray;
   red: $red;
   orange: $orange;

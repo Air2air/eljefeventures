@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Row } from "react-bootstrap";
+import Minidash from "../../components/Minidash";
 import Chart from "../../components/Chart";
-
 
 const Service = () => {
   return (
@@ -9,8 +9,9 @@ const Service = () => {
       <div className="top-padding" />
       <Container>
         <Row>
-          <Chart chartType="bar" title="Allocation" study="allocation"/>
-          <Chart chartType="line" title="Yield" study="yield"/>
+          <Minidash title="Summary" />
+          <Chart chartType="bar" title="Allocation" study="allocation" />
+          <Chart chartType="line" title="Yield" study="yield" />
         </Row>
       </Container>
     </>

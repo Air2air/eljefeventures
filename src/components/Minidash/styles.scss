@@ -1,0 +1,45 @@
+@import "./../../styles/variables.scss";
+
+
+$minidash-component-height: 220px;
+$minidash-header-height: 100px;
+$minidash-panel-height: $minidash-component-height - $minidash-header-height;
+
+.minidash-component-wrapper {
+  height: $minidash-component-height;
+  width: 100%;
+  .minidash-header {
+    height: $minidash-header-height;
+  }
+  .minidash-wrapper {
+    height: $minidash-panel-height;
+    width: 100%;
+    .minidash-panel {
+      transition: all 400ms;
+      border-radius: 5px;
+      height: $minidash-panel-height;
+      &.good {
+        background-color: $green;
+      }
+      &.bad {
+        background-color: $red;
+      }
+      &.unchanged {
+        background-color: $gray;
+      }
+      .title {
+        height: 40%;
+        text-transform: uppercase;
+        font-weight: 400;
+      }
+      .value {
+        font-size: 2em;
+        .count {
+          span {
+            opacity: 0.5;
+          }
+        }
+      }
+    }
+  }
+}

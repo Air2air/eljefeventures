@@ -26,13 +26,12 @@ const Chart = (props) => {
     dataSource2 = linedata2;
     textButton1 = "Fund 1";
     textButton2 = "Fund 2";
-
   }
 
 
   return (
     <>
-      <div className="chart-component-wrapper px-4 mb-5">
+      <div className="chart-component-wrapper px-4 mb-3">
         <div className="chart-header d-flex align-items-center justify-content-between">
           <h4>{props.title}</h4>
           <div>

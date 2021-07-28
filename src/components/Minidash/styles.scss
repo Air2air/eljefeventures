@@ -33,10 +33,15 @@ $minidash-panel-height: $minidash-component-height - $minidash-header-height;
       }
       .value {
         font-size: 2em;
+        transition: all 800ms;
+        .arrow {
+          width: 30%;
+        }
         .count {
-          transition: all 800ms;
+          width: 70%;
           span.percent {
             opacity: 0.5;
+            font-size: .8em;
           }
         }
       }

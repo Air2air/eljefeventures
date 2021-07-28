@@ -48,13 +48,13 @@ const Minidash = (props) => {
       >
         <div className="title d-flex align-items-end">{item.name}</div>
         <div className="value d-flex">
-          <div className="arrow d-flex align-items-center justify-content-center mr-2">
+          <div className="arrow d-flex align-items-center justify-content-end mr-2">
             {item.arrow === "up" && <BsFillCaretUpFill size=".7em" />}
             {item.arrow === "down" && <BsFillCaretDownFill size=".7em" />}
           </div>
           <div className="count">
           <CountUp start={0} end={item.count} delay={2} duration={.1}/>
-            <span className="percent">%</span>
+            <span className="percent ml-1">%</span>
           </div>
         </div>
       </motion.div>

@@ -5,7 +5,7 @@ import "./styles.scss";
 const Home = () => {
   return (
     <>
-      <Header version="loggedOut" />
+      <Header authState="isLoggedOut" />
       <div className="loading">
         <div className="main"></div>
       </div>

@@ -37,7 +37,6 @@ const theme = {
   },
 };
 
-const colorBy = ({ id }) => (id === "me" ? colors.blue : colors.gold);
 
 const legends = [
   {
@@ -48,13 +47,14 @@ const legends = [
     translateX: 0,
     translateY: 56,
     itemsSpacing: 2,
-    itemWidth: 100,
+    itemWidth: 120,
     itemHeight: 20,
     itemDirection: "left-to-right",
     itemOpacity: 0.85,
     itemTextColor: "#ffffff",
     fontSize: text.fontSize,
-    symbolSize: 20,
+    symbolSize: 18,
+    symbolShape: "circle",
     effects: [
       {
         on: "hover",
@@ -69,15 +69,16 @@ const legends = [
 const ChartBar = (props) => (
   <div className="chart-wrapper">
     <ResponsiveBar
-      margin={{ top: 10, right: 20, bottom: 80, left: 20 }}
+      margin={{ top: 10, right: 30, bottom: 80, left: 30 }}
       data={props.dataSource}
       keys={["me", "benchmark"]}
       indexBy="map"
+      axisLeft={null}
       labelSkipWidth={12}
       labelSkipHeight={12}
       enableGridX={false}
       padding={0.3}
-      colors={colorBy}
+      colors={{"scheme":"paired"}}
       theme={theme}
       legends={legends}
       animate={true}

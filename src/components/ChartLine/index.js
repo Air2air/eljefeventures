@@ -57,7 +57,7 @@ const legends = [
     translateX: 0,
     translateY: 56,
     itemsSpacing: 2,
-    itemWidth: 100,
+    itemWidth: 120,
     itemHeight: 20,
     itemDirection: "left-to-right",
     itemOpacity: 0.85,

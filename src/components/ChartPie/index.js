@@ -113,7 +113,7 @@ const ChartPie = (props) => (
           anchor: "bottom",
           direction: "row",
           translateY: 56,
-          itemWidth: 100,
+          itemWidth: 120,
           itemHeight: 18,
           itemTextColor: "#999",
           symbolSize: 18,

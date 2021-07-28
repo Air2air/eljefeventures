@@ -12,18 +12,27 @@ const Chart = (props) => {
 
   let dataSource1 = [];
   let dataSource2 = [];
+  let textButton1;
+  let textButton2;
+
 
   if (props.chartType === "bar" || props.chartType === "pie") {
     dataSource1 = bardata1;
     dataSource2 = bardata2;
+    textButton1 = "previous period";
+    textButton2 = "current period";
   } else {
     dataSource1 = linedata1;
     dataSource2 = linedata2;
+    textButton1 = "Fund 1";
+    textButton2 = "Fund 2";
+
   }
+
 
   return (
     <>
-      <div className="chart-component-wrapper px-4 mb-4">
+      <div className="chart-component-wrapper px-4 mb-5">
         <div className="chart-header d-flex align-items-center justify-content-between">
           <h4>{props.title}</h4>
           <div>
@@ -31,14 +40,15 @@ const Chart = (props) => {
               className={active ? "btn mr-2 active" : "btn mr-2"}
               onClick={() => setActive(1)}
             >
-              previous period
+              {textButton1}
             </Button>
             <Button
-              className={active ? "btn " : "btn active"}
+              className={active ? "btn  mr-2 " : "btn mr-2 active"}
               onClick={() => setActive(0)}
             >
-              Current period
+              {textButton2}
             </Button>
+
           </div>
         </div>
         {props.chartType === "bar" && (

@@ -8,13 +8,13 @@ import { linedata1, linedata2 } from "../../data/linedata.js";
 import "./styles.scss";
 
 const Chart = (props) => {
+
   const [active, setActive] = useState(0);
 
   let dataSource1 = [];
   let dataSource2 = [];
   let textButton1;
   let textButton2;
-
 
   if (props.chartType === "bar" || props.chartType === "pie") {
     dataSource1 = bardata1;
@@ -27,7 +27,6 @@ const Chart = (props) => {
     textButton1 = "Fund 1";
     textButton2 = "Fund 2";
   }
-
 
   return (
     <>
@@ -47,7 +46,6 @@ const Chart = (props) => {
             >
               {textButton2}
             </Button>
-
           </div>
         </div>
         {props.chartType === "bar" && (

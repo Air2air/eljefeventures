@@ -1,20 +1,25 @@
 import React from "react";
-import { HashRouter as Router, Switch, Route } from "react-router-dom";
-
+import { Switch, Route, useLocation } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
 import Home from "./pages/Home";
-import Service from "./pages/Service";
-import Symbols from "./pages/Symbols";
+import Ranking from "./pages/Ranking";
+import Report from "./pages/Report";
+import Performance from "./pages/Performance";
 
 const App = () => {
+  const location = useLocation();
 
   return (
-    <Router>
-      <Switch>
-        <Route exact path={["/", "/home"]} component={Home} />
-        <Route path={"/service"} component={Service} />
-        <Route path={"/symbols"} component={Symbols} />
-      </Switch>
-    </Router>
+    <>
+      <AnimatePresence exitBeforeEnter initial={true}>
+        <Switch location={location} key={location.pathname}>
+          <Route exact path={["/", "/home"]} component={Home} />
+          <Route path={"/report"} component={Report} />
+          <Route path={"/ranking"} component={Ranking} />
+          <Route path={"/performance"} component={Performance} />
+        </Switch>
+      </AnimatePresence>
+    </>
   );
 };
 

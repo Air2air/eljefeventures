@@ -1,7 +1,7 @@
 $navbar-height: 80px;
 $logo-height: 50px;
 
-nav.navbar.logged-in {
+nav.navbar {
   padding: 0;
   height: $navbar-height;
   .container-fluid {
@@ -13,14 +13,30 @@ nav.navbar.logged-in {
   }
 }
 
-nav.navbar.logged-in {
-  background: none;
-  .container-fluid {
-    background: none;
+nav.navbar {
+  a.nav-link {
+    font-size: 1.1em;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all 200ms;
   }
 }
 
-// nav.navbar.logged-in {
+nav.navbar {
+  background: none;
+  .container-fluid {
+    background: none;
+    a.nav-link {
+      color: #fff;
+      opacity:0.7;
+      &:hover {
+        opacity:1;
+      }
+    }
+  }
+}
+
+// nav.navbar {
 //   background: gold;
 //   .container-fluid {
 //     background: red;

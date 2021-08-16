@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Row, Col, Button } from "react-bootstrap";
-import { dashData1, dashData2 } from "./../../data/minidash";
+import { dotData1, dotData2 } from "../../data/dot";
 import { BsFillCaretUpFill, BsFillCaretDownFill } from "react-icons/bs";
 import { motion } from "framer-motion";
 import CountUp from 'react-countup';
@@ -16,7 +16,7 @@ const variants = {
   hidden: { opacity: 0 },
 };
 
-const Minidash = (props) => {
+const Minidot = (props) => {
 
   const [active, setActive] = useState(0);
 
@@ -30,19 +30,19 @@ const Minidash = (props) => {
   let data;
 
   if (active === 0) {
-    data = dashData1;
+    data = dotData1;
   } else {
-    data = dashData2;
+    data = dotData2;
   }
 
 
-  const dashitems = data.map((item, i) => (
+  const dotitems = data.map((item, i) => (
     <Col key={item.id} xs={4} sm={4} md={2} className="px-1">
       <motion.div
         custom={i}
         animate="visible"
         variants={variants}
-        className={`minidash-panel mb-1 d-flex flex-column align-items-center ${item.direction}`}
+        className={`dot-panel mb-1 d-flex flex-column align-items-center ${item.direction}`}
       >
         <div className="title d-flex align-items-end">{item.name}</div>
         <div className="value d-flex">
@@ -61,8 +61,8 @@ const Minidash = (props) => {
 
   return (
     <>
-      <div className="minidash-component-wrapper mb-5">
-        <div className="minidash-header d-flex align-items-center justify-content-between">
+      <div className="dot-component-wrapper mb-5">
+        <div className="dot-header d-flex align-items-center justify-content-between">
           <h4>{props.title}</h4>
           <div>
             <Button
@@ -79,10 +79,10 @@ const Minidash = (props) => {
             </Button>
           </div>
         </div>
-        <Row className="minidash-wrapper px-0">{dashitems}</Row>
+        <Row className="dot-wrapper px-0">{dotitems}</Row>
       </div>
     </>
   );
 };
 
-export default Minidash;
+export default Minidot;

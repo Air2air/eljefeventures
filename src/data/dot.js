@@ -1,4 +1,4 @@
-export const dashData1 = [
+export const dotData1 = [
   {
     id: 1,
     name: "Giving",
@@ -43,7 +43,7 @@ export const dashData1 = [
   },
 ];
 
-export const dashData2 = [
+export const dotData2 = [
   {
     id: 1,
     name: "Giving",

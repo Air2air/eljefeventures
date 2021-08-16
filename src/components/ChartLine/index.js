@@ -1,4 +1,5 @@
 import React from "react";
+
 import { ResponsiveLine } from "@nivo/line";
 import text from "./../../styles/text.scss";
 import colors from "./../../styles/variables.scss";
@@ -11,7 +12,6 @@ const axisBottom = {
   legendOffset: 36,
   legendPosition: "middle",
 };
-
 
 const theme = {
   background: "none",
@@ -74,37 +74,40 @@ const legends = [
     ],
   },
 ];
-const ChartLine = (props) => (
-  <div className="chart-wrapper">
-    <ResponsiveLine
-      data={props.dataSource}
-      margin={{ top: 10, right: 30, bottom: 80, left: 30 }}
-      xScale={{ type: "point" }}
-      yScale={{
-        type: "linear",
-        min: "auto",
-        max: "auto",
-        stacked: true,
-        reverse: false,
-      }}
-      yFormat=" >-.2f"
-      axisTop={null}
-      axisRight={null}
-      axisLeft={null}
-      axisBottom={axisBottom}
-      pointSize={5}
-      pointBorderWidth={2}
-      pointLabelYOffset={-12}
-      useMesh={true}
-      colors={{"scheme":"paired"}}
-      theme={theme}
-      legends={legends}
-      animate={true}
-      curve="natural"
-      enableArea={true}
-      motionConfig="gentle"
-    />
-  </div>
-);
+
+const ChartLine = (props) => {
+  return (
+    <div className="chart-wrapper">
+      <ResponsiveLine
+        data={props.dataSource}
+        margin={{ top: 10, right: 30, bottom: 80, left: 30 }}
+        xScale={{ type: "point" }}
+        yScale={{
+          type: "linear",
+          min: "auto",
+          max: "auto",
+          stacked: true,
+          reverse: false,
+        }}
+        yFormat=" >-.2f"
+        axisTop={null}
+        axisRight={null}
+        axisLeft={null}
+        axisBottom={axisBottom}
+        pointSize={5}
+        pointBorderWidth={2}
+        pointLabelYOffset={-12}
+        useMesh={true}
+        colors={{ scheme: "paired" }}
+        theme={theme}
+        legends={legends}
+        animate={true}
+        curve="natural"
+        enableArea={true}
+        motionConfig="gentle"
+      />
+    </div>
+  );
+};
 
 export default ChartLine;

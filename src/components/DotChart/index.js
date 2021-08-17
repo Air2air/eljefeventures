@@ -27,9 +27,9 @@ const DotChart = (props) => {
       <div key={item.id} className="dot-column-outer">
         <motion.div
           initial={{ translateY: 0 }}
-          animate={{ translateY: -item.count * 5 }}
+          animate={{ translateY: -item.count * 6 }}
           exit={{ translateY: 0 }}
-          transition={{ ease: "easeOut", duration: transitionDuration }}
+          transition={{ ease: "easeOut", duration: transitionDuration * 5 }}
           className="dot-column-inner"
         >
           {/* <div className="dot-column-inner"> */}

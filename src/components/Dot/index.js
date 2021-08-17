@@ -1,71 +1,26 @@
-import React, { useState } from "react";
-import { Row, Col, Button } from "react-bootstrap";
-import { dotData1, dotData2 } from "../../data/dot";
-import Dot from "./dot";
+import React from "react";
+import { BsFillCaretUpFill, BsFillCaretDownFill } from "react-icons/bs";
+import CountUp from "react-countup";
 import "./styles.scss";
 
-const variants = {
-  visible: (i) => ({
-    opacity: 1,
-    transition: {
-      delay: i * 0.3,
-    },
-  }),
-  hidden: { opacity: 0 },
-};
-
-const Dots = (props) => {
-  const [active, setActive] = useState(0);
-
-  const textButton1 = "Last 12 months";
-  const textButton2 = "Current quarter";
-
-  /*----- DATA ------*/
-
-  let data;
-
-  if (active === 0) {
-    data = dotData1;
-  } else {
-    data = dotData2;
-  }
-
-  const dotRow = data.map((item, i) => (
-    <Col key={item.id} xs={4} sm={4} md={2} className="px-1">
-      <Dot
-        i={i}
-        direction={item.direction}
-        name={item.name}
-        arrow={item.arrow}
-        countEnd={item.count}
-      />
-    </Col>
-  ));
-
+const Dot = (props) => {
   return (
-    <>
-      <div className="dot-component-wrapper mb-5">
-        <div className="dot-header d-flex align-items-center justify-content-between">
-          <h4>{props.title}</h4>
-          <div>
-            <Button
-              className={active ? "btn mr-2 active" : "btn mr-2"}
-              onClick={() => setActive(1)}
-            >
-              {textButton1}
-            </Button>
-            <Button
-              className={active ? "btn  mr-2 " : "btn mr-2 active"}
-              onClick={() => setActive(0)}
-            >
-              {textButton2}
-            </Button>
-          </div>
+    <div
+      className={`dot-panel d-flex flex-column align-items-center ${props.direction}`}
+    >
+      <div className="title d-flex align-items-end">{props.name}</div>
+      <div className="value d-flex">
+        <div className="arrow d-flex align-items-center justify-content-end mr-2">
+          {props.arrow === "up" && <BsFillCaretUpFill size=".7em" />}
+          {props.arrow === "down" && <BsFillCaretDownFill size=".7em" />}
         </div>
-        <Row className="dot-wrapper px-0">{dotRow}</Row>
+        <div className="count">
+          <CountUp start={0} end={props.countEnd} delay={2} duration={0.1} />
+          <span className="percent ml-1">%</span>
+        </div>
       </div>
-    </>
+    </div>
   );
 };
 
-export default Dots;
+export default Dot;

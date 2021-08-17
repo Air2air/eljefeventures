@@ -1,0 +1,115 @@
+@import "./../../styles/variables.scss";
+
+$dot-chart-height: 500px;
+$dot-header-height: 100px;
+$dot-wrapper-height: $dot-chart-height - $dot-header-height;
+$dot-column-height: $dot-wrapper-height * 1.3;
+$dots-default-size: 90px;
+
+.dot-chart-wrapper {
+  height: $dot-chart-height;
+  height: auto;
+  width: 100%;
+  .dot-header {
+    height: $dot-header-height;
+  }
+  .dot-wrapper {
+    position: relative;
+    width: 100%;
+    height: $dot-wrapper-height;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 0;
+    margin-right: 0;
+    position: relative;
+    top: 0;
+    .dot-column-outer {
+      height: inherit;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      .dot-column-inner {
+        height: $dot-column-height;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        .dot-default {
+          width: $dots-default-size;
+          height: $dots-default-size;
+          border-radius: $dots-default-size;
+        }
+      }
+    }
+  }
+  .dot-wrapper-gradient {
+    position: absolute;
+    width: 100%;
+    height: $dot-wrapper-height;
+    .upper,
+    .middle,
+    .lower {
+      height: $dot-wrapper-height * 0.333;
+    }
+  }
+}
+
+.dot-chart-wrapper {
+  .dot-wrapper {
+    .dot-column-outer {
+      .dot-column-inner {
+        .dot-default {
+          background: lighten($background-color, 7%);
+        }
+      }
+    }
+  }
+  .dot-wrapper-gradient {
+    position: absolute;
+    width: 100%;
+    height: $dot-wrapper-height;
+    .upper,
+    .middle,
+    .lower {
+      height: $dot-wrapper-height * 0.333;
+      position: relative;
+      top: 0;
+    }
+    .upper {
+      background-image: linear-gradient($background-color, rgba(0,0,0,0));
+    }
+    .middle {
+    }
+    .lower {
+      background-image: linear-gradient(rgba(0,0,0,0), $background-color);
+    }
+  }
+}
+
+// .dot-chart-wrapper {
+//   background: gold;
+//   .dot-header {
+//     background: blue;
+//   }
+//   .dot-wrapper {
+//     background: green;
+//     .dot-column-outer {
+//       background: brown;
+//       .dot-column-inner {
+//         background: orange;
+//       }
+//     }
+//   }
+//   .dot-wrapper-gradient {
+//     position: absolute;
+//     width: 100%;
+//     height: $dot-wrapper-height;
+//     .upper {
+//     }
+//     .middle {
+//     }
+//     .lower {
+//     }
+//   }
+// }

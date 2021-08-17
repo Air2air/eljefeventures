@@ -1,0 +1,48 @@
+@import "./../../styles/variables.scss";
+
+$dot-list-height: 440px;
+$dot-header-height: 100px;
+
+.dot-list-wrapper {
+  min-height: $dot-list-height;
+  height: auto;
+  width: 100%;
+  .dot-header {
+    height: $dot-header-height;
+  }
+  .dot-wrapper {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+// .dot-list-wrapper {
+//   background: gold;
+//   .dot-header {
+//     background: blue;
+//   }
+//   .dot-wrapper {
+//     background: red;
+//     .dot-panel {
+//       &.good {
+//         background-color: $green;
+//       }
+//       &.bad {
+//         background-color: $red;
+//       }
+//       &.unchanged {
+//         background-color: $gray;
+//       }
+//       .title {
+//       }
+//       .value {
+//         .arrow {
+//         }
+//         .count {
+//           span.percent {
+//           }
+//         }
+//       }
+//     }
+//   }
+// }

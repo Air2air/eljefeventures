@@ -1,54 +1,40 @@
 @import "./../../styles/variables.scss";
 
-$dot-component-height: 240px;
-$dot-header-height: 100px;
-$dot-size: $dot-component-height - $dot-header-height;
+$dot-size: 130px;
 
-.dot-component-wrapper {
-  min-height: $dot-component-height;
-  height: auto;
-  width: 100%;
-  .dot-header {
-    height: $dot-header-height;
+.dot-panel {
+  border-radius: $dot-size;
+  height: $dot-size;
+  width: $dot-size;
+  .title {
+    height: $dot-size * .42;
+    text-transform: uppercase;
+    font-weight: 400;
   }
-  .dot-wrapper {
-    margin-left: 0;
-    margin-right: 0;
-    .dot-panel {
-      border-radius: $dot-size;
-      height: $dot-size;
-      width: $dot-size;
-      .title {
-        height: 45%;
-        text-transform: uppercase;
-        font-weight: 400;
-      }
-      .value {
-        font-size: 2em;
-        transition: all 800ms;
-        .arrow {
-          width: 30%;
-        }
-        .count {
-          width: 70%;
-          span.percent {
-            opacity: 0.5;
-            font-size: 0.8em;
-          }
-        }
+  .value {
+    font-size: 2em;
+    transition: all 800ms;
+    .arrow {
+      width: 30%;
+    }
+    .count {
+      width: 70%;
+      span.percent {
+        opacity: 0.5;
+        font-size: 0.8em;
       }
     }
   }
 }
 
-.dot-panel {
-  transition: all 300ms;
-  transform: scale(1);
-  cursor: pointer;
-  &:hover {
-    transform: scale(1.1);
-  }
-}
+// .dot-panel {
+//   transition: all 300ms;
+//   transform: scale(1);
+//   cursor: pointer;
+//   &:hover {
+//     transform: scale(1.06);
+//   }
+// }
 
 .dot-panel {
   &.good {
@@ -62,13 +48,6 @@ $dot-size: $dot-component-height - $dot-header-height;
   }
 }
 
-// .dot-component-wrapper {
-//   background: gold;
-//   .dot-header {
-//     background: blue;
-//   }
-//   .dot-wrapper {
-//     background: red;
 //     .dot-panel {
 //       &.good {
 //         background-color: $green;
@@ -90,5 +69,3 @@ $dot-size: $dot-component-height - $dot-header-height;
 //         }
 //       }
 //     }
-//   }
-// }

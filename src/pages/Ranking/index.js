@@ -2,9 +2,8 @@ import React from "react";
 import { motion } from "framer-motion";
 import { pageTransitionDuration } from "./../../animations/animations";
 import { Container } from "react-bootstrap";
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
-import Chart from "../../components/Chart";
+import Header from "./../../components/Header";
+import DotChart from "./../../components/DotChart";
 
 const Ranking = () => {
   return (
@@ -12,16 +11,14 @@ const Ranking = () => {
       <Header authState="LoggedIn" />
       <Container>
         <motion.div
-          initial={{ opacity: 0 }}
+          initial={{ opacity: 1 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ ease: "easeOut", duration: pageTransitionDuration }}
         >
-          <Chart chartType="line" title="Performance" study="yield" />
-          <Chart chartType="bar" title="Allocations" study="yield" />
+          <DotChart title="My Ranking" />
         </motion.div>
       </Container>
-      <Footer />
     </>
   );
 };

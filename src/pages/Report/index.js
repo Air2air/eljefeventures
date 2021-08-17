@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { pageTransitionDuration } from "./../../animations/animations";
 import { Container } from "react-bootstrap";
 import Header from "./../../components/Header";
-import Dots from "./../../components/Dot";
+import DotList  from "./../../components/DotList";
 
 const Report = () => {
   return (
@@ -16,7 +16,7 @@ const Report = () => {
           exit={{ opacity: 0 }}
           transition={{ ease: "easeOut", duration: pageTransitionDuration }}
         >
-          <Dots title="My Report" />
+          <DotList title="My Report" />
         </motion.div>
       </Container>
     </>

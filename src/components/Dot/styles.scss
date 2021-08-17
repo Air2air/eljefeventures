@@ -7,7 +7,7 @@ $dot-size: 130px;
   height: $dot-size;
   width: $dot-size;
   .title {
-    height: $dot-size * .42;
+    height: $dot-size * 0.42;
     text-transform: uppercase;
     font-weight: 400;
   }
@@ -27,14 +27,15 @@ $dot-size: 130px;
   }
 }
 
-// .dot-panel {
-//   transition: all 300ms;
-//   transform: scale(1);
-//   cursor: pointer;
-//   &:hover {
-//     transform: scale(1.06);
-//   }
-// }
+.dot-panel {
+  // They start smaller to prevent overflow onHover
+  transition: all 300ms;
+  transform: scale(0.96);
+  cursor: pointer;
+  &:hover {
+    transform: scale(1);
+  }
+}
 
 .dot-panel {
   &.good {

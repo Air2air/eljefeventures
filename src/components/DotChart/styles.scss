@@ -24,6 +24,11 @@ $dots-default-size: 90px;
     margin-right: 0;
     position: relative;
     top: 0;
+    .centerline {
+      position:absolute;
+      height:2px;
+      width:100%;
+    }
     .dot-column-outer {
       height: inherit;
       display: flex;
@@ -44,6 +49,7 @@ $dots-default-size: 90px;
     }
   }
   .dot-wrapper-gradient {
+    pointer-events: none;
     position: absolute;
     width: 100%;
     height: $dot-wrapper-height;
@@ -57,6 +63,9 @@ $dots-default-size: 90px;
 
 .dot-chart-wrapper {
   .dot-wrapper {
+    .centerline {
+      background: lighten($background-color, 40%);
+    }
     .dot-column-outer {
       .dot-column-inner {
         .dot-default {
@@ -66,16 +75,6 @@ $dots-default-size: 90px;
     }
   }
   .dot-wrapper-gradient {
-    position: absolute;
-    width: 100%;
-    height: $dot-wrapper-height;
-    .upper,
-    .middle,
-    .lower {
-      height: $dot-wrapper-height * 0.333;
-      position: relative;
-      top: 0;
-    }
     .upper {
       background-image: linear-gradient($background-color, rgba(0,0,0,0));
     }

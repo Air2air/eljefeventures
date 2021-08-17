@@ -29,10 +29,9 @@ const DotChart = (props) => {
           initial={{ translateY: 0 }}
           animate={{ translateY: -item.count * 6 }}
           exit={{ translateY: 0 }}
-          transition={{ ease: "easeOut", duration: transitionDuration * 5 }}
+          transition={{ ease: "easeInOut", duration: transitionDuration * 5 }}
           className="dot-column-inner"
         >
-          {/* <div className="dot-column-inner"> */}
           <div className="dot-default" />
           <div className="dot-default" />
           <Dot
@@ -45,8 +44,6 @@ const DotChart = (props) => {
           />
           <div className="dot-default" />
           <div className="dot-default" />
-
-          {/* </div> */}
         </motion.div>
       </div>
     </>
@@ -73,6 +70,7 @@ const DotChart = (props) => {
           </div>
         </div>
         <div className="dot-wrapper px-0">
+          <div className="centerline" />
           {dotColumn}
           <div className="dot-wrapper-gradient">
             <div className="upper" />

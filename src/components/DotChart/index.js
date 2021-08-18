@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { transitionDuration } from "./../../animations/animations";
 import { Button } from "react-bootstrap";
 import { dotData1, dotData2 } from "../../data/dot";
-import Dot from "./../Dot";
+import Arrow from "./../Arrow";
 import "./styles.scss";
 
 const DotChart = (props) => {
@@ -34,7 +34,7 @@ const DotChart = (props) => {
         >
           <div className="dot-default" />
           <div className="dot-default" />
-          <Dot
+          <Arrow
             key={item.id}
             i={i}
             direction={item.direction}
@@ -69,7 +69,7 @@ const DotChart = (props) => {
             </Button>
           </div>
         </div>
-        <div className="dot-wrapper px-0">
+        <div className="dot-wrapper">
           <div className="centerline" />
           {dotColumn}
           <div className="dot-wrapper-gradient">

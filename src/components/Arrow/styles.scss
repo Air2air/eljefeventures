@@ -1,0 +1,93 @@
+@import "./../../styles/variables.scss";
+
+$panel-height: 110px;
+$panel-width: 110px;
+$title-height: 30px;
+$arrow-height: $panel-height - $title-height;
+$value-size: 50px;
+
+.arrow-panel {
+  height: $panel-height;
+  width: $panel-width;
+  position: relative;
+  .title-section {
+    height: $title-height;
+    width: $panel-width;
+    text-transform: uppercase;
+    font-size: 1.2em;
+    font-weight: 400;
+  }
+  .indicator-section {
+    position: relative;
+    height: $arrow-height;
+    width: $panel-width;
+    .arrow {
+      position: absolute;
+      height: inherit;
+      width: inherit;
+      transition: all 800ms;
+    }
+    .count {
+      position: absolute;
+      height: $value-size;
+      font-size: 2em;
+      &.good,
+      &.unchanged {
+        top: 28px;
+      }
+      &.bad {
+        top: 10px;
+      }
+      span.percent {
+        opacity: 0.5;
+        font-size: 0.8em;
+      }
+    }
+  }
+}
+
+.arrow-panel {
+  // They start smaller to prevent overflow onHover
+  transition: all 100ms;
+  transform: scale(0.96);
+  cursor: pointer;
+  &:hover {
+    transform: scale(1);
+  }
+}
+
+.arrow-panel {
+  .indicator-section {
+    .arrow {
+      mask: url("./../../images/arrow.svg") no-repeat center;
+      mask-size: 100%;
+    }
+  }
+  &.good .arrow {
+    background-color: $green;
+  }
+  &.bad .arrow {
+    background-color: $red;
+  }
+  &.unchanged .arrow {
+    background-color: $gray;
+  }
+}
+
+// .arrow-panel {
+//   background: blue;
+//   .title-section {
+//     background: orange;
+//   }
+//   .indicator-section {
+//     .arrow {
+//       background: green;
+//     }
+//     .count {
+//       background: red;
+//       span.percent {
+//         background: green;
+//       }
+//     }
+//   }
+// }

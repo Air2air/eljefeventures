@@ -25,9 +25,9 @@ $dots-default-size: 90px;
     position: relative;
     top: 0;
     .centerline {
-      position:absolute;
-      height:2px;
-      width:100%;
+      position: absolute;
+      height: 2px;
+      width: 100%;
     }
     .dot-column-outer {
       height: inherit;
@@ -53,10 +53,12 @@ $dots-default-size: 90px;
     position: absolute;
     width: 100%;
     height: $dot-wrapper-height;
+    .middle {
+      height: $dot-wrapper-height * 0.5;
+    }
     .upper,
-    .middle,
     .lower {
-      height: $dot-wrapper-height * 0.333;
+      height: $dot-wrapper-height * 0.25;
     }
   }
 }
@@ -76,12 +78,12 @@ $dots-default-size: 90px;
   }
   .dot-wrapper-gradient {
     .upper {
-      background-image: linear-gradient($background-color, rgba(0,0,0,0));
+      background-image: linear-gradient($background-color, rgba(0, 0, 0, 0));
     }
     .middle {
     }
     .lower {
-      background-image: linear-gradient(rgba(0,0,0,0), $background-color);
+      background-image: linear-gradient(rgba(0, 0, 0, 0), $background-color);
     }
   }
 }

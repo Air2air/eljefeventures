@@ -1,0 +1,114 @@
+@import "./../../styles/variables.scss";
+
+$arrow-chart-height: 500px;
+$arrow-header-height: 100px;
+$arrow-wrapper-height: $arrow-chart-height - $arrow-header-height;
+$arrow-column-height: $arrow-wrapper-height * 1.3;
+$arrows-default-size: 90px;
+
+.arrow-chart-wrapper {
+  height: $arrow-chart-height;
+  height: auto;
+  width: 100%;
+  .arrow-header {
+    height: $arrow-header-height;
+  }
+  .arrow-wrapper {
+    position: relative;
+    width: 100%;
+    height: $arrow-wrapper-height;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 0;
+    margin-right: 0;
+    position: relative;
+    top: 0;
+    .centerline {
+      position: absolute;
+      height: 2px;
+      width: 100%;
+    }
+    .arrow-column-outer {
+      height: inherit;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      .arrow-column-inner {
+        height: $arrow-column-height;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        .arrow-default {
+          width: $arrows-default-size;
+          height: $arrows-default-size;
+          border-radius: $arrows-default-size;
+        }
+      }
+    }
+  }
+  .arrow-wrapper-gradient {
+    pointer-events: none;
+    position: absolute;
+    width: 100%;
+    height: $arrow-wrapper-height;
+    .middle {
+      height: $arrow-wrapper-height * 0.5;
+    }
+    .upper,
+    .lower {
+      height: $arrow-wrapper-height * 0.25;
+    }
+  }
+}
+
+.arrow-chart-wrapper {
+  .arrow-wrapper {
+    .centerline {
+      background: lighten($background-color, 40%);
+    }
+    .arrow-column-outer {
+      .arrow-column-inner {
+        .arrow-default {
+          background: lighten($background-color, 7%);
+        }
+      }
+    }
+  }
+  .arrow-wrapper-gradient {
+    .upper {
+      background-image: linear-gradient($background-color, rgba(0, 0, 0, 0));
+    }
+    .lower {
+      background-image: linear-gradient(rgba(0, 0, 0, 0), $background-color);
+    }
+  }
+}
+
+// .arrow-chart-wrapper {
+//   background: gold;
+//   .arrow-header {
+//     background: blue;
+//   }
+//   .arrow-wrapper {
+//     background: green;
+//     .arrow-column-outer {
+//       background: brown;
+//       .arrow-column-inner {
+//         background: orange;
+//       }
+//     }
+//   }
+//   .arrow-wrapper-gradient {
+//     position: absolute;
+//     width: 100%;
+//     height: $arrow-wrapper-height;
+//     .upper {
+//     }
+//     .middle {
+//     }
+//     .lower {
+//     }
+//   }
+// }

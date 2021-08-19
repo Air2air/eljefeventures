@@ -1,30 +1,25 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import CountUp from "react-countup";
-import "./styles.scss";
+import "./arrow.scss";
 
-const rotateDuration = 0.1;
+const rotateDuration = 0.2;
 const countUpDuration = 0.2;
 
 const Arrow = (props) => {
-
-
-const [arrowState, setArrowState] = useState("good");
-
   return (
     <>
       <div
         className={`arrow-panel d-flex flex-column align-items-center ${props.direction}`}
       >
-        {props.direction === arrowState && (
+        {props.direction === "good" && (
           <>
             <div className="indicator-section d-flex justify-content-center align-items-center">
               <motion.div
-                initial={{ rotate: 0 }}
-                animate={{ rotate: 0 }}
-                exit={{ rotate: 0 }}
+                initial={{ scaleY: 0 }}
+                animate={{ scaleY: 1 }}
+                exit={{ scaleY: 0 }}
                 transition={{
-                  ease: "easeInOut",
                   duration: rotateDuration,
                 }}
                 className="arrow good"
@@ -52,14 +47,14 @@ const [arrowState, setArrowState] = useState("good");
             </div>
             <div className="indicator-section d-flex justify-content-center align-items-center">
               <motion.div
-                initial={{ rotateX: 0 }}
-                animate={{ rotateX: 0 }}
-                exit={{ rotateX: 0 }}
+                initial={{ scaleY: 0 }}
+                animate={{ scaleY: 1 }}
+                exit={{ scaleY: 0 }}
                 transition={{
                   ease: "easeInOut",
                   duration: rotateDuration,
                 }}
-                className="arrow bad"
+                className="arrow unchanged"
               />
               <div className="count unchanged d-flex justify-content-center align-items-center">
                 <CountUp
@@ -81,9 +76,9 @@ const [arrowState, setArrowState] = useState("good");
             </div>
             <div className="indicator-section d-flex justify-content-center align-items-center">
               <motion.div
-                initial={{ rotateX: 0 }}
-                animate={{ rotateX: 180 }}
-                exit={{ rotateX: 0 }}
+                initial={{ rotate: 0, scaleY: 0 }}
+                animate={{ rotate: 180, scaleY: 1 }}
+                exit={{ rotate: 0, scaleY: 0 }}
                 transition={{
                   ease: "easeInOut",
                   duration: rotateDuration,

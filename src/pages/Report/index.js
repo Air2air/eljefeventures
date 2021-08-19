@@ -3,7 +3,8 @@ import { motion } from "framer-motion";
 import { pageTransitionDuration } from "./../../animations/animations";
 import { Container } from "react-bootstrap";
 import Header from "./../../components/Header";
-import DotList  from "./../../components/DotList";
+import BubbleChart from "./../../components/BubbleChart";
+import DotList from "./../../components/DotList";
 
 const Report = () => {
   return (
@@ -16,6 +17,7 @@ const Report = () => {
           exit={{ opacity: 0 }}
           transition={{ ease: "easeOut", duration: pageTransitionDuration }}
         >
+          <BubbleChart title="Allocations" />
           <DotList title="My Report" />
         </motion.div>
       </Container>

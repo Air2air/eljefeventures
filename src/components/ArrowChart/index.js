@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { transitionDuration } from "./../../animations/animations";
+import { transitionDuration } from "../../animations/animations";
 import { Button } from "react-bootstrap";
 import { dotData1, dotData2 } from "../../data/dot";
-import Dot from "./dot";
+import Arrow from "./arrow";
 import "./index.scss";
 
-const DotChart = (props) => {
+const ArrowChart = (props) => {
   const [active, setActive] = useState(0);
 
   const textButton1 = "Last 12 months";
@@ -22,19 +22,19 @@ const DotChart = (props) => {
     data = dotData2;
   }
 
-  const dotColumn = data.map((item, i) => (
+  const arrowColumn = data.map((item, i) => (
     <>
-      <div key={item.id} className="dot-column-outer">
+      <div key={item.id} className="arrow-column-outer">
         <motion.div
           initial={{ translateY: 0 }}
           animate={{ translateY: -item.count * 6 }}
           exit={{ translateY: 0 }}
           transition={{ ease: "easeInOut", duration: transitionDuration * 5 }}
-          className="dot-column-inner"
+          className="arrow-column-inner"
         >
-          <div className="dot-default" />
-          <div className="dot-default" />
-          <Dot
+          <div className="arrow-default" />
+          <div className="arrow-default" />
+          <Arrow
             key={item.id}
             i={i}
             direction={item.direction}
@@ -42,8 +42,8 @@ const DotChart = (props) => {
             arrow={item.arrow}
             countEnd={item.count}
           />
-          <div className="dot-default" />
-          <div className="dot-default" />
+          <div className="arrow-default" />
+          <div className="arrow-default" />
         </motion.div>
       </div>
     </>
@@ -51,8 +51,8 @@ const DotChart = (props) => {
 
   return (
     <>
-      <div className="dot-chart-wrapper mb-5">
-        <div className="dot-header d-flex align-items-center justify-content-between">
+      <div className="arrow-chart-wrapper mb-5">
+        <div className="arrow-header d-flex align-items-center justify-content-between">
           <h4>{props.title}</h4>
           <div>
             <Button
@@ -69,10 +69,10 @@ const DotChart = (props) => {
             </Button>
           </div>
         </div>
-        <div className="dot-wrapper">
+        <div className="arrow-wrapper">
           <div className="centerline" />
-          {dotColumn}
-          <div className="dot-wrapper-gradient">
+          {arrowColumn}
+          <div className="arrow-wrapper-gradient">
             <div className="upper" />
             <div className="middle" />
             <div className="lower" />
@@ -83,4 +83,4 @@ const DotChart = (props) => {
   );
 };
 
-export default DotChart;
+export default ArrowChart;

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Row, Col, Button } from "react-bootstrap";
 import { dotData1, dotData2 } from "../../data/dot";
-import Dot from "./../Dot";
+import Dot from "./../DotChart/dot";
 import "./styles.scss";
 
 const DotList = (props) => {
@@ -41,11 +41,11 @@ const DotList = (props) => {
         name={item.name}
         arrow={item.arrow}
         countEnd={item.count}
+        variants={variants}
       />
     </Col>
     </>
   ));
-
 
 
   return (

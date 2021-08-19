@@ -5,6 +5,7 @@ import { Container } from "react-bootstrap";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import Chart from "../../components/Chart";
+import ArrowChart from "../../components/ArrowChart";
 
 const Performance = () => {
   return (
@@ -17,6 +18,7 @@ const Performance = () => {
           exit={{ opacity: 0 }}
           transition={{ ease: "easeOut", duration: pageTransitionDuration }}
         >
+          <ArrowChart title="My Ranking" />
         <Chart chartType="line" title="Performance" study="yield" />
         <Chart chartType="bar" title="Allocations" study="yield" />
         </motion.div>

@@ -25,7 +25,6 @@ $value-size: 50px;
       position: absolute;
       height: inherit;
       width: inherit;
-      transition: all 800ms;
     }
     .count {
       position: absolute;
@@ -48,7 +47,7 @@ $value-size: 50px;
 
 .arrow-panel {
   // They start smaller to prevent overflow onHover
-  transition: all 100ms;
+  transition: all 200ms;
   transform: scale(0.96);
   cursor: pointer;
   &:hover {

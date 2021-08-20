@@ -25,7 +25,7 @@ export const allocations2 = [
   {
     id: "Shepherd Kaplan",
     invested: 2360000,
-    yieldAmt: 1276.76,
+    yieldAmt: -1276.76,
   },
   {
     id: "Mariner",
@@ -43,4 +43,3 @@ export const allocations2 = [
     yieldAmt: 63393.6,
   },
 ];
-

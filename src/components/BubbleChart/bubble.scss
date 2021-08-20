@@ -6,8 +6,17 @@ $bubble-height: 300px;
   position:relative;
   height: $bubble-height;
   width:100%;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   .title {
-    height: $bubble-height * 0.42;
+    font-size: 1.3em;
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+  .invested {
     text-transform: uppercase;
     font-weight: 400;
   }

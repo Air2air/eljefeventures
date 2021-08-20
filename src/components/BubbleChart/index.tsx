@@ -24,7 +24,7 @@ const BubbleChart: React.FC<BubbleProps> = ({ bubbles }: BubbleProps) => {
 
   /*----- STATE ------*/
 
-  const [active, setActive] = useState(0);
+  const [active, setActive] = useState(1);
 
   if (active === 0) {
     data = allocations1;
@@ -37,21 +37,33 @@ const BubbleChart: React.FC<BubbleProps> = ({ bubbles }: BubbleProps) => {
   // Portfolio total Ex: 6,500,000
   const totalPortfolioValue = data.reduce((a, v) => (a = a + v.invested), 0);
 
-  //Max Yield amt found across all investments - not a percentage
+  // Yield % of THIS investment ex: 2.4%
+  const investmentYieldPercent = (yieldAmt: number, invested: number) => {
+    return (invested / yieldAmt) * 100;
+  };
+
+  //Min Yield amt found across all investments
+  const minYieldAcrossPortfolio = data.reduce(
+    (acc, data) => (acc = acc < data.yieldAmt ? acc : data.yieldAmt),
+    0
+  );
+
+  // Max Yield amt found across all investments
   const maxYieldAcrossPortfolio = data.reduce(
     (acc, data) => (acc = acc > data.yieldAmt ? acc : data.yieldAmt),
     0
   );
 
-  // Yield percentage of this investment ex: 2.4%
-  const investmentYieldPercent = (yieldAmt: number, invested: number) => {
-    return (invested / yieldAmt) * 100;
-  };
+  // Normalize values from the min/max
+  // Calculates the normalization
 
-  // Position of this investment vs the max
-  const positionInPortfolio = (yieldAmt: number) => {
-    return maxYieldAcrossPortfolio/ yieldAmt  * 10;
-  };
+  function normalizedPosition(val: number) {
+    return (
+      ((val - minYieldAcrossPortfolio) /
+        (maxYieldAcrossPortfolio - minYieldAcrossPortfolio)) *
+      10
+    );
+  }
 
   // Calculate bubble width based on this portfolio vs. all portfolios
   const calculateWidth = (invested: number) => {
@@ -101,27 +113,27 @@ const BubbleChart: React.FC<BubbleProps> = ({ bubbles }: BubbleProps) => {
               style={{ width: calculateWidth(item.invested) }}
             >
               <motion.div
-                initial={{ translateY: -50 }}
+                initial={{ translateY: 0 }}
                 animate={{ translateY: 0 }}
                 exit={{ translateY: 0 }}
                 transition={{
                   ease: "easeInOut",
                   duration: transitionDuration,
                 }}
-                className="bubble"
-                style={{bottom: positionInPortfolio(item.yieldAmt)}} 
+                className={item.yieldAmt >= 0 ? "bubble good" : "bubble bad"}
+                style={{ bottom: normalizedPosition(item.yieldAmt) + "%" }}
               >
-                <p>ID: {item.id}</p>
-                <p>
-                  Amt:
+                <div className="invested">
                   <NumberFormat
                     value={item.invested}
                     displayType={"text"}
                     thousandSeparator={true}
                     prefix={"$"}
                   />
-                </p>
-                <p>
+                </div>
+                <div className="title">{item.id}</div>
+
+                <div>
                   Yield Amt:
                   <NumberFormat
                     value={item.yieldAmt}
@@ -130,9 +142,29 @@ const BubbleChart: React.FC<BubbleProps> = ({ bubbles }: BubbleProps) => {
                     decimalScale={2}
                     prefix={"$"}
                   />
-                </p>
-                <p>
-                  Yield:
+                </div>
+                <div>
+                  Min Yield:
+                  <NumberFormat
+                    value={minYieldAcrossPortfolio}
+                    displayType={"text"}
+                    thousandSeparator={true}
+                    decimalScale={2}
+                    prefix={"$"}
+                  />
+                </div>
+                <div>
+                  Max Yield:
+                  <NumberFormat
+                    value={maxYieldAcrossPortfolio}
+                    displayType={"text"}
+                    thousandSeparator={true}
+                    decimalScale={2}
+                    prefix={"$"}
+                  />
+                </div>
+                <div>
+                  Yield %:
                   <NumberFormat
                     value={investmentYieldPercent(item.invested, item.yieldAmt)}
                     displayType={"text"}
@@ -140,29 +172,18 @@ const BubbleChart: React.FC<BubbleProps> = ({ bubbles }: BubbleProps) => {
                     decimalScale={3}
                     suffix={"%"}
                   />
-                </p>
+                </div>
 
-                <p>
-                  Position:
+                <div>
+                  Vert:
                   <NumberFormat
-                    value={positionInPortfolio(item.yieldAmt)}
+                    value={normalizedPosition(item.yieldAmt)}
                     displayType={"text"}
                     thousandSeparator={true}
-                    decimalScale={2}
+                    decimalScale={1}
                     suffix={"%"}
                   />
-                </p>
-
-                <p>
-                  Width:
-                  <NumberFormat
-                    value={calculateWidth(item.invested)}
-                    displayType={"text"}
-                    thousandSeparator={true}
-                    decimalScale={2}
-                    suffix={"%"}
-                  />
-                </p>
+                </div>
               </motion.div>
             </div>
           ))}

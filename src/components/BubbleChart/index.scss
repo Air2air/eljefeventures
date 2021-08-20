@@ -14,6 +14,7 @@ $bubble-column-height: $bubble-wrapper-height;
   }
   .bubble-wrapper {
     position: relative;
+    top:0;
     width: 100%;
     height: $bubble-wrapper-height;
     display: flex;
@@ -28,10 +29,12 @@ $bubble-column-height: $bubble-wrapper-height;
       width: 100%;
     }
     .bubble-column {
-      height: inherit;
-      display: flex;
-      align-items: center;
-      overflow: hidden;
+      position: relative;
+      top:0;
+      height: $bubble-wrapper-height;
+      // display: flex;
+      // align-items: center;
+      // overflow: hidden;
       padding: 0 8px;
     }
   }

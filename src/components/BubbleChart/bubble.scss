@@ -3,7 +3,9 @@
 $bubble-height: 300px;
 
 .bubble {
+  position:relative;
   height: $bubble-height;
+  width:100%;
   .title {
     height: $bubble-height * 0.42;
     text-transform: uppercase;

@@ -37,32 +37,21 @@ const BubbleChart: React.FC<BubbleProps> = ({ bubbles }: BubbleProps) => {
   // Portfolio total Ex: 6,500,000
   const totalPortfolioValue = data.reduce((a, v) => (a = a + v.invested), 0);
 
-  // Yield percentage of this investment ex: 2.4%
-  const investmentYieldPercent = (yieldAmt: number, invested: number) => {
-    return (invested / yieldAmt) * 100;
-  };
-
   //Max Yield amt found across all investments - not a percentage
-  // const maxYieldAcrossPortfolio = Math.max.apply(
-  //   Math,
-  //   data.map(function (o) {
-  //     return o.yieldAmt;
-  //   })
-  // );
-
   const maxYieldAcrossPortfolio = data.reduce(
     (acc, data) => (acc = acc > data.yieldAmt ? acc : data.yieldAmt),
     0
   );
 
-  console.log(maxYieldAcrossPortfolio);
+  // Yield percentage of this investment ex: 2.4%
+  const investmentYieldPercent = (yieldAmt: number, invested: number) => {
+    return (invested / yieldAmt) * 100;
+  };
 
-  // Calculate the vertical position percentage from the max % vs the % of this investment
-  // let verticalPositionPercentage = (investmentYieldPercent: number) => {
-  //   let verticalPositionAmt =
-  //     (investmentYieldPercent / maxYieldAcrossPortfolio) * 100 + "%";
-  //   console.log(verticalPositionAmt);
-  // };
+  // Position of this investment vs the max
+  const positionInPortfolio = (yieldAmt: number) => {
+    return maxYieldAcrossPortfolio/ yieldAmt  * 10;
+  };
 
   // Calculate bubble width based on this portfolio vs. all portfolios
   const calculateWidth = (invested: number) => {
@@ -112,14 +101,15 @@ const BubbleChart: React.FC<BubbleProps> = ({ bubbles }: BubbleProps) => {
               style={{ width: calculateWidth(item.invested) }}
             >
               <motion.div
-                initial={{ translateY: 0 }}
+                initial={{ translateY: -50 }}
                 animate={{ translateY: 0 }}
                 exit={{ translateY: 0 }}
                 transition={{
                   ease: "easeInOut",
-                  duration: transitionDuration * 5,
+                  duration: transitionDuration,
                 }}
                 className="bubble"
+                style={{bottom: positionInPortfolio(item.yieldAmt)}} 
               >
                 <p>ID: {item.id}</p>
                 <p>
@@ -152,7 +142,17 @@ const BubbleChart: React.FC<BubbleProps> = ({ bubbles }: BubbleProps) => {
                   />
                 </p>
 
-                <p>Vert %: {0}</p>
+                <p>
+                  Position:
+                  <NumberFormat
+                    value={positionInPortfolio(item.yieldAmt)}
+                    displayType={"text"}
+                    thousandSeparator={true}
+                    decimalScale={2}
+                    suffix={"%"}
+                  />
+                </p>
+
                 <p>
                   Width:
                   <NumberFormat

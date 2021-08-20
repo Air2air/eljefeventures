@@ -11,7 +11,7 @@ export const allocations1 = [
   },
   {
     id: "Innovest 1",
-    invested: 940000,
+    invested: 820000,
     yieldAmt: 20247.6,
   },
   {
@@ -34,7 +34,7 @@ export const allocations2 = [
   },
   {
     id: "Innovest 1",
-    invested: 940000,
+    invested: 1230000,
     yieldAmt: 48992.8,
   },
   {

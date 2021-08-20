@@ -33,7 +33,6 @@ const DotList = (props) => {
   }
 
   const dotRow = data.map((item, i) => (
-    <>
     <Col key={item.id} xs={4} sm={4} md={2} className="px-1">
       <Dot
         i={i}
@@ -44,7 +43,6 @@ const DotList = (props) => {
         variants={variants}
       />
     </Col>
-    </>
   ));
 
 

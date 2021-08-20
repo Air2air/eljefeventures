@@ -3,8 +3,7 @@
 $bubble-chart-height: 500px;
 $bubble-header-height: 100px;
 $bubble-wrapper-height: $bubble-chart-height - $bubble-header-height;
-$bubble-column-height: $bubble-wrapper-height * 1.3;
-$bubbles-default-size: 90px;
+$bubble-column-height: $bubble-wrapper-height;
 
 .bubble-chart-wrapper {
   height: $bubble-chart-height;
@@ -22,43 +21,18 @@ $bubbles-default-size: 90px;
     align-items: center;
     margin-left: 0;
     margin-right: 0;
-    position: relative;
     top: 0;
     .centerline {
       position: absolute;
       height: 2px;
       width: 100%;
     }
-    .bubble-column-outer {
+    .bubble-column {
       height: inherit;
       display: flex;
       align-items: center;
       overflow: hidden;
-      .bubble-column-inner {
-        height: $bubble-column-height;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
-        .bubble-default {
-          width: $bubbles-default-size;
-          height: $bubbles-default-size;
-          border-radius: $bubbles-default-size;
-        }
-      }
-    }
-  }
-  .bubble-wrapper-gradient {
-    pointer-events: none;
-    position: absolute;
-    width: 100%;
-    height: $bubble-wrapper-height;
-    .middle {
-      height: $bubble-wrapper-height * 0.5;
-    }
-    .upper,
-    .lower {
-      height: $bubble-wrapper-height * 0.25;
+      padding: 0 8px;
     }
   }
 }
@@ -68,47 +42,18 @@ $bubbles-default-size: 90px;
     .centerline {
       background: lighten($background-color, 40%);
     }
-    .bubble-column-outer {
-      .bubble-column-inner {
-        .bubble-default {
-          background: lighten($background-color, 7%);
-        }
-      }
-    }
-  }
-  .bubble-wrapper-gradient {
-    .upper {
-      background-image: linear-gradient($background-color, rgba(0, 0, 0, 0));
-    }
-    .lower {
-      background-image: linear-gradient(rgba(0, 0, 0, 0), $background-color);
-    }
   }
 }
 
-// .bubble-chart-wrapper {
-//   background: gold;
-//   .bubble-header {
-//     background: blue;
-//   }
-//   .bubble-wrapper {
-//     background: green;
-//     .bubble-column-outer {
-//       background: brown;
-//       .bubble-column-inner {
-//         background: orange;
-//       }
-//     }
-//   }
-//   .bubble-wrapper-gradient {
-//     position: absolute;
-//     width: 100%;
-//     height: $bubble-wrapper-height;
-//     .upper {
-//     }
-//     .middle {
-//     }
-//     .lower {
-//     }
-//   }
-// }
+.bubble-chart-wrapper {
+  background: gold;
+  .bubble-header {
+    background: blue;
+  }
+  .bubble-wrapper {
+    background: green;
+    .bubble-column {
+      background: brown;
+    }
+  }
+}

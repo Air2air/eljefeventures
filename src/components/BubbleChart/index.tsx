@@ -4,6 +4,7 @@ import { transitionDuration } from "../../animations/animations";
 import { Button } from "react-bootstrap";
 import { allocations1, allocations2 } from "../../data/allocations";
 import NumberFormat from "react-number-format";
+import Truncate from "react-truncate";
 import "./index.scss";
 import "./bubble.scss";
 
@@ -71,6 +72,31 @@ const BubbleChart: React.FC<BubbleProps> = ({ bubbles }: BubbleProps) => {
     return columnWidth;
   };
 
+  // Animation
+
+  const parent = {
+    visible: {
+      opacity: 1,
+      transition: {
+        duration:0.2,
+        when: "beforeChildren",
+        staggerChildren: 0.05,
+      },
+    },
+    hidden: {
+      opacity: 0,
+      transition: {
+        duration:0.2,
+        when: "afterChildren",
+      },
+    },
+  };
+
+  const child = {
+    visible: { opacity: 1, y: 0 },
+    hidden: { opacity: 0, y: -100 },
+  };
+
   /*------ State --------*/
 
   const textButton1 = "Last 12 months";
@@ -81,7 +107,6 @@ const BubbleChart: React.FC<BubbleProps> = ({ bubbles }: BubbleProps) => {
       <div className="bubble-chart-wrapper mb-5">
         <div className="bubble-header d-flex align-items-center justify-content-between">
           <h4>
-            Title -
             <NumberFormat
               value={totalPortfolioValue}
               displayType={"text"}
@@ -104,22 +129,30 @@ const BubbleChart: React.FC<BubbleProps> = ({ bubbles }: BubbleProps) => {
             </Button>
           </div>
         </div>
-        <div className="bubble-wrapper">
-          {/* <div className="centerline" /> */}
+
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={parent}
+          className="bubble-wrapper"
+        >
+          <div className="bubble-grid-wrapper">
+            <div className="bubble-grid-line" />
+            <div className="bubble-grid-line" />
+            <div className="bubble-grid-line" />
+            <div className="bubble-grid-line center" />
+            <div className="bubble-grid-line" />
+            <div className="bubble-grid-line" />
+            <div className="bubble-grid-line" />
+          </div>
           {data.map((item) => (
-            <div
+            <motion.div
               key={item.id}
+              variants={child}
               className="bubble-column"
               style={{ width: calculateWidth(item.invested) }}
             >
-              <motion.div
-                initial={{ translateY: 0 }}
-                animate={{ translateY: 0 }}
-                exit={{ translateY: 0 }}
-                transition={{
-                  ease: "easeInOut",
-                  duration: transitionDuration,
-                }}
+              <div
                 className={item.yieldAmt >= 0 ? "bubble good" : "bubble bad"}
                 style={{ bottom: normalizedPosition(item.yieldAmt) + "%" }}
               >
@@ -131,10 +164,12 @@ const BubbleChart: React.FC<BubbleProps> = ({ bubbles }: BubbleProps) => {
                     prefix={"$"}
                   />
                 </div>
-                <div className="title">{item.id}</div>
+
+                <Truncate lines={3} ellipsis={"..."} className="title">
+                  {item.id}
+                </Truncate>
 
                 <div>
-                  Yield Amt:
                   <NumberFormat
                     value={item.yieldAmt}
                     displayType={"text"}
@@ -143,51 +178,19 @@ const BubbleChart: React.FC<BubbleProps> = ({ bubbles }: BubbleProps) => {
                     prefix={"$"}
                   />
                 </div>
-                <div>
-                  Min Yield:
-                  <NumberFormat
-                    value={minYieldAcrossPortfolio}
-                    displayType={"text"}
-                    thousandSeparator={true}
-                    decimalScale={2}
-                    prefix={"$"}
-                  />
-                </div>
-                <div>
-                  Max Yield:
-                  <NumberFormat
-                    value={maxYieldAcrossPortfolio}
-                    displayType={"text"}
-                    thousandSeparator={true}
-                    decimalScale={2}
-                    prefix={"$"}
-                  />
-                </div>
-                <div>
-                  Yield %:
+                <div className="value">
                   <NumberFormat
                     value={investmentYieldPercent(item.invested, item.yieldAmt)}
                     displayType={"text"}
                     thousandSeparator={true}
-                    decimalScale={3}
-                    suffix={"%"}
+                    decimalScale={2}
                   />
+                  <span className="percent">%</span>
                 </div>
-
-                <div>
-                  Vert:
-                  <NumberFormat
-                    value={normalizedPosition(item.yieldAmt)}
-                    displayType={"text"}
-                    thousandSeparator={true}
-                    decimalScale={1}
-                    suffix={"%"}
-                  />
-                </div>
-              </motion.div>
-            </div>
+              </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </>
   );

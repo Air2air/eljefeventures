@@ -1,9 +1,10 @@
 @import "./../../styles/variables.scss";
 
-$bubble-chart-height: 500px;
 $bubble-header-height: 100px;
-$bubble-wrapper-height: $bubble-chart-height - $bubble-header-height;
+$bubble-wrapper-height: 260px;
+$bubble-chart-height: $bubble-header-height + $bubble-wrapper-height;
 $bubble-column-height: $bubble-wrapper-height;
+$bubble-grid-weight: 1px;
 
 .bubble-chart-wrapper {
   height: $bubble-chart-height;
@@ -14,49 +15,66 @@ $bubble-column-height: $bubble-wrapper-height;
   }
   .bubble-wrapper {
     position: relative;
-    top:0;
+    top: 0;
+    left: 0;
     width: 100%;
     height: $bubble-wrapper-height;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    margin-left: 0;
-    margin-right: 0;
-    top: 0;
-    .centerline {
+    .bubble-grid-wrapper {
       position: absolute;
-      height: 2px;
+      top: 0;
+      left: 0;
+      height: $bubble-wrapper-height;
       width: 100%;
+      z-index: +1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      z-index: 1;
+      .bubble-grid-line {
+        height: $bubble-grid-weight;
+        width: 100%;
+        &.center {
+          height: $bubble-grid-weight * 2;
+        }
+      }
     }
     .bubble-column {
       position: relative;
-      top:0;
+      top: 0;
+      left: 0;
+      display: flex;
+      align-items: center;
       height: $bubble-wrapper-height;
-      // display: flex;
-      // align-items: center;
-      // overflow: hidden;
-      padding: 0 8px;
+      padding: 0 18px;
+      z-index: +2;
     }
   }
 }
 
 .bubble-chart-wrapper {
   .bubble-wrapper {
-    .centerline {
-      background: lighten($background-color, 40%);
+    .bubble-grid-wrapper {
+      .bubble-grid-line {
+        opacity: 0.2;
+        background: #fff;
+        &.center {
+          opacity: 0.6;
+        }
+      }
     }
   }
 }
-
-.bubble-chart-wrapper {
-  background: gold;
-  .bubble-header {
-    background: blue;
-  }
-  .bubble-wrapper {
-    background: green;
-    .bubble-column {
-      background: brown;
-    }
-  }
-}
+// .bubble-chart-wrapper {
+//   background: gold;
+//   .bubble-header {
+//     background: blue;
+//   }
+//   .bubble-wrapper {
+//     background: green;
+//     .bubble-column {
+//       background: brown;
+//     }
+//   }
+// }

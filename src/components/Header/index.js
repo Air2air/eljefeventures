@@ -42,9 +42,7 @@ const Header = (props) => {
         {/* <Nav.Link as={Link} to="mailto:contact@eljefeventures.com?subject=Inquiry for El Jefe">
           <img src={logo} className="header-logo" alt="El Jefe" />
         </Nav.Link> */}
-        <Nav.Link as={Link} to="/">
-          <img src={logo} className="header-logo" alt="El Jefe" />
-        </Nav.Link>
+
       </Container>
     </Navbar>
   );

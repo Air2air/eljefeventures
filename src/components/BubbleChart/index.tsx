@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { transitionDuration } from "../../animations/animations";
+
 import { Button } from "react-bootstrap";
 import { allocations1, allocations2 } from "../../data/allocations";
 import NumberFormat from "react-number-format";
@@ -25,13 +25,23 @@ const BubbleChart: React.FC<BubbleProps> = ({ bubbles }: BubbleProps) => {
 
   /*----- STATE ------*/
 
-  const [active, setActive] = useState(1);
+  const [dataSource, setDataSource] = useState(0);
+  const [isVisible, setIsVisible] = useState(1);
 
-  if (active === 0) {
+  if (dataSource === 0) {
     data = allocations1;
   } else {
     data = allocations2;
   }
+
+  const dataButtonClick = (sourceData: number, isVisible: number) => {
+    setDataSource(sourceData);
+    // setIsVisible = (isVisible) => {
+    //   isVisible: !isVisible;
+    // };
+  };
+
+  useEffect(() => console.log("UseEffect says:", isVisible));
 
   /*----- Operations -----*/
 
@@ -76,28 +86,24 @@ const BubbleChart: React.FC<BubbleProps> = ({ bubbles }: BubbleProps) => {
 
   const parent = {
     visible: {
-      opacity: 1,
       transition: {
-        duration:0.2,
+        duration: 0.2,
         when: "beforeChildren",
         staggerChildren: 0.05,
       },
     },
     hidden: {
-      opacity: 0,
       transition: {
-        duration:0.2,
+        duration: 0.2,
         when: "afterChildren",
       },
     },
   };
 
   const child = {
-    visible: { opacity: 1, y: 0 },
-    hidden: { opacity: 0, y: -100 },
+    visible: { scaleY: 1 },
+    hidden: { scaleY: 0 },
   };
-
-  /*------ State --------*/
 
   const textButton1 = "Last 12 months";
   const textButton2 = "Current quarter";
@@ -114,16 +120,18 @@ const BubbleChart: React.FC<BubbleProps> = ({ bubbles }: BubbleProps) => {
               prefix={"$"}
             />
           </h4>
+          State:{isVisible ? " visible" : " hidden"}
           <div>
             <Button
-              className={active ? "btn mr-2 active" : "btn mr-2"}
-              onClick={() => setActive(1)}
+              className={dataSource ? "btn mr-2 active" : "btn mr-2"}
+              onClick={() => dataButtonClick(0, 1)}
             >
               {textButton1}
             </Button>
             <Button
-              className={active ? "btn mr-2 " : "btn mr-2 active"}
-              onClick={() => setActive(0)}
+              className={dataSource ? "btn mr-2" : "btn mr-2 active"}
+              value={0}
+              onClick={() => dataButtonClick(1, 2)}
             >
               {textButton2}
             </Button>
@@ -131,8 +139,9 @@ const BubbleChart: React.FC<BubbleProps> = ({ bubbles }: BubbleProps) => {
         </div>
 
         <motion.div
-          initial="hidden"
-          animate="visible"
+          initial="visible"
+          animate={isVisible ? "visible" : "hidden"}
+          exit="hidden"
           variants={parent}
           className="bubble-wrapper"
         >

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { transitionDuration } from "../../animations/animations";
+import { transitionDuration } from "../../../animations/animations";
 import { Button } from "react-bootstrap";
-import { dotData1, dotData2 } from "../../data/dot";
+import { dotData1, dotData2 } from "../../../data/dot";
 import Arrow from "./arrow";
 import "./index.scss";
 
@@ -23,7 +23,7 @@ const ArrowChart = (props) => {
   }
 
   const arrowColumn = data.map((item, i) => (
-    <>
+
       <div key={item.id} className="arrow-column-outer">
         <motion.div
           initial={{ translateY: 0 }}
@@ -46,7 +46,6 @@ const ArrowChart = (props) => {
           <div className="arrow-default" />
         </motion.div>
       </div>
-    </>
   ));
 
   return (

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { transitionDuration } from "./../../animations/animations";
+import { transitionDuration } from "../../../animations/animations";
 import { Button } from "react-bootstrap";
-import { dotData1, dotData2 } from "../../data/dot";
+import { dotData1, dotData2 } from "../../../data/dot";
 import Dot from "./dot";
 import "./index.scss";
 

@@ -1,4 +1,4 @@
-@import "./../../styles/variables.scss";
+@import "./../../../styles/variables.scss";
 
 $dot-chart-height: 400px;
 $dot-header-height: 100px;
@@ -23,7 +23,6 @@ $dots-default-size: 90px;
     margin-right: 0;
     position: relative;
     top: 0;
-
     .centerline {
       position: absolute;
       height: 2px;
@@ -66,24 +65,24 @@ $dots-default-size: 90px;
 .dot-chart-wrapper {
   .dot-wrapper {
     .centerline {
-      background: lighten($background-color, 40%);
+      background: lighten($base-color, 10%);
     }
     .dot-column-outer {
       .dot-column-inner {
         .dot-default {
-          background: lighten($background-color, 7%);
+          background: lighten($base-color, 40%);
         }
       }
     }
   }
   .dot-wrapper-gradient {
     .upper {
-      background-image: linear-gradient($background-color, rgba(0, 0, 0, 0));
+      background-image: linear-gradient($background-color, rgba(255,255,255,0));
     }
     .middle {
     }
     .lower {
-      background-image: linear-gradient(rgba(0, 0, 0, 0), $background-color);
+      background-image: linear-gradient(rgba(255,255,255,0), $background-color);
     }
   }
 }

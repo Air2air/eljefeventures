@@ -3,8 +3,8 @@ import { motion } from "framer-motion";
 import { pageTransitionDuration } from "./../../animations/animations";
 import { Container } from "react-bootstrap";
 import Header from "./../../components/Header";
-import BubbleChart from "./../../components/BubbleChart";
-import DotList from "./../../components/DotList";
+import BubbleChart from "../../components/Chart/Box";
+import DotList from "../../components/Chart/DotList";
 
 const Report = () => {
   return (

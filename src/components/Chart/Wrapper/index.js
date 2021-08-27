@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
-import ChartBar from "./../ChartBar";
-import ChartLine from "./../ChartLine";
-import ChartPie from "./../ChartPie";
-import { bardata1, bardata2 } from "../../data/bardata.js";
-import { linedata1, linedata2 } from "../../data/linedata.js";
+import ChartBar from "../Bar";
+import ChartLine from "../Line";
+import ChartPie from "../Pie";
+import { bardata1, bardata2 } from "../../../data/bardata.js";
+import { linedata1, linedata2 } from "../../../data/linedata.js";
 import "./styles.scss";
 
-const Chart = (props) => {
+const ChartWrapper = (props) => {
 
   const [active, setActive] = useState(0);
 
@@ -62,4 +62,4 @@ const Chart = (props) => {
   );
 };
 
-export default Chart;
+export default ChartWrapper;

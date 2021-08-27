@@ -1,4 +1,4 @@
-@import "./../../styles/variables.scss";
+@import "./../../../styles/variables.scss";
 
 $arrow-chart-height: 500px;
 $arrow-header-height: 100px;
@@ -78,10 +78,10 @@ $arrows-default-size: 90px;
   }
   .arrow-wrapper-gradient {
     .upper {
-      background-image: linear-gradient($background-color, rgba(0, 0, 0, 0));
+      background-image: linear-gradient($background-color, rgba(255,255,255,0));
     }
     .lower {
-      background-image: linear-gradient(rgba(0, 0, 0, 0), $background-color);
+      background-image: linear-gradient(rgba(255,255,255,0), $background-color);
     }
   }
 }

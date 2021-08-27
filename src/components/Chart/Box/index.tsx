@@ -2,23 +2,23 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 import { Button } from "react-bootstrap";
-import { allocations1, allocations2 } from "../../data/allocations";
+import { allocations1, allocations2 } from "../../../data/allocations";
 import NumberFormat from "react-number-format";
 import Truncate from "react-truncate";
 import "./index.scss";
-import "./bubble.scss";
+import "./box.scss";
 
-interface BubbleInterface {
+interface BoxInterface {
   id: string;
   invested: number;
   yieldAmt: number;
 }
 
-interface BubbleProps {
-  bubbles: BubbleInterface[];
+interface BoxProps {
+  boxes: BoxInterface[];
 }
 
-const BubbleChart: React.FC<BubbleProps> = ({ bubbles }: BubbleProps) => {
+const BoxChart: React.FC<BoxProps> = ({ boxes }: BoxProps) => {
   /*----- DATA ------*/
 
   let data;
@@ -76,7 +76,7 @@ const BubbleChart: React.FC<BubbleProps> = ({ bubbles }: BubbleProps) => {
     );
   }
 
-  // Calculate bubble width based on this portfolio vs. all portfolios
+  // Calculate box width based on this portfolio vs. all portfolios
   const calculateWidth = (invested: number) => {
     let columnWidth = (invested / totalPortfolioValue) * 100 + "%";
     return columnWidth;
@@ -110,8 +110,8 @@ const BubbleChart: React.FC<BubbleProps> = ({ bubbles }: BubbleProps) => {
 
   return (
     <>
-      <div className="bubble-chart-wrapper mb-5">
-        <div className="bubble-header d-flex align-items-center justify-content-between">
+      <div className="box-chart-wrapper mb-5">
+        <div className="box-header d-flex align-items-center justify-content-between">
           <h4>
             <NumberFormat
               value={totalPortfolioValue}
@@ -143,26 +143,26 @@ const BubbleChart: React.FC<BubbleProps> = ({ bubbles }: BubbleProps) => {
           animate={isVisible ? "visible" : "hidden"}
           exit="hidden"
           variants={parent}
-          className="bubble-wrapper"
+          className="box-wrapper"
         >
-          <div className="bubble-grid-wrapper">
-            <div className="bubble-grid-line" />
-            <div className="bubble-grid-line" />
-            <div className="bubble-grid-line" />
-            <div className="bubble-grid-line center" />
-            <div className="bubble-grid-line" />
-            <div className="bubble-grid-line" />
-            <div className="bubble-grid-line" />
+          <div className="box-grid-wrapper">
+            <div className="box-grid-line" />
+            <div className="box-grid-line" />
+            <div className="box-grid-line" />
+            <div className="box-grid-line center" />
+            <div className="box-grid-line" />
+            <div className="box-grid-line" />
+            <div className="box-grid-line" />
           </div>
           {data.map((item) => (
             <motion.div
               key={item.id}
               variants={child}
-              className="bubble-column"
+              className="box-column"
               style={{ width: calculateWidth(item.invested) }}
             >
               <div
-                className={item.yieldAmt >= 0 ? "bubble good" : "bubble bad"}
+                className={item.yieldAmt >= 0 ? "box good" : "box bad"}
                 style={{ bottom: normalizedPosition(item.yieldAmt) + "%" }}
               >
                 <div className="invested">
@@ -205,4 +205,4 @@ const BubbleChart: React.FC<BubbleProps> = ({ bubbles }: BubbleProps) => {
   );
 };
 
-export default BubbleChart;
+export default BoxChart;

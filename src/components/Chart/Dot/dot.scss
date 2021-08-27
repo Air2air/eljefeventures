@@ -1,4 +1,4 @@
-@import "./../../styles/variables.scss";
+@import "./../../../styles/variables.scss";
 
 $dot-size: 130px;
 
@@ -38,6 +38,7 @@ $dot-size: 130px;
 }
 
 .dot-panel {
+  color:$text-light;
   &.good {
     background-color: $green;
   }

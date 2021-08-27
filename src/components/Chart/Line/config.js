@@ -1,9 +1,19 @@
-import React from "react";
-import { ResponsiveBar } from "@nivo/bar";
-import text from "./../../styles/text.scss";
-import colors from "./../../styles/variables.scss";
+import text from "./../../../styles/text.scss";
+import colors from "./../../../styles/variables.scss";
 
-const theme = {
+
+
+
+export const axisBottom = {
+  orient: "bottom",
+  tickSize: 5,
+  tickPadding: 5,
+  tickRotation: 0,
+  legendOffset: 36,
+  legendPosition: "middle",
+};
+
+export const theme = {
   background: "none",
   axis: {
     tickColor: colors.gray,
@@ -27,7 +37,7 @@ const theme = {
   labels: {
     text: {
       fontSize: text.fontSize,
-      fill: colors.textColor
+      fill: colors.textColor,
     },
   },
   grid: {
@@ -37,8 +47,7 @@ const theme = {
   },
 };
 
-
-const legends = [
+export const legends = [
   {
     dataFrom: "keys",
     anchor: "bottom",
@@ -65,26 +74,3 @@ const legends = [
     ],
   },
 ];
-
-const ChartBar = (props) => (
-  <div className="chart-wrapper">
-    <ResponsiveBar
-      margin={{ top: 10, right: 30, bottom: 80, left: 30 }}
-      data={props.dataSource}
-      keys={["me", "benchmark"]}
-      indexBy="map"
-      axisLeft={null}
-      labelSkipWidth={12}
-      labelSkipHeight={12}
-      enableGridX={false}
-      padding={0.3}
-      colors={{"scheme":"paired"}}
-      theme={theme}
-      legends={legends}
-      animate={true}
-      groupMode="grouped"
-    />
-  </div>
-);
-
-export default ChartBar;

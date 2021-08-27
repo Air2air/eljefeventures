@@ -1,11 +1,11 @@
-@import "./../../styles/variables.scss";
+@import "./../../../styles/variables.scss";
 
-$bubble-height: 150px;
+$box-height: 150px;
 
-.bubble {
+.box {
   position: relative;
   left: 0;
-  height: $bubble-height;
+  height: $box-height;
   width: 100%;
   border-radius: 4px;
   display: flex;
@@ -34,17 +34,16 @@ $bubble-height: 150px;
   }
 }
 
-
-.bubble {
+.box {
   // They start smaller to prevent overflow onHover
-
   cursor: pointer;
   &:hover {
     transform: scale(1);
   }
 }
 
-.bubble {
+.box {
+  color: $text-light;
   &.good {
     background-color: $green;
   }
@@ -56,7 +55,7 @@ $bubble-height: 150px;
   }
 }
 
-// .bubble {
+// .box {
 //     background-color: $gray;
 //   &.good {
 //     background-color: $green;

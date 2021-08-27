@@ -1,32 +1,31 @@
 import React, { useState } from "react";
-import TutorialDataService from "../api/TutorialService";
-import { Container } from "react-bootstrap";
-import Header from "./../components/Header";
+import StudyDataService from "../api/StudyService";
 
-const AddTutorial = () => {
-  const initialTutorialState = {
+
+const AddStudy = () => {
+  const initialStudyState = {
     id: null,
     title: "",
     description: "",
     published: false
   };
-  const [tutorial, setTutorial] = useState(initialTutorialState);
+  const [study, setStudy] = useState(initialStudyState);
   const [submitted, setSubmitted] = useState(false);
 
   const handleInputChange = event => {
     const { name, value } = event.target;
-    setTutorial({ ...tutorial, [name]: value });
+    setStudy({ ...study, [name]: value });
   };
 
-  const saveTutorial = () => {
+  const saveStudy = () => {
     var data = {
-      title: tutorial.title,
-      description: tutorial.description
+      title: study.title,
+      description: study.description
     };
 
-    TutorialDataService.create(data)
+    StudyDataService.create(data)
       .then(response => {
-        setTutorial({
+        setStudy({
           id: response.data.id,
           title: response.data.title,
           description: response.data.description,
@@ -40,20 +39,18 @@ const AddTutorial = () => {
       });
   };
 
-  const newTutorial = () => {
-    setTutorial(initialTutorialState);
+  const newStudy = () => {
+    setStudy(initialStudyState);
     setSubmitted(false);
   };
 
   return (
     <>
-    <Header authState="LoggedIn" />
-    <Container>
     <div className="submit-form">
       {submitted ? (
         <div>
           <h4>You submitted successfully!</h4>
-          <button className="btn btn-success" onClick={newTutorial}>
+          <button className="btn btn-success" onClick={newStudy}>
             Add
           </button>
         </div>
@@ -66,7 +63,7 @@ const AddTutorial = () => {
               className="form-control"
               id="title"
               required
-              value={tutorial.title}
+              value={study.title}
               onChange={handleInputChange}
               name="title"
             />
@@ -79,21 +76,20 @@ const AddTutorial = () => {
               className="form-control"
               id="description"
               required
-              value={tutorial.description}
+              value={study.description}
               onChange={handleInputChange}
               name="description"
             />
           </div>
 
-          <button onClick={saveTutorial} className="btn btn-success">
+          <button onClick={saveStudy} className="btn btn-success">
             Submit
           </button>
         </div>
       )}
     </div>
-    </Container>
     </>
   );
 };
 
-export default AddTutorial;
+export default AddStudy;

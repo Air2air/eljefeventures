@@ -26,8 +26,8 @@ const Header = (props) => {
         <Nav.Link as={Link} to="/performance" role="button">
           Performance
         </Nav.Link>
-        <Nav.Link as={Link} to="/tutorials" role="button">
-          Tutorials
+        <Nav.Link as={Link} to="/studies" role="button">
+          Studies
         </Nav.Link>
         <Nav.Link as={Link} to="/add" role="button">
           Add

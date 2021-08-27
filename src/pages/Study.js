@@ -1,22 +1,22 @@
 import React, { useState, useEffect } from "react";
 import Header from "./../components/Header";
 import { Container } from "react-bootstrap";
-import TutorialDataService from "../api/TutorialService";
+import StudyDataService from "../api/StudyService";
 
-const Tutorial = props => {
-  const initialTutorialState = {
+const Study = props => {
+  const initialStudyState = {
     id: null,
     title: "",
     description: "",
     published: false
   };
-  const [currentTutorial, setCurrentTutorial] = useState(initialTutorialState);
+  const [currentStudy, setCurrentStudy] = useState(initialStudyState);
   const [message, setMessage] = useState("");
 
-  const getTutorial = id => {
-    TutorialDataService.get(id)
+  const getStudy = id => {
+    StudyDataService.get(id)
       .then(response => {
-        setCurrentTutorial(response.data);
+        setCurrentStudy(response.data);
         console.log(response.data);
       })
       .catch(e => {
@@ -25,25 +25,25 @@ const Tutorial = props => {
   };
 
   useEffect(() => {
-    getTutorial(props.match.params.id);
+    getStudy(props.match.params.id);
   }, [props.match.params.id]);
 
   const handleInputChange = event => {
     const { name, value } = event.target;
-    setCurrentTutorial({ ...currentTutorial, [name]: value });
+    setCurrentStudy({ ...currentStudy, [name]: value });
   };
 
   const updatePublished = status => {
     var data = {
-      id: currentTutorial.id,
-      title: currentTutorial.title,
-      description: currentTutorial.description,
+      id: currentStudy.id,
+      title: currentStudy.title,
+      description: currentStudy.description,
       published: status
     };
 
-    TutorialDataService.update(currentTutorial.id, data)
+    StudyDataService.update(currentStudy.id, data)
       .then(response => {
-        setCurrentTutorial({ ...currentTutorial, published: status });
+        setCurrentStudy({ ...currentStudy, published: status });
         console.log(response.data);
       })
       .catch(e => {
@@ -51,22 +51,22 @@ const Tutorial = props => {
       });
   };
 
-  const updateTutorial = () => {
-    TutorialDataService.update(currentTutorial.id, currentTutorial)
+  const updateStudy = () => {
+    StudyDataService.update(currentStudy.id, currentStudy)
       .then(response => {
         console.log(response.data);
-        setMessage("The tutorial was updated successfully!");
+        setMessage("The study was updated successfully!");
       })
       .catch(e => {
         console.log(e);
       });
   };
 
-  const deleteTutorial = () => {
-    TutorialDataService.remove(currentTutorial.id)
+  const deleteStudy = () => {
+    StudyDataService.remove(currentStudy.id)
       .then(response => {
         console.log(response.data);
-        props.history.push("/tutorials");
+        props.history.push("/studies");
       })
       .catch(e => {
         console.log(e);
@@ -78,9 +78,9 @@ const Tutorial = props => {
     <Header authState="LoggedIn" />
     <Container>
     <div>
-      {currentTutorial ? (
+      {currentStudy ? (
         <div className="edit-form">
-          <h4>Tutorial</h4>
+          <h4>Study</h4>
           <form>
             <div className="form-group">
               <label htmlFor="title">Title</label>
@@ -89,7 +89,7 @@ const Tutorial = props => {
                 className="form-control"
                 id="title"
                 name="title"
-                value={currentTutorial.title}
+                value={currentStudy.title}
                 onChange={handleInputChange}
               />
             </div>
@@ -100,7 +100,7 @@ const Tutorial = props => {
                 className="form-control"
                 id="description"
                 name="description"
-                value={currentTutorial.description}
+                value={currentStudy.description}
                 onChange={handleInputChange}
               />
             </div>
@@ -109,11 +109,11 @@ const Tutorial = props => {
               <label>
                 <strong>Status:</strong>
               </label>
-              {currentTutorial.published ? "Published" : "Pending"}
+              {currentStudy.published ? "Published" : "Pending"}
             </div>
           </form>
 
-          {currentTutorial.published ? (
+          {currentStudy.published ? (
             <button
               className="badge badge-primary mr-2"
               onClick={() => updatePublished(false)}
@@ -129,14 +129,14 @@ const Tutorial = props => {
             </button>
           )}
 
-          <button className="badge badge-danger mr-2" onClick={deleteTutorial}>
+          <button className="badge badge-danger mr-2" onClick={deleteStudy}>
             Delete
           </button>
 
           <button
             type="submit"
             className="badge badge-success"
-            onClick={updateTutorial}
+            onClick={updateStudy}
           >
             Update
           </button>
@@ -145,7 +145,7 @@ const Tutorial = props => {
       ) : (
         <div>
           <br />
-          <p>Please click on a Tutorial...</p>
+          <p>Please click on a Study...</p>
         </div>
       )}
     </div>
@@ -154,4 +154,4 @@ const Tutorial = props => {
   );
 };
 
-export default Tutorial;
+export default Study;

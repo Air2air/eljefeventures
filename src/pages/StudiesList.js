@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from "react";
-import TutorialDataService from "../api/TutorialService";
+import StudyDataService from "../api/StudyService";
 import { Container } from "react-bootstrap";
 import Header from "./../components/Header";
+import AddStudy from "./../components/AddStudy"
 import { Link } from "react-router-dom";
 
-const TutorialsList = () => {
-  const [tutorials, setTutorials] = useState([]);
-  const [currentTutorial, setCurrentTutorial] = useState(null);
+const StudiesList = () => {
+  const [studies, setStudies] = useState([]);
+  const [currentStudy, setCurrentStudy] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(-1);
   const [searchTitle, setSearchTitle] = useState("");
 
   useEffect(() => {
-    retrieveTutorials();
+    retrieveStudies();
   }, []);
 
   const onChangeSearchTitle = e => {
@@ -19,10 +20,10 @@ const TutorialsList = () => {
     setSearchTitle(searchTitle);
   };
 
-  const retrieveTutorials = () => {
-    TutorialDataService.getAll()
+  const retrieveStudies = () => {
+    StudyDataService.getAll()
       .then(response => {
-        setTutorials(response.data);
+        setStudies(response.data);
         console.log(response.data);
       })
       .catch(e => {
@@ -31,31 +32,20 @@ const TutorialsList = () => {
   };
 
   const refreshList = () => {
-    retrieveTutorials();
-    setCurrentTutorial(null);
+    retrieveStudies();
+    setCurrentStudy(null);
     setCurrentIndex(-1);
   };
 
-  const setActiveTutorial = (tutorial, index) => {
-    setCurrentTutorial(tutorial);
+  const setActiveStudy = (study, index) => {
+    setCurrentStudy(study);
     setCurrentIndex(index);
   };
 
-  const removeAllTutorials = () => {
-    TutorialDataService.removeAll()
-      .then(response => {
-        console.log(response.data);
-        refreshList();
-      })
-      .catch(e => {
-        console.log(e);
-      });
-  };
-
   const findByTitle = () => {
-    TutorialDataService.findByTitle(searchTitle)
+    StudyDataService.findByTitle(searchTitle)
       .then(response => {
-        setTutorials(response.data);
+        setStudies(response.data);
         console.log(response.data);
       })
       .catch(e => {
@@ -89,55 +79,49 @@ const TutorialsList = () => {
         </div>
       </div>
       <div className="col-md-6">
-        <h4>Tutorials List</h4>
+        <h4>Studies List</h4>
 
         <ul className="list-group">
-          {tutorials &&
-            tutorials.map((tutorial, index) => (
+          {studies &&
+            studies.map((study, index) => (
               <li
                 className={
                   "list-group-item " + (index === currentIndex ? "active" : "")
                 }
-                onClick={() => setActiveTutorial(tutorial, index)}
+                onClick={() => setActiveStudy(study, index)}
                 key={index}
               >
-                {tutorial.title}
+                {study.title}
               </li>
             ))}
         </ul>
 
-        <button
-          className="m-3 btn btn-sm btn-danger"
-          onClick={removeAllTutorials}
-        >
-          Remove All
-        </button>
       </div>
       <div className="col-md-6">
-        {currentTutorial ? (
+        {currentStudy ? (
           <div>
-            <h4>Tutorial</h4>
+            <h4>Study</h4>
             <div>
               <label>
                 <strong>Title:</strong>
               </label>{" "}
-              {currentTutorial.title}
+              {currentStudy.title}
             </div>
             <div>
               <label>
                 <strong>Description:</strong>
               </label>{" "}
-              {currentTutorial.description}
+              {currentStudy.description}
             </div>
             <div>
               <label>
                 <strong>Status:</strong>
               </label>{" "}
-              {currentTutorial.published ? "Published" : "Pending"}
+              {currentStudy.published ? "Published" : "Pending"}
             </div>
 
             <Link
-              to={"/tutorials/" + currentTutorial.id}
+              to={"/studies/" + currentStudy.id}
               className="badge badge-warning"
             >
               Edit
@@ -146,14 +130,16 @@ const TutorialsList = () => {
         ) : (
           <div>
             <br />
-            <p>Please click on a Tutorial...</p>
+            <p>Please click on a Study...</p>
           </div>
         )}
       </div>
     </div>
+
+    <AddStudy />
     </Container>
     </>
   );
 };
 
-export default TutorialsList;
+export default StudiesList;

@@ -4,7 +4,7 @@ import { pageTransitionDuration } from "./../../animations/animations";
 import { Container } from "react-bootstrap";
 import Header from "./../../components/Header";
 
-import DotChart from "./../../components/DotChart";
+import DotChart from "../../components/Chart/Dot";
 
 const Ranking = () => {
   return (
@@ -17,7 +17,6 @@ const Ranking = () => {
           exit={{ opacity: 0 }}
           transition={{ ease: "easeOut", duration: pageTransitionDuration }}
         >
-
           <DotChart title="My Ranking" />
         </motion.div>
       </Container>

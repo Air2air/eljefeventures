@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import StudyDataService from "../api/StudyService";
 import { Container } from "react-bootstrap";
 import Header from "./../components/Header";
-import SearchStudies from "../components/SearchStudies";
 import AddStudy from "./../components/AddStudy";
 import { Link } from "react-router-dom";
 
@@ -37,6 +36,17 @@ const StudiesList = () => {
     setCurrentIndex(index);
   };
 
+  const deleteStudy = () => {
+    StudyDataService.remove(currentStudy.id)
+      .then((response) => {
+        console.log(response.data);
+        refreshList();
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
+
   return (
     <>
       <Header authState="LoggedIn" />
@@ -56,7 +66,7 @@ const StudiesList = () => {
                     onClick={() => setActiveStudy(study, index)}
                     key={index}
                   >
-                    {study.title}
+                    {study.title} {study.symbol} {study.shares}
                   </li>
                 ))}
             </ul>
@@ -85,12 +95,12 @@ const StudiesList = () => {
                   {currentStudy.shares}
                 </div>
 
-                <Link
-                  to={"/studies/" + currentStudy.id}
-                  className="badge badge-warning"
+                <button
+                  className="badge badge-danger mr-2"
+                  onClick={deleteStudy}
                 >
-                 Go there
-                </Link>
+                  Delete
+                </button>
               </div>
             ) : (
               <div>

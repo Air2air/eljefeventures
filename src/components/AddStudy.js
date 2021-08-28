@@ -6,7 +6,8 @@ const AddStudy = () => {
   const initialStudyState = {
     id: null,
     title: "",
-    description: "",
+    symbol: "",
+    shares: null,
     published: false
   };
   const [study, setStudy] = useState(initialStudyState);
@@ -20,7 +21,8 @@ const AddStudy = () => {
   const saveStudy = () => {
     var data = {
       title: study.title,
-      description: study.description
+      symbol: study.symbol,
+      shares: study.shares
     };
 
     StudyDataService.create(data)
@@ -28,8 +30,8 @@ const AddStudy = () => {
         setStudy({
           id: response.data.id,
           title: response.data.title,
-          description: response.data.description,
-          published: response.data.published
+          symbol: response.data.symbol,
+          shares: response.data.shares,
         });
         setSubmitted(true);
         console.log(response.data);
@@ -51,7 +53,7 @@ const AddStudy = () => {
         <div>
           <h4>You submitted successfully!</h4>
           <button className="btn btn-success" onClick={newStudy}>
-            Add
+            Add Another
           </button>
         </div>
       ) : (
@@ -70,20 +72,33 @@ const AddStudy = () => {
           </div>
 
           <div className="form-group">
-            <label htmlFor="description">Description</label>
+            <label htmlFor="symbol">Symbol</label>
             <input
               type="text"
               className="form-control"
-              id="description"
+              id="symbol"
               required
-              value={study.description}
+              value={study.symbol}
               onChange={handleInputChange}
-              name="description"
+              name="symbol"
+            />
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="shares"># Shares</label>
+            <input
+              type="text"
+              className="form-control"
+              id="shares"
+              required
+              value={study.shares}
+              onChange={handleInputChange}
+              name="shares"
             />
           </div>
 
           <button onClick={saveStudy} className="btn btn-success">
-            Submit
+            Submit Study
           </button>
         </div>
       )}

@@ -7,7 +7,8 @@ const Study = props => {
   const initialStudyState = {
     id: null,
     title: "",
-    description: "",
+    symbol: "",
+    shares: null,
     published: false
   };
   const [currentStudy, setCurrentStudy] = useState(initialStudyState);
@@ -37,7 +38,8 @@ const Study = props => {
     var data = {
       id: currentStudy.id,
       title: currentStudy.title,
-      description: currentStudy.description,
+      symbol: currentStudy.symbol,
+      symbol: currentStudy.shares,
       published: status
     };
 
@@ -93,41 +95,33 @@ const Study = props => {
                 onChange={handleInputChange}
               />
             </div>
+
             <div className="form-group">
-              <label htmlFor="description">Description</label>
+              <label htmlFor="symbol">Symbol</label>
               <input
                 type="text"
                 className="form-control"
-                id="description"
-                name="description"
-                value={currentStudy.description}
+                id="symbol"
+                name="symbol"
+                value={currentStudy.symbol}
                 onChange={handleInputChange}
               />
             </div>
 
             <div className="form-group">
-              <label>
-                <strong>Status:</strong>
-              </label>
-              {currentStudy.published ? "Published" : "Pending"}
+              <label htmlFor="symbol"># Shares</label>
+              <input
+                type="text"
+                className="form-control"
+                id="shares"
+                name="shares"
+                value={currentStudy.shares}
+                onChange={handleInputChange}
+              />
             </div>
+
           </form>
 
-          {currentStudy.published ? (
-            <button
-              className="badge badge-primary mr-2"
-              onClick={() => updatePublished(false)}
-            >
-              UnPublish
-            </button>
-          ) : (
-            <button
-              className="badge badge-primary mr-2"
-              onClick={() => updatePublished(true)}
-            >
-              Publish
-            </button>
-          )}
 
           <button className="badge badge-danger mr-2" onClick={deleteStudy}>
             Delete

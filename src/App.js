@@ -5,7 +5,6 @@ import Home from "./pages/Home";
 import Ranking from "./pages/Ranking";
 import Report from "./pages/Report";
 import Performance from "./pages/Performance";
-import AddStudy from "./pages/AddStudy";
 import Study from "./pages/Study";
 import StudiesList from "./pages/StudiesList";
 
@@ -21,7 +20,6 @@ const App = () => {
           <Route path={"/ranking"} component={Ranking} />
           <Route path={"/performance"} component={Performance} />
           <Route path={"/studies"} component={StudiesList} />
-          <Route path="/add" component={AddStudy} />
           <Route path="/studies/:id" component={Study} />
         </Switch>
       </AnimatePresence>

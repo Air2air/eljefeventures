@@ -1,23 +1,23 @@
 import React, { useState, useEffect } from "react";
-import Header from "./../components/Header";
+import Header from "../components/Header";
 import { Container } from "react-bootstrap";
-import StudyDataService from "../api/StudyService";
+import PortfolioDataService from "../api/apiService";
 
-const Study = (props) => {
-  const initialStudyState = {
+const Portfolio = (props) => {
+  const initialPortfolioState = {
     id: null,
     title: "",
     symbol: "",
     shares: null,
     published: false,
   };
-  const [currentStudy, setCurrentStudy] = useState(initialStudyState);
+  const [currentPortfolio, setCurrentPortfolio] = useState(initialPortfolioState);
   const [message, setMessage] = useState("");
 
-  const getStudy = (id) => {
-    StudyDataService.get(id)
+  const getPortfolio = (id) => {
+    PortfolioDataService.get(id)
       .then((response) => {
-        setCurrentStudy(response.data);
+        setCurrentPortfolio(response.data);
         console.log(response.data);
       })
       .catch((e) => {
@@ -26,30 +26,30 @@ const Study = (props) => {
   };
 
   useEffect(() => {
-    getStudy(props.match.params.id);
+    getPortfolio(props.match.params.id);
   }, [props.match.params.id]);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    setCurrentStudy({ ...currentStudy, [name]: value });
+    setCurrentPortfolio({ ...currentPortfolio, [name]: value });
   };
 
-  const updateStudy = () => {
-    StudyDataService.update(currentStudy.id, currentStudy)
+  const updatePortfolio = () => {
+    PortfolioDataService.update(currentPortfolio.id, currentPortfolio)
       .then((response) => {
         console.log(response.data);
-        setMessage("The study was updated successfully!");
+        setMessage("The portfolio was updated successfully!");
       })
       .catch((e) => {
         console.log(e);
       });
   };
 
-  const deleteStudy = () => {
-    StudyDataService.remove(currentStudy.id)
+  const deletePortfolio = () => {
+    PortfolioDataService.remove(currentPortfolio.id)
       .then((response) => {
         console.log(response.data);
-        props.history.push("/studies");
+        props.history.push("/portfolios");
       })
       .catch((e) => {
         console.log(e);
@@ -61,9 +61,9 @@ const Study = (props) => {
       <Header authState="LoggedIn" />
       <Container>
         <div>
-          {currentStudy ? (
+          {currentPortfolio ? (
             <div className="edit-form">
-              <h4>Study</h4>
+              <h4>Portfolio</h4>
               <form>
                 <div className="form-group">
                   <label htmlFor="title">Title</label>
@@ -72,7 +72,7 @@ const Study = (props) => {
                     className="form-control"
                     id="title"
                     name="title"
-                    value={currentStudy.title}
+                    value={currentPortfolio.title}
                     onChange={handleInputChange}
                   />
                 </div>
@@ -84,7 +84,7 @@ const Study = (props) => {
                     className="form-control"
                     id="symbol"
                     name="symbol"
-                    value={currentStudy.symbol}
+                    value={currentPortfolio.symbol}
                     onChange={handleInputChange}
                   />
                 </div>
@@ -96,20 +96,20 @@ const Study = (props) => {
                     className="form-control"
                     id="shares"
                     name="shares"
-                    value={currentStudy.shares}
+                    value={currentPortfolio.shares}
                     onChange={handleInputChange}
                   />
                 </div>
               </form>
 
-              <button className="badge badge-danger mr-2" onClick={deleteStudy}>
+              <button className="badge badge-danger mr-2" onClick={deletePortfolio}>
                 Delete
               </button>
 
               <button
                 type="submit"
                 className="badge badge-success"
-                onClick={updateStudy}
+                onClick={updatePortfolio}
               >
                 Update
               </button>
@@ -118,7 +118,7 @@ const Study = (props) => {
           ) : (
             <div>
               <br />
-              <p>Please click on a Study...</p>
+              <p>Please click on a Portfolio...</p>
             </div>
           )}
         </div>
@@ -127,4 +127,4 @@ const Study = (props) => {
   );
 };
 
-export default Study;
+export default Portfolio;

@@ -26,8 +26,8 @@ const Header = (props) => {
         <Nav.Link as={Link} to="/performance" role="button">
           Performance
         </Nav.Link>
-        <Nav.Link as={Link} to="/studies" role="button">
-          Studies
+        <Nav.Link as={Link} to="/portfolios" role="button">
+          Portfolios
         </Nav.Link>
       </Container>
     </Navbar>

@@ -1,28 +1,28 @@
 import http from "./http-common";
 
 const getAll = () => {
-  return http.get("/studies");
+  return http.get("/portfolios");
 };
 
 const get = id => {
-  return http.get(`/studies/${id}`);
+  return http.get(`/portfolios/${id}`);
 };
 
 const create = data => {
-  return http.post("/studies", data);
+  return http.post("/portfolios", data);
 };
 
 const update = (id, data) => {
-  return http.put(`/studies/${id}`, data);
+  return http.put(`/portfolios/${id}`, data);
 };
 
 const remove = id => {
-  return http.delete(`/studies/${id}`);
+  return http.delete(`/portfolios/${id}`);
 };
 
 
 const findByTitle = title => {
-  return http.get(`/studies?title=${title}`);
+  return http.get(`/portfolios?title=${title}`);
 };
 
 export default {

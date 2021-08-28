@@ -1,33 +1,34 @@
 import React, { useState } from "react";
-import StudyDataService from "../api/StudyService";
+import PortfolioDataService from "../api/apiService";
 
 
-const AddStudy = () => {
-  const initialStudyState = {
+const AddPortfolio = () => {
+  const initialPortfolioState = {
     id: null,
     title: "",
     symbol: "",
     shares: null,
     published: false
   };
-  const [study, setStudy] = useState(initialStudyState);
+  const [portfolio, setPortfolio] = useState(initialPortfolioState);
   const [submitted, setSubmitted] = useState(false);
 
   const handleInputChange = event => {
     const { name, value } = event.target;
-    setStudy({ ...study, [name]: value });
+    setPortfolio({ ...portfolio, [name]: value });
   };
 
-  const saveStudy = () => {
+
+  const savePortfolio = () => {
     var data = {
-      title: study.title,
-      symbol: study.symbol,
-      shares: study.shares
+      title: portfolio.title,
+      symbol: portfolio.symbol,
+      shares: portfolio.shares
     };
 
-    StudyDataService.create(data)
+    PortfolioDataService.create(data)
       .then(response => {
-        setStudy({
+        setPortfolio({
           id: response.data.id,
           title: response.data.title,
           symbol: response.data.symbol,
@@ -41,8 +42,8 @@ const AddStudy = () => {
       });
   };
 
-  const newStudy = () => {
-    setStudy(initialStudyState);
+  const newPortfolio = () => {
+    setPortfolio(initialPortfolioState);
     setSubmitted(false);
   };
 
@@ -52,7 +53,7 @@ const AddStudy = () => {
       {submitted ? (
         <div>
           <h4>You submitted successfully!</h4>
-          <button className="btn btn-success" onClick={newStudy}>
+          <button className="btn btn-success" onClick={newPortfolio}>
             Add Another
           </button>
         </div>
@@ -65,7 +66,7 @@ const AddStudy = () => {
               className="form-control"
               id="title"
               required
-              value={study.title}
+              value={portfolio.title}
               onChange={handleInputChange}
               name="title"
             />
@@ -78,7 +79,7 @@ const AddStudy = () => {
               className="form-control"
               id="symbol"
               required
-              value={study.symbol}
+              value={portfolio.symbol}
               onChange={handleInputChange}
               name="symbol"
             />
@@ -91,14 +92,14 @@ const AddStudy = () => {
               className="form-control"
               id="shares"
               required
-              value={study.shares}
+              value={portfolio.shares}
               onChange={handleInputChange}
               name="shares"
             />
           </div>
 
-          <button onClick={saveStudy} className="btn btn-success">
-            Submit Study
+          <button onClick={savePortfolio} className="btn btn-success">
+            Submit Portfolio
           </button>
         </div>
       )}
@@ -107,4 +108,4 @@ const AddStudy = () => {
   );
 };
 
-export default AddStudy;
+export default AddPortfolio;

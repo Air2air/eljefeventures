@@ -5,7 +5,7 @@ import Home from "./pages/Home";
 import Ranking from "./pages/Ranking";
 import Report from "./pages/Report";
 import Performance from "./pages/Performance";
-import StudiesList from "./pages/StudiesList";
+import PortfoliosList from "./pages/PortfoliosList";
 
 const App = () => {
   const location = useLocation();
@@ -18,7 +18,7 @@ const App = () => {
           <Route path={"/report"} component={Report} />
           <Route path={"/ranking"} component={Ranking} />
           <Route path={"/performance"} component={Performance} />
-          <Route path={"/studies"} component={StudiesList} />
+          <Route path={"/portfolios"} component={PortfoliosList} />
         </Switch>
       </AnimatePresence>
     </>

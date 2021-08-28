@@ -1,23 +1,22 @@
 import React, { useState, useEffect } from "react";
-import StudyDataService from "../api/StudyService";
+import PortfolioDataService from "../api/apiService";
 import { Container } from "react-bootstrap";
-import Header from "./../components/Header";
-import AddStudy from "./../components/AddStudy";
-import { Link } from "react-router-dom";
+import Header from "../components/Header";
+import AddPortfolio from "../components/AddPortfolio";
 
-const StudiesList = () => {
-  const [studies, setStudies] = useState([]);
-  const [currentStudy, setCurrentStudy] = useState(null);
+const PortfoliosList = () => {
+  const [portfolios, setPortfolios] = useState([]);
+  const [currentPortfolio, setCurrentPortfolio] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(-1);
 
   useEffect(() => {
-    retrieveStudies();
+    retrievePortfolios();
   }, []);
 
-  const retrieveStudies = () => {
-    StudyDataService.getAll()
+  const retrievePortfolios = () => {
+    PortfolioDataService.getAll()
       .then((response) => {
-        setStudies(response.data);
+        setPortfolios(response.data);
         console.log(response.data);
       })
       .catch((e) => {
@@ -26,18 +25,18 @@ const StudiesList = () => {
   };
 
   const refreshList = () => {
-    retrieveStudies();
-    setCurrentStudy(null);
+    retrievePortfolios();
+    setCurrentPortfolio(null);
     setCurrentIndex(-1);
   };
 
-  const setActiveStudy = (study, index) => {
-    setCurrentStudy(study);
+  const setActivePortfolio = (portfolio, index) => {
+    setCurrentPortfolio(portfolio);
     setCurrentIndex(index);
   };
 
-  const deleteStudy = () => {
-    StudyDataService.remove(currentStudy.id)
+  const deletePortfolio = () => {
+    PortfolioDataService.remove(currentPortfolio.id)
       .then((response) => {
         console.log(response.data);
         refreshList();
@@ -53,51 +52,45 @@ const StudiesList = () => {
       <Container>
         <div className="list row">
           <div className="col-md-6">
-            <h4>Studies List</h4>
+            <h4>Portfolios List</h4>
 
             <ul className="list-group">
-              {studies &&
-                studies.map((study, index) => (
+              {portfolios &&
+                portfolios.map((portfolio, index) => (
                   <li
                     className={
                       "list-group-item " +
                       (index === currentIndex ? "active" : "")
                     }
-                    onClick={() => setActiveStudy(study, index)}
+                    onClick={() => setActivePortfolio(portfolio, index)}
                     key={index}
                   >
-                    {study.title} {study.symbol} {study.shares}
+                    {portfolio.title} - {portfolio.symbol} - {portfolio.shares}
                   </li>
                 ))}
             </ul>
           </div>
           <div className="col-md-6">
-            {currentStudy ? (
+            {currentPortfolio ? (
               <div>
-                <h4>Study</h4>
-                <div>
-                  <label>
-                    <strong>Title: </strong>
-                  </label>
-                  {currentStudy.title}
-                </div>
+                <h4>{currentPortfolio.title}</h4>
 
                 <div>
                   <label>
                     <strong>Symbol:</strong>
                   </label>
-                  {currentStudy.symbol}
+                  {currentPortfolio.symbol}
                 </div>
                 <div>
                   <label>
                     <strong># Shares:</strong>
                   </label>
-                  {currentStudy.shares}
+                  {currentPortfolio.shares}
                 </div>
 
                 <button
                   className="badge badge-danger mr-2"
-                  onClick={deleteStudy}
+                  onClick={deletePortfolio}
                 >
                   Delete
                 </button>
@@ -105,16 +98,16 @@ const StudiesList = () => {
             ) : (
               <div>
                 <br />
-                <p>Please click on a Study...</p>
+                <p>Please click on a Portfolio...</p>
               </div>
             )}
           </div>
         </div>
 
-        <AddStudy />
+        <AddPortfolio />
       </Container>
     </>
   );
 };
 
-export default StudiesList;
+export default PortfoliosList;

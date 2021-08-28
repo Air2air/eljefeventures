@@ -19,7 +19,7 @@ const Performance = () => {
           transition={{ ease: "easeOut", duration: pageTransitionDuration }}
         >
           <ArrowChart title="My Ranking" />
-          <ChartLine title="Performance" study="performance" />
+          <ChartLine title="Performance" portfolio="performance" />
         </motion.div>
       </Container>
       <Footer />

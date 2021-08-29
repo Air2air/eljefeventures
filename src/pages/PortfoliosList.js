@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PortfolioDataService from "../api/apiService";
 import { Container } from "react-bootstrap";
-import Header from "../components/Header";
+import NavBar from "../components/NavBar/Header";
 import AddPortfolio from "../components/AddPortfolio";
 
 const PortfoliosList = () => {
@@ -48,7 +48,7 @@ const PortfoliosList = () => {
 
   return (
     <>
-      <Header authState="LoggedIn" />
+      <NavBar />
       <Container>
         <div className="list row">
           <div className="col-md-6">

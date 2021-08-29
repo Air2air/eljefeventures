@@ -5,6 +5,9 @@
   "homepage": ".",
   "type": "module",
   "dependencies": {
+    "@chakra-ui/react": "^1.6.6",
+    "@emotion/react": "^11.4.1",
+    "@emotion/styled": "^11.3.0",
     "@nivo/line": "^0.73.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",

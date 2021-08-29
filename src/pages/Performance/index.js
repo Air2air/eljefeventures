@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { pageTransitionDuration } from "./../../animations/animations";
-import { Container } from "react-bootstrap";
+import { Container } from "@chakra-ui/react";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import ChartLine from "../../components/Chart/Line";

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { transitionDuration } from "../../../animations/animations";
-import { Button } from "react-bootstrap";
+import { Button } from "@chakra-ui/react";
 import { dotData1, dotData2 } from "../../../data/dot";
 import Arrow from "./arrow";
 import "./index.scss";

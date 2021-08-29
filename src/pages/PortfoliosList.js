@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import PortfolioDataService from "../api/apiService";
-import { Container } from "react-bootstrap";
+import { Container } from "@chakra-ui/react";
 import NavBar from "../components/NavBar/Header";
 import AddPortfolio from "../components/AddPortfolio";
 

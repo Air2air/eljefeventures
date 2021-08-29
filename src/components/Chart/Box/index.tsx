@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
-import { Button } from "react-bootstrap";
+import { Button } from "@chakra-ui/react";
 import { allocations1, allocations2 } from "../../../data/allocations";
 import NumberFormat from "react-number-format";
 import Truncate from "react-truncate";

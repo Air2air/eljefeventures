@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Header from "../components/Header";
-import { Container } from "react-bootstrap";
+import { Container } from "@chakra-ui/react";
 import { Input } from "@chakra-ui/react"
 import PortfolioDataService from "../api/apiService";
 

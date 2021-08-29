@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Row, Col, Button } from "react-bootstrap";
+import { Row, Col, Button } from "@chakra-ui/react";
 import { dotData1, dotData2 } from "../../../data/dot";
 import Dot from "../Dot/dot";
 import "./styles.scss";

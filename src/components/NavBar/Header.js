@@ -32,7 +32,7 @@ const CloseIcon = () => (
 
 const MenuIcon = () => (
   <svg
-    width="24px"
+    width="28px"
     viewBox="0 0 20 20"
     xmlns="http://www.w3.org/2000/svg"
     fill="white"
@@ -104,7 +104,7 @@ const NavBarContainer = ({ children, ...props }) => {
       wrap="wrap"
       w="100%"
       mb={8}
-      p={8}
+      p={4}
       bg={["primary.500", "primary.500", "transparent", "transparent"]}
       color={["white", "white", "primary.700", "primary.700"]}
       {...props}

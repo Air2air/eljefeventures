@@ -5,7 +5,6 @@ import {
   Container,
   SimpleGrid,
   Heading,
-  Box,
   Button,
   Stat,
   StatLabel,
@@ -14,7 +13,7 @@ import {
   StatArrow,
   StatGroup,
 } from "@chakra-ui/react";
-
+import { motion } from "framer-motion";
 import AddPortfolio from "../components/AddPortfolio";
 
 const PortfoliosList = () => {
@@ -115,27 +114,35 @@ const PortfoliosList = () => {
         <SimpleGrid columns={4} spacing={10}>
           {portfolios &&
             portfolios.map((portfolio, index) => (
-              <Center
-                bg="tomato"
-                height="120px"
-                className={
-                  "list-group-item " + (index === currentIndex ? "active" : "")
-                }
-                onClick={() => setActivePortfolio(portfolio, index)}
+              <motion.div
                 key={index}
+                initial={{ opacity: 0, scaleY: 0 }}
+                animate={{ opacity: 1, scaleY: 1 }}
+                transition={{ duration: 0.1, delay: index * 0.1 }}
               >
-                {portfolio.symbol}
-                <StatGroup>
-                  <Stat>
-                    <StatLabel>{portfolio.title}</StatLabel>
-                    <StatNumber>{portfolio.shares}</StatNumber>
-                    <StatHelpText>
-                      <StatArrow type="increase" />
-                      23.36%
-                    </StatHelpText>
-                  </Stat>
-                </StatGroup>
-              </Center>
+                <Center
+                  bg="tomato"
+                  height="120px"
+                  className={
+                    "list-group-item " +
+                    (index === currentIndex ? "active" : "")
+                  }
+                  onClick={() => setActivePortfolio(portfolio, index)}
+                  key={index}
+                >
+                  {portfolio.symbol}
+                  <StatGroup>
+                    <Stat>
+                      <StatLabel>{portfolio.title}</StatLabel>
+                      <StatNumber>{portfolio.shares}</StatNumber>
+                      <StatHelpText>
+                        <StatArrow type="increase" />
+                        23.36%
+                      </StatHelpText>
+                    </Stat>
+                  </StatGroup>
+                </Center>
+              </motion.div>
             ))}
         </SimpleGrid>
       </Container>

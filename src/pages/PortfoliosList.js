@@ -1,12 +1,25 @@
 import React, { useState, useEffect } from "react";
 import PortfolioDataService from "../api/apiService";
-import { Container, SimpleGrid, Heading, Box } from "@chakra-ui/react";
+import {
+  Center,
+  Container,
+  SimpleGrid,
+  Heading,
+  Box,
+  Button,
+  Stat,
+  StatLabel,
+  StatNumber,
+  StatHelpText,
+  StatArrow,
+  StatGroup,
+} from "@chakra-ui/react";
 
 import AddPortfolio from "../components/AddPortfolio";
 
 const PortfoliosList = () => {
   const [portfolios, setPortfolios] = useState([]);
-  const [currentPortfolio, setCurrentPortfolio] = useState(null);
+  const [currentPortfolio, setCurrentPortfolio] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(-1);
 
   useEffect(() => {
@@ -48,27 +61,11 @@ const PortfoliosList = () => {
 
   return (
     <>
-      <Container>
+      <Container maxW="container.xl">
         <Heading>Portfolios List</Heading>
-        <SimpleGrid columns={2} spacing={10}>
-          {portfolios &&
-            portfolios.map((portfolio, index) => (
-              <Box
-                bg="tomato"
-                height="80px"
-                className={
-                  "list-group-item " + (index === currentIndex ? "active" : "")
-                }
-                onClick={() => setActivePortfolio(portfolio, index)}
-                key={index}
-              >
-                {portfolio.title} - {portfolio.symbol} - {portfolio.shares}
-              </Box>
-            ))}
-        </SimpleGrid>
 
         {currentPortfolio ? (
-          <div>
+          <Center p={5} mb={2} bg="blue" height="180px">
             <h4>{currentPortfolio.title}</h4>
 
             <div>
@@ -99,22 +96,51 @@ const PortfoliosList = () => {
               {currentPortfolio.dateEnd}
             </div>
 
-            <button
+            <Button
               className="badge badge-danger mr-2"
               onClick={deletePortfolio}
             >
               Delete
-            </button>
-          </div>
+            </Button>
+          </Center>
         ) : (
-          <div>
+          <Center>
             <br />
             <p>Please click on a Portfolio...</p>
-          </div>
+          </Center>
         )}
-
-        <AddPortfolio />
       </Container>
+
+      <Container maxW="container.xl">
+        <SimpleGrid columns={4} spacing={10}>
+          {portfolios &&
+            portfolios.map((portfolio, index) => (
+              <Center
+                bg="tomato"
+                height="120px"
+                className={
+                  "list-group-item " + (index === currentIndex ? "active" : "")
+                }
+                onClick={() => setActivePortfolio(portfolio, index)}
+                key={index}
+              >
+                {portfolio.symbol}
+                <StatGroup>
+                  <Stat>
+                    <StatLabel>{portfolio.title}</StatLabel>
+                    <StatNumber>{portfolio.shares}</StatNumber>
+                    <StatHelpText>
+                      <StatArrow type="increase" />
+                      23.36%
+                    </StatHelpText>
+                  </Stat>
+                </StatGroup>
+              </Center>
+            ))}
+        </SimpleGrid>
+      </Container>
+
+      <AddPortfolio />
     </>
   );
 };

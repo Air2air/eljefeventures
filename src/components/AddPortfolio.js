@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Container, SimpleGrid, Box } from "@chakra-ui/react";
 import PortfolioDataService from "../api/apiService";
 
 const AddPortfolio = () => {
@@ -52,85 +53,87 @@ const AddPortfolio = () => {
 
   return (
     <>
-      <div className="submit-form">
-        {submitted ? (
-          <div>
-            <h4>You submitted successfully!</h4>
-            <button className="btn btn-success" onClick={newPortfolio}>
-              Add Another
-            </button>
-          </div>
-        ) : (
-          <div>
-            <div className="form-group">
-              <label htmlFor="title">Title</label>
-              <input
-                type="text"
-                className="form-control"
-                id="title"
-                required
-                value={portfolio.title}
-                onChange={handleInputChange}
-                name="title"
-              />
+      <Container maxW="container.xl">
+        <div className="submit-form">
+          {submitted ? (
+            <div>
+              <h4>You submitted successfully!</h4>
+              <button className="btn btn-success" onClick={newPortfolio}>
+                Add Another
+              </button>
             </div>
+          ) : (
+            <div>
+              <div className="form-group">
+                <label htmlFor="title">Title</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="title"
+                  required
+                  value={portfolio.title}
+                  onChange={handleInputChange}
+                  name="title"
+                />
+              </div>
 
-            <div className="form-group">
-              <label htmlFor="symbol">Symbol</label>
-              <input
-                type="text"
-                className="form-control"
-                id="symbol"
-                required
-                value={portfolio.symbol}
-                onChange={handleInputChange}
-                name="symbol"
-              />
+              <div className="form-group">
+                <label htmlFor="symbol">Symbol</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="symbol"
+                  required
+                  value={portfolio.symbol}
+                  onChange={handleInputChange}
+                  name="symbol"
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="shares"># Shares</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="shares"
+                  required
+                  value={portfolio.shares}
+                  onChange={handleInputChange}
+                  name="shares"
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="dateStart">Start Date: </label>
+                <input
+                  type="date"
+                  className="form-control"
+                  id="dateStart"
+                  value={portfolio.dateStart}
+                  onChange={handleInputChange}
+                  name="dateStart"
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="dateEnd">End Date: </label>
+                <input
+                  type="date"
+                  className="form-control"
+                  id="dateEnd"
+                  value={portfolio.dateStart}
+                  onChange={handleInputChange}
+                  name="dateEnd"
+                />
+              </div>
+
+              <button onClick={savePortfolio} className="btn btn-success">
+                Submit Portfolio
+              </button>
             </div>
-
-            <div className="form-group">
-              <label htmlFor="shares"># Shares</label>
-              <input
-                type="text"
-                className="form-control"
-                id="shares"
-                required
-                value={portfolio.shares}
-                onChange={handleInputChange}
-                name="shares"
-              />
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="dateStart">Start Date: </label>
-              <input
-                type="date"
-                className="form-control"
-                id="dateStart"
-                value={portfolio.dateStart}
-                onChange={handleInputChange}
-                name="dateStart"
-              />
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="dateEnd">End Date: </label>
-              <input
-                type="date"
-                className="form-control"
-                id="dateEnd"
-                value={portfolio.dateStart}
-                onChange={handleInputChange}
-                name="dateEnd"
-              />
-            </div>
-
-            <button onClick={savePortfolio} className="btn btn-success">
-              Submit Portfolio
-            </button>
-          </div>
-        )}
-      </div>
+          )}
+        </div>
+      </Container>
     </>
   );
 };

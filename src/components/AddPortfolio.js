@@ -1,5 +1,18 @@
 import React, { useState } from "react";
-import { Container, SimpleGrid, Box } from "@chakra-ui/react";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionPanel,
+  AccordionIcon,
+  Box,
+  Container,
+  FormControl,
+  FormLabel,
+  Input,
+  FormErrorMessage,
+  FormHelperText,
+} from "@chakra-ui/react";
 import PortfolioDataService from "../api/apiService";
 
 const AddPortfolio = () => {
@@ -53,86 +66,99 @@ const AddPortfolio = () => {
 
   return (
     <>
-      <Container maxW="container.xl">
-        <div className="submit-form">
-          {submitted ? (
-            <div>
-              <h4>You submitted successfully!</h4>
-              <button className="btn btn-success" onClick={newPortfolio}>
-                Add Another
-              </button>
-            </div>
-          ) : (
-            <div>
-              <div className="form-group">
-                <label htmlFor="title">Title</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="title"
-                  required
-                  value={portfolio.title}
-                  onChange={handleInputChange}
-                  name="title"
-                />
-              </div>
+      <Container maxW="container.lg">
+      <Accordion allowToggle>
+          <AccordionItem>
+            <h2>
+              <AccordionButton>
+                <Box flex="1" textAlign="left">
+                  Add a Portfolio
+                </Box>
+                <AccordionIcon />
+              </AccordionButton>
+            </h2>
+            <AccordionPanel pb={4}>
+              {submitted ? (
+                <div>
+                  <h4>You submitted successfully!</h4>
+                  <button className="btn btn-success" onClick={newPortfolio}>
+                    Add Another
+                  </button>
+                </div>
+              ) : (
+                <div>
+                  <FormControl id="title">
+                    <FormLabel>Title</FormLabel>
+                    <Input
+                      w={200}
+                      type="text"
+                      className="form-control"
+                      id="title"
+                      required
+                      value={portfolio.title}
+                      onChange={handleInputChange}
+                      name="title"
+                    />
+                  </FormControl>
 
-              <div className="form-group">
-                <label htmlFor="symbol">Symbol</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="symbol"
-                  required
-                  value={portfolio.symbol}
-                  onChange={handleInputChange}
-                  name="symbol"
-                />
-              </div>
+                  <FormControl id="symbol">
+                    <FormLabel>Symbol</FormLabel>
+                    <Input
+                      type="text"
+                      className="form-control"
+                      id="symbol"
+                      required
+                      value={portfolio.symbol}
+                      onChange={handleInputChange}
+                      name="symbol"
+                    />
+                  </FormControl>
 
-              <div className="form-group">
-                <label htmlFor="shares"># Shares</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="shares"
-                  required
-                  value={portfolio.shares}
-                  onChange={handleInputChange}
-                  name="shares"
-                />
-              </div>
+                  <FormControl id="shares">
+                    <FormLabel># Shares</FormLabel>
+                    <Input
+                      type="text"
+                      className="form-control"
+                      id="shares"
+                      required
+                      value={portfolio.shares}
+                      onChange={handleInputChange}
+                      name="shares"
+                    />
+                  </FormControl>
 
-              <div className="form-group">
-                <label htmlFor="dateStart">Start Date: </label>
-                <input
-                  type="date"
-                  className="form-control"
-                  id="dateStart"
-                  value={portfolio.dateStart}
-                  onChange={handleInputChange}
-                  name="dateStart"
-                />
-              </div>
+                  <FormControl id="dateStart">
+                    <FormLabel>Start Date: </FormLabel>
+                    <Input
+                      type="date"
+                      className="form-control"
+                      id="dateStart"
+                      value={portfolio.dateStart}
+                      onChange={handleInputChange}
+                      name="dateStart"
+                    />
+                  </FormControl>
 
-              <div className="form-group">
-                <label htmlFor="dateEnd">End Date: </label>
-                <input
-                  type="date"
-                  className="form-control"
-                  id="dateEnd"
-                  value={portfolio.dateStart}
-                  onChange={handleInputChange}
-                  name="dateEnd"
-                />
-              </div>
+                  <FormControl id="dateEnd">
+                    <FormLabel>End Date: </FormLabel>
+                    <Input
+                      type="date"
+                      className="form-control"
+                      id="dateEnd"
+                      value={portfolio.dateStart}
+                      onChange={handleInputChange}
+                      name="dateEnd"
+                    />
+                  </FormControl>
 
-              <button onClick={savePortfolio} className="btn btn-success">
-                Submit Portfolio
-              </button>
-            </div>
-          )}
-        </div>
+                  <button onClick={savePortfolio} className="btn btn-success">
+                    Submit Portfolio
+                  </button>
+                </div>
+              )}
+            </AccordionPanel>
+          </AccordionItem>
+        </Accordion>
       </Container>
     </>
   );

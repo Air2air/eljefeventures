@@ -61,7 +61,7 @@ const PortfoliosList = () => {
 
   return (
     <>
-      <Container maxW="container.xl">
+      <Container maxW="container.lg">
         <Heading>Portfolios List</Heading>
 
         {currentPortfolio ? (
@@ -111,7 +111,7 @@ const PortfoliosList = () => {
         )}
       </Container>
 
-      <Container maxW="container.xl">
+      <Container maxW="container.lg">
         <SimpleGrid columns={4} spacing={10}>
           {portfolios &&
             portfolios.map((portfolio, index) => (

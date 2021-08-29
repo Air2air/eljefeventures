@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PortfolioDataService from "../api/apiService";
-import { Container } from "@chakra-ui/react";
-import NavBar from "../components/NavBar/Header";
+import { Container, SimpleGrid, Heading, Box } from "@chakra-ui/react";
+
 import AddPortfolio from "../components/AddPortfolio";
 
 const PortfoliosList = () => {
@@ -48,61 +48,70 @@ const PortfoliosList = () => {
 
   return (
     <>
-      <NavBar />
       <Container>
-        <div className="list row">
-          <div className="col-md-6">
-            <h4>Portfolios List</h4>
+        <Heading>Portfolios List</Heading>
+        <SimpleGrid columns={2} spacing={10}>
+          {portfolios &&
+            portfolios.map((portfolio, index) => (
+              <Box
+                bg="tomato"
+                height="80px"
+                className={
+                  "list-group-item " + (index === currentIndex ? "active" : "")
+                }
+                onClick={() => setActivePortfolio(portfolio, index)}
+                key={index}
+              >
+                {portfolio.title} - {portfolio.symbol} - {portfolio.shares}
+              </Box>
+            ))}
+        </SimpleGrid>
 
-            <ul className="list-group">
-              {portfolios &&
-                portfolios.map((portfolio, index) => (
-                  <li
-                    className={
-                      "list-group-item " +
-                      (index === currentIndex ? "active" : "")
-                    }
-                    onClick={() => setActivePortfolio(portfolio, index)}
-                    key={index}
-                  >
-                    {portfolio.title} - {portfolio.symbol} - {portfolio.shares}
-                  </li>
-                ))}
-            </ul>
+        {currentPortfolio ? (
+          <div>
+            <h4>{currentPortfolio.title}</h4>
+
+            <div>
+              <label>
+                <strong>Symbol:</strong>
+              </label>
+              {currentPortfolio.symbol}
+            </div>
+
+            <div>
+              <label>
+                <strong># Shares:</strong>
+              </label>
+              {currentPortfolio.shares}
+            </div>
+
+            <div>
+              <label>
+                <strong>Start Date: </strong>
+              </label>
+              {currentPortfolio.dateStart}
+            </div>
+
+            <div>
+              <label>
+                <strong>End Date: </strong>
+              </label>
+              {currentPortfolio.dateEnd}
+            </div>
+
+            <button
+              className="badge badge-danger mr-2"
+              onClick={deletePortfolio}
+            >
+              Delete
+            </button>
           </div>
-          <div className="col-md-6">
-            {currentPortfolio ? (
-              <div>
-                <h4>{currentPortfolio.title}</h4>
-
-                <div>
-                  <label>
-                    <strong>Symbol:</strong>
-                  </label>
-                  {currentPortfolio.symbol}
-                </div>
-                <div>
-                  <label>
-                    <strong># Shares:</strong>
-                  </label>
-                  {currentPortfolio.shares}
-                </div>
-
-                <button
-                  className="badge badge-danger mr-2"
-                  onClick={deletePortfolio}
-                >
-                  Delete
-                </button>
-              </div>
-            ) : (
-              <div>
-                <br />
-                <p>Please click on a Portfolio...</p>
-              </div>
-            )}
+        ) : (
+          <div>
+            <br />
+            <p>Please click on a Portfolio...</p>
           </div>
-        </div>
+        )}
 
         <AddPortfolio />
       </Container>

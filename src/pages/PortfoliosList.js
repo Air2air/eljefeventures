@@ -7,17 +7,12 @@ import {
   SimpleGrid,
   Heading,
   Button,
-  Stat,
-  StatLabel,
-  StatNumber,
-  StatHelpText,
-  StatArrow,
-  StatGroup,
   Text,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import PortfolioStat from "../components/Stat";
 import AddPortfolio from "../components/AddPortfolio";
+import EditPortfolio from "../components/EditPortfolio";
 
 const PortfoliosList = () => {
   const [portfolios, setPortfolios] = useState([]);
@@ -79,8 +74,18 @@ const PortfoliosList = () => {
           <Button colorScheme="red" variant="outline" onClick={deletePortfolio}>
             Delete
           </Button>
+
+          <EditPortfolio
+            id={currentPortfolio.id}
+            title={currentPortfolio.title}
+            symbol={currentPortfolio.symbol}
+            shares={currentPortfolio.shares}
+            portValue={currentPortfolio.portValue}
+            pctGain={currentPortfolio.pctGain}
+          />
+
           <Button colorScheme="blue" variant="outline" onClick={refreshList}>
-            Back
+            Default
           </Button>
         </ButtonGroup>
       </Center>
@@ -91,7 +96,9 @@ const PortfoliosList = () => {
     <>
       <Container maxW="container.lg">
         <Heading>Portfolios List</Heading>
-        <Text p={10}>Manages my portfolios. Manage symbols and allocations.</Text>
+        <Text p={10}>
+          Manages my portfolios. Manage symbols and allocations.
+        </Text>
         {currentPortfolio ? (
           <CurrentPortfolio
             title={currentPortfolio.title}

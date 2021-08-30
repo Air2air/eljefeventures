@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PortfolioDataService from "../api/apiService";
 import {
+  Box,
   Center,
   Container,
   SimpleGrid,
@@ -23,7 +24,7 @@ const PortfoliosList = () => {
 
   useEffect(() => {
     retrievePortfolios();
-    setActivePortfolio(1);
+    setActivePortfolio(0);
   }, []);
 
   const retrievePortfolios = () => {
@@ -104,9 +105,28 @@ const PortfoliosList = () => {
             </Button>
           </Center>
         ) : (
-          <Center>
-            <br />
-            <p>Please click on a Portfolio...</p>
+          <Center mb={5} bg="green" height="180px">
+
+
+            <Center bg="gold" h="100%">
+            <StatGroup>
+              <Stat>
+                <StatLabel>All Portfolios</StatLabel>
+                <StatNumber>$2,345,678</StatNumber>
+                <StatHelpText>
+                  <StatArrow type="increase" />
+                  23.36%
+                </StatHelpText>
+              </Stat>
+            </StatGroup>
+            </Center>
+
+            <div>
+              <label>
+                <strong>Value:</strong>
+              </label>
+              Total value
+            </div>
           </Center>
         )}
       </Container>
@@ -122,7 +142,7 @@ const PortfoliosList = () => {
                 transition={{ duration: 0.1, delay: index * 0.1 }}
               >
                 <Center
-                  bg="tomato"
+                  bg="red"
                   height="120px"
                   className={
                     "list-group-item " +

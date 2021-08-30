@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 import NavBar from "./components/NavBar/Header";
 import { ChakraProvider, Flex } from "@chakra-ui/react";
-// import { ColorModeProvider } from "@chakra-ui/color-mode"
 import theme from "./theme/theme";
 import { BrowserRouter } from "react-router-dom";
 import * as serviceWorker from "./serviceWorker";

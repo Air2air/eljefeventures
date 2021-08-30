@@ -10,10 +10,22 @@ const colors = {
     600: "#0A864F",
     700: "#086F42",
     800: "#075C37",
-    900: "#064C2E"
-  }
+    900: "#064C2E",
+  },
 };
 
-const customTheme = extendTheme({ colors });
+const config = {
+  initialColorMode: "dark",
+  useSystemColorMode: false,
+};
 
-export default customTheme;
+const theme = extendTheme({
+  colors,
+  config,
+  fonts: {
+    heading: "Rubik",
+    body: "Rubik",
+  },
+});
+
+export default theme;

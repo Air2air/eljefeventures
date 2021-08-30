@@ -23,6 +23,7 @@ const PortfoliosList = () => {
 
   useEffect(() => {
     retrievePortfolios();
+    setActivePortfolio(1);
   }, []);
 
   const retrievePortfolios = () => {
@@ -111,7 +112,7 @@ const PortfoliosList = () => {
       </Container>
 
       <Container maxW="container.lg">
-        <SimpleGrid columns={4} spacing={10}>
+        <SimpleGrid columns={4} spacing={4}>
           {portfolios &&
             portfolios.map((portfolio, index) => (
               <motion.div

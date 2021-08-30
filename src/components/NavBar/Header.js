@@ -5,7 +5,6 @@ import Logo from "./Logo";
 
 const NavBar = (props) => {
   const [isOpen, setIsOpen] = React.useState(false);
-
   const toggle = () => setIsOpen(!isOpen);
 
   return (
@@ -84,7 +83,7 @@ const MenuLinks = ({ isOpen }) => {
             color={["primary.500", "primary.500", "white", "white"]}
             bg={["white", "white", "primary.500", "primary.500"]}
             _hover={{
-              bg: ["primary.100", "primary.100", "primary.600", "primary.600"]
+              bg: ["primary.100", "primary.100", "primary.600", "primary.600"],
             }}
           >
             Create Account

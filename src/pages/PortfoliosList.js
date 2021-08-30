@@ -13,8 +13,10 @@ import {
   StatHelpText,
   StatArrow,
   StatGroup,
+  Text,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
+import PortfolioStat from "../components/Stat";
 import AddPortfolio from "../components/AddPortfolio";
 
 const PortfoliosList = () => {
@@ -60,80 +62,55 @@ const PortfoliosList = () => {
       });
   };
 
+  const CurrentPortfolio = (props) => {
+    return (
+      <Center mb={5} bg="blue.100" height="180px">
+        <h4>{props.title}</h4>
+        <Center h="100%">
+          <PortfolioStat
+            title={props.title}
+            symbol={props.symbol}
+            shares={props.shares}
+            portValue={props.portValue}
+            pctGain={props.pctGain}
+          />
+        </Center>
+        <ButtonGroup variant="outline" spacing="6">
+          <Button colorScheme="red" variant="outline" onClick={deletePortfolio}>
+            Delete
+          </Button>
+          <Button colorScheme="blue" variant="outline" onClick={refreshList}>
+            Back
+          </Button>
+        </ButtonGroup>
+      </Center>
+    );
+  };
+
   return (
     <>
       <Container maxW="container.lg">
         <Heading>Portfolios List</Heading>
-
+        <Text p={10}>Manages my portfolios. Manage symbols and allocations.</Text>
         {currentPortfolio ? (
-          <Center mb={5} bg="blue.100" height="180px">
-            <h4>{currentPortfolio.title}</h4>
-
-            <div>
-              <label>
-                <strong>Symbol:</strong>
-              </label>
-              {currentPortfolio.symbol}
-            </div>
-
-            <div>
-              <label>
-                <strong># Shares:</strong>
-              </label>
-              {currentPortfolio.shares}
-            </div>
-
-            <div>
-              <label>
-                <strong>Start Date: </strong>
-              </label>
-              {currentPortfolio.dateStart}
-            </div>
-
-            <div>
-              <label>
-                <strong>End Date: </strong>
-              </label>
-              {currentPortfolio.dateEnd}
-            </div>
-            <ButtonGroup variant="outline" spacing="6">
-              <Button
-                colorScheme="red"
-                variant="outline"
-                onClick={deletePortfolio}
-              >
-                Delete
-              </Button>
-              <Button
-                colorScheme="blue"
-                variant="outline"
-                onClick={refreshList}
-              >
-                Back
-              </Button>
-            </ButtonGroup>
-          </Center>
+          <CurrentPortfolio
+            title={currentPortfolio.title}
+            symbol={currentPortfolio.symbol}
+            shares={currentPortfolio.shares}
+            portValue={currentPortfolio.portValue}
+            pctGain={currentPortfolio.pctGain}
+          />
         ) : (
           <Center mb={5} bg="gray.200" height="180px">
-            <Center bg="gold" h="100%">
-              <StatGroup>
-                <Stat>
-                  <StatLabel>All Portfolios</StatLabel>
-                  <StatNumber>$2,345,678</StatNumber>
-                  <StatHelpText>
-                    <StatArrow type="increase" />
-                    23.36%
-                  </StatHelpText>
-                </Stat>
-              </StatGroup>
+            <Center h="100%">
+              <PortfolioStat
+                title="All Portfolios"
+                symbol="concat symbols"
+                shares="sum shares"
+                portValue="2300546"
+                pctGain="12"
+              />
             </Center>
-
-            <div>
-              <label>
-                <strong>Value:</strong>
-              </label>
-              Total value
-            </div>
           </Center>
         )}
       </Container>
@@ -149,27 +126,18 @@ const PortfoliosList = () => {
                 transition={{ duration: 0.1, delay: index * 0.1 }}
               >
                 <Center
-                  bg="gray.200"
+                  bg={index === currentIndex ? "blue.100" : "gray.200"}
                   height="120px"
-                  className={
-                    "list-group-item " +
-                    (index === currentIndex ? "active" : "")
-                  }
                   onClick={() => setActivePortfolio(portfolio, index)}
                   key={index}
                 >
-                  
-                  {portfolio.symbol}
-                  <StatGroup>
-                    <Stat>
-                      <StatLabel>{portfolio.title}</StatLabel>
-                      <StatNumber>{portfolio.shares}</StatNumber>
-                      <StatHelpText>
-                        <StatArrow type="increase" />
-                        23.36%
-                      </StatHelpText>
-                    </Stat>
-                  </StatGroup>
+                  <PortfolioStat
+                    title={portfolio.title}
+                    symbol={portfolio.symbol}
+                    shares={portfolio.shares}
+                    portValue={portfolio.portValue}
+                    pctGain={portfolio.pctGain}
+                  />
                 </Center>
               </motion.div>
             ))}

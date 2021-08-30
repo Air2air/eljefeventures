@@ -10,7 +10,7 @@ const NavBar = (props) => {
     <NavBarContainer {...props}>
       <Logo
         w="100px"
-        color={["white", "white", "primary", "primary"]}
+        color={["white", "white", "teal", "teal"]}
       />
       <MenuToggle toggle={toggle} isOpen={isOpen} />
       <MenuLinks isOpen={isOpen} />
@@ -71,7 +71,7 @@ const MenuLinks = ({ isOpen }) => {
         direction={["column", "row", "row", "row"]}
         pt={[4, 4, 0, 0]}
       >
-        <MenuItem to="/portfolios">Portfolios </MenuItem>
+        <MenuItem to="/portfolios">My Portfolios </MenuItem>
         <MenuItem to="/ranking">Ranking </MenuItem>
         <MenuItem to="/report">Report </MenuItem>
         <MenuItem to="/performance">Performance </MenuItem>
@@ -79,10 +79,10 @@ const MenuLinks = ({ isOpen }) => {
           <Button
             size="sm"
             rounded="md"
-            color={["primary", "primary", "white", "white"]}
-            bg={["white", "white", "primary", "primary"]}
+            color={["teal", "teal", "white", "white"]}
+            bg={["white", "white", "teal", "teal"]}
             _hover={{
-              bg: ["primary.100", "primary.100", "primary.600", "primary.600"],
+              bg: ["teal.100", "teal.100", "teal.600", "teal.600"],
             }}
           >
             Create Account
@@ -103,8 +103,8 @@ const NavBarContainer = ({ children, ...props }) => {
       w="100%"
       mb={8}
       p={4}
-      bg={["primary", "primary", "transparent", "transparent"]}
-      color={["white", "white", "primary", "primary"]}
+      bg={["teal", "teal", "transparent", "transparent"]}
+      color={["white", "white", "teal", "teal"]}
       {...props}
     >
       {children}

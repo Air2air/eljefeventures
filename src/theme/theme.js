@@ -8,6 +8,7 @@ const lightColors = {
   gold: "#e9c46a",
   orange: "#f0852d",
   red: "#d7431d",
+  cream:"#f4f1de",
   white: "#FFF",
 };
 
@@ -30,7 +31,7 @@ const config = {
 };
 
 const theme = extendTheme({
-  colors,
+  // colors,
   config,
   fonts: {
     heading: "Rubik",

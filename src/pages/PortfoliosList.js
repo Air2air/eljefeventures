@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PortfolioDataService from "../api/apiService";
 import {
-  Box,
+  ButtonGroup,
   Center,
   Container,
   SimpleGrid,
@@ -66,7 +66,7 @@ const PortfoliosList = () => {
         <Heading>Portfolios List</Heading>
 
         {currentPortfolio ? (
-          <Center p={5} mb={2} bg="blue" height="180px">
+          <Center mb={5} bg="blue.100" height="180px">
             <h4>{currentPortfolio.title}</h4>
 
             <div>
@@ -96,29 +96,36 @@ const PortfoliosList = () => {
               </label>
               {currentPortfolio.dateEnd}
             </div>
-
-            <Button
-              className="badge badge-danger mr-2"
-              onClick={deletePortfolio}
-            >
-              Delete
-            </Button>
+            <ButtonGroup variant="outline" spacing="6">
+              <Button
+                colorScheme="red"
+                variant="outline"
+                onClick={deletePortfolio}
+              >
+                Delete
+              </Button>
+              <Button
+                colorScheme="blue"
+                variant="outline"
+                onClick={refreshList}
+              >
+                Back
+              </Button>
+            </ButtonGroup>
           </Center>
         ) : (
-          <Center mb={5} bg="green" height="180px">
-
-
+          <Center mb={5} bg="gray.200" height="180px">
             <Center bg="gold" h="100%">
-            <StatGroup>
-              <Stat>
-                <StatLabel>All Portfolios</StatLabel>
-                <StatNumber>$2,345,678</StatNumber>
-                <StatHelpText>
-                  <StatArrow type="increase" />
-                  23.36%
-                </StatHelpText>
-              </Stat>
-            </StatGroup>
+              <StatGroup>
+                <Stat>
+                  <StatLabel>All Portfolios</StatLabel>
+                  <StatNumber>$2,345,678</StatNumber>
+                  <StatHelpText>
+                    <StatArrow type="increase" />
+                    23.36%
+                  </StatHelpText>
+                </Stat>
+              </StatGroup>
             </Center>
 
             <div>
@@ -142,7 +149,7 @@ const PortfoliosList = () => {
                 transition={{ duration: 0.1, delay: index * 0.1 }}
               >
                 <Center
-                  bg="red"
+                  bg="gray.200"
                   height="120px"
                   className={
                     "list-group-item " +
@@ -151,6 +158,7 @@ const PortfoliosList = () => {
                   onClick={() => setActivePortfolio(portfolio, index)}
                   key={index}
                 >
+                  
                   {portfolio.symbol}
                   <StatGroup>
                     <Stat>

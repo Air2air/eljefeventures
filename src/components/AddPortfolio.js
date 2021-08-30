@@ -6,10 +6,11 @@ import {
   AccordionPanel,
   AccordionIcon,
   Box,
+  Button,
   Container,
   FormControl,
   FormLabel,
-  Input
+  Input,
 } from "@chakra-ui/react";
 import PortfolioDataService from "../api/apiService";
 
@@ -65,7 +66,7 @@ const AddPortfolio = () => {
   return (
     <>
       <Container maxW="container.lg">
-      <Accordion allowToggle>
+        <Accordion allowToggle>
           <AccordionItem>
             <h2>
               <AccordionButton>
@@ -84,7 +85,7 @@ const AddPortfolio = () => {
                   </button>
                 </div>
               ) : (
-                <div>
+                <form>
                   <FormControl id="title">
                     <FormLabel>Title</FormLabel>
                     <Input
@@ -149,10 +150,10 @@ const AddPortfolio = () => {
                     />
                   </FormControl>
 
-                  <button onClick={savePortfolio} className="btn btn-success">
+                  <Button colorScheme="green" onClick={savePortfolio}>
                     Submit Portfolio
-                  </button>
-                </div>
+                  </Button>
+                </form>
               )}
             </AccordionPanel>
           </AccordionItem>

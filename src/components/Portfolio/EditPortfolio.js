@@ -15,7 +15,7 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 
-import PortfolioDataService from "../api/apiService";
+import PortfolioDataService from "../../api/apiService";
 
 const EditPortfolio = (props) => {
   const initialPortfolioState = {

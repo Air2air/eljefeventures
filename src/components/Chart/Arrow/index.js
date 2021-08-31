@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { transitionDuration } from "../../../animations/animations";
 import { Button } from "@chakra-ui/react";
 import { dotData1, dotData2 } from "../../../data/dot";
 import Arrow from "./arrow";
@@ -29,7 +28,7 @@ const ArrowChart = (props) => {
           initial={{ translateY: 0 }}
           animate={{ translateY: -item.count * 6 }}
           exit={{ translateY: 0 }}
-          transition={{ ease: "easeInOut", duration: transitionDuration * 5 }}
+          transition={{ ease: "easeInOut", duration: 0.1 * 5 }}
           className="arrow-column-inner"
         >
           <div className="arrow-default" />

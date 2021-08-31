@@ -10,7 +10,7 @@ const NavBar = (props) => {
     <NavBarContainer {...props}>
       <Logo
         w="100px"
-        color={["white", "white", "teal", "teal"]}
+        color={["white", "white", "gray.500", "gray.500"]}
       />
       <MenuToggle toggle={toggle} isOpen={isOpen} />
       <MenuLinks isOpen={isOpen} />
@@ -79,10 +79,10 @@ const MenuLinks = ({ isOpen }) => {
           <Button
             size="sm"
             rounded="md"
-            color={["teal", "teal", "white", "white"]}
-            bg={["white", "white", "teal", "teal"]}
+            color={["gray.500", "gray.500", "white", "white"]}
+            bg={["white", "white", "gray.500", "gray.500"]}
             _hover={{
-              bg: ["teal.100", "teal.100", "teal.600", "teal.600"],
+              bg: ["gray.500.100", "gray.500.100", "gray.500.600", "gray.500.600"],
             }}
           >
             Create Account
@@ -103,8 +103,8 @@ const NavBarContainer = ({ children, ...props }) => {
       w="100%"
       mb={8}
       p={4}
-      bg={["teal", "teal", "transparent", "transparent"]}
-      color={["white", "white", "teal", "teal"]}
+      bg={["gray.500", "gray.500", "transparent", "transparent"]}
+      color={["white", "white", "gray.500", "gray.500"]}
       {...props}
     >
       {children}

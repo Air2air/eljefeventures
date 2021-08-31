@@ -5,14 +5,16 @@ import {
   Center,
   Container,
   SimpleGrid,
+  Flex,
   Heading,
   Button,
   Text,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
+import { TiChevronLeft } from "react-icons/ti";
 import PortfolioStat from "../components/Stat";
-import AddPortfolio from "../components/AddPortfolio";
-import EditPortfolio from "../components/EditPortfolio";
+import AddPortfolio from "../components/Portfolio/AddPortfolio";
+import EditPortfolio from "../components/Portfolio/EditPortfolio";
 
 const PortfoliosList = () => {
   const [portfolios, setPortfolios] = useState([]);
@@ -59,9 +61,11 @@ const PortfoliosList = () => {
 
   const CurrentPortfolio = (props) => {
     return (
-      <Center mb={5} bg="blue.100" height="180px">
-        <h4>{props.title}</h4>
-        <Center h="100%">
+      <Flex mb={5} bg="gray.100" h="220" justify>
+        <Center h="100%" w="33%" onClick={refreshList}>
+          <TiChevronLeft size="5em" color="gray.200" />
+        </Center>
+        <Center h="100%" w="33%">
           <PortfolioStat
             title={props.title}
             symbol={props.symbol}
@@ -70,32 +74,33 @@ const PortfoliosList = () => {
             pctGain={props.pctGain}
           />
         </Center>
-        <ButtonGroup variant="outline" spacing="6">
-          <Button colorScheme="red" variant="outline" onClick={deletePortfolio}>
-            Delete
-          </Button>
-
-          <EditPortfolio
-            id={currentPortfolio.id}
-            title={currentPortfolio.title}
-            symbol={currentPortfolio.symbol}
-            shares={currentPortfolio.shares}
-            portValue={currentPortfolio.portValue}
-            pctGain={currentPortfolio.pctGain}
-          />
-
-          <Button colorScheme="blue" variant="outline" onClick={refreshList}>
-            Default
-          </Button>
-        </ButtonGroup>
-      </Center>
+        <Center h="100%" w="33%">
+          <ButtonGroup variant="outline" spacing="6">
+            <Button
+              colorScheme="red"
+              variant="outline"
+              onClick={deletePortfolio}
+            >
+              Delete
+            </Button>
+            <EditPortfolio
+              id={currentPortfolio.id}
+              title={currentPortfolio.title}
+              symbol={currentPortfolio.symbol}
+              shares={currentPortfolio.shares}
+              portValue={currentPortfolio.portValue}
+              pctGain={currentPortfolio.pctGain}
+            />
+          </ButtonGroup>
+        </Center>
+      </Flex>
     );
   };
 
   return (
     <>
       <Container maxW="container.lg">
-        <Heading>Portfolios List</Heading>
+        <Heading>My Portfolios</Heading>
         <Text p={10}>
           Manages my portfolios. Manage symbols and allocations.
         </Text>
@@ -108,22 +113,25 @@ const PortfoliosList = () => {
             pctGain={currentPortfolio.pctGain}
           />
         ) : (
-          <Center mb={5} bg="gray.200" height="180px">
-            <Center h="100%">
-              <PortfolioStat
-                title="All Portfolios"
-                symbol="concat symbols"
-                shares="sum shares"
-                portValue="2300546"
-                pctGain="12"
-              />
-            </Center>
-          </Center>
+          <>
+            <Flex mb={5} bg="gray.300" h="220" justify>
+              <Center h="100%">
+                <PortfolioStat
+                  title="All Portfolios"
+                  symbol="concat symbols"
+                  shares="sum shares"
+                  portValue="2300546"
+                  pctGain="12"
+                />
+              </Center>
+              <AddPortfolio />
+            </Flex>
+          </>
         )}
       </Container>
 
       <Container maxW="container.lg">
-        <SimpleGrid columns={4} spacing={4}>
+        <SimpleGrid columns={3} spacing={4}>
           {portfolios &&
             portfolios.map((portfolio, index) => (
               <motion.div
@@ -133,10 +141,12 @@ const PortfoliosList = () => {
                 transition={{ duration: 0.1, delay: index * 0.1 }}
               >
                 <Center
-                  bg={index === currentIndex ? "blue.100" : "gray.200"}
+                  bg={index === currentIndex ? "gray.100" : "gray.300"}
                   height="120px"
                   onClick={() => setActivePortfolio(portfolio, index)}
                   key={index}
+                  _hover={{ bg: "gray.200" }}
+                  _focus={{ bg: "gray.400" }}
                 >
                   <PortfolioStat
                     title={portfolio.title}
@@ -150,8 +160,6 @@ const PortfoliosList = () => {
             ))}
         </SimpleGrid>
       </Container>
-
-      <AddPortfolio />
     </>
   );
 };

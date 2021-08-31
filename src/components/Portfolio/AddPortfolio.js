@@ -15,9 +15,10 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 
-import PortfolioDataService from "../api/apiService";
+import PortfolioDataService from "../../api/apiService";
 
 const AddPortfolio = () => {
+
   const initialPortfolioState = {
     id: null,
     title: "",
@@ -27,6 +28,7 @@ const AddPortfolio = () => {
     dateStart: "",
     dateEnd: "",
   };
+
   const [portfolio, setPortfolio] = useState(initialPortfolioState);
   const [submitted, setSubmitted] = useState(false);
 
@@ -73,12 +75,12 @@ const AddPortfolio = () => {
 
   return (
     <>
-      <Button onClick={onOpen}>Open Modal</Button>
+      <Button onClick={onOpen}>Add New</Button>
 
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Modal Title</ModalHeader>
+          <ModalHeader>Add New</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             {submitted ? (
@@ -130,16 +132,16 @@ const AddPortfolio = () => {
                   />
                 </FormControl>
 
-                <FormControl id="value">
+                <FormControl id="portValue">
                   <FormLabel>$ Value</FormLabel>
                   <Input
                     type="text"
                     className="form-control"
-                    id="value"
+                    id="portValue"
                     required
-                    value={portfolio.value}
+                    value={portfolio.portValue}
                     onChange={handleInputChange}
-                    name="value"
+                    name="portValue"
                   />
                 </FormControl>
 

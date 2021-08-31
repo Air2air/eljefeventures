@@ -18,17 +18,16 @@ import {
 import PortfolioDataService from "../../api/apiService";
 
 const AddPortfolio = () => {
-  const initialPortfolioState = {
+  const portfolioNewState = {
     id: null,
-    title: "",
-    symbol: "",
-    shares: "",
-    pctGain: "",
+    portName: "",
+    portValue: "",
+    portBasis: "",
     dateStart: "",
     dateEnd: "",
   };
 
-  const [portfolio, setPortfolio] = useState(initialPortfolioState);
+  const [portfolio, setPortfolio] = useState(portfolioNewState);
   const [submitted, setSubmitted] = useState(false);
 
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -40,10 +39,10 @@ const AddPortfolio = () => {
 
   const savePortfolio = () => {
     var data = {
-      title: portfolio.title,
-      symbol: portfolio.symbol,
-      shares: portfolio.shares,
-      pctGain: portfolio.pctGain,
+      id: portfolio.id,
+      portName: portfolio.portName,
+      portValue: portfolio.portValue,
+      portBasis: portfolio.portBasis,
       dateStart: portfolio.dateStart,
       dateEnd: portfolio.dateEnd,
     };
@@ -52,10 +51,9 @@ const AddPortfolio = () => {
       .then((response) => {
         setPortfolio({
           id: response.data.id,
-          title: response.data.title,
-          symbol: response.data.symbol,
-          shares: response.data.shares,
-          pctGain: response.data.pctGain,
+          portName: response.data.portName,
+          portValue: response.data.portValue,
+          portBasis: response.data.portBasis,
           dateStart: response.data.dateStart,
           dateEnd: response.data.dateEnd,
         });
@@ -68,7 +66,7 @@ const AddPortfolio = () => {
   };
 
   const newPortfolio = () => {
-    setPortfolio(initialPortfolioState);
+    setPortfolio(portfolioNewState);
     setSubmitted(false);
   };
 
@@ -85,49 +83,20 @@ const AddPortfolio = () => {
             {submitted ? (
               <div>
                 <h4>You submitted successfully!</h4>
-                <button className="btn btn-success" onClick={newPortfolio}>
-                  Add Another
-                </button>
               </div>
             ) : (
               <form>
-                <FormControl id="title">
-                  <FormLabel>Title</FormLabel>
+                <FormControl id="portName">
+                  <FormLabel>Name</FormLabel>
                   <Input
                     w={200}
                     type="text"
                     className="form-control"
-                    id="title"
+                    id="portName"
                     required
-                    value={portfolio.title}
+                    value={portfolio.portName}
                     onChange={handleInputChange}
-                    name="title"
-                  />
-                </FormControl>
-
-                <FormControl id="symbol">
-                  <FormLabel>Symbol</FormLabel>
-                  <Input
-                    type="text"
-                    className="form-control"
-                    id="symbol"
-                    required
-                    value={portfolio.symbol}
-                    onChange={handleInputChange}
-                    name="symbol"
-                  />
-                </FormControl>
-
-                <FormControl id="shares">
-                  <FormLabel># Shares</FormLabel>
-                  <Input
-                    type="text"
-                    className="form-control"
-                    id="shares"
-                    required
-                    value={portfolio.shares}
-                    onChange={handleInputChange}
-                    name="shares"
+                    name="portName"
                   />
                 </FormControl>
 
@@ -144,16 +113,16 @@ const AddPortfolio = () => {
                   />
                 </FormControl>
 
-                <FormControl id="pctGain">
-                  <FormLabel>% Gain</FormLabel>
+                <FormControl id="portBasis">
+                  <FormLabel>$ Basis</FormLabel>
                   <Input
                     type="text"
                     className="form-control"
-                    id="pctGain"
+                    id="portBasis"
                     required
-                    value={portfolio.pctGain}
+                    value={portfolio.portBasis}
                     onChange={handleInputChange}
-                    name="pctGain"
+                    name="portBasis"
                   />
                 </FormControl>
 
@@ -175,7 +144,7 @@ const AddPortfolio = () => {
                     type="date"
                     className="form-control"
                     id="dateEnd"
-                    value={portfolio.dateStart}
+                    value={portfolio.dateEnd}
                     onChange={handleInputChange}
                     name="dateEnd"
                   />

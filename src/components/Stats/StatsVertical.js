@@ -9,11 +9,14 @@ import {
 } from "@chakra-ui/react";
 import NumberFormat from "react-number-format";
 
-const PortfolioStat = (props) => {
+const StatsVertical = (props) => {
+
+  const pctGain = props.portBasis / props.portValue;
+
   return (
     <StatGroup>
       <Stat>
-        <StatLabel>{props?.title}</StatLabel>
+        <StatLabel>{props?.portName}</StatLabel>
         <StatNumber>
           <NumberFormat
             value={props?.portValue}
@@ -23,22 +26,21 @@ const PortfolioStat = (props) => {
           />
         </StatNumber>
         <StatHelpText>
-          {props?.pctGain > 0 ? (
+          {pctGain > 0 ? (
             <StatArrow type="increase" />
           ) : (
             <StatArrow type="decrease" />
           )}
           <NumberFormat
-            value={props?.pctGain}
+            value={pctGain}
             displayType={"text"}
             thousandSeparator={true}
             suffix={"%"}
           />
-          {props.symbol?.toUpperCase()}
         </StatHelpText>
       </Stat>
     </StatGroup>
   );
 };
 
-export default PortfolioStat;
+export default StatsVertical;

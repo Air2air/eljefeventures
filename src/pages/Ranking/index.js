@@ -13,7 +13,7 @@ const Ranking = () => {
           exit={{ opacity: 0 }}
           transition={{ ease: "easeOut", duration: 0.1 }}
         >
-          {/* <DotChart title="My Ranking" /> */}
+          {/* <DotChart portName="My Ranking" /> */}
         </motion.div>
       </Container>
     </>

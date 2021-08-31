@@ -18,20 +18,18 @@ import {
 import PortfolioDataService from "../../api/apiService";
 
 const EditPortfolio = (props) => {
-  const initialPortfolioState = {
+  const initialPortfolioEdit = {
     id: props.id,
-    title: props.title,
-    symbol: props.symbol,
-    shares: props.shares,
-    pctGain: props.pctGain,
+    portName: props.portName,
+    portValue: props.portValue,
+    portBasis: props.portBasis,
     dateStart: props.dateStart,
     dateEnd: props.dateEnd,
   };
-  const [currentPortfolio, setCurrentPortfolio] = useState(
-    initialPortfolioState
-  );
+  const [currentPortfolio, setCurrentPortfolio] =
+    useState(initialPortfolioEdit);
 
-  //const [submitted, setSubmitted] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
   const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -60,6 +58,7 @@ const EditPortfolio = (props) => {
   const updatePortfolio = () => {
     PortfolioDataService.update(currentPortfolio.id, currentPortfolio)
       .then((response) => {
+        setSubmitted(true);
         console.log(response.data);
       })
       .catch((e) => {
@@ -79,102 +78,83 @@ const EditPortfolio = (props) => {
           <ModalHeader>Edit</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <form>
-              <FormControl id="title">
-                <FormLabel>Title</FormLabel>
-                <Input
-                  w={200}
-                  type="text"
-                  className="form-control"
-                  id="title"
-                  required
-                  value={currentPortfolio.title}
-                  onChange={handleInputChange}
-                  name="title"
-                />
-              </FormControl>
+            {submitted ? (
+              <div>
+                <h4>You submitted successfully!</h4>
+              </div>
+            ) : (
+              <form>
+                <FormControl id="portName">
+                  <FormLabel>PortName</FormLabel>
+                  <Input
+                    w={200}
+                    type="text"
+                    className="form-control"
+                    id="portName"
+                    required
+                    value={currentPortfolio.portName}
+                    onChange={handleInputChange}
+                    name="portName"
+                  />
+                </FormControl>
 
-              <FormControl id="symbol">
-                <FormLabel>Symbol</FormLabel>
-                <Input
-                  type="text"
-                  className="form-control"
-                  id="symbol"
-                  required
-                  value={currentPortfolio.symbol}
-                  onChange={handleInputChange}
-                  name="symbol"
-                />
-              </FormControl>
+                <FormControl id="portValue">
+                  <FormLabel>$ Value</FormLabel>
+                  <Input
+                    type="text"
+                    className="form-control"
+                    id="portValue"
+                    value={currentPortfolio.portValue}
+                    onChange={handleInputChange}
+                    name="portValue"
+                  />
+                </FormControl>
 
-              <FormControl id="shares">
-                <FormLabel># Shares</FormLabel>
-                <Input
-                  type="text"
-                  className="form-control"
-                  id="shares"
-                  required
-                  value={currentPortfolio.shares}
-                  onChange={handleInputChange}
-                  name="shares"
-                />
-              </FormControl>
+                <FormControl id="portBasis">
+                  <FormLabel>$ Basis</FormLabel>
+                  <Input
+                    type="text"
+                    className="form-control"
+                    id="portBasis"
+                    required
+                    value={currentPortfolio.portBasis}
+                    onChange={handleInputChange}
+                    name="portBasis"
+                  />
+                </FormControl>
 
-              <FormControl id="portValue">
-                <FormLabel>$ Value</FormLabel>
-                <Input
-                  type="text"
-                  className="form-control"
-                  id="portValue"
-                  value={currentPortfolio.portValue}
-                  onChange={handleInputChange}
-                  name="portValue"
-                />
-              </FormControl>
+                <FormControl id="dateStart">
+                  <FormLabel>Start Date: </FormLabel>
+                  <Input
+                    type="date"
+                    className="form-control"
+                    id="dateStart"
+                    value={currentPortfolio.dateStart}
+                    onChange={handleInputChange}
+                    name="dateStart"
+                  />
+                </FormControl>
 
-              <FormControl id="pctGain">
-                <FormLabel>% Gain</FormLabel>
-                <Input
-                  type="text"
-                  className="form-control"
-                  id="pctGain"
-                  value={currentPortfolio.pctGain}
-                  onChange={handleInputChange}
-                  name="pctGain"
-                />
-              </FormControl>
-
-              <FormControl id="dateStart">
-                <FormLabel>Start Date: </FormLabel>
-                <Input
-                  type="date"
-                  className="form-control"
-                  id="dateStart"
-                  value={currentPortfolio.dateStart}
-                  onChange={handleInputChange}
-                  name="dateStart"
-                />
-              </FormControl>
-
-              <FormControl id="dateEnd">
-                <FormLabel>End Date: </FormLabel>
-                <Input
-                  type="date"
-                  className="form-control"
-                  id="dateEnd"
-                  value={currentPortfolio.dateStart}
-                  onChange={handleInputChange}
-                  name="dateEnd"
-                />
-              </FormControl>
-            </form>
+                <FormControl id="dateEnd">
+                  <FormLabel>End Date: </FormLabel>
+                  <Input
+                    type="date"
+                    className="form-control"
+                    id="dateEnd"
+                    value={currentPortfolio.dateEnd}
+                    onChange={handleInputChange}
+                    name="dateEnd"
+                  />
+                </FormControl>
+              </form>
+            )}
           </ModalBody>
           <ModalFooter>
             <Button colorScheme="blue" mr={3} onClick={onClose}>
               Close
             </Button>
             <Button colorScheme="green" onClick={updatePortfolio}>
-              Submit
+              Submit Edits
             </Button>
           </ModalFooter>
         </ModalContent>

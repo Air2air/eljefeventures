@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import PortfolioDataService from "../api/apiService";
 import {
+  Stack,
   ButtonGroup,
   Center,
   Container,
-  SimpleGrid,
   Flex,
   Heading,
   Button,
@@ -12,9 +12,10 @@ import {
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { TiChevronLeft } from "react-icons/ti";
-import PortfolioStat from "../components/Stat";
+import StatsHorizontal from "../components/Stats/StatsHorizontal";
 import AddPortfolio from "../components/Portfolio/AddPortfolio";
 import EditPortfolio from "../components/Portfolio/EditPortfolio";
+import StatsVertical from "../components/Stats/StatsVertical";
 
 const PortfoliosList = () => {
   const [portfolios, setPortfolios] = useState([]);
@@ -61,14 +62,15 @@ const PortfoliosList = () => {
 
   const CurrentPortfolio = (props) => {
     return (
-      <Flex mb={5} bg="gray.100" h="160" justify>
+      <Flex mb={2} bg="gray.100" h="160" justify>
         <Center h="100%" w="33%">
-          <PortfolioStat
-            title={props.title}
-            symbol={props.symbol}
-            shares={props.shares}
+          <StatsHorizontal
+            id={props.id}
+            portName={props.portName}
             portValue={props.portValue}
-            pctGain={props.pctGain}
+            portBasis={props.portBasis}
+            startDate={props.startDate}
+            endDate={props.endDate}
           />
         </Center>
         <Center h="100%" w="33%" onClick={refreshList}>
@@ -81,11 +83,11 @@ const PortfoliosList = () => {
             </Button>
             <EditPortfolio
               id={currentPortfolio.id}
-              title={currentPortfolio.title}
-              symbol={currentPortfolio.symbol}
-              shares={currentPortfolio.shares}
+              portName={currentPortfolio.portName}
               portValue={currentPortfolio.portValue}
-              pctGain={currentPortfolio.pctGain}
+              portBasis={currentPortfolio.portBasis}
+              startDate={currentPortfolio.startDate}
+              endDate={currentPortfolio.endDate}
             />
           </ButtonGroup>
         </Center>
@@ -102,22 +104,23 @@ const PortfoliosList = () => {
         </Text>
         {currentPortfolio ? (
           <CurrentPortfolio
-            title={currentPortfolio.title}
-            symbol={currentPortfolio.symbol}
-            shares={currentPortfolio.shares}
+            id={currentPortfolio.id}
+            portName={currentPortfolio.portName}
             portValue={currentPortfolio.portValue}
-            pctGain={currentPortfolio.pctGain}
+            portBasis={currentPortfolio.portBasis}
+            startDate={currentPortfolio.startDate}
+            endDate={currentPortfolio.endDate}
           />
         ) : (
           <>
-            <Flex mb={5} bg="gray.300" h="160" justify>
+            <Flex mb={2} bg="gray.300" h="160" justify>
               <Center h="100%" w="33%">
-                <PortfolioStat
-                  title="All Portfolios"
-                  symbol="concat symbols"
-                  shares="sum shares"
+                <StatsVertical
+                  portName="All Portfolios"
                   portValue="2300546"
-                  pctGain="12"
+                  portBasis="123456"
+                  startDate="start Date"
+                  endDate="end Date"
                 />
               </Center>
               <Center h="100%" w="33%" />
@@ -127,37 +130,35 @@ const PortfoliosList = () => {
             </Flex>
           </>
         )}
-      </Container>
 
-      <Container maxW="container.lg">
-        <SimpleGrid columns={3} spacing={4}>
-          {portfolios &&
-            portfolios.map((portfolio, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scaleY: 0 }}
-                animate={{ opacity: 1, scaleY: 1 }}
-                transition={{ duration: 0.1, delay: index * 0.1 }}
+        {portfolios &&
+          portfolios.map((portfolio, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, scaleY: 0 }}
+              animate={{ opacity: 1, scaleY: 1 }}
+              transition={{ duration: 0.1, delay: i * 0.1 }}
+            >
+              <Flex
+                align="center"
+                mb={2}
+                px={7}
+                bg={i === currentIndex ? "gray.100" : "gray.300"}
+                height="60px"
+                onClick={() => setActivePortfolio(portfolio, i)}
+                _hover={{ bg: "gray.200" }}
+                _focus={{ bg: "gray.400" }}
               >
-                <Center
-                  bg={index === currentIndex ? "gray.100" : "gray.300"}
-                  height="120px"
-                  onClick={() => setActivePortfolio(portfolio, index)}
-                  key={index}
-                  _hover={{ bg: "gray.200" }}
-                  _focus={{ bg: "gray.400" }}
-                >
-                  <PortfolioStat
-                    title={portfolio.title}
-                    symbol={portfolio.symbol}
-                    shares={portfolio.shares}
-                    portValue={portfolio.portValue}
-                    pctGain={portfolio.pctGain}
-                  />
-                </Center>
-              </motion.div>
-            ))}
-        </SimpleGrid>
+                <StatsHorizontal
+                  portName={portfolio.portName}
+                  portValue={portfolio.portValue}
+                  portBasis={portfolio.portBasis}
+                  startDate={portfolio.startDate}
+                  endDate={portfolio.endDate}
+                />
+              </Flex>
+            </motion.div>
+          ))}
       </Container>
     </>
   );

@@ -14,8 +14,8 @@ const Report = () => {
           exit={{ opacity: 0 }}
           transition={{ ease: "easeOut", duration: 0.1 }}
         >
-          {/* <BubbleChart title="Allocations" />
-          <DotList title="My Report" /> */}
+          {/* <BubbleChart portName="Allocations" />
+          <DotList portName="My Report" /> */}
         </motion.div>
       </Container>
     </>

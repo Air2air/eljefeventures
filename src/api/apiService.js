@@ -21,8 +21,8 @@ const remove = id => {
 };
 
 
-const findByTitle = title => {
-  return http.get(`/portfolios?title=${title}`);
+const findByPortName = portName => {
+  return http.get(`/portfolios?portName=${portName}`);
 };
 
 export default {
@@ -31,5 +31,5 @@ export default {
   create,
   update,
   remove,
-  findByTitle
+  findByPortName
 };

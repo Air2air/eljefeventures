@@ -61,10 +61,7 @@ const PortfoliosList = () => {
 
   const CurrentPortfolio = (props) => {
     return (
-      <Flex mb={5} bg="gray.100" h="220" justify>
-        <Center h="100%" w="33%" onClick={refreshList}>
-          <TiChevronLeft size="5em" color="gray.200" />
-        </Center>
+      <Flex mb={5} bg="gray.100" h="160" justify>
         <Center h="100%" w="33%">
           <PortfolioStat
             title={props.title}
@@ -74,13 +71,12 @@ const PortfoliosList = () => {
             pctGain={props.pctGain}
           />
         </Center>
+        <Center h="100%" w="33%" onClick={refreshList}>
+          <TiChevronLeft size="5em" color="gray.200" />
+        </Center>
         <Center h="100%" w="33%">
-          <ButtonGroup variant="outline" spacing="6">
-            <Button
-              colorScheme="red"
-              variant="outline"
-              onClick={deletePortfolio}
-            >
+          <ButtonGroup spacing="6">
+            <Button colorScheme="red" onClick={deletePortfolio}>
               Delete
             </Button>
             <EditPortfolio
@@ -114,8 +110,8 @@ const PortfoliosList = () => {
           />
         ) : (
           <>
-            <Flex mb={5} bg="gray.300" h="220" justify>
-              <Center h="100%">
+            <Flex mb={5} bg="gray.300" h="160" justify>
+              <Center h="100%" w="33%">
                 <PortfolioStat
                   title="All Portfolios"
                   symbol="concat symbols"
@@ -124,7 +120,10 @@ const PortfoliosList = () => {
                   pctGain="12"
                 />
               </Center>
-              <AddPortfolio />
+              <Center h="100%" w="33%" />
+              <Center h="100%" w="33%">
+                <AddPortfolio />
+              </Center>
             </Flex>
           </>
         )}

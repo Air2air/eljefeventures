@@ -18,7 +18,6 @@ import {
 import PortfolioDataService from "../../api/apiService";
 
 const AddPortfolio = () => {
-
   const initialPortfolioState = {
     id: null,
     title: "",
@@ -80,7 +79,7 @@ const AddPortfolio = () => {
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Add New</ModalHeader>
+          <ModalHeader>Add New Portfolio</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             {submitted ? (
@@ -181,10 +180,6 @@ const AddPortfolio = () => {
                     name="dateEnd"
                   />
                 </FormControl>
-
-                <Button colorScheme="green" onClick={savePortfolio}>
-                  Submit Portfolio
-                </Button>
               </form>
             )}
           </ModalBody>
@@ -192,7 +187,9 @@ const AddPortfolio = () => {
             <Button colorScheme="blue" mr={3} onClick={onClose}>
               Close
             </Button>
-            <Button variant="ghost">Secondary Action</Button>
+            <Button colorScheme="green" onClick={savePortfolio}>
+              Submit Portfolio
+            </Button>
           </ModalFooter>
         </ModalContent>
       </Modal>

@@ -174,7 +174,7 @@ const EditPortfolio = (props) => {
               Close
             </Button>
             <Button colorScheme="green" onClick={updatePortfolio}>
-              Submit Edited Portfolio
+              Submit
             </Button>
           </ModalFooter>
         </ModalContent>

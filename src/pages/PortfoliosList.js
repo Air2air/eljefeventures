@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from "react";
 import PortfolioDataService from "../api/apiService";
 import {
-  Stack,
+  Button,
   ButtonGroup,
   Center,
   Container,
   Flex,
   Heading,
-  Button,
+
   Text,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { TiChevronLeft } from "react-icons/ti";
-import StatsHorizontal from "../components/Stats/StatsHorizontal";
+import PortfolioRow from "../components/Portfolio/PortfolioRow";
 import AddPortfolio from "../components/Portfolio/AddPortfolio";
 import EditPortfolio from "../components/Portfolio/EditPortfolio";
 import StatsVertical from "../components/Stats/StatsVertical";
@@ -64,7 +64,7 @@ const PortfoliosList = () => {
     return (
       <Flex mb={2} bg="gray.100" h="160" justify>
         <Center h="100%" w="33%">
-          <StatsHorizontal
+          <PortfolioRow
             id={props.id}
             portName={props.portName}
             portValue={props.portValue}
@@ -149,7 +149,7 @@ const PortfoliosList = () => {
                 _hover={{ bg: "gray.200" }}
                 _focus={{ bg: "gray.400" }}
               >
-                <StatsHorizontal
+                <PortfolioRow
                   portName={portfolio.portName}
                   portValue={portfolio.portValue}
                   portBasis={portfolio.portBasis}

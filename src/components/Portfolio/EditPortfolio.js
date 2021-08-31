@@ -33,7 +33,6 @@ const EditPortfolio = (props) => {
 
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  //const [message, setMessage] = useState("");
 
   const getPortfolio = (id) => {
     PortfolioDataService.get(id)

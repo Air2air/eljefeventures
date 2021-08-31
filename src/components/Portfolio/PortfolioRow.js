@@ -1,6 +1,6 @@
 import React from "react";
 import PortfolioDataService from "./../../api/apiService";
-import EditPortfolio from "./../Portfolio/EditPortfolio";
+import EditPortfolio from "./EditPortfolio";
 import {
   Button,
   ButtonGroup,
@@ -11,7 +11,7 @@ import {
 } from "@chakra-ui/react";
 import NumberFormat from "react-number-format";
 
-const StatsHorizontal = (props) => {
+const PortfolioRow = (props) => {
   // const refreshList = () => {
   //   retrievePortfolios();
   //   setCurrentPortfolio(null);
@@ -85,4 +85,4 @@ const StatsHorizontal = (props) => {
   );
 };
 
-export default StatsHorizontal;
+export default PortfolioRow;

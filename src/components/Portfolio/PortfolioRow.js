@@ -10,6 +10,7 @@ import {
   Button,
   ButtonGroup,
   Flex,
+  Spacer,
   Stat,
   StatArrow,
   Text,
@@ -93,8 +94,8 @@ const PortfolioRow = (props) => {
             <Flex w={160} mr={5}>
               <Text fontSize="lg">{props.portName}</Text>
             </Flex>
-
-            <AccordionIcon />
+            <Spacer />
+            <AccordionIcon fontSize="2em" />
           </AccordionButton>
           <AccordionPanel pb={4}>
             <Flex w={180} mr={5}>

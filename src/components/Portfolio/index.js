@@ -1,21 +1,9 @@
 import React, { useState, useEffect } from "react";
 import PortfolioDataService from "./../../api/apiService";
-import {
-  Center,
-  Flex,
-  Heading,
-  Text,
-  Stat,
-  StatLabel,
-  StatNumber,
-  StatHelpText,
-  StatArrow,
-  StatGroup,
-} from "@chakra-ui/react";
+import { Flex, Heading, Text, Spacer, Stat, StatArrow } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import PortfolioRow from "./PortfolioRow";
 import AddPortfolio from "./AddPortfolio";
-import StatsVertical from "./../Stats/StatsVertical";
 import NumberFormat from "react-number-format";
 
 const PortfoliosList = () => {
@@ -57,36 +45,29 @@ const PortfoliosList = () => {
       <Heading>My Portfolios</Heading>
       <Text p={10}>Manages my portfolios. Manage symbols and allocations.</Text>
       <Flex p={4} bg="gray.200" flexDirection="column">
-        <Center h="160" w="100%">
-          <StatGroup>
-            <Stat>
-              <StatLabel>My Portfolios</StatLabel>
-              <StatNumber>
-                <NumberFormat
-                  value={portfolioTotalValue}
-                  displayType={"text"}
-                  thousandSeparator={true}
-                  prefix={"$"}
-                />
-              </StatNumber>
-              <StatHelpText>
-                {pctGain > 0 ? (
-                  <StatArrow type="increase" />
-                ) : (
-                  <StatArrow type="decrease" />
-                )}
-                <NumberFormat
-                  value={pctGain}
-                  displayType={"text"}
-                  thousandSeparator={true}
-                  suffix={"%"}
-                />
-              </StatHelpText>
+        <Flex h={20} mx={7} align="center">
+          <Flex w={120}>
+            <Stat w="10px">
+              {portfolioTotalBasis > portfolioTotalValue ? (
+                <StatArrow type="decrease" />
+              ) : (
+                <StatArrow type="increase" />
+              )}
             </Stat>
-          </StatGroup>
-
+            <Text fontSize="2xl">
+              <NumberFormat
+                value={pctGain}
+                displayType={"text"}
+                decimalScale={3}
+                suffix={"%"}
+                allowNegative={true}
+                prefix={portfolioTotalBasis > portfolioTotalValue ? "-" : "+"}
+              />
+            </Text>
+          </Flex>
+          <Spacer />
           <AddPortfolio />
-        </Center>
+        </Flex>
 
         {portfolios &&
           portfolios.map((portfolio, i) => (

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import PortfolioDataService from "./../../api/apiService";
 import {
   Button,
   FormControl,
@@ -14,8 +14,6 @@ import {
   ModalCloseButton,
   useDisclosure,
 } from "@chakra-ui/react";
-
-import PortfolioDataService from "../../api/apiService";
 
 const EditPortfolio = (props) => {
   const initialPortfolioEdit = {
@@ -32,7 +30,6 @@ const EditPortfolio = (props) => {
   const [submitted, setSubmitted] = useState(false);
 
   const { isOpen, onOpen, onClose } = useDisclosure();
-
 
   const getPortfolio = (id) => {
     PortfolioDataService.get(id)
@@ -84,7 +81,7 @@ const EditPortfolio = (props) => {
             ) : (
               <form>
                 <FormControl id="portName">
-                  <FormLabel>PortName</FormLabel>
+                  <FormLabel>Name</FormLabel>
                   <Input
                     w={200}
                     type="text"

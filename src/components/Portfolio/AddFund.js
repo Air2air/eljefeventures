@@ -5,19 +5,16 @@ import {
   FormControl,
   FormLabel,
   Input,
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton,
-  useDisclosure,
+  Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionPanel,
+  AccordionIcon,
 } from "@chakra-ui/react";
 
 import PortfolioDataService from "../../api/elJefeApi";
 
-const AddPortfolio = () => {
+const AddFund = () => {
   const portfolioNewState = {
     id: null,
     fundName: "",
@@ -29,8 +26,6 @@ const AddPortfolio = () => {
 
   const [portfolio, setPortfolio] = useState(portfolioNewState);
   const [submitted, setSubmitted] = useState(false);
-
-  const { isOpen, onOpen, onClose } = useDisclosure();
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -72,14 +67,19 @@ const AddPortfolio = () => {
 
   return (
     <>
-      <Button onClick={onOpen}>Add New</Button>
-
-      <Modal isOpen={isOpen} onClose={onClose}>
-        <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>Add New Portfolio</ModalHeader>
-          <ModalCloseButton />
-          <ModalBody>
+      <Accordion allowToggle>
+        <AccordionItem>
+          <AccordionButton
+            align="center"
+            mb={2}
+            px={7}
+            height="60px"
+            bg="gray.300"
+            _hover={{ bg: "gray.400" }}
+          >
+            Add Fund
+          </AccordionButton>
+          <AccordionPanel pb={4}>
             {submitted ? (
               <div>
                 <h4>You submitted successfully!</h4>
@@ -151,19 +151,15 @@ const AddPortfolio = () => {
                 </FormControl>
               </form>
             )}
-          </ModalBody>
-          <ModalFooter>
-            <Button colorScheme="blue" mr={3} onClick={onClose}>
-              Close
-            </Button>
+
             <Button colorScheme="green" onClick={savePortfolio}>
-              Submit Portfolio
+              Add Fund
             </Button>
-          </ModalFooter>
-        </ModalContent>
-      </Modal>
+          </AccordionPanel>
+        </AccordionItem>
+      </Accordion>
     </>
   );
 };
 
-export default AddPortfolio;
+export default AddFund;

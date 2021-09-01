@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import ElJefeAPI from "./../../api/elJefeApi";
+import ElJefeAPI from "../../api/elJefeApi";
 import { Button, FormControl, FormLabel, Input } from "@chakra-ui/react";
 
-const EditPortfolio = (props) => {
+const EditFund = (props) => {
   const initialPortfolioEdit = {
     id: props.id,
     fundName: props.fundName,
@@ -127,5 +127,5 @@ const EditPortfolio = (props) => {
   );
 };
 
-export default EditPortfolio;
+export default EditFund;
 

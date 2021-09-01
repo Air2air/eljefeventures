@@ -1,6 +1,6 @@
 import React from "react";
 import PortfolioDataService from "../../api/elJefeApi";
-import EditPortfolio from "./../Portfolio/EditPortfolio";
+import EditFund from "../Portfolio/EditFund";
 import {
   Button,
   ButtonGroup,
@@ -71,7 +71,7 @@ const StatsHorizontal = (props) => {
           <Button colorScheme="red" onClick={deletePortfolio}>
             Delete
           </Button>
-          <EditPortfolio
+          <EditFund
             id={props?.id}
             fundName={props?.fundName}
             fundValue={props?.fundValue}

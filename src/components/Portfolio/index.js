@@ -3,7 +3,7 @@ import PortfolioDataService from "../../api/elJefeApi";
 import { Flex, Heading, Text, Spacer, Stat, StatArrow } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import PortfolioRow from "./PortfolioRow";
-import AddPortfolio from "./AddPortfolio";
+import AddFund from "./AddFund";
 import NumberFormat from "react-number-format";
 
 const PortfoliosList = () => {
@@ -65,9 +65,8 @@ const PortfoliosList = () => {
               />
             </Text>
           </Flex>
-          <Spacer />
-          <AddPortfolio />
         </Flex>
+        <AddFund />
 
         {portfolios &&
           portfolios.map((portfolio, i) => (

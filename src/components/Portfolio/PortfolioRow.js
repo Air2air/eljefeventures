@@ -1,6 +1,6 @@
 import React from "react";
 import PortfolioDataService from "../../api/elJefeApi";
-import EditPortfolio from "./EditPortfolio";
+import EditFund from "./EditFund";
 import {
   Accordion,
   AccordionItem,
@@ -103,7 +103,7 @@ const PortfolioRow = (props) => {
                 <Button colorScheme="red" onClick={deletePortfolio}>
                   Delete
                 </Button>
-                <EditPortfolio
+                <EditFund
                   id={props?.id}
                   fundName={props?.fundName}
                   fundValue={props?.fundValue}

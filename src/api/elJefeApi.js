@@ -21,8 +21,8 @@ const remove = id => {
 };
 
 
-const findByPortName = portName => {
-  return http.get(`/portfolios?portName=${portName}`);
+const findByPortName = fundName => {
+  return http.get(`/portfolios?fundName=${fundName}`);
 };
 
 export default {

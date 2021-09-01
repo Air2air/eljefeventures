@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import PortfolioDataService from "./../../api/apiService";
+import PortfolioDataService from "../../api/elJefeApi";
 import { Flex, Heading, Text, Spacer, Stat, StatArrow } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import PortfolioRow from "./PortfolioRow";
@@ -29,12 +29,12 @@ const PortfoliosList = () => {
   };
 
   const portfolioTotalValue = portfolios.reduce(
-    (total, currentValue) => (total = total + currentValue.portValue),
+    (total, currentValue) => (total = total + currentValue.fundValue),
     0
   );
 
   const portfolioTotalBasis = portfolios.reduce(
-    (total, currentValue) => (total = total + currentValue.portBasis),
+    (total, currentValue) => (total = total + currentValue.fundBasis),
     0
   );
 
@@ -80,11 +80,11 @@ const PortfoliosList = () => {
               <PortfolioRow
                 i={i}
                 id={portfolio.id}
-                portName={portfolio.portName}
-                portValue={portfolio.portValue}
-                portBasis={portfolio.portBasis}
-                startDate={portfolio.startDate}
-                endDate={portfolio.endDate}
+                fundName={portfolio.fundName}
+                fundValue={portfolio.fundValue}
+                fundBasis={portfolio.fundBasis}
+                fundStart={portfolio.fundStart}
+                fundEnd={portfolio.fundEnd}
               />
             </motion.div>
           ))}

@@ -1,38 +1,23 @@
 import React, { useState, useEffect } from "react";
-import PortfolioDataService from "./../../api/apiService";
-import {
-  Button,
-  FormControl,
-  FormLabel,
-  Input,
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton,
-  useDisclosure,
-} from "@chakra-ui/react";
+import ElJefeAPI from "./../../api/elJefeApi";
+import { Button, FormControl, FormLabel, Input } from "@chakra-ui/react";
 
 const EditPortfolio = (props) => {
   const initialPortfolioEdit = {
     id: props.id,
-    portName: props.portName,
-    portValue: props.portValue,
-    portBasis: props.portBasis,
-    dateStart: props.dateStart,
-    dateEnd: props.dateEnd,
+    fundName: props.fundName,
+    fundValue: props.fundValue,
+    fundBasis: props.fundBasis,
+    fundStart: props.fundStart,
+    fundEnd: props.fundEnd,
   };
   const [currentPortfolio, setCurrentPortfolio] =
     useState(initialPortfolioEdit);
 
   const [submitted, setSubmitted] = useState(false);
 
-  const { isOpen, onOpen, onClose } = useDisclosure();
-
   const getPortfolio = (id) => {
-    PortfolioDataService.get(id)
+    ElJefeAPI.get(id)
       .then((response) => {
         setCurrentPortfolio(response.data);
         console.log(response.data);
@@ -52,7 +37,7 @@ const EditPortfolio = (props) => {
   };
 
   const updatePortfolio = () => {
-    PortfolioDataService.update(currentPortfolio.id, currentPortfolio)
+    ElJefeAPI.update(currentPortfolio.id, currentPortfolio)
       .then((response) => {
         setSubmitted(true);
         console.log(response.data);
@@ -64,99 +49,83 @@ const EditPortfolio = (props) => {
 
   return (
     <>
-      <Button colorScheme="green" onClick={onOpen}>
-        Edit
+      {submitted ? (
+        <div>
+          <h4>You submitted successfully!</h4>
+        </div>
+      ) : (
+        <form>
+          <FormControl id="fundName">
+            <FormLabel>Name</FormLabel>
+            <Input
+              w={200}
+              type="text"
+              className="form-control"
+              id="fundName"
+              required
+              value={currentPortfolio.fundName}
+              onChange={handleInputChange}
+              name="fundName"
+            />
+          </FormControl>
+
+          <FormControl id="fundValue">
+            <FormLabel>$ Value</FormLabel>
+            <Input
+              type="text"
+              className="form-control"
+              id="fundValue"
+              value={currentPortfolio.fundValue}
+              onChange={handleInputChange}
+              name="fundValue"
+            />
+          </FormControl>
+
+          <FormControl id="fundBasis">
+            <FormLabel>$ Basis</FormLabel>
+            <Input
+              type="text"
+              className="form-control"
+              id="fundBasis"
+              required
+              value={currentPortfolio.fundBasis}
+              onChange={handleInputChange}
+              name="fundBasis"
+            />
+          </FormControl>
+
+          <FormControl id="fundStart">
+            <FormLabel>Start Date: </FormLabel>
+            <Input
+              type="date"
+              className="form-control"
+              id="fundStart"
+              value={currentPortfolio.fundStart}
+              onChange={handleInputChange}
+              name="fundStart"
+            />
+          </FormControl>
+
+          <FormControl id="fundEnd">
+            <FormLabel>End Date: </FormLabel>
+            <Input
+              type="date"
+              className="form-control"
+              id="fundEnd"
+              value={currentPortfolio.fundEnd}
+              onChange={handleInputChange}
+              name="fundEnd"
+            />
+          </FormControl>
+        </form>
+      )}
+
+      <Button colorScheme="green" onClick={updatePortfolio}>
+        Submit Edits
       </Button>
-
-      <Modal isOpen={isOpen} onClose={onClose}>
-        <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>Edit</ModalHeader>
-          <ModalCloseButton />
-          <ModalBody>
-            {submitted ? (
-              <div>
-                <h4>You submitted successfully!</h4>
-              </div>
-            ) : (
-              <form>
-                <FormControl id="portName">
-                  <FormLabel>Name</FormLabel>
-                  <Input
-                    w={200}
-                    type="text"
-                    className="form-control"
-                    id="portName"
-                    required
-                    value={currentPortfolio.portName}
-                    onChange={handleInputChange}
-                    name="portName"
-                  />
-                </FormControl>
-
-                <FormControl id="portValue">
-                  <FormLabel>$ Value</FormLabel>
-                  <Input
-                    type="text"
-                    className="form-control"
-                    id="portValue"
-                    value={currentPortfolio.portValue}
-                    onChange={handleInputChange}
-                    name="portValue"
-                  />
-                </FormControl>
-
-                <FormControl id="portBasis">
-                  <FormLabel>$ Basis</FormLabel>
-                  <Input
-                    type="text"
-                    className="form-control"
-                    id="portBasis"
-                    required
-                    value={currentPortfolio.portBasis}
-                    onChange={handleInputChange}
-                    name="portBasis"
-                  />
-                </FormControl>
-
-                <FormControl id="dateStart">
-                  <FormLabel>Start Date: </FormLabel>
-                  <Input
-                    type="date"
-                    className="form-control"
-                    id="dateStart"
-                    value={currentPortfolio.dateStart}
-                    onChange={handleInputChange}
-                    name="dateStart"
-                  />
-                </FormControl>
-
-                <FormControl id="dateEnd">
-                  <FormLabel>End Date: </FormLabel>
-                  <Input
-                    type="date"
-                    className="form-control"
-                    id="dateEnd"
-                    value={currentPortfolio.dateEnd}
-                    onChange={handleInputChange}
-                    name="dateEnd"
-                  />
-                </FormControl>
-              </form>
-            )}
-          </ModalBody>
-          <ModalFooter>
-            <Button colorScheme="blue" mr={3} onClick={onClose}>
-              Close
-            </Button>
-            <Button colorScheme="green" onClick={updatePortfolio}>
-              Submit Edits
-            </Button>
-          </ModalFooter>
-        </ModalContent>
-      </Modal>
     </>
   );
 };
 
 export default EditPortfolio;
+

@@ -50,7 +50,7 @@ const DotList = (props) => {
     <>
       <div className="dot-list-wrapper mb-5">
         <div className="dot-header d-flex align-items-center justify-content-between">
-          <h4>{props.portName}</h4>
+          <h4>{props.fundName}</h4>
           <div>
             <Button
               className={active ? "btn mr-2 active" : "btn mr-2"}

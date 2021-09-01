@@ -1,5 +1,5 @@
 import React from "react";
-import PortfolioDataService from "./../../api/apiService";
+import PortfolioDataService from "../../api/elJefeApi";
 import EditPortfolio from "./../Portfolio/EditPortfolio";
 import {
   Button,
@@ -29,13 +29,13 @@ const StatsHorizontal = (props) => {
       });
   };
 
-  const pctGain = props.portBasis / props.portValue;
+  const pctGain = props.fundBasis / props.fundValue;
 
   return (
     <>
       <Flex w={120} mr={10} justify="start">
         <Stat w="20px">
-          {props.portBasis > props.portValue ? (
+          {props.fundBasis > props.fundValue ? (
             <StatArrow type="decrease" />
           ) : (
             <StatArrow type="increase" />
@@ -48,23 +48,23 @@ const StatsHorizontal = (props) => {
             decimalScale={3}
             suffix={"%"}
             allowNegative={true}
-            prefix={props.portBasis > props.portValue ? "- " : "+ "}
+            prefix={props.fundBasis > props.fundValue ? "- " : "+ "}
           />
         </Text>
       </Flex>
       <Flex w={160} mr={5}>
         <Text fontSize="md" mr={2} color="gray.500">
-          {props.portBasis > props.portValue ? "Loss:" : "Gain:"}
+          {props.fundBasis > props.fundValue ? "Loss:" : "Gain:"}
         </Text>
         <NumberFormat
-          value={props?.portValue - props?.portBasis}
+          value={props?.fundValue - props?.fundBasis}
           displayType={"text"}
           thousandSeparator={true}
-          prefix={props.portBasis > props.portValue ? "$" : "+$"}
+          prefix={props.fundBasis > props.fundValue ? "$" : "+$"}
         />
       </Flex>
       <Flex w={160} mr={5}>
-        <Text fontSize="lg">{props.portName}</Text>
+        <Text fontSize="lg">{props.fundName}</Text>
       </Flex>
       <Flex w={180} mr={5}>
         <ButtonGroup spacing="6">
@@ -73,11 +73,11 @@ const StatsHorizontal = (props) => {
           </Button>
           <EditPortfolio
             id={props?.id}
-            portName={props?.portName}
-            portValue={props?.portValue}
-            portBasis={props?.portBasis}
-            startDate={props?.startDate}
-            endDate={props?.endDate}
+            fundName={props?.fundName}
+            fundValue={props?.fundValue}
+            fundBasis={props?.fundBasis}
+            fundStart={props?.fundStart}
+            fundEnd={props?.fundEnd}
           />
         </ButtonGroup>
       </Flex>

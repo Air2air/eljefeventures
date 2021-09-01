@@ -15,16 +15,16 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 
-import PortfolioDataService from "../../api/apiService";
+import PortfolioDataService from "../../api/elJefeApi";
 
 const AddPortfolio = () => {
   const portfolioNewState = {
     id: null,
-    portName: "",
-    portValue: "",
-    portBasis: "",
-    dateStart: "",
-    dateEnd: "",
+    fundName: "",
+    fundValue: "",
+    fundBasis: "",
+    fundStart: "",
+    fundEnd: "",
   };
 
   const [portfolio, setPortfolio] = useState(portfolioNewState);
@@ -40,22 +40,22 @@ const AddPortfolio = () => {
   const savePortfolio = () => {
     var data = {
       id: portfolio.id,
-      portName: portfolio.portName,
-      portValue: portfolio.portValue,
-      portBasis: portfolio.portBasis,
-      dateStart: portfolio.dateStart,
-      dateEnd: portfolio.dateEnd,
+      fundName: portfolio.fundName,
+      fundValue: portfolio.fundValue,
+      fundBasis: portfolio.fundBasis,
+      fundStart: portfolio.fundStart,
+      fundEnd: portfolio.fundEnd,
     };
 
     PortfolioDataService.create(data)
       .then((response) => {
         setPortfolio({
           id: response.data.id,
-          portName: response.data.portName,
-          portValue: response.data.portValue,
-          portBasis: response.data.portBasis,
-          dateStart: response.data.dateStart,
-          dateEnd: response.data.dateEnd,
+          fundName: response.data.fundName,
+          fundValue: response.data.fundValue,
+          fundBasis: response.data.fundBasis,
+          fundStart: response.data.fundStart,
+          fundEnd: response.data.fundEnd,
         });
         setSubmitted(true);
         console.log(response.data);
@@ -86,67 +86,67 @@ const AddPortfolio = () => {
               </div>
             ) : (
               <form>
-                <FormControl id="portName">
+                <FormControl id="fundName">
                   <FormLabel>Name</FormLabel>
                   <Input
                     w={200}
                     type="text"
                     className="form-control"
-                    id="portName"
+                    id="fundName"
                     required
-                    value={portfolio.portName}
+                    value={portfolio.fundName}
                     onChange={handleInputChange}
-                    name="portName"
+                    name="fundName"
                   />
                 </FormControl>
 
-                <FormControl id="portValue">
+                <FormControl id="fundValue">
                   <FormLabel>$ Value</FormLabel>
                   <Input
                     type="text"
                     className="form-control"
-                    id="portValue"
+                    id="fundValue"
                     required
-                    value={portfolio.portValue}
+                    value={portfolio.fundValue}
                     onChange={handleInputChange}
-                    name="portValue"
+                    name="fundValue"
                   />
                 </FormControl>
 
-                <FormControl id="portBasis">
+                <FormControl id="fundBasis">
                   <FormLabel>$ Basis</FormLabel>
                   <Input
                     type="text"
                     className="form-control"
-                    id="portBasis"
+                    id="fundBasis"
                     required
-                    value={portfolio.portBasis}
+                    value={portfolio.fundBasis}
                     onChange={handleInputChange}
-                    name="portBasis"
+                    name="fundBasis"
                   />
                 </FormControl>
 
-                <FormControl id="dateStart">
+                <FormControl id="fundStart">
                   <FormLabel>Start Date: </FormLabel>
                   <Input
                     type="date"
                     className="form-control"
-                    id="dateStart"
-                    value={portfolio.dateStart}
+                    id="fundStart"
+                    value={portfolio.fundStart}
                     onChange={handleInputChange}
-                    name="dateStart"
+                    name="fundStart"
                   />
                 </FormControl>
 
-                <FormControl id="dateEnd">
+                <FormControl id="fundEnd">
                   <FormLabel>End Date: </FormLabel>
                   <Input
                     type="date"
                     className="form-control"
-                    id="dateEnd"
-                    value={portfolio.dateEnd}
+                    id="fundEnd"
+                    value={portfolio.fundEnd}
                     onChange={handleInputChange}
-                    name="dateEnd"
+                    name="fundEnd"
                   />
                 </FormControl>
               </form>

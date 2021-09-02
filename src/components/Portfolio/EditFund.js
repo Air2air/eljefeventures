@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from "react";
 import ElJefeAPI from "../../api/elJefeApi";
-import { Button, FormControl, FormLabel, Input } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Flex,
+  FormControl,
+  FormLabel,
+  Input,
+} from "@chakra-ui/react";
 
 const EditFund = (props) => {
   const initialPortfolioEdit = {
@@ -55,68 +62,77 @@ const EditFund = (props) => {
         </div>
       ) : (
         <form>
-          <FormControl id="fundName">
-            <FormLabel>Name</FormLabel>
-            <Input
-              w={200}
-              type="text"
-              className="form-control"
-              id="fundName"
-              required
-              value={currentPortfolio.fundName}
-              onChange={handleInputChange}
-              name="fundName"
-            />
-          </FormControl>
+          <Flex h="100px">
+            <FormControl id="fundName" mr={1}>
+              <FormLabel>Name</FormLabel>
+              <Input
+                type="text"
+                className="form-control"
+                id="fundName"
+                required
+                value={currentPortfolio.fundName}
+                onChange={handleInputChange}
+                name="fundName"
+                width={220}
+                bg="gray.100"
+              />
+            </FormControl>
 
-          <FormControl id="fundValue">
-            <FormLabel>$ Value</FormLabel>
-            <Input
-              type="text"
-              className="form-control"
-              id="fundValue"
-              value={currentPortfolio.fundValue}
-              onChange={handleInputChange}
-              name="fundValue"
-            />
-          </FormControl>
+            <FormControl id="fundValue" mx={1}>
+              <FormLabel>$ Value</FormLabel>
+              <Input
+                type="text"
+                className="form-control"
+                id="fundValue"
+                value={currentPortfolio.fundValue}
+                onChange={handleInputChange}
+                name="fundValue"
+                width={100}
+                bg="gray.100"
+              />
+            </FormControl>
 
-          <FormControl id="fundBasis">
-            <FormLabel>$ Basis</FormLabel>
-            <Input
-              type="text"
-              className="form-control"
-              id="fundBasis"
-              required
-              value={currentPortfolio.fundBasis}
-              onChange={handleInputChange}
-              name="fundBasis"
-            />
-          </FormControl>
+            <FormControl id="fundBasis" mx={1}>
+              <FormLabel>$ Basis</FormLabel>
+              <Input
+                type="text"
+                className="form-control"
+                id="fundBasis"
+                required
+                value={currentPortfolio.fundBasis}
+                onChange={handleInputChange}
+                name="fundBasis"
+                width={100}
+                bg="gray.100"
+              />
+            </FormControl>
 
-          <FormControl id="fundStart">
-            <FormLabel>Start Date: </FormLabel>
-            <Input
-              type="date"
-              className="form-control"
-              id="fundStart"
-              value={currentPortfolio.fundStart}
-              onChange={handleInputChange}
-              name="fundStart"
-            />
-          </FormControl>
+            <FormControl id="fundStart" mx={1}>
+              <FormLabel>Start Date: </FormLabel>
+              <Input
+                type="date"
+                className="form-control"
+                id="fundStart"
+                value={currentPortfolio.fundStart}
+                onChange={handleInputChange}
+                name="fundStart"
+                bg="gray.100"
+              />
+            </FormControl>
 
-          <FormControl id="fundEnd">
-            <FormLabel>End Date: </FormLabel>
-            <Input
-              type="date"
-              className="form-control"
-              id="fundEnd"
-              value={currentPortfolio.fundEnd}
-              onChange={handleInputChange}
-              name="fundEnd"
-            />
-          </FormControl>
+            <FormControl id="fundEnd" ml={1}>
+              <FormLabel>End Date: </FormLabel>
+              <Input
+                type="date"
+                className="form-control"
+                id="fundEnd"
+                value={currentPortfolio.fundEnd}
+                onChange={handleInputChange}
+                name="fundEnd"
+                bg="gray.100"
+              />
+            </FormControl>
+          </Flex>
         </form>
       )}
 
@@ -128,4 +144,3 @@ const EditFund = (props) => {
 };
 
 export default EditFund;
-

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import PortfolioDataService from "../../api/elJefeApi";
-import { Flex, Heading, Text, Spacer, Stat, StatArrow } from "@chakra-ui/react";
+import { Flex, Heading, Text, Stat, StatArrow } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import FundRow from "./FundRow";
 import AddFund from "./AddFund";

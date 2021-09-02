@@ -102,11 +102,7 @@ const FundRow = (props) => {
             <AccordionIcon fontSize="2em" />
           </AccordionButton>
           <AccordionPanel pb={4}>
-            <Flex w={180} mr={5}>
-              <ButtonGroup spacing="6">
-                <Button colorScheme="red" onClick={deletePortfolio}>
-                  Delete
-                </Button>
+
                 <EditFund
                   id={props?.id}
                   fundName={props?.fundName}
@@ -115,8 +111,9 @@ const FundRow = (props) => {
                   fundStart={props?.fundStart}
                   fundEnd={props?.fundEnd}
                 />
-              </ButtonGroup>
-            </Flex>
+                <Button colorScheme="red" onClick={deletePortfolio}>
+                  Delete
+                </Button>
           </AccordionPanel>
         </AccordionItem>
       </Accordion>

@@ -21,7 +21,7 @@ const remove = id => {
 };
 
 
-const findByPortName = fundName => {
+const findByName = fundName => {
   return http.get(`/portfolios?fundName=${fundName}`);
 };
 
@@ -31,5 +31,5 @@ export default {
   create,
   update,
   remove,
-  findByPortName
+  findByName
 };

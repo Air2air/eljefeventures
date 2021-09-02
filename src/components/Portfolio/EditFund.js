@@ -36,6 +36,10 @@ const EditFund = (props) => {
     setCurrentPortfolio({ ...currentPortfolio, [name]: value });
   };
 
+
+  const [fundStart, fundStartOnChange] = useState(new Date());
+
+
   const deletePortfolio = () => {
     ElJefeAPI.remove(props.id)
       .then((response) => {

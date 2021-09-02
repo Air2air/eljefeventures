@@ -1,19 +1,20 @@
 import React, { useState } from "react";
 
-
 import {
   Accordion,
   AccordionItem,
   AccordionButton,
   AccordionPanel,
   Button,
+  Center,
+  Flex,
   FormControl,
   FormLabel,
   Input,
   Spacer,
   Text,
 } from "@chakra-ui/react";
-import {FaPlus} from "react-icons/fa"
+import { FaPlus } from "react-icons/fa";
 import ElJefeAPI from "../../api/elJefeApi";
 
 const AddFund = () => {
@@ -81,84 +82,104 @@ const AddFund = () => {
           >
             <Text fontSize="lg">+ Add a Fund</Text>
             <Spacer />
-            <FaPlus fontSize="1em"  />
+            <FaPlus fontSize="1em" />
           </AccordionButton>
           <AccordionPanel pb={4}>
             {submitted ? (
-              <div>
-                <h4>You submitted successfully!</h4>
-              </div>
+        <Center h="90px" >
+        <h4>You added a new fund successfully</h4>
+      </Center>
             ) : (
               <form>
-                <FormControl id="fundName">
-                  <FormLabel>Name</FormLabel>
-                  <Input
-                    w={200}
-                    type="text"
-                    className="form-control"
-                    id="fundName"
-                    required
-                    value={portfolio.fundName}
-                    onChange={handleInputChange}
-                    name="fundName"
-                  />
-                </FormControl>
+                <Flex h="90px">
+                  <FormControl id="fundName" mr={1}>
+                    <FormLabel>Name</FormLabel>
+                    <Input
+                      type="text"
+                      className="form-control"
+                      id="fundName"
+                      required
+                      value={portfolio.fundName}
+                      onChange={handleInputChange}
+                      name="fundName"
+                      width={220}
+                      color="gray.600"
+                      bg="gray.100"
+                      _hover={{ color: "gray.900", bg: "white" }}
+                    />
+                  </FormControl>
 
-                <FormControl id="fundValue">
-                  <FormLabel>$ Value</FormLabel>
-                  <Input
-                    type="text"
-                    className="form-control"
-                    id="fundValue"
-                    required
-                    value={portfolio.fundValue}
-                    onChange={handleInputChange}
-                    name="fundValue"
-                  />
-                </FormControl>
+                  <FormControl id="fundValue" mx={1}>
+                    <FormLabel>$ Value</FormLabel>
+                    <Input
+                      type="text"
+                      className="form-control"
+                      id="fundValue"
+                      value={portfolio.fundValue}
+                      onChange={handleInputChange}
+                      name="fundValue"
+                      width={100}
+                      color="gray.600"
+                      bg="gray.100"
+                      _hover={{ color: "gray.900", bg: "white" }}
+                    />
+                  </FormControl>
 
-                <FormControl id="fundBasis">
-                  <FormLabel>$ Basis</FormLabel>
-                  <Input
-                    type="text"
-                    className="form-control"
-                    id="fundBasis"
-                    required
-                    value={portfolio.fundBasis}
-                    onChange={handleInputChange}
-                    name="fundBasis"
-                  />
-                </FormControl>
+                  <FormControl id="fundBasis" mx={1}>
+                    <FormLabel>$ Basis</FormLabel>
+                    <Input
+                      type="text"
+                      className="form-control"
+                      id="fundBasis"
+                      required
+                      value={portfolio.fundBasis}
+                      onChange={handleInputChange}
+                      name="fundBasis"
+                      width={100}
+                      color="gray.600"
+                      bg="gray.100"
+                      _hover={{ color: "gray.900", bg: "white" }}
+                    />
+                  </FormControl>
 
-                <FormControl id="fundStart">
-                  <FormLabel>Start Date: </FormLabel>
-                  <Input
-                    type="date"
-                    className="form-control"
-                    id="fundStart"
-                    value={portfolio.fundStart}
-                    onChange={handleInputChange}
-                    name="fundStart"
-                  />
-                </FormControl>
+                  <FormControl id="fundStart" mx={1}>
+                    <FormLabel>Start Date: </FormLabel>
+                    <Input
+                      type="date"
+                      className="form-control"
+                      id="fundStart"
+                      value={portfolio.fundStart}
+                      onChange={handleInputChange}
+                      name="fundStart"
+                      color="gray.600"
+                      bg="gray.100"
+                      _hover={{ color: "gray.900", bg: "white" }}
+                    />
+                  </FormControl>
 
-                <FormControl id="fundEnd">
-                  <FormLabel>End Date: </FormLabel>
-                  <Input
-                    type="date"
-                    className="form-control"
-                    id="fundEnd"
-                    value={portfolio.fundEnd}
-                    onChange={handleInputChange}
-                    name="fundEnd"
-                  />
-                </FormControl>
+                  <FormControl id="fundEnd" ml={1}>
+                    <FormLabel>End Date: </FormLabel>
+                    <Input
+                      type="date"
+                      className="form-control"
+                      id="fundEnd"
+                      value={portfolio.fundEnd}
+                      onChange={handleInputChange}
+                      name="fundEnd"
+                      color="gray.600"
+                      bg="gray.100"
+                      _hover={{ color: "gray.900", bg: "white" }}
+                    />
+                  </FormControl>
+                </Flex>
               </form>
             )}
 
-            <Button colorScheme="green" onClick={savePortfolio}>
-              Add Fund
-            </Button>
+            <Flex justifyContent="flex-end">
+              <Button colorScheme="green" onClick={savePortfolio}>
+                Add Fund
+              </Button>
+            </Flex>
           </AccordionPanel>
         </AccordionItem>
       </Accordion>

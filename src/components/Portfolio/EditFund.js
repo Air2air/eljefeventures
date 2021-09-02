@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ElJefeAPI from "../../api/elJefeApi";
-import { Button, Flex, FormControl, FormLabel, Input } from "@chakra-ui/react";
+import { Button, Center, Flex, FormControl, FormLabel, Input } from "@chakra-ui/react";
 
 const EditFund = (props) => {
   const initialPortfolioEdit = {
@@ -61,9 +61,9 @@ const EditFund = (props) => {
   return (
     <>
       {submitted ? (
-        <div>
-          <h4>You submitted successfully!</h4>
-        </div>
+        <Center h="90px" >
+          <h4>Your edit was successful</h4>
+        </Center>
       ) : (
         <form>
           <Flex h="90px">
@@ -73,12 +73,13 @@ const EditFund = (props) => {
                 type="text"
                 className="form-control"
                 id="fundName"
-                required
                 value={currentPortfolio.fundName}
                 onChange={handleInputChange}
                 name="fundName"
                 width={220}
+                color="gray.600"
                 bg="gray.100"
+                _hover={{ color: "gray.900", bg: "white" }}
               />
             </FormControl>
 
@@ -92,7 +93,9 @@ const EditFund = (props) => {
                 onChange={handleInputChange}
                 name="fundValue"
                 width={100}
+                color="gray.600"
                 bg="gray.100"
+                _hover={{ color: "gray.900", bg: "white" }}
               />
             </FormControl>
 
@@ -107,7 +110,9 @@ const EditFund = (props) => {
                 onChange={handleInputChange}
                 name="fundBasis"
                 width={100}
+                color="gray.600"
                 bg="gray.100"
+                _hover={{ color: "gray.900", bg: "white" }}
               />
             </FormControl>
 
@@ -120,7 +125,9 @@ const EditFund = (props) => {
                 value={currentPortfolio.fundStart}
                 onChange={handleInputChange}
                 name="fundStart"
+                color="gray.600"
                 bg="gray.100"
+                _hover={{ color: "gray.900", bg: "white" }}
               />
             </FormControl>
 
@@ -133,7 +140,9 @@ const EditFund = (props) => {
                 value={currentPortfolio.fundEnd}
                 onChange={handleInputChange}
                 name="fundEnd"
+                color="gray.600"
                 bg="gray.100"
+                _hover={{ color: "gray.900", bg: "white" }}
               />
             </FormControl>
           </Flex>

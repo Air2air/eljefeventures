@@ -80,7 +80,7 @@ const FundRow = (props) => {
               />
             </Flex>
             <Flex mr={5}>
-              <Text fontSize="lg">{props.fundName}</Text>
+              <Text fontSize="md">{props.fundName}</Text>
             </Flex>
             <Spacer />
             <AccordionIcon fontSize="2em" />
@@ -94,13 +94,6 @@ const FundRow = (props) => {
               fundStart={props?.fundStart}
               fundEnd={props?.fundEnd}
             />
-            {/* <Button
-              colorScheme="red"
-              justifySelf="flexStart"
-              onClick={deletePortfolio}
-            >
-              Delete
-            </Button> */}
           </AccordionPanel>
         </AccordionItem>
       </Accordion>

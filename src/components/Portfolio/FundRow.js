@@ -17,7 +17,7 @@ import {
 } from "@chakra-ui/react";
 import NumberFormat from "react-number-format";
 
-const PortfolioRow = (props) => {
+const FundRow = (props) => {
   // const refreshList = () => {
   //   retrievePortfolios();
   //   setCurrentPortfolio(null);
@@ -49,24 +49,28 @@ const PortfolioRow = (props) => {
             bg="gray.300"
             _hover={{ bg: "gray.400" }}
           >
-            <Flex w={120} mr={10} justify="start">
-              <Stat w="20px">
-                {props.fundBasis > props.fundValue ? (
-                  <StatArrow type="decrease" />
-                ) : (
-                  <StatArrow type="increase" />
-                )}
-              </Stat>
-              <Text fontSize="xl">
-                <NumberFormat
-                  value={pctGain}
-                  displayType={"text"}
-                  decimalScale={3}
-                  suffix={"%"}
-                  allowNegative={true}
-                  prefix={props.fundBasis > props.fundValue ? "- " : "+ "}
-                />
-              </Text>
+            <Flex w={180} mr={10} justify="start">
+              <Flex w="30px" align="center">
+                <Stat>
+                  {props.fundBasis > props.fundValue ? (
+                    <StatArrow type="decrease" />
+                  ) : (
+                    <StatArrow type="increase" />
+                  )}
+                </Stat>
+              </Flex>
+              <Flex w={180} mr={10} align="center" justify="center">
+                <Text fontSize="xl">
+                  <NumberFormat
+                    value={pctGain}
+                    displayType={"text"}
+                    decimalScale={3}
+                    allowNegative={true}
+                    prefix={props.fundBasis > props.fundValue ? "- " : "+ "}
+                  />
+                </Text>
+                <Text color="gray.500" px={1}> %</Text>
+              </Flex>
             </Flex>
 
             <Flex w={160} mr={5}>
@@ -91,7 +95,7 @@ const PortfolioRow = (props) => {
                 prefix="$"
               />
             </Flex>
-            <Flex w={160} mr={5}>
+            <Flex mr={5}>
               <Text fontSize="lg">{props.fundName}</Text>
             </Flex>
             <Spacer />
@@ -120,4 +124,4 @@ const PortfolioRow = (props) => {
   );
 };
 
-export default PortfolioRow;
+export default FundRow;

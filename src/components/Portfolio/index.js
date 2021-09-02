@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import PortfolioDataService from "../../api/elJefeApi";
 import { Flex, Heading, Text, Spacer, Stat, StatArrow } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-import PortfolioRow from "./PortfolioRow";
+import FundRow from "./FundRow";
 import AddFund from "./AddFund";
 import NumberFormat from "react-number-format";
 
@@ -42,31 +42,32 @@ const PortfoliosList = () => {
 
   return (
     <>
-      <Heading>My Portfolios</Heading>
-      <Text p={10}>Manages my portfolios. Manage symbols and allocations.</Text>
+      <Heading>My Portfolio</Heading>
+      <Text p={10}>Manage funds and allocations.</Text>
       <Flex p={4} bg="gray.200" flexDirection="column">
-        <Flex h={20} mx={7} align="center">
-          <Flex w={120}>
-            <Stat w="10px">
+        <Flex h="100px" mx={7} align="center">
+          <Flex w={150} align="center" justify="start">
+            <Stat w="30px">
               {portfolioTotalBasis > portfolioTotalValue ? (
-                <StatArrow type="decrease" />
+                <StatArrow fontSize="24px" type="decrease" />
               ) : (
-                <StatArrow type="increase" />
+                <StatArrow fontSize="2em" type="increase" />
               )}
             </Stat>
-            <Text fontSize="2xl">
+            <Text fontSize="3xl">
               <NumberFormat
                 value={pctGain}
                 displayType={"text"}
                 decimalScale={3}
-                suffix={"%"}
                 allowNegative={true}
                 prefix={portfolioTotalBasis > portfolioTotalValue ? "-" : "+"}
               />
             </Text>
+            <Text fontSize="xl" color="gray.500" px={1}>
+              %
+            </Text>
           </Flex>
         </Flex>
-        <AddFund />
 
         {portfolios &&
           portfolios.map((portfolio, i) => (
@@ -76,7 +77,7 @@ const PortfoliosList = () => {
               animate={{ opacity: 1, scaleY: 1 }}
               transition={{ duration: 0.1, delay: i * 0.1 }}
             >
-              <PortfolioRow
+              <FundRow
                 i={i}
                 id={portfolio.id}
                 fundName={portfolio.fundName}
@@ -87,6 +88,8 @@ const PortfoliosList = () => {
               />
             </motion.div>
           ))}
+
+        <AddFund />
       </Flex>
     </>
   );

@@ -1,17 +1,19 @@
 import React, { useState } from "react";
 
+
 import {
-  Button,
-  FormControl,
-  FormLabel,
-  Input,
   Accordion,
   AccordionItem,
   AccordionButton,
   AccordionPanel,
-  AccordionIcon,
+  Button,
+  FormControl,
+  FormLabel,
+  Input,
+  Spacer,
+  Text,
 } from "@chakra-ui/react";
-
+import {FaPlus} from "react-icons/fa"
 import PortfolioDataService from "../../api/elJefeApi";
 
 const AddFund = () => {
@@ -72,12 +74,14 @@ const AddFund = () => {
           <AccordionButton
             align="center"
             mb={2}
-            px={7}
+            px={9}
             height="60px"
             bg="gray.300"
             _hover={{ bg: "gray.400" }}
           >
-            Add Fund
+            <Text fontSize="lg">+ Add a Fund</Text>
+            <Spacer />
+            <FaPlus fontSize="1em"  />
           </AccordionButton>
           <AccordionPanel pb={4}>
             {submitted ? (

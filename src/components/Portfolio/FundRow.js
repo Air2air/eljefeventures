@@ -1,5 +1,4 @@
 import React from "react";
-import PortfolioDataService from "../../api/elJefeApi";
 import EditFund from "./EditFund";
 import {
   Accordion,
@@ -7,8 +6,6 @@ import {
   AccordionButton,
   AccordionPanel,
   AccordionIcon,
-  Button,
-  ButtonGroup,
   Flex,
   Spacer,
   Stat,
@@ -18,22 +15,6 @@ import {
 import NumberFormat from "react-number-format";
 
 const FundRow = (props) => {
-  // const refreshList = () => {
-  //   retrievePortfolios();
-  //   setCurrentPortfolio(null);
-  //   setCurrentIndex(-1);
-  // };
-
-  const deletePortfolio = () => {
-    PortfolioDataService.remove(props.id)
-      .then((response) => {
-        console.log(response.data);
-        //refreshList();
-      })
-      .catch((e) => {
-        console.log(e);
-      });
-  };
 
   const pctGain = (props.fundValue / props.fundBasis) * 10;
 
@@ -69,7 +50,10 @@ const FundRow = (props) => {
                     prefix={props.fundBasis > props.fundValue ? "- " : "+ "}
                   />
                 </Text>
-                <Text color="gray.500" px={1}> %</Text>
+                <Text color="gray.500" px={1}>
+                  {" "}
+                  %
+                </Text>
               </Flex>
             </Flex>
 
@@ -102,18 +86,21 @@ const FundRow = (props) => {
             <AccordionIcon fontSize="2em" />
           </AccordionButton>
           <AccordionPanel pb={4}>
-
-                <EditFund
-                  id={props?.id}
-                  fundName={props?.fundName}
-                  fundValue={props?.fundValue}
-                  fundBasis={props?.fundBasis}
-                  fundStart={props?.fundStart}
-                  fundEnd={props?.fundEnd}
-                />
-                <Button colorScheme="red" onClick={deletePortfolio}>
-                  Delete
-                </Button>
+            <EditFund
+              id={props?.id}
+              fundName={props?.fundName}
+              fundValue={props?.fundValue}
+              fundBasis={props?.fundBasis}
+              fundStart={props?.fundStart}
+              fundEnd={props?.fundEnd}
+            />
+            {/* <Button
+              colorScheme="red"
+              justifySelf="flexStart"
+              onClick={deletePortfolio}
+            >
+              Delete
+            </Button> */}
           </AccordionPanel>
         </AccordionItem>
       </Accordion>

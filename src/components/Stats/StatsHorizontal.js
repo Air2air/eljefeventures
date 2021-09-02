@@ -1,5 +1,5 @@
 import React from "react";
-import PortfolioDataService from "../../api/elJefeApi";
+import ElJefeAPI from "../../api/elJefeApi";
 import EditFund from "../Portfolio/EditFund";
 import {
   Button,
@@ -19,7 +19,7 @@ const StatsHorizontal = (props) => {
   // };
 
   const deletePortfolio = () => {
-    PortfolioDataService.remove(props.id)
+    ElJefeAPI.remove(props.id)
       .then((response) => {
         console.log(response.data);
         //refreshList();

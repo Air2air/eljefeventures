@@ -1,13 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ElJefeAPI from "../../api/elJefeApi";
-import {
-  Box,
-  Button,
-  Flex,
-  FormControl,
-  FormLabel,
-  Input,
-} from "@chakra-ui/react";
+import { Button, Flex, FormControl, FormLabel, Input } from "@chakra-ui/react";
 
 const EditFund = (props) => {
   const initialPortfolioEdit = {
@@ -43,6 +36,17 @@ const EditFund = (props) => {
     setCurrentPortfolio({ ...currentPortfolio, [name]: value });
   };
 
+  const deletePortfolio = () => {
+    ElJefeAPI.remove(props.id)
+      .then((response) => {
+        console.log(response.data);
+        //refreshList();
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
+
   const updatePortfolio = () => {
     ElJefeAPI.update(currentPortfolio.id, currentPortfolio)
       .then((response) => {
@@ -62,7 +66,7 @@ const EditFund = (props) => {
         </div>
       ) : (
         <form>
-          <Flex h="100px">
+          <Flex h="90px">
             <FormControl id="fundName" mr={1}>
               <FormLabel>Name</FormLabel>
               <Input
@@ -136,9 +140,14 @@ const EditFund = (props) => {
         </form>
       )}
 
-      <Button colorScheme="green" onClick={updatePortfolio}>
-        Submit Edits
-      </Button>
+      <Flex justifyContent="space-between">
+        <Button colorScheme="red" onClick={deletePortfolio}>
+          Delete
+        </Button>
+        <Button colorScheme="green" onClick={updatePortfolio}>
+          Submit Edits
+        </Button>
+      </Flex>
     </>
   );
 };

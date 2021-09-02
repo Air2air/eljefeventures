@@ -14,7 +14,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 import {FaPlus} from "react-icons/fa"
-import PortfolioDataService from "../../api/elJefeApi";
+import ElJefeAPI from "../../api/elJefeApi";
 
 const AddFund = () => {
   const portfolioNewState = {
@@ -44,7 +44,7 @@ const AddFund = () => {
       fundEnd: portfolio.fundEnd,
     };
 
-    PortfolioDataService.create(data)
+    ElJefeAPI.create(data)
       .then((response) => {
         setPortfolio({
           id: response.data.id,

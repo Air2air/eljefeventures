@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import PortfolioDataService from "../../api/elJefeApi";
+import ElJefeAPI from "../../api/elJefeApi";
 import { Flex, Heading, Text, Stat, StatArrow } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import FundRow from "./FundRow";
@@ -14,7 +14,7 @@ const PortfoliosList = () => {
   }, []);
 
   const retrievePortfolios = () => {
-    PortfolioDataService.getAll()
+    ElJefeAPI.getAll()
       .then((response) => {
         setPortfolios(response.data);
         console.log(response.data);

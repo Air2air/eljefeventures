@@ -1,18 +1,17 @@
 import React, { useState } from "react";
 
 import {
-  Accordion,
-  AccordionItem,
-  AccordionButton,
-  AccordionPanel,
+  Box,
   Button,
   Center,
+  Collapse,
   Flex,
   FormControl,
   FormLabel,
   Input,
   Spacer,
   Text,
+  useDisclosure,
 } from "@chakra-ui/react";
 import { FaPlus } from "react-icons/fa";
 import ElJefeAPI from "../../api/elJefeApi";
@@ -25,6 +24,7 @@ const AddFund = () => {
     fundBasis: "",
   };
 
+  const { isOpen, onToggle } = useDisclosure();
   const [portfolio, setPortfolio] = useState(portfolioNewState);
   const [submitted, setSubmitted] = useState(false);
 
@@ -64,14 +64,20 @@ const AddFund = () => {
 
   return (
     <>
-      <Accordion allowToggle bg="gray.300" _hover={{ bg: "gray.350" }}>
-        <AccordionItem>
-          <AccordionButton align="center" px={9} height="60px">
-            <Text fontSize="lg">+ Add a Fund</Text>
-            <Spacer />
-            <FaPlus fontSize="1em" />
-          </AccordionButton>
-          <AccordionPanel>
+      <Box mb={3} bg="gray.300" _hover={{ bg: "gray.400" }} align="center">
+        <Flex
+          h="50px"
+          px={5}
+          align="center"
+          onClick={onToggle}
+          style={{ opacity: isOpen ? 0.3 : 1 }}
+        >
+          <Text fontSize="lg">+ Add a Fund</Text>
+          <Spacer />
+          <FaPlus fontSize="1em" />
+        </Flex>
+        <Collapse in={isOpen}>
+          <Box p={3} pt={0}>
             {submitted ? (
               <Center h="90px">
                 <h4>
@@ -135,9 +141,9 @@ const AddFund = () => {
                 </Flex>
               </form>
             )}
-          </AccordionPanel>
-        </AccordionItem>
-      </Accordion>
+          </Box>
+        </Collapse>
+      </Box>
     </>
   );
 };

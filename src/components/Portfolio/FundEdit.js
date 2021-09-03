@@ -2,25 +2,28 @@ import React, { useState, useEffect } from "react";
 import ElJefeAPI from "../../api/elJefeApi";
 
 import {
+  Box,
   Button,
-  Center,
   Flex,
   FormControl,
   FormLabel,
   Input,
+  useToast,
+  useDisclosure,
 } from "@chakra-ui/react";
 
-const EditFund = props => {
+const EditFund = (props) => {
+
+  const toast = useToast();
+
   const initialPortfolioEdit = {
     fundName: props.fundName,
     fundValue: props.fundValue,
     fundBasis: props.fundBasis,
   };
 
-  const [currentPortfolio, setCurrentPortfolio] =
+  const [fundToEdit, setCurrentPortfolio] =
     useState(initialPortfolioEdit);
-
-  const [submitted, setSubmitted] = useState(false);
 
   const getPortfolio = (id) => {
     ElJefeAPI.get(id)
@@ -39,13 +42,20 @@ const EditFund = props => {
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    setCurrentPortfolio({ ...currentPortfolio, [name]: value });
+    setCurrentPortfolio({ ...fundToEdit, [name]: value });
   };
 
   const deletePortfolio = () => {
     ElJefeAPI.remove(props.id)
       .then((response) => {
         console.log(response.data);
+        toast({
+          title: "Deleted",
+          description: "You removed " + fundToEdit.fundName + ".",
+          status: "error",
+          duration: 3000,
+          isClosable: true,
+        });
       })
       .catch((e) => {
         console.log(e);
@@ -53,10 +63,16 @@ const EditFund = props => {
   };
 
   const updatePortfolio = () => {
-    ElJefeAPI.update(currentPortfolio.id, currentPortfolio)
+    ElJefeAPI.update(fundToEdit.id, fundToEdit)
       .then((response) => {
-        setSubmitted(true);
         console.log(response.data);
+        toast({
+          title: "Updated",
+          description: "You updated " + fundToEdit.fundName + ".",
+          status: "success",
+          duration: 3000,
+          isClosable: true,
+        });
       })
       .catch((e) => {
         console.log(e);
@@ -65,11 +81,7 @@ const EditFund = props => {
 
   return (
     <>
-      {submitted ? (
-        <Center h="130px">
-          <h4>You edited {currentPortfolio.fundName} successfully.</h4>
-        </Center>
-      ) : (
+      <Box p={3} pt={0}>
         <form>
           <Flex h="90px">
             <FormControl id="fundName" mr={4}>
@@ -78,7 +90,7 @@ const EditFund = props => {
                 type="text"
                 className="form-control"
                 id="fundName"
-                value={currentPortfolio.fundName}
+                value={fundToEdit.fundName}
                 onChange={handleInputChange}
                 name="fundName"
                 color="gray.600"
@@ -94,7 +106,7 @@ const EditFund = props => {
                 className="form-control"
                 id="fundBasis"
                 required
-                value={currentPortfolio.fundBasis}
+                value={fundToEdit.fundBasis}
                 onChange={handleInputChange}
                 name="fundBasis"
                 color="gray.600"
@@ -109,7 +121,7 @@ const EditFund = props => {
                 type="text"
                 className="form-control"
                 id="fundValue"
-                value={currentPortfolio.fundValue}
+                value={fundToEdit.fundValue}
                 onChange={handleInputChange}
                 name="fundValue"
                 color="gray.600"
@@ -127,7 +139,7 @@ const EditFund = props => {
             </Button>
           </Flex>
         </form>
-      )}
+      </Box>
     </>
   );
 };

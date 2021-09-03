@@ -34,6 +34,7 @@ const AddFund = () => {
   };
 
   const saveNewFund = () => {
+    
     var data = {
       id: fund.id,
       fundName: fund.fundName,

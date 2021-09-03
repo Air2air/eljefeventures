@@ -13,8 +13,7 @@ import {
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import NumberFormat from "react-number-format";
 
-const FundRow = props => {
-
+const FundRow = (props) => {
   const { isOpen, onToggle } = useDisclosure();
 
   const pctGain = (props?.fundValue / props?.fundBasis) * 10;
@@ -84,14 +83,12 @@ const FundRow = props => {
           {!isOpen ? <FaChevronDown /> : <FaChevronUp />}
         </Flex>
         <Collapse in={isOpen}>
-          <Box p={3} pt={0}>
-            <EditFund
-              id={props?.id}
-              fundName={props?.fundName}
-              fundValue={props?.fundValue}
-              fundBasis={props?.fundBasis}
-            />
-          </Box>
+          <EditFund
+            id={props?.id}
+            fundName={props?.fundName}
+            fundValue={props?.fundValue}
+            fundBasis={props?.fundBasis}
+          />
         </Collapse>
       </Box>
     </>

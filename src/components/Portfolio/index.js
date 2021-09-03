@@ -42,8 +42,10 @@ const PortfoliosList = () => {
 
   return (
     <>
-      <Heading>My Portfolio</Heading>
-      <Text p={10}>Manage funds and allocations.</Text>
+      <Heading my={4} size="md">
+        My Portfolio
+      </Heading>
+
       <Flex p={4} bg="gray.200" flexDirection="column">
         <Flex h="100px" mx={7} align="center">
           <Flex w={150} align="center" justify="start">

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import EditFund from "./EditFund";
 import {
   Accordion,
@@ -6,6 +6,7 @@ import {
   AccordionButton,
   AccordionPanel,
   AccordionIcon,
+  Button,
   Flex,
   Spacer,
   Stat,
@@ -15,20 +16,26 @@ import {
 import NumberFormat from "react-number-format";
 
 const FundRow = (props) => {
+ const handleToggle = () => setShow(!show);
+  const [show, setShow] = useState(false);
 
   const pctGain = (props.fundValue / props.fundBasis) * 10;
 
   return (
     <>
-      <Accordion allowToggle>
+      <Accordion
+        allowToggle
+        mb={2}
+        bg="gray.300"
+        _hover={{ bg: "gray.350" }}
+        isOpen={!show}
+      >
         <AccordionItem>
           <AccordionButton
             align="center"
-            mb={2}
             px={7}
             height="60px"
-            bg="gray.300"
-            _hover={{ bg: "gray.400" }}
+            _expanded={{ opacity: 0.3 }}
           >
             <Flex w={180} mr={10} justify="start">
               <Flex w="30px" align="center">
@@ -86,6 +93,9 @@ const FundRow = (props) => {
             <AccordionIcon fontSize="2em" />
           </AccordionButton>
           <AccordionPanel pb={4}>
+            <Button size="sm" onClick={handleToggle} mt="1rem">
+              Show {show ? "Less" : "More"}
+            </Button>
             <EditFund
               id={props?.id}
               fundName={props?.fundName}

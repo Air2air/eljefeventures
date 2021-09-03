@@ -11,20 +11,17 @@ import {
 } from "@chakra-ui/react";
 
 const EditFund = (props) => {
-  
   const initialPortfolioEdit = {
-    //id: props.id,
     fundName: props.fundName,
     fundValue: props.fundValue,
     fundBasis: props.fundBasis,
-    fundStart: props.fundStart,
-    fundEnd: props.fundEnd,
   };
 
   const [currentPortfolio, setCurrentPortfolio] =
     useState(initialPortfolioEdit);
 
   const [submitted, setSubmitted] = useState(false);
+
 
   const getPortfolio = (id) => {
     ElJefeAPI.get(id)
@@ -71,13 +68,13 @@ const EditFund = (props) => {
   return (
     <>
       {submitted ? (
-        <Center h="90px">
-          <h4>Your edit was successful</h4>
+        <Center h="130px">
+          <h4>You edited {currentPortfolio.fundName} successfully.</h4>
         </Center>
       ) : (
         <form>
           <Flex h="90px">
-            <FormControl id="fundName" mr={1}>
+            <FormControl id="fundName" mr={4}>
               <FormLabel>Name</FormLabel>
               <Input
                 type="text"
@@ -92,7 +89,7 @@ const EditFund = (props) => {
               />
             </FormControl>
 
-            <FormControl id="fundBasis" mx={1}>
+            <FormControl id="fundBasis" mx={4}>
               <FormLabel>$ Basis</FormLabel>
               <Input
                 type="text"
@@ -108,8 +105,7 @@ const EditFund = (props) => {
               />
             </FormControl>
 
-
-            <FormControl id="fundValue" mx={1}>
+            <FormControl id="fundValue" ml={4}>
               <FormLabel>$ Value</FormLabel>
               <Input
                 type="text"
@@ -123,55 +119,17 @@ const EditFund = (props) => {
                 _hover={{ color: "gray.900", bg: "white" }}
               />
             </FormControl>
-
-
-            {/* <FormControl id="fundStart" mx={1}>
-              <FormLabel>Start date:</FormLabel>
-              <Input
-                type="text"
-                className="form-control"
-                id="fundStart"
-                required
-                value={currentPortfolio.fundStart}
-                onChange={handleInputChange}
-                name="fundStart"
-                width={100}
-                color="gray.600"
-                bg="gray.100"
-                _hover={{ color: "gray.900", bg: "white" }}
-              />
-            </FormControl>
-
-            <FormControl id="fundEnd" mx={1}>
-              <FormLabel>End date:</FormLabel>
-              <Input
-                type="text"
-                className="form-control"
-                id="fundEnd"
-                required
-                value={currentPortfolio.fundEnd}
-                onChange={handleInputChange}
-                name="fundEnd"
-                width={100}
-                color="gray.600"
-                bg="gray.100"
-                _hover={{ color: "gray.900", bg: "white" }}
-              />
-            </FormControl> */}
-
-
+          </Flex>
+          <Flex justifyContent="space-between">
+            <Button colorScheme="red" onClick={deletePortfolio}>
+              Delete
+            </Button>
+            <Button colorScheme="green" onClick={updatePortfolio}>
+              Submit Edits
+            </Button>
           </Flex>
         </form>
       )}
-
-      <Flex justifyContent="space-between">
-        <Button colorScheme="red" onClick={deletePortfolio}>
-          Delete
-        </Button>
-        <Button colorScheme="green" onClick={updatePortfolio}>
-          Submit Edits
-        </Button>
-      </Flex>
     </>
   );
 };

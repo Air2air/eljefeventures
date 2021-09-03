@@ -20,9 +20,9 @@ const FundRow = (props) => {
 
   return (
     <>
-      <Box mb={3} bg="gray.300" _hover={{ bg: "gray.400" }} align="center">
+      <Box mb={3} bg="gray.50" _hover={{ bg: "gray.200" }} align="center">
         <Flex
-          h="50px"
+          h="70px"
           px={5}
           align="center"
           onClick={onToggle}

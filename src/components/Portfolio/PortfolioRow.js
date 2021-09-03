@@ -1,12 +1,22 @@
 import React from "react";
-import { Flex, Text, Stat, StatArrow } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Collapse,
+  Flex,
+  Text,
+  Stat,
+  StatArrow,
+  useDisclosure,
+} from "@chakra-ui/react";
 import NumberFormat from "react-number-format";
 
-const PortfolioRow = props => {
+const PortfolioRow = (props) => {
+  const { isOpen, onToggle } = useDisclosure();
   return (
     <>
-      <Flex p={4} bg="gray.200" flexDirection="column">
-        <Flex h="100px" mx={7} align="center">
+      <Flex onClick={onToggle} direction="column">
+        <Flex h="80px" mx={7} align="center">
           <Flex w={150} align="center" justify="start">
             <Stat w="30px">
               {props.portfolioTotalBasis > props.portfolioTotalValue ? (
@@ -33,6 +43,19 @@ const PortfolioRow = props => {
             </Text>
           </Flex>
         </Flex>
+
+        <Collapse in={isOpen}>
+          <Box p={3} pt={0}>
+            <form>
+              <Flex h="90px">Stats</Flex>
+              <Flex justifyContent="space-between">
+                <Button colorScheme="red" onClick={onToggle}>
+                  Cancel
+                </Button>
+              </Flex>
+            </form>
+          </Box>
+        </Collapse>
       </Flex>
     </>
   );

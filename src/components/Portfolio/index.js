@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import PortfolioRow from "./PortfolioRow";
 import FundRow from "./FundRow";
 import AddFund from "./FundAdd";
+import Stats from "./Stats";
 
 const FundsList = () => {
   const [funds, setFunds] = useState([]);
@@ -69,7 +70,7 @@ const FundsList = () => {
             />
           </motion.div>
         ))}
-
+      <Stats />
       <AddFund />
     </>
   );

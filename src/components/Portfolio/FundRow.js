@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import EditFund from "./EditFund";
+import React from "react";
+import EditFund from "./FundEdit";
 import {
   Box,
   Collapse,
@@ -13,10 +13,11 @@ import {
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import NumberFormat from "react-number-format";
 
-const FundRow = (props) => {
+const FundRow = props => {
+
   const { isOpen, onToggle } = useDisclosure();
 
-  const pctGain = (props.fundValue / props.fundBasis) * 10;
+  const pctGain = (props?.fundValue / props?.fundBasis) * 10;
 
   return (
     <>
@@ -31,7 +32,7 @@ const FundRow = (props) => {
           <Flex w={180} pr={3} mr={10} justify="start">
             <Flex w="16px" align="center">
               <Stat>
-                {props.fundBasis > props.fundValue ? (
+                {props?.fundBasis > props?.fundValue ? (
                   <StatArrow type="decrease" />
                 ) : (
                   <StatArrow type="increase" />
@@ -45,7 +46,7 @@ const FundRow = (props) => {
                   displayType={"text"}
                   decimalScale={3}
                   allowNegative={true}
-                  prefix={props.fundBasis > props.fundValue ? "- " : "+ "}
+                  prefix={props?.fundBasis > props?.fundValue ? "- " : "+ "}
                 />
               </Text>
               <Text color="gray.500" px={1}>
@@ -56,13 +57,13 @@ const FundRow = (props) => {
           </Flex>
           <Flex w={120} px={3} mr={5}>
             <Text fontSize="md" mr={2} color="gray.500">
-              {props.fundBasis > props.fundValue ? "Loss:" : "Gain:"}
+              {props?.fundBasis > props?.fundValue ? "Loss:" : "Gain:"}
             </Text>
             <NumberFormat
               value={props?.fundValue - props?.fundBasis}
               displayType={"text"}
               thousandSeparator={true}
-              prefix={props.fundBasis > props.fundValue ? "$" : "+$"}
+              prefix={props?.fundBasis > props?.fundValue ? "$" : "+$"}
             />
           </Flex>
           <Flex w={120} px={3} mr={5}>
@@ -77,7 +78,7 @@ const FundRow = (props) => {
             />
           </Flex>
           <Flex px={3} mr={5}>
-            <Text fontSize="md">{props.fundName}</Text>
+            <Text fontSize="md">{props?.fundName}</Text>
           </Flex>
           <Spacer />
           {!isOpen ? <FaChevronDown /> : <FaChevronUp />}

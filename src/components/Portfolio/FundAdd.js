@@ -16,7 +16,7 @@ import {
 import { FaPlus } from "react-icons/fa";
 import ElJefeAPI from "../../api/elJefeApi";
 
-const AddFund = () => {
+const AddFund = props => {
   const portfolioNewState = {
     id: null,
     fundName: "",
@@ -50,6 +50,7 @@ const AddFund = () => {
           fundBasis: response.data.fundBasis,
         });
         setSubmitted(true);
+        onToggle(false);
         console.log(response.data);
       })
       .catch((e) => {
@@ -57,21 +58,10 @@ const AddFund = () => {
       });
   };
 
-  const newPortfolio = () => {
-    setPortfolio(portfolioNewState);
-    setSubmitted(false);
-  };
-
   return (
     <>
       <Box mb={3} bg="gray.300" _hover={{ bg: "gray.400" }} align="center">
-        <Flex
-          h="50px"
-          px={5}
-          align="center"
-          onClick={onToggle}
-          style={{ opacity: isOpen ? 0.3 : 1 }}
-        >
+        <Flex h="50px" px={5} align="center" onClick={onToggle}>
           <Text fontSize="lg">+ Add a Fund</Text>
           <Spacer />
           <FaPlus fontSize="1em" />
@@ -134,7 +124,10 @@ const AddFund = () => {
                     />
                   </FormControl>
                 </Flex>
-                <Flex justifyContent="flex-end">
+                <Flex justifyContent="space-between">
+                  <Button colorScheme="red" onClick={onToggle}>
+                    Cancel
+                  </Button>
                   <Button colorScheme="green" onClick={savePortfolio}>
                     Add Fund
                   </Button>

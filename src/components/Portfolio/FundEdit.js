@@ -10,7 +10,7 @@ import {
   Input,
 } from "@chakra-ui/react";
 
-const EditFund = (props) => {
+const EditFund = props => {
   const initialPortfolioEdit = {
     fundName: props.fundName,
     fundValue: props.fundValue,
@@ -21,7 +21,6 @@ const EditFund = (props) => {
     useState(initialPortfolioEdit);
 
   const [submitted, setSubmitted] = useState(false);
-
 
   const getPortfolio = (id) => {
     ElJefeAPI.get(id)
@@ -47,7 +46,6 @@ const EditFund = (props) => {
     ElJefeAPI.remove(props.id)
       .then((response) => {
         console.log(response.data);
-        //refreshList();
       })
       .catch((e) => {
         console.log(e);

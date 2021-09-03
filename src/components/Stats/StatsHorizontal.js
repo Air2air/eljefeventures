@@ -1,6 +1,6 @@
 import React from "react";
 import ElJefeAPI from "../../api/elJefeApi";
-import EditFund from "../Portfolio/EditFund";
+import EditFund from "../Portfolio/FundEdit";
 import {
   Button,
   ButtonGroup,

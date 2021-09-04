@@ -1,33 +1,17 @@
 import React from "react";
-import EditFund from "./FundEdit";
-import {
-  Box,
-  Collapse,
-  Flex,
-  Spacer,
-  Stat,
-  StatArrow,
-  Text,
-  useDisclosure,
-} from "@chakra-ui/react";
-import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import NumberFormat from "react-number-format";
+import { Box, Flex, Stat, StatArrow, Text, Spacer } from "@chakra-ui/react";
+import { FaChevronRight } from "react-icons/fa";
 
-const FundRow = (props) => {
-  const { isOpen, onToggle } = useDisclosure();
+const ReportRow = (props) => {
 
+  const gainAmt = props.fundValue - props.fundBasis;
   const pctGain = ((props.fundValue - props.fundBasis) / props.fundValue) * 100;
 
   return (
     <>
       <Box mb={3} bg="gray.50" _hover={{ bg: "gray.200" }} align="center">
-        <Flex
-          h="70px"
-          px={5}
-          align="center"
-          onClick={onToggle}
-          style={{ opacity: isOpen ? 0.3 : 1 }}
-        >
+        <Flex h="70px" px={5} align="center">
           <Flex w={180} pr={3} mr={10} justify="start">
             <Flex w="16px" align="center">
               <Stat>
@@ -38,6 +22,7 @@ const FundRow = (props) => {
                 )}
               </Stat>
             </Flex>
+
             <Flex w={140} mr={10} align="center" justify="center">
               <Text fontSize="xl">
                 <NumberFormat
@@ -59,7 +44,7 @@ const FundRow = (props) => {
               {props?.fundBasis > props?.fundValue ? "Loss:" : "Gain:"}
             </Text>
             <NumberFormat
-              value={props?.fundValue - props?.fundBasis}
+              value={gainAmt}
               displayType={"text"}
               thousandSeparator={true}
               prefix={props?.fundBasis > props?.fundValue ? "$" : "+$"}
@@ -71,29 +56,23 @@ const FundRow = (props) => {
               Value:
             </Text>
             <NumberFormat
-              value={props?.fundValue}
+              value={props.fundValue}
               displayType={"text"}
               thousandSeparator={true}
               prefix="$"
             />
           </Flex>
+
           <Flex px={3} mr={5}>
-            <Text fontSize="md">{props?.fundName}</Text>
+            <Text fontSize="md">{props.fundName}</Text>
           </Flex>
+
           <Spacer />
-          {!isOpen ? <FaChevronDown /> : <FaChevronUp />}
+          <FaChevronRight />
         </Flex>
-        <Collapse in={isOpen}>
-          <EditFund
-            id={props?.id}
-            fundName={props?.fundName}
-            fundValue={props?.fundValue}
-            fundBasis={props?.fundBasis}
-          />
-        </Collapse>
       </Box>
     </>
   );
 };
 
-export default FundRow;
+export default ReportRow;

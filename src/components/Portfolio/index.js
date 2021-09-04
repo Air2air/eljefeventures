@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ElJefeAPI from "../../api/elJefeApi";
-import { Heading, Box } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import PortfolioRow from "./PortfolioRow";
 import FundRow from "./FundRow";
@@ -29,6 +29,15 @@ const FundsList = () => {
     retrieveFunds();
   };
 
+  const sumBasis = funds
+    .map((funds) => funds.fundBasis)
+    .reduce((acc, curr) => acc + parseInt(curr, 10), 0);
+
+    const sumValue = funds
+    .map((funds) => funds.fundValue)
+    .reduce((acc, curr) => acc + parseInt(curr, 10), 0);
+
+    /*
   const portfolioTotalValue = funds.reduce(
     (total, currentValue) => (total = total + currentValue.fundValue),
     0
@@ -40,16 +49,16 @@ const FundsList = () => {
   );
 
   const pctGain = (portfolioTotalValue / portfolioTotalBasis) * 10;
+    */
+
+  const pctGain = (sumValue / sumBasis) * 10;
 
   return (
     <>
-      <Heading my={4} size="md">
-        My Portfolio
-      </Heading>
       <Box bg="gray.100" p={3}>
         <PortfolioRow
-          portfolioTotalValue={portfolioTotalValue}
-          portfolioTotalBasis={portfolioTotalBasis}
+          portfolioTotalValue={sumValue}
+          portfolioTotalBasis={sumBasis}
           pctGain={pctGain}
         />
 

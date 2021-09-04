@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Box, Flex, Text, Button, Stack } from "@chakra-ui/react";
+import { Link, Box, Flex, Text, Stack } from "@chakra-ui/react";
 import Logo from "./Logo";
 
 const NavBar = (props) => {
@@ -8,10 +8,7 @@ const NavBar = (props) => {
 
   return (
     <NavBarContainer {...props}>
-      <Logo
-        w="100px"
-        color={["white", "white", "gray.500", "gray.500"]}
-      />
+      <Logo w="100px" color={["white", "white", "gray.500", "gray.500"]} />
       <MenuToggle toggle={toggle} isOpen={isOpen} />
       <MenuLinks isOpen={isOpen} />
     </NavBarContainer>
@@ -20,7 +17,7 @@ const NavBar = (props) => {
 
 const CloseIcon = () => (
   <svg width="24" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
-    <fundName>Close</fundName>
+    <label>Close</label>
     <path
       fill="white"
       d="M9.00023 7.58599L13.9502 2.63599L15.3642 4.04999L10.4142 8.99999L15.3642 13.95L13.9502 15.364L9.00023 10.414L4.05023 15.364L2.63623 13.95L7.58623 8.99999L2.63623 4.04999L4.05023 2.63599L9.00023 7.58599Z"
@@ -35,7 +32,7 @@ const MenuIcon = () => (
     xmlns="http://www.w3.org/2000/svg"
     fill="white"
   >
-    <fundName>Menu</fundName>
+    <label>Menu</label>
     <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
   </svg>
 );
@@ -71,20 +68,10 @@ const MenuLinks = ({ isOpen }) => {
         direction={["column", "row", "row", "row"]}
         pt={[4, 4, 0, 0]}
       >
-        <MenuItem to="/portfolio">My Portfolios </MenuItem>
-        <MenuItem to="/report">Report </MenuItem>
+        <MenuItem to="/report">Report</MenuItem>
+        <MenuItem to="/portfolio">My Portfolio</MenuItem>
         <MenuItem to="/signup" isLast>
-          <Button
-            size="sm"
-            rounded="md"
-            color={["gray.500", "gray.500", "white", "white"]}
-            bg={["white", "white", "gray.500", "gray.500"]}
-            _hover={{
-              bg: ["gray.500.100", "gray.500.100", "gray.500.600", "gray.500.600"],
-            }}
-          >
-            Create Account
-          </Button>
+          Account
         </MenuItem>
       </Stack>
     </Box>
@@ -100,7 +87,8 @@ const NavBarContainer = ({ children, ...props }) => {
       wrap="wrap"
       w="100%"
       mb={8}
-      p={4}
+      px={10}
+      py={4}
       bg={["gray.500", "gray.500", "transparent", "transparent"]}
       color={["white", "white", "gray.500", "gray.500"]}
       {...props}

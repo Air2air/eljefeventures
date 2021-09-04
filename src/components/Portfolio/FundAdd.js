@@ -67,7 +67,7 @@ const AddFund = () => {
     <>
       <Box
         mb={3}
-        bg="gray.300"
+
         _hover={{ bg: "gray.350" }}
         align="center"
       >
@@ -91,7 +91,7 @@ const AddFund = () => {
                     onChange={handleInputChange}
                     name="fundName"
                     color="gray.600"
-                    bg="gray.100"
+                    bg="gray.50"
                     _hover={{ color: "gray.900", bg: "white" }}
                   />
                 </FormControl>
@@ -107,7 +107,7 @@ const AddFund = () => {
                     onChange={handleInputChange}
                     name="fundBasis"
                     color="gray.600"
-                    bg="gray.100"
+                    bg="gray.50"
                     _hover={{ color: "gray.900", bg: "white" }}
                   />
                 </FormControl>
@@ -122,7 +122,7 @@ const AddFund = () => {
                     onChange={handleInputChange}
                     name="fundValue"
                     color="gray.600"
-                    bg="gray.100"
+                    bg="gray.50"
                     _hover={{ color: "gray.900", bg: "white" }}
                   />
                 </FormControl>

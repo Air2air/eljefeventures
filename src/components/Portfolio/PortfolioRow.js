@@ -1,8 +1,6 @@
 import React from "react";
 import {
-  Box,
   Center,
-  Button,
   Collapse,
   Flex,
   Text,

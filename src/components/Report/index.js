@@ -1,6 +1,5 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import { Box } from "@chakra-ui/react";
 import ReportRow from "./ReportRow";
 import ReportHeader from "./ReportHeader";
 
@@ -8,15 +7,13 @@ const Report = (props) => {
   const history = useHistory();
   const handleOnClick = () => history.push("/portfolio");
 
-  // const gainAmt = props.fundValue - props.fundBasis;
-  // const pctGain = ((props.fundValue - props.fundBasis) / props.fundValue) * 100;
 
   return (
     <>
-      {/* <Box bg="gray.100" p={3}> */}
         <ReportHeader
-          myRank={5}
-          places={10}
+          currentRank={5}
+          previousRank={4}
+          totalPlaces={21}
           portfolioTotalValue={12345667}
           portfolioTotalBasis={12365656}
           pctGain={0.02}
@@ -81,7 +78,6 @@ const Report = (props) => {
           fundValue={71363566}
           bg="gray.50"
         />
-      {/* </Box> */}
     </>
   );
 };

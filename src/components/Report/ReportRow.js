@@ -16,7 +16,7 @@ const ReportRow = (props) => {
     <>
       <Box mb={3} bg={props.bg} _hover={{ bg: "gray.200" }} align="center" onClick={handleOnClick}>
         <Flex h="70px" px={5} align="center">
-          <Flex w={180} pr={3} mr={10} justify="start">
+        <Flex w={160} pr={1}>
             <Flex w="16px" align="center">
               <Stat>
                 {props?.fundBasis > props?.fundValue ? (

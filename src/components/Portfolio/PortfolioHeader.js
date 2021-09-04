@@ -21,7 +21,7 @@ const PortfolioHeader = (props) => {
     <>
       <Flex onClick={onToggle} direction="column">
         <Flex h="80px" mb={3} px={5} align="center" _hover={{ bg: "gray.200" }}>
-          <Flex w={180} pr={3} mr={10} justify="start">
+          <Flex w={160} pr={1}>
             <Flex w="16px" align="center">
               <Stat>
                 {props.portfolioTotalBasis > props.portfolioTotalValue ? (
@@ -47,14 +47,13 @@ const PortfolioHeader = (props) => {
             </Flex>
           </Flex>
 
-
           <Flex w={150} px={3} mr={5} align="center">
-            <Text fontSize="MD" mr={2} color="gray.500">
+            <Text fontSize="sm" mr={2} color="gray.500">
               {props?.portfolioTotalBasis > props?.portfolioTotalValue
                 ? "LOSS:"
                 : "GAIN:"}
             </Text>
-            <Text fontSize="lg">
+            <Text fontSize="xl">
               <NumberFormat
                 value={props?.portfolioTotalValue - props?.portfolioTotalBasis}
                 displayType={"text"}
@@ -68,27 +67,28 @@ const PortfolioHeader = (props) => {
             <Text fontSize="sm" mr={2} color="gray.500">
               VALUE:
             </Text>
-            <Text fontSize="lg">
-            <NumberFormat
-              value={props?.portfolioTotalValue}
-              displayType={"text"}
-              thousandSeparator={true}
-              prefix="$"
-            />
-                        </Text>
+            <Text fontSize="xl">
+              <NumberFormat
+                value={props?.portfolioTotalValue}
+                displayType={"text"}
+                thousandSeparator={true}
+                prefix="$"
+              />
+            </Text>
           </Flex>
 
           <Flex w={150} px={3} mr={5} align="center">
             <Text fontSize="sm" mr={2} color="gray.500">
               BASIS:
             </Text>
-            <Text fontSize="lg">
-            <NumberFormat
-              value={props?.portfolioTotalBasis}
-              displayType={"text"}
-              thousandSeparator={true}
-              prefix="$"
-            />            </Text>
+            <Text fontSize="xl">
+              <NumberFormat
+                value={props?.portfolioTotalBasis}
+                displayType={"text"}
+                thousandSeparator={true}
+                prefix="$"
+              />{" "}
+            </Text>
           </Flex>
         </Flex>
 

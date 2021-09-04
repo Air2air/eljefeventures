@@ -28,7 +28,7 @@ const FundRow = (props) => {
           onClick={onToggle}
           style={{ opacity: isOpen ? 0.3 : 1 }}
         >
-          <Flex w={180} pr={3} mr={10} justify="start">
+          <Flex w={160} pr={1}>
             <Flex w="16px" align="center">
               <Stat>
                 {props?.fundBasis > props?.fundValue ? (

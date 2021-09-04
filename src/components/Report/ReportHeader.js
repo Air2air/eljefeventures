@@ -11,19 +11,20 @@ import {
 import NumberFormat from "react-number-format";
 
 const ReportHeader = (props) => {
-
-  const pctGain = ((props.portfolioTotalValue - props.portfolioTotalBasis) / props.portfolioTotalValue) * 100;
+  const pctGain =
+    ((props.portfolioTotalValue - props.portfolioTotalBasis) /
+      props.portfolioTotalValue) *
+    100;
 
   const { isOpen, onToggle } = useDisclosure();
   return (
     <>
-      <Flex onClick={onToggle} direction="column" >
-        <Flex h="80px" mb={3} px={5} align="center" _hover={{ bg: "gray.200" }} >
-
-          <Flex w={180} pr={3} mr={10} justify="start">
+      <Flex onClick={onToggle} direction="column">
+        <Flex h="80px" mb={3} px={5} align="center" _hover={{ bg: "gray.200" }}>
+        <Flex w={160} pr={1}>
             <Flex w="16px" align="center">
               <Stat>
-              {props.portfolioTotalBasis > props.portfolioTotalValue ? (
+                {props.currentRank > props.previousRank ? (
                   <StatArrow type="decrease" />
                 ) : (
                   <StatArrow type="increase" />
@@ -32,23 +33,17 @@ const ReportHeader = (props) => {
             </Flex>
             <Flex w={140} mr={10} align="center" justify="center">
               <Text fontSize="3xl">
-                <NumberFormat
-                  value={pctGain}
-                  displayType={"text"}
-                  decimalScale={2}
-                  allowNegative={true}
-                />
-              </Text>
-              <Text color="gray.500" px={1}>
-                {" "}
-                %
+                {props.currentRank}/ 
+                {props.totalPlaces}
               </Text>
             </Flex>
           </Flex>
 
           <Flex w={150} px={3} mr={5} align="center">
             <Text fontSize="sm" mr={2} color="gray.500">
-              {props?.portfolioTotalBasis > props?.portfolioTotalValue ? "LOSS:" : "GAIN:"}
+              {props?.portfolioTotalBasis > props?.portfolioTotalValue
+                ? "LOSS:"
+                : "GAIN:"}
             </Text>
             <NumberFormat
               value={props?.portfolioTotalValue - props?.portfolioTotalBasis}
@@ -81,7 +76,6 @@ const ReportHeader = (props) => {
               prefix="$"
             />
           </Flex>
-
         </Flex>
 
         <Collapse in={isOpen}>

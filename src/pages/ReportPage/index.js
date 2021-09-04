@@ -8,7 +8,7 @@ const ReportPage = () => {
     <>
       <Container maxW="container.lg">
         <Heading my={4} size="md">
-          Ranking
+          My Ranking
         </Heading>
         <Report />
       </Container>

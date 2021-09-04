@@ -20,7 +20,7 @@ const AddFund = () => {
   const blankFundState = {
     id: null,
     fundName: "",
-    fundVALUE: "",
+    fundValue: "",
     fundBasis: "",
   };
 
@@ -37,7 +37,7 @@ const AddFund = () => {
     var data = {
       id: fund.id,
       fundName: fund.fundName,
-      fundVALUE: fund.fundValue,
+      fundValue: fund.fundValue,
       fundBasis: fund.fundBasis,
     };
 
@@ -46,7 +46,7 @@ const AddFund = () => {
         setNewFund({
           id: response.data.id,
           fundName: response.data.fundName,
-          fundVALUE: response.data.fundValue,
+          fundValue: response.data.fundValue,
           fundBasis: response.data.fundBasis,
         });
         console.log(response.data);

@@ -1,16 +1,20 @@
 import React from "react";
+import {useHistory} from 'react-router-dom';
 import NumberFormat from "react-number-format";
 import { Box, Flex, Stat, StatArrow, Text, Spacer } from "@chakra-ui/react";
 import { FaChevronRight } from "react-icons/fa";
 
 const ReportRow = (props) => {
 
+  const history = useHistory();
+  const handleOnClick = () => history.push('/portfolio');
+
   const gainAmt = props.fundValue - props.fundBasis;
   const pctGain = ((props.fundValue - props.fundBasis) / props.fundValue) * 100;
 
   return (
     <>
-      <Box mb={3} bg="gray.50" _hover={{ bg: "gray.200" }} align="center">
+      <Box mb={3} bg={props.bg} _hover={{ bg: "gray.200" }} align="center" onClick={handleOnClick}>
         <Flex h="70px" px={5} align="center">
           <Flex w={180} pr={3} mr={10} justify="start">
             <Flex w="16px" align="center">
@@ -28,7 +32,7 @@ const ReportRow = (props) => {
                 <NumberFormat
                   value={pctGain}
                   displayType={"text"}
-                  decimalScale={3}
+                  decimalScale={2}
                   allowNegative={true}
                 />
               </Text>

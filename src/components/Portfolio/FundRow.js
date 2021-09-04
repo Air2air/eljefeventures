@@ -43,7 +43,7 @@ const FundRow = (props) => {
                 <NumberFormat
                   value={pctGain}
                   displayType={"text"}
-                  decimalScale={3}
+                  decimalScale={2}
                   allowNegative={true}
                 />
               </Text>
@@ -77,6 +77,7 @@ const FundRow = (props) => {
               prefix="$"
             />
           </Flex>
+
           <Flex px={3} mr={5}>
             <Text fontSize="md">{props?.fundName}</Text>
           </Flex>

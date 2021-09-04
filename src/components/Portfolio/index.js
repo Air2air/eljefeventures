@@ -30,28 +30,14 @@ const FundsList = () => {
   };
 
   const sumBasis = funds
-    .map((funds) => funds.fundBasis)
-    .reduce((acc, curr) => acc + parseInt(curr, 10), 0);
+    .map((fund) => Number.parseInt(fund.fundBasis))
+    .reduce((acc, curr) => acc + curr, 0);
 
-    const sumValue = funds
-    .map((funds) => funds.fundValue)
-    .reduce((acc, curr) => acc + parseInt(curr, 10), 0);
+  const sumValue = funds
+    .map((fund) => Number.parseInt(fund.fundValue))
+    .reduce((acc, curr) => acc + curr, 0);
 
-    /*
-  const portfolioTotalValue = funds.reduce(
-    (total, currentValue) => (total = total + currentValue.fundValue),
-    0
-  );
-
-  const portfolioTotalBasis = funds.reduce(
-    (total, currentValue) => (total = total + currentValue.fundBasis),
-    0
-  );
-
-  const pctGain = (portfolioTotalValue / portfolioTotalBasis) * 10;
-    */
-
-  const pctGain = (sumValue / sumBasis) * 10;
+  const pctGain = (sumBasis / sumValue) / 100;
 
   return (
     <>
@@ -61,7 +47,6 @@ const FundsList = () => {
           portfolioTotalBasis={sumBasis}
           pctGain={pctGain}
         />
-
         {funds &&
           funds.map((fund, i) => (
             <motion.div

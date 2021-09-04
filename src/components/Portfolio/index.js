@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import ElJefeAPI from "../../api/elJefeApi";
-import { Box } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import PortfolioRow from "./PortfolioHeader";
 import FundRow from "./FundRow";

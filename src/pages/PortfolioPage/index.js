@@ -7,7 +7,7 @@ const PortfolioPage = () => {
     <>
       <Container maxW="container.lg">
         <Heading my={4} size="md">
-          <LinkMy Ranking &gt; Kubelschiff Industries
+          Ranking &gt; Kubelschiff Industries
         </Heading>
         <Portfolio />
       </Container>

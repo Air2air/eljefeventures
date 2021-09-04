@@ -1,5 +1,9 @@
 import React from "react";
-import { Heading, Container } from "@chakra-ui/react";
+import {
+  Heading,
+  Container,
+} from "@chakra-ui/react";
+import { motion } from "framer-motion";
 
 import Report from "../../components/Report";
 

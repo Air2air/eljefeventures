@@ -1,22 +1,27 @@
 import React from "react";
-import {useHistory} from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 import NumberFormat from "react-number-format";
 import { Box, Flex, Stat, StatArrow, Text, Spacer } from "@chakra-ui/react";
-import { FaChevronRight } from "react-icons/fa";
+import { FaUser, FaChevronRight } from "react-icons/fa";
 
 const ReportRow = (props) => {
-
   const history = useHistory();
-  const handleOnClick = () => history.push('/portfolio');
+  const handleOnClick = () => history.push("/portfolio");
 
   const gainAmt = props.fundValue - props.fundBasis;
   const pctGain = ((props.fundValue - props.fundBasis) / props.fundValue) * 100;
 
   return (
     <>
-      <Box mb={3} bg={props.bg} _hover={{ bg: "gray.200" }} align="center" onClick={handleOnClick}>
+      <Box
+        mb={3}
+        bg={props.bg}
+        _hover={{ bg: "gray.200" }}
+        align="center"
+        onClick={handleOnClick}
+      >
         <Flex h="70px" px={5} align="center">
-        <Flex w={160} pr={1}>
+          <Flex w={170} pr={1}>
             <Flex w="16px" align="center">
               <Stat>
                 {props?.fundBasis > props?.fundValue ? (
@@ -43,7 +48,7 @@ const ReportRow = (props) => {
             </Flex>
           </Flex>
 
-          <Flex w={150} px={3} mr={5} align="center">
+          <Flex w={170} px={3} mr={5} align="center">
             <Text fontSize="sm" mr={2} color="gray.500">
               {props?.fundBasis > props?.fundValue ? "LOSS:" : "GAIN:"}
             </Text>
@@ -55,10 +60,11 @@ const ReportRow = (props) => {
             />
           </Flex>
 
-          <Flex w={150} px={3} mr={5} align="center">
+          <Flex w={170} px={3} mr={5} align="center">
             <Text fontSize="sm" mr={2} color="gray.500">
               VALUE:
             </Text>
+
             <NumberFormat
               value={props.fundValue}
               displayType={"text"}
@@ -67,7 +73,10 @@ const ReportRow = (props) => {
             />
           </Flex>
 
-          <Flex px={3} mr={5}>
+          <Flex px={3} align="center">
+            <Text fontSize="sm" mr={3} color="gray.300">
+              <FaUser />
+            </Text>
             <Text fontSize="md">{props.fundName}</Text>
           </Flex>
 

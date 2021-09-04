@@ -1,11 +1,8 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
 import ReportRow from "./ReportRow";
 import ReportHeader from "./ReportHeader";
 
-const Report = (props) => {
-  const history = useHistory();
-  const handleOnClick = () => history.push("/portfolio");
+const Report = () => {
 
 
   return (

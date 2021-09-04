@@ -11,6 +11,7 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
+import { HiChartBar } from "react-icons/hi";
 import NumberFormat from "react-number-format";
 
 const FundRow = (props) => {
@@ -28,7 +29,7 @@ const FundRow = (props) => {
           onClick={onToggle}
           style={{ opacity: isOpen ? 0.3 : 1 }}
         >
-          <Flex w={160} pr={1}>
+          <Flex w={170} pr={1}>
             <Flex w="16px" align="center">
               <Stat>
                 {props?.fundBasis > props?.fundValue ? (
@@ -54,7 +55,7 @@ const FundRow = (props) => {
             </Flex>
           </Flex>
 
-          <Flex w={150} px={3} mr={5} align="center">
+          <Flex w={170} px={3} mr={5} align="center">
             <Text fontSize="sm" mr={2} color="gray.500">
               {props?.fundBasis > props?.fundValue ? "LOSS:" : "GAIN:"}
             </Text>
@@ -66,7 +67,7 @@ const FundRow = (props) => {
             />
           </Flex>
 
-          <Flex w={150} px={3} mr={5} align="center">
+          <Flex w={170} px={3} mr={5} align="center">
             <Text fontSize="sm" mr={2} color="gray.500">
               VALUE:
             </Text>
@@ -78,9 +79,13 @@ const FundRow = (props) => {
             />
           </Flex>
 
-          <Flex px={3} mr={5}>
-            <Text fontSize="md">{props?.fundName}</Text>
+          <Flex px={3} align="center">
+            <Text fontSize="sm" mr={3} color="gray.300">
+              <HiChartBar />
+            </Text>
+            <Text fontSize="md">{props.fundName}</Text>
           </Flex>
+
           <Spacer />
           {!isOpen ? <FaChevronDown /> : <FaChevronUp />}
         </Flex>

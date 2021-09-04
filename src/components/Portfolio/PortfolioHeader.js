@@ -21,7 +21,7 @@ const PortfolioHeader = (props) => {
     <>
       <Flex onClick={onToggle} direction="column">
         <Flex h="80px" mb={3} px={5} align="center" _hover={{ bg: "gray.200" }}>
-          <Flex w={160} pr={1}>
+          <Flex w={170} pr={1}>
             <Flex w="16px" align="center">
               <Stat>
                 {props.portfolioTotalBasis > props.portfolioTotalValue ? (
@@ -47,7 +47,7 @@ const PortfolioHeader = (props) => {
             </Flex>
           </Flex>
 
-          <Flex w={150} px={3} mr={5} align="center">
+          <Flex w={170} px={3} mr={5} align="center">
             <Text fontSize="sm" mr={2} color="gray.500">
               {props?.portfolioTotalBasis > props?.portfolioTotalValue
                 ? "LOSS:"
@@ -63,7 +63,7 @@ const PortfolioHeader = (props) => {
             </Text>
           </Flex>
 
-          <Flex w={150} px={3} mr={5} align="center">
+          <Flex w={170} px={3} mr={5} align="center">
             <Text fontSize="sm" mr={2} color="gray.500">
               VALUE:
             </Text>
@@ -77,7 +77,7 @@ const PortfolioHeader = (props) => {
             </Text>
           </Flex>
 
-          <Flex w={150} px={3} mr={5} align="center">
+          <Flex w={170} px={3} mr={5} align="center">
             <Text fontSize="sm" mr={2} color="gray.500">
               BASIS:
             </Text>

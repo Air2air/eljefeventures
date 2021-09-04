@@ -1,6 +1,7 @@
 import React from "react";
 import {
   Box,
+  Center,
   Button,
   Collapse,
   Flex,
@@ -16,13 +17,13 @@ const PortfolioRow = (props) => {
   return (
     <>
       <Flex onClick={onToggle} direction="column">
-        <Flex h="80px" mx={7} align="center">
+        <Flex h="80px" mb={3} px={5} align="center" _hover={{ bg: "gray.200" }}>
           <Flex w={150} align="center" justify="start">
-            <Stat w="30px">
+            <Stat w="10px">
               {props.portfolioTotalBasis > props.portfolioTotalValue ? (
-                <StatArrow fontSize="24px" type="decrease" />
+                <StatArrow fontSize="xl" type="decrease" />
               ) : (
-                <StatArrow fontSize="2em" type="increase" />
+                <StatArrow fontSize="xl" type="increase" />
               )}
             </Stat>
             <Text fontSize="3xl">
@@ -45,16 +46,9 @@ const PortfolioRow = (props) => {
         </Flex>
 
         <Collapse in={isOpen}>
-          <Box p={3} pt={0}>
-            <form>
-              <Flex h="90px">Stats</Flex>
-              <Flex justifyContent="space-between">
-                <Button colorScheme="red" onClick={onToggle}>
-                  Cancel
-                </Button>
-              </Flex>
-            </form>
-          </Box>
+          <Center h="200px" p={3} pt={0}>
+            Stats about this portfolio
+          </Center>
         </Collapse>
       </Flex>
     </>

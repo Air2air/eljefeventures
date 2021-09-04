@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import ElJefeAPI from "../../api/elJefeApi";
 import { Box } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-import PortfolioRow from "./PortfolioRow";
+import PortfolioRow from "./PortfolioHeader";
 import FundRow from "./FundRow";
 import AddFund from "./FundAdd";
 // import Stats from "./Stats";
@@ -41,7 +41,7 @@ const FundsList = () => {
 
   return (
     <>
-      <Box bg="gray.100" p={3}>
+      {/* <Box bg="gray.100" p={3}> */}
         <PortfolioRow
           portfolioTotalValue={sumValue}
           portfolioTotalBasis={sumBasis}
@@ -68,7 +68,7 @@ const FundsList = () => {
           ))}
 
         <AddFund />
-      </Box>
+      {/* </Box> */}
     </>
   );
 };

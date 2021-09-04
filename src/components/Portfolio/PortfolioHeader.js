@@ -1,37 +1,30 @@
 import React from "react";
-import EditFund from "./FundEdit";
 import {
-  Box,
+  Center,
   Collapse,
   Flex,
-  Spacer,
+  Text,
   Stat,
   StatArrow,
-  Text,
   useDisclosure,
 } from "@chakra-ui/react";
-import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import NumberFormat from "react-number-format";
 
-const FundRow = (props) => {
+const PortfolioHeader = (props) => {
+  const pctGain =
+    ((props.portfolioTotalValue - props.portfolioTotalBasis) /
+      props.portfolioTotalValue) *
+    100;
+
   const { isOpen, onToggle } = useDisclosure();
-
-  const pctGain = ((props.fundValue - props.fundBasis) / props.fundValue) * 100;
-
   return (
     <>
-      <Box mb={3} bg="gray.50" _hover={{ bg: "gray.200" }} align="center">
-        <Flex
-          h="70px"
-          px={5}
-          align="center"
-          onClick={onToggle}
-          style={{ opacity: isOpen ? 0.3 : 1 }}
-        >
+      <Flex onClick={onToggle} direction="column">
+        <Flex h="80px" mb={3} px={5} align="center" _hover={{ bg: "gray.200" }}>
           <Flex w={180} pr={3} mr={10} justify="start">
             <Flex w="16px" align="center">
               <Stat>
-                {props?.fundBasis > props?.fundValue ? (
+                {props.portfolioTotalBasis > props.portfolioTotalValue ? (
                   <StatArrow type="decrease" />
                 ) : (
                   <StatArrow type="increase" />
@@ -39,7 +32,7 @@ const FundRow = (props) => {
               </Stat>
             </Flex>
             <Flex w={140} mr={10} align="center" justify="center">
-              <Text fontSize="xl">
+              <Text fontSize="3xl">
                 <NumberFormat
                   value={pctGain}
                   displayType={"text"}
@@ -54,47 +47,59 @@ const FundRow = (props) => {
             </Flex>
           </Flex>
 
+
           <Flex w={150} px={3} mr={5} align="center">
-            <Text fontSize="sm" mr={2} color="gray.500">
-              {props?.fundBasis > props?.fundValue ? "LOSS:" : "GAIN:"}
+            <Text fontSize="MD" mr={2} color="gray.500">
+              {props?.portfolioTotalBasis > props?.portfolioTotalValue
+                ? "LOSS:"
+                : "GAIN:"}
             </Text>
-            <NumberFormat
-              value={props?.fundValue - props?.fundBasis}
-              displayType={"text"}
-              thousandSeparator={true}
-              prefix={props?.fundBasis > props?.fundValue ? "$" : "+$"}
-            />
+            <Text fontSize="lg">
+              <NumberFormat
+                value={props?.portfolioTotalValue - props?.portfolioTotalBasis}
+                displayType={"text"}
+                thousandSeparator={true}
+                prefix="$"
+              />
+            </Text>
           </Flex>
 
           <Flex w={150} px={3} mr={5} align="center">
             <Text fontSize="sm" mr={2} color="gray.500">
               VALUE:
             </Text>
+            <Text fontSize="lg">
             <NumberFormat
-              value={props?.fundValue}
+              value={props?.portfolioTotalValue}
               displayType={"text"}
               thousandSeparator={true}
               prefix="$"
             />
+                        </Text>
           </Flex>
 
-          <Flex px={3} mr={5}>
-            <Text fontSize="md">{props?.fundName}</Text>
+          <Flex w={150} px={3} mr={5} align="center">
+            <Text fontSize="sm" mr={2} color="gray.500">
+              BASIS:
+            </Text>
+            <Text fontSize="lg">
+            <NumberFormat
+              value={props?.portfolioTotalBasis}
+              displayType={"text"}
+              thousandSeparator={true}
+              prefix="$"
+            />            </Text>
           </Flex>
-          <Spacer />
-          {!isOpen ? <FaChevronDown /> : <FaChevronUp />}
         </Flex>
+
         <Collapse in={isOpen}>
-          <EditFund
-            id={props?.id}
-            fundName={props?.fundName}
-            fundValue={props?.fundValue}
-            fundBasis={props?.fundBasis}
-          />
+          <Center h="200px" p={3} pt={0}>
+            Stats about this portfolio
+          </Center>
         </Collapse>
-      </Box>
+      </Flex>
     </>
   );
 };
 
-export default FundRow;
+export default PortfolioHeader;

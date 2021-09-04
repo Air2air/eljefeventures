@@ -1,82 +1,89 @@
 import React from "react";
-import {useHistory} from 'react-router-dom';
-import NumberFormat from "react-number-format";
-import { Box, Flex, Stat, StatArrow, Text, Spacer } from "@chakra-ui/react";
-import { FaChevronRight } from "react-icons/fa";
+import { useHistory } from "react-router-dom";
+import { Box } from "@chakra-ui/react";
+import ReportRow from "./ReportRow";
+import ReportHeader from "./ReportHeader";
 
-const ReportRow = (props) => {
-
+const Report = (props) => {
   const history = useHistory();
-  const handleOnClick = () => history.push('/portfolio');
+  const handleOnClick = () => history.push("/portfolio");
 
-  const gainAmt = props.fundValue - props.fundBasis;
-  const pctGain = ((props.fundValue - props.fundBasis) / props.fundValue) * 100;
+  // const gainAmt = props.fundValue - props.fundBasis;
+  // const pctGain = ((props.fundValue - props.fundBasis) / props.fundValue) * 100;
 
   return (
     <>
-      <Box mb={3} bg={props.bg} _hover={{ bg: "gray.200" }} align="center" onClick={handleOnClick}>
-        <Flex h="70px" px={5} align="center">
-          <Flex w={180} pr={3} mr={10} justify="start">
-            <Flex w="16px" align="center">
-              <Stat>
-                {props?.fundBasis > props?.fundValue ? (
-                  <StatArrow type="decrease" />
-                ) : (
-                  <StatArrow type="increase" />
-                )}
-              </Stat>
-            </Flex>
-
-            <Flex w={140} mr={10} align="center" justify="center">
-              <Text fontSize="xl">
-                <NumberFormat
-                  value={pctGain}
-                  displayType={"text"}
-                  decimalScale={2}
-                  allowNegative={true}
-                />
-              </Text>
-              <Text color="gray.500" px={1}>
-                {" "}
-                %
-              </Text>
-            </Flex>
-          </Flex>
-
-          <Flex w={140} px={3} mr={5}>
-            <Text fontSize="md" mr={2} color="gray.500">
-              {props?.fundBasis > props?.fundValue ? "Loss:" : "Gain:"}
-            </Text>
-            <NumberFormat
-              value={gainAmt}
-              displayType={"text"}
-              thousandSeparator={true}
-              prefix={props?.fundBasis > props?.fundValue ? "$" : "+$"}
-            />
-          </Flex>
-
-          <Flex w={140} px={3} mr={5}>
-            <Text fontSize="md" mr={2} color="gray.500">
-              Value:
-            </Text>
-            <NumberFormat
-              value={props.fundValue}
-              displayType={"text"}
-              thousandSeparator={true}
-              prefix="$"
-            />
-          </Flex>
-
-          <Flex px={3} mr={5}>
-            <Text fontSize="md">{props.fundName}</Text>
-          </Flex>
-
-          <Spacer />
-          <FaChevronRight />
-        </Flex>
-      </Box>
+      {/* <Box bg="gray.100" p={3}> */}
+        <ReportHeader
+          myRank={5}
+          places={10}
+          portfolioTotalValue={12345667}
+          portfolioTotalBasis={12365656}
+          pctGain={0.02}
+        />
+        <ReportRow
+          fundName="Air2air"
+          fundBasis={22757243}
+          fundValue={25757243}
+          bg="gray.50"
+        />
+        <ReportRow
+          fundName="salmagundi"
+          fundBasis={85746786}
+          fundValue={94262355}
+          bg="gray.50"
+        />
+        <ReportRow
+          fundName="laBoheme"
+          fundBasis={4623524}
+          fundValue={4746776}
+          bg="gray.50"
+        />
+        <ReportRow
+          fundName="Roxy_Music"
+          fundBasis={55354345}
+          fundValue={56245245}
+          bg="gray.50"
+        />
+        <ReportRow
+          fundName="Kubelschiff Industries"
+          fundBasis={5560892}
+          fundValue={5558499}
+          bg="blue.200"
+        />
+        <ReportRow
+          fundName="HootOwl"
+          fundBasis={14425675}
+          fundValue={13643544}
+          bg="gray.50"
+        />
+        <ReportRow
+          fundName="yankees_fan"
+          fundBasis={32131232}
+          fundValue={31745643}
+          bg="gray.50"
+        />
+        <ReportRow
+          fundName="Night_Train_64"
+          fundBasis={754878}
+          fundValue={735578}
+          bg="gray.50"
+        />
+        <ReportRow
+          fundName="HootOwl"
+          fundBasis={14425675}
+          fundValue={13643544}
+          bg="gray.50"
+        />
+        <ReportRow
+          fundName="roper_JR"
+          fundBasis={76446764}
+          fundValue={71363566}
+          bg="gray.50"
+        />
+      {/* </Box> */}
     </>
   );
 };
 
-export default ReportRow;
+export default Report;

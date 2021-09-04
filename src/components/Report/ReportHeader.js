@@ -10,8 +10,7 @@ import {
 } from "@chakra-ui/react";
 import NumberFormat from "react-number-format";
 
-const PortfolioRow = (props) => {
-
+const ReportHeader = (props) => {
 
   const pctGain = ((props.portfolioTotalValue - props.portfolioTotalBasis) / props.portfolioTotalValue) * 100;
 
@@ -47,9 +46,9 @@ const PortfolioRow = (props) => {
             </Flex>
           </Flex>
 
-          <Flex w={140} px={3} mr={5}>
-            <Text fontSize="md" mr={2} color="gray.500">
-              {props?.portfolioTotalBasis > props?.portfolioTotalValue ? "Loss:" : "Gain:"}
+          <Flex w={150} px={3} mr={5} align="center">
+            <Text fontSize="sm" mr={2} color="gray.500">
+              {props?.portfolioTotalBasis > props?.portfolioTotalValue ? "LOSS:" : "GAIN:"}
             </Text>
             <NumberFormat
               value={props?.portfolioTotalValue - props?.portfolioTotalBasis}
@@ -59,9 +58,9 @@ const PortfolioRow = (props) => {
             />
           </Flex>
 
-          <Flex w={140} px={3} mr={5}>
-            <Text fontSize="md" mr={2} color="gray.500">
-              Value:
+          <Flex w={150} px={3} mr={5} align="center">
+            <Text fontSize="sm" mr={2} color="gray.500">
+              VALUE:
             </Text>
             <NumberFormat
               value={props?.portfolioTotalValue}
@@ -71,9 +70,9 @@ const PortfolioRow = (props) => {
             />
           </Flex>
 
-          <Flex w={140} px={3} mr={5}>
-            <Text fontSize="md" mr={2} color="gray.500">
-              Basis:
+          <Flex w={150} px={3} mr={5} align="center">
+            <Text fontSize="sm" mr={2} color="gray.500">
+              BASIS:
             </Text>
             <NumberFormat
               value={props?.portfolioTotalBasis}
@@ -95,4 +94,4 @@ const PortfolioRow = (props) => {
   );
 };
 
-export default PortfolioRow;
+export default ReportHeader;

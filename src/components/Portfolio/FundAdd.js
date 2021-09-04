@@ -20,7 +20,7 @@ const AddFund = () => {
   const blankFundState = {
     id: null,
     fundName: "",
-    fundValue: "",
+    fundVALUE: "",
     fundBasis: "",
   };
 
@@ -37,7 +37,7 @@ const AddFund = () => {
     var data = {
       id: fund.id,
       fundName: fund.fundName,
-      fundValue: fund.fundValue,
+      fundVALUE: fund.fundValue,
       fundBasis: fund.fundBasis,
     };
 
@@ -46,7 +46,7 @@ const AddFund = () => {
         setNewFund({
           id: response.data.id,
           fundName: response.data.fundName,
-          fundValue: response.data.fundValue,
+          fundVALUE: response.data.fundValue,
           fundBasis: response.data.fundBasis,
         });
         console.log(response.data);
@@ -65,18 +65,12 @@ const AddFund = () => {
 
   return (
     <>
-      <Box
-        mb={3}
-
-        _hover={{ bg: "gray.350" }}
-        align="center"
-      >
-        <Flex h="50px" px={5} align="center" onClick={onToggle}>
-          <Text fontSize="lg">+ Add a Fund</Text>
-          <Spacer />
-          <FaPlus fontSize="1em" />
+      <Box mb={3} bg="gray.50" _hover={{ bg: "gray.100" }} align="center">
+        <Flex h="60px" px={5} align="center" justify="flex-end" onClick={onToggle}>
+          <Text fontSize="lg" mr={3}>Add a Fund</Text>
+          <FaPlus fontSize=".9em" />
         </Flex>
-        <Collapse in={isOpen} >
+        <Collapse in={isOpen}>
           <Box p={3} pt={0}>
             <form>
               <Flex h="90px">

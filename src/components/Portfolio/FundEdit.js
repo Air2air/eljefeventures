@@ -18,7 +18,7 @@ const EditFund = (props) => {
 
   const initialPortfolioEdit = {
     fundName: props.fundName,
-    fundValue: props.fundValue,
+    fundVALUE: props.fundValue,
     fundBasis: props.fundBasis,
   };
 

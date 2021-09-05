@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import ElJefeAPI from "../../api/elJefeApi";
+import { Fade } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import PortfolioRow from "./PortfolioHeader";
 import FundRow from "./FundRow";
 import AddFund from "./FundAdd";
-// import Stats from "./Stats";
 
 const FundsList = () => {
   const [funds, setFunds] = useState([]);
@@ -40,12 +40,13 @@ const FundsList = () => {
 
   return (
     <>
-      {/* <Box bg="gray.100" p={3}> */}
+      <Fade in offsetY="-100px" delay={0.05}>
         <PortfolioRow
           portfolioTotalValue={sumValue}
           portfolioTotalBasis={sumBasis}
           pctGain={pctGain}
         />
+        </Fade>
         {funds &&
           funds.map((fund, i) => (
             <motion.div

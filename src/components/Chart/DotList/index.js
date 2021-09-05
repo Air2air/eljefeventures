@@ -4,12 +4,11 @@ import { dotData1, dotData2 } from "../../../data/dot";
 import Dot from "../Dot/dot";
 import "./styles.scss";
 
-const DotList = (props) => {
+const DotList = () => {
   const [active, setActive] = useState(0);
 
   const textButton1 = "Last 12 months";
   const textButton2 = "Current quarter";
-
 
   const variants = {
     visible: (i) => ({
@@ -20,7 +19,6 @@ const DotList = (props) => {
     }),
     hidden: { opacity: 0 },
   };
-
 
   /*----- DATA ------*/
 
@@ -45,12 +43,11 @@ const DotList = (props) => {
     </Col>
   ));
 
-
   return (
     <>
       <div className="dot-list-wrapper mb-5">
         <div className="dot-header d-flex align-items-center justify-content-between">
-          <h4>{props.fundName}</h4>
+
           <div>
             <Button
               className={active ? "btn mr-2 active" : "btn mr-2"}

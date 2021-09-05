@@ -4,7 +4,7 @@ import NumberFormat from "react-number-format";
 import { Box, Flex, Stat, StatArrow, Text, Spacer } from "@chakra-ui/react";
 import { FaUser, FaChevronRight } from "react-icons/fa";
 
-const ReportRow = (props) => {
+const RankRow = (props) => {
   const history = useHistory();
   const handleOnClick = () => history.push("/portfolio");
 
@@ -15,8 +15,11 @@ const ReportRow = (props) => {
     <>
       <Box
         mb={3}
-        bg={props.bg}
-        _hover={{ bg: "gray.200" }}
+        bg={props.isUser === "true" ? "gray.500" : "gray.50"}
+        color={props.isUser === "true" ? "gray.50" : "gray.800"}
+        _hover={
+          props.isUser === "true" ? { bg: "gray.600" } : { bg: "gray.200" }
+        }
         align="center"
         onClick={handleOnClick}
       >
@@ -49,7 +52,11 @@ const ReportRow = (props) => {
           </Flex>
 
           <Flex w={170} px={3} mr={5} align="center">
-            <Text fontSize="sm" mr={2} color="gray.500">
+          <Text
+              fontSize="sm"
+              mr={3}
+              color={props.isUser === "true" ? "gray.300" : "gray.400"}
+            >
               {props?.fundBasis > props?.fundValue ? "LOSS:" : "GAIN:"}
             </Text>
             <NumberFormat
@@ -61,7 +68,11 @@ const ReportRow = (props) => {
           </Flex>
 
           <Flex w={170} px={3} mr={5} align="center">
-            <Text fontSize="sm" mr={2} color="gray.500">
+            <Text
+              fontSize="sm"
+              mr={3}
+              color={props.isUser === "true" ? "gray.300" : "gray.400"}
+            >
               VALUE:
             </Text>
 
@@ -74,7 +85,11 @@ const ReportRow = (props) => {
           </Flex>
 
           <Flex px={3} align="center">
-            <Text fontSize="sm" mr={3} color="gray.300">
+          <Text
+              fontSize="sm"
+              mr={3}
+              color={props.isUser === "true" ? "gray.300" : "gray.400"}
+            >
               <FaUser />
             </Text>
             <Text fontSize="md">{props.fundName}</Text>
@@ -88,4 +103,4 @@ const ReportRow = (props) => {
   );
 };
 
-export default ReportRow;
+export default RankRow;

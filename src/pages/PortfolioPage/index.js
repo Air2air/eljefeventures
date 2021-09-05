@@ -6,7 +6,7 @@ const PortfolioPage = () => {
   return (
     <>
       <Container maxW="container.lg">
-        <Heading my={4} size="md">
+      <Heading my={4} size="md" fontWeight="500" color="gray.500">
           Ranking &gt; Kubelschiff Industries
         </Heading>
         <Portfolio />

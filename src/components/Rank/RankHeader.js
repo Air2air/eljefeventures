@@ -9,12 +9,12 @@ const RankHeader = (props) => {
       props.portfolioTotalValue) *
     100;
 
-    const labelColor="gray.300"
+  const labelColor = "gray.300";
 
   return (
     <>
       <Grid templateColumns="repeat(4, 1fr)" mb={8} gap={6}>
-      <Center w="100%" h={100} color="white" bg="gray.500">
+        <Center w="100%" h={100} color="white" bg="gray.600">
           <Text fontSize="2xl" mr={1} color="gray.300">
             #
           </Text>
@@ -28,12 +28,14 @@ const RankHeader = (props) => {
             {props.totalPlaces}
           </Text>
         </Center>
-        <Center w="100%" h={100} color="white" bg="gray.500">
+        <Center w="100%" h={100} color="white" bg="gray.600">
           <Flex px={3} mr={5} align="center">
             <Text fontSize="sm" mr={2} color={labelColor}>
               CHANGE:
             </Text>
-            <Text fontSize="3xl" color="white">{props.previousRank - props.currentRank}</Text>
+            <Text fontSize="3xl" color="white">
+              {props.previousRank - props.currentRank}
+            </Text>
           </Flex>
         </Center>
         <Center w="100%" h={100} color="white" bg="gray.500">

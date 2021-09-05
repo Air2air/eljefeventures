@@ -9,6 +9,7 @@ import {
   StatArrow,
   useDisclosure,
 } from "@chakra-ui/react";
+import { motion } from "framer-motion";
 import NumberFormat from "react-number-format";
 
 const PortfolioHeader = (props) => {
@@ -23,11 +24,11 @@ const PortfolioHeader = (props) => {
 
   return (
     <>
-        <Grid
-          onClick={onToggle}
-          templateColumns="repeat(4, 1fr)"
-          mb={8}
-          gap={6}
+      <Grid onClick={onToggle} templateColumns="repeat(4, 1fr)" mb={8} gap={6}>
+        <motion.div
+          initial={{ opacity: 0, scaleY: 0 }}
+          animate={{ opacity: 1, scaleY: 1 }}
+          transition={{ duration: 0.1, delay: 0 }}
         >
           <Center w="100%" h={100} color="white" bg="gray.600">
             <Flex justify="center" align="center">
@@ -51,6 +52,12 @@ const PortfolioHeader = (props) => {
               </Text>
             </Flex>
           </Center>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, scaleY: 0 }}
+          animate={{ opacity: 1, scaleY: 1 }}
+          transition={{ duration: 0.1, delay: 0.1 }}
+        >
           <Center w="100%" h={100} color="white" bg="gray.600">
             <Flex justify="center" align="center">
               <Text fontSize="sm" mr={2} color={labelColor}>
@@ -70,6 +77,12 @@ const PortfolioHeader = (props) => {
               </Text>
             </Flex>
           </Center>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, scaleY: 0 }}
+          animate={{ opacity: 1, scaleY: 1 }}
+          transition={{ duration: 0.1, delay: 0.2 }}
+        >
           <Center w="100%" h={100} color="white" bg="gray.500">
             <Flex justify="center" align="center">
               <Text fontSize="sm" mr={2} color={labelColor}>
@@ -85,6 +98,12 @@ const PortfolioHeader = (props) => {
               </Text>
             </Flex>
           </Center>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, scaleY: 0 }}
+          animate={{ opacity: 1, scaleY: 1 }}
+          transition={{ duration: 0.1, delay: 0.3 }}
+        >
           <Center w="100%" h={100} color="white" bg="gray.500">
             <Flex justify="center" align="center">
               <Text fontSize="sm" mr={2} color={labelColor}>
@@ -100,14 +119,14 @@ const PortfolioHeader = (props) => {
               </Text>
             </Flex>
           </Center>
-        </Grid>
+        </motion.div>
+      </Grid>
 
-        <Collapse in={isOpen}>
-          <Center h="200px" p={3} pt={0}>
-            Stats about this portfolio
-          </Center>
-        </Collapse>
-
+      <Collapse in={isOpen}>
+        <Center h="200px" p={3} pt={0}>
+          Stats about this portfolio
+        </Center>
+      </Collapse>
     </>
   );
 };

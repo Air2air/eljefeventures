@@ -9,32 +9,36 @@ const RankHeader = (props) => {
       props.portfolioTotalValue) *
     100;
 
+    const labelColor="gray.300"
+
   return (
     <>
-        <Grid templateColumns="repeat(4, 1fr)" mb={8} gap={6}>
-          <Center w="100%" h={100} bg="gray.200">
-          <Text fontSize="2xl" mr={1} color="gray.500">
-              #
-            </Text>
-            <Text fontSize="3xl">{props.currentRank}</Text>
-            <Text fontSize="2xl" fontWeight="semibold" color="gray.500" mx={1}>
-              /
-            </Text>
-            <Text fontSize="3xl" color="gray.500">
-              {props.totalPlaces}
-            </Text>
-          </Center>
-          <Center w="100%" h={100} bg="gray.200">
+      <Grid templateColumns="repeat(4, 1fr)" mb={8} gap={6}>
+      <Center w="100%" h={100} color="white" bg="gray.500">
+          <Text fontSize="2xl" mr={1} color="gray.300">
+            #
+          </Text>
+          <Text fontSize="3xl" color="white">
+            {props.currentRank}
+          </Text>
+          <Text fontSize="2xl" fontWeight="semibold" color={labelColor} mx={1}>
+            /
+          </Text>
+          <Text fontSize="3xl" color="gray.300">
+            {props.totalPlaces}
+          </Text>
+        </Center>
+        <Center w="100%" h={100} color="white" bg="gray.500">
           <Flex px={3} mr={5} align="center">
-            <Text fontSize="sm" mr={2} color="gray.500">
+            <Text fontSize="sm" mr={2} color={labelColor}>
               CHANGE:
             </Text>
-            <Text fontSize="3xl">{props.previousRank - props.currentRank}</Text>
+            <Text fontSize="3xl" color="white">{props.previousRank - props.currentRank}</Text>
           </Flex>
-          </Center>
-          <Center w="100%" h={100} bg="gray.200">
+        </Center>
+        <Center w="100%" h={100} color="white" bg="gray.500">
           <Flex align="center">
-            <Text fontSize="sm" mr={2} color="gray.500">
+            <Text fontSize="sm" mr={2} color={labelColor}>
               VALUE:
             </Text>
             <NumberFormat
@@ -44,10 +48,10 @@ const RankHeader = (props) => {
               prefix="$"
             />
           </Flex>
-          </Center>
-          <Center w="100%" h={100} bg="gray.200">
+        </Center>
+        <Center w="100%" h={100} color="white" bg="gray.500">
           <Flex align="center">
-            <Text fontSize="sm" mr={2} color="gray.500">
+            <Text fontSize="sm" mr={2} color={labelColor}>
               BASIS:
             </Text>
             <NumberFormat
@@ -57,9 +61,8 @@ const RankHeader = (props) => {
               prefix="$"
             />
           </Flex>
-          </Center>
-        </Grid>
-
+        </Center>
+      </Grid>
     </>
   );
 };

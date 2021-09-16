@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import NavBar from "./components/NavBar/Header";
-import { ChakraProvider, Flex } from "@chakra-ui/react";
+import { ChakraProvider, Container } from "@chakra-ui/react";
 import theme from "./theme/theme";
 import { BrowserRouter } from "react-router-dom";
 import * as serviceWorker from "./serviceWorker";
@@ -13,15 +12,9 @@ ReactDOM.render(
   <React.StrictMode>
     <ChakraProvider theme={theme}>
       <BrowserRouter>
-        <Flex
-          direction="column"
-          align="center"
-          maxW={{ xl: "1200px" }}
-          m="0 auto"
-        >
-          <NavBar />
+        <Container maxW="container.lg" m="0 auto">
           <App />
-        </Flex>
+        </Container>
       </BrowserRouter>
     </ChakraProvider>
   </React.StrictMode>,

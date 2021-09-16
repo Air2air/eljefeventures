@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import ElJefeAPI from "../../api/elJefeApi";
+import ElJefeAPI from "../../../api/elJefeApi";
 import { Fade } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import PortfolioRow from "./PortfolioHeader";
-import FundRow from "./FundRow";
-import AddFund from "./FundAdd";
+import FundRow from "../Edit/FundRow";
+import AddFund from "../Edit/FundAdd";
 
-const FundsList = () => {
+const PortfolioList = () => {
   const [funds, setFunds] = useState([]);
 
   useEffect(() => {
@@ -73,4 +73,4 @@ const FundsList = () => {
   );
 };
 
-export default FundsList;
+export default PortfolioList;

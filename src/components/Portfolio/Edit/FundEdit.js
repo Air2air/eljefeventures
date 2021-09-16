@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import ElJefeAPI from "../../api/elJefeApi";
+import ElJefeAPI from "../../../api/elJefeApi";
 
 import {
   Box,

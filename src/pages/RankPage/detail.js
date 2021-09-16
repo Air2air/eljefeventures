@@ -1,9 +1,9 @@
 import React from "react";
 import NavBar from "../../components/NavBar/Header";
 import Breadcrumb from "../../components/Breadcrumb";
-import RankSimple from "../../components/Rank/Simple";
+import RankDetail from "../../components/Rank/Detail";
 
-const RankPage = (props) => {
+const RankPageDetail = (props) => {
   return (
     <>
       <NavBar />
@@ -12,9 +12,9 @@ const RankPage = (props) => {
         parentName={props.parentName}
         activeName={props.pageName}
       />
-      <RankSimple />
+      <RankDetail />
     </>
   );
 };
 
-export default RankPage;
+export default RankPageDetail;

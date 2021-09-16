@@ -13,7 +13,7 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import { FaPlus } from "react-icons/fa";
-import ElJefeAPI from "../../api/elJefeApi";
+import ElJefeAPI from "../../../api/elJefeApi";
 
 const AddFund = () => {
   const blankFundState = {

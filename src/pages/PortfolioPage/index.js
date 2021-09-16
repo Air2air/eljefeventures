@@ -1,24 +1,21 @@
 import React from "react";
-import { Container } from "@chakra-ui/react";
+import NavBar from "../../components/NavBar/Header";
 import Breadcrumb from "../../components/Breadcrumb";
-import Portfolio from "../../components/Portfolio";
+import PortfolioSimple from "../../components/Portfolio/Simple";
 
-const PortfolioPage = () => {
-  const parentLink = "/portfolio";
-  const parentName = "";
-  const pageName = "My Portfolio";
+const PortfolioPage = (props) => {
+
   return (
     <>
-      <Container maxW="container.lg">
-        <Breadcrumb
-          parentLink={parentLink}
-          parentName={parentName}
-          activeName={pageName}
-        />
-        <Portfolio />
-      </Container>
+      <NavBar />
+      <Breadcrumb
+        parentLink={props.parentLink}
+        parentName={props.parentName}
+        activeName={props.pageName}
+      />
+      <PortfolioSimple />
     </>
   );
 };
 
-export default PortfolioPage;
+export default PortfolioPage

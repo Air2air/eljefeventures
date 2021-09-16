@@ -1,14 +1,12 @@
 import React from "react";
 import { Container } from "@chakra-ui/react";
 import Breadcrumb from "../../components/Breadcrumb";
-import RankSimple from "../../components/Rank/Simple";
+import Portfolio from "../../components/Portfolio";
 
-const RankPage = () => {
-  
-  const parentLink = "/rank";
-  const parentName = "";
-  const pageName = "My Ranking";
-
+const PortfolioPage = () => {
+  const parentLink = "/portfolio";
+  const parentName = "My Portfolio";
+  const pageName = "Detailed";
   return (
     <>
       <Container maxW="container.lg">
@@ -17,10 +15,10 @@ const RankPage = () => {
           parentName={parentName}
           activeName={pageName}
         />
-        <RankSimple />
+        <Portfolio />
       </Container>
     </>
   );
 };
 
-export default RankPage;
+export default PortfolioPage;

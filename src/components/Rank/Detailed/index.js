@@ -3,7 +3,7 @@ import { Fade } from "@chakra-ui/react";
 import RankHeader from "./RankHeader";
 import RankRow from "./RankRow";
 
-const Rank = () => {
+const RankDetailed = () => {
 
   return (
     <>
@@ -91,4 +91,4 @@ const Rank = () => {
   );
 };
 
-export default Rank;
+export default RankDetailed;

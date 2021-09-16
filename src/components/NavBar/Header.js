@@ -69,9 +69,10 @@ const MenuLinks = ({ isOpen }) => {
         pt={[4, 4, 0, 0]}
       >
         <MenuItem to="/rank">Rank</MenuItem>
-        <MenuItem to="/portfolio">My Portfolio</MenuItem>
-        <MenuItem to="/signup" isLast>
-          Account
+        <MenuItem to="/rank-detail">Rank detail</MenuItem>
+        <MenuItem to="/portfolio">Portfolio</MenuItem>
+        <MenuItem to="/portfolio-detail" isLast>
+          Portfolio detail
         </MenuItem>
       </Stack>
     </Box>

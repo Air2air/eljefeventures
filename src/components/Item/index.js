@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { items } from "../../data/data";
+import "./styles.scss";
 
 export function Item({ id }) {
   const { category, title } = items.find((item) => item.id === id);
@@ -33,7 +34,7 @@ export function Item({ id }) {
             <h2>{title}</h2>
           </motion.div>
           <motion.div className="content-container" animate>
-            Doodle  Doodle Doodle Doodle Doodle Doodle Doodle Doodle Doodle
+            Doodle Doodle Doodle Doodle Doodle Doodle Doodle Doodle Doodle
           </motion.div>
         </motion.div>
       </div>

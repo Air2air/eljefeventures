@@ -20,12 +20,11 @@ const remove = id => {
   return http.delete(`/portfolios/${id}`);
 };
 
-
 const findByName = fundName => {
   return http.get(`/portfolios?fundName=${fundName}`);
 };
 
-export default {
+export default  {
   getAll,
   get,
   create,

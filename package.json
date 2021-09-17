@@ -14,11 +14,9 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
-    "axios": "^0.20.0",
-    "bootstrap": "^4.6.0",
+    "axios": "^0.21.4",
     "framer-motion": "^3.1.1",
     "react": "^16.13.1",
-    "react-bootstrap": "^1.6.1",
     "react-countup": "^5.1.0",
     "react-datepicker": "^4.2.1",
     "react-dom": "^16.13.1",
@@ -26,13 +24,13 @@
     "react-number-format": "^4.7.3",
     "react-query": "^3.19.1",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.3",
+    "react-scripts": "^4.0.3",
     "react-table": "^7.7.0",
     "react-truncate": "^2.4.0",
     "react-validation": "^3.0.7",
     "sass": "^1.35.2",
     "validator": "^13.1.1",
-    "valtio": "^1.1.0"
+    "vite": "^2.5.7"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -70,8 +68,5 @@
     "eslint": "7.30.0",
     "sass-loader": "^12.1.0",
     "typescript": "^4.3.5"
-  },
-  "resolutions": {
-    "webpack": "5.41.1"
   }
 }

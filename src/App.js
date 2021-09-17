@@ -6,6 +6,7 @@ import RankPage from "./pages/RankPage";
 import RankPageDetail from "./pages/RankPage/detail";
 import PortfolioPage from "./pages/PortfolioPage";
 import PortfolioPageDetail from "./pages/PortfolioPage/detail";
+import LayoutPage from "./pages/Layout";
 
 const App = () => {
   const location = useLocation();
@@ -16,6 +17,9 @@ const App = () => {
         <Switch location={location} key={location.pathname}>
           <Route exact path={["/", "/home"]}>
             <Home />
+          </Route>
+          <Route path="/layout">
+            <LayoutPage />
           </Route>
           <Route
             path={"/rank"}
@@ -54,3 +58,7 @@ const App = () => {
 };
 
 export default App;
+
+
+
+

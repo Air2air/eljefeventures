@@ -1,11 +1,9 @@
-import React from "react";
 import { motion } from "framer-motion";
-import { LoremIpsum } from "react-lorem-ipsum";
 import { Link } from "react-router-dom";
-import { items } from "../data/data";
+import { items } from "../../data/data";
 
 export function Item({ id }) {
-  const { category, title } = items.find(item => item.id === id);
+  const { category, title } = items.find((item) => item.id === id);
 
   return (
     <>
@@ -35,11 +33,7 @@ export function Item({ id }) {
             <h2>{title}</h2>
           </motion.div>
           <motion.div className="content-container" animate>
-            <LoremIpsum
-              p={6}
-              avgWordsPerSentence={6}
-              avgSentencesPerParagraph={4}
-            />
+            Doodle  Doodle Doodle Doodle Doodle Doodle Doodle Doodle Doodle
           </motion.div>
         </motion.div>
       </div>

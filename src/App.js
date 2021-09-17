@@ -29,7 +29,6 @@
 // import { Item } from "./components/Item";
 // import { List } from "./components/List";
 
-
 // function Store({ match }) {
 //   let { id } = match.params;
 //   const imageHasLoaded = true;
@@ -96,9 +95,9 @@
 // export default App;
 
 import { AnimateSharedLayout, AnimatePresence } from "framer-motion";
-// import { Header } from "./components/Header";
+import Header from "./components/Header";
 import { Item } from "./components/Item";
-import { List } from "./components/List";
+import CardList from "./components/CardList";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 function Store({ match }) {
@@ -107,7 +106,7 @@ function Store({ match }) {
 
   return (
     <>
-      <List selectedId={id} />
+      <CardList selectedId={id} />
       <AnimatePresence>
         {id && imageHasLoaded && <Item id={id} key="item" />}
       </AnimatePresence>
@@ -119,7 +118,7 @@ export default function App() {
   return (
     <div className="container">
       <AnimateSharedLayout type="crossfade">
-        {/* <Header /> */}
+        <Header />
         <Router>
           <Route path={["/:id", "/"]} component={Store} />
         </Router>

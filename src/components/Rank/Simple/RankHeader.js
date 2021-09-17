@@ -1,6 +1,6 @@
 import React from "react";
 import { Grid } from "@chakra-ui/react";
-import { CardRank, CardChange, CardStat,CardYield } from "./../../Card";
+import { CardRank, CardChange, CardStat,CardYield } from "../../Card-old";
 
 const RankHeader = (props) => {
   const labelColor = "gray.300";

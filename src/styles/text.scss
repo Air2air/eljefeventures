@@ -17,11 +17,16 @@ body {
   }
   h1 {
     font-size: 1.3rem;
+    font-weight: 500;
   }
   h2 {
     font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 0.07em;
+  }
+  .category {
+    font-size: 14px;
+    text-transform: uppercase;
   }
 }
 
@@ -33,7 +38,6 @@ body {
   .light {
     opacity: 0.5;
   }
-
   h2 {
     opacity: 0.5;
   }

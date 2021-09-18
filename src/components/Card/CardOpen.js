@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { items } from "../../data/data";
 import "./styles.scss";
 
-const Item = ({ id })  => {
+const CardOpen = ({ id })  => {
   const { category, title } = items.find((item) => item.id === id);
 
   return (
@@ -26,7 +26,7 @@ const Item = ({ id })  => {
           >
             <img className="card-image" src={`images/${id}.jpg`} alt="" />
           </motion.div> */}
-          Background image
+
           <motion.div
             className="title-container"
             layoutId={`title-container-${id}`}
@@ -44,4 +44,4 @@ const Item = ({ id })  => {
 }
 
 
-export default Item
+export default CardOpen

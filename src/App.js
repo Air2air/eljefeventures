@@ -96,8 +96,8 @@
 
 import { AnimateSharedLayout, AnimatePresence } from "framer-motion";
 import Header from "./components/Header";
-import Item from "./components/Item";
-import CardList from "./components/CardList";
+import Item from "./components/Card/CardOpen";
+import CardList from "./components/Card/CardList";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 function Store({ match }) {

@@ -1,6 +1,6 @@
 /*----- Colors ------*/
 
-$base-color:rgb(72, 106, 146);
+$base-color: rgb(72, 106, 146);
 $background-color: #fff;
 $text-color: $base-color;
 $text-light: #fff;
@@ -17,7 +17,7 @@ $purple: rgb(102, 63, 153);
 :export {
   backgroundColor: $background-color;
   textColor: $text-color;
-  muted:$muted;
+  muted: $muted;
   gray: $gray;
   red: $red;
   orange: $orange;
@@ -25,14 +25,4 @@ $purple: rgb(102, 63, 153);
   green: $green;
   blue: $blue;
   purple: $purple;
-}
-
-/*----- Text ------*/
-
-$font-size: 15px;
-$font-family: "Rubik", sans-serif;
-
-:export {
-  fontSize: $font-size;
-  fontFamily: $font-family;
 }

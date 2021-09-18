@@ -1,5 +1,5 @@
 import { items } from "../../data/data";
-import Card from "../Card";
+import Card from "./CardClosed";
 import "./styles.scss";
 
 const CardList = ({ selectedId }) => {

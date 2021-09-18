@@ -21,15 +21,6 @@ body {
   height: 100%;
 }
 
-.container {
-  flex: 1 1 100%;
-  padding: 45px 25px;
-}
-
-.content-container {
-  padding: 460px 35px 35px 35px;
-  width: 90vw;
-}
 
 p {
   font-size: 20px;
@@ -37,6 +28,7 @@ p {
 }
 
 .overlay {
+  background: rgba(255, 255, 255, 0.7);
   z-index: 1;
   position: fixed;
   background: rgba(210, 210, 210, 0.8);
@@ -55,8 +47,4 @@ p {
     left: 50%;
     transform: translateX(-50%);
   }
-}
-
-.overlay {
-  background: transparentize(lighten($base-color, 40%), 0.2);
 }

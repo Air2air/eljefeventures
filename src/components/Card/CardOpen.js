@@ -20,13 +20,6 @@ const CardOpen = ({ id })  => {
       </motion.div>
       <div className="card-content-container open">
         <motion.div className="card-content" layoutId={`card-container-${id}`}>
-          {/* <motion.div
-            className="card-image-container"
-            layoutId={`card-image-container-${id}`}
-          >
-            <img className="card-image" src={`images/${id}.jpg`} alt="" />
-          </motion.div> */}
-
           <motion.div
             className="title-container"
             layoutId={`title-container-${id}`}

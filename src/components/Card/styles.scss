@@ -1,7 +1,5 @@
 @import "./../../styles/variables.scss";
 
-$card-height: 280px;
-
 /*---- list ----*/
 ul,
 li {
@@ -20,15 +18,6 @@ li {
 .card {
   position: relative;
   padding: 25px;
-  height: $card-height;
-  flex: 0 0 40%;
-  max-width: 40%;
-}
-
-.card:nth-child(4n + 1),
-.card:nth-child(4n + 4) {
-  flex: 0 0 60%;
-  max-width: 60%;
 }
 
 .card:nth-child(odd) {
@@ -53,6 +42,7 @@ li {
     width: 100%;
     height: 100%;
     margin: 0 auto;
+    padding: 20px;
   }
   &.open {
     top: 0;
@@ -64,9 +54,13 @@ li {
     padding: 40px 0;
     .card-content {
       height: auto;
-      max-width: 700px;
+      // max-width: 700px;
       overflow: hidden;
       pointer-events: none;
+      .content-container {
+        padding: 460px 35px 35px 35px;
+        width: 90vw;
+      }
     }
   }
 }
@@ -79,41 +73,25 @@ li {
   bottom: 0;
 }
 
-.card-image-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  overflow: hidden;
-  height: 420px;
-  width: 100vw;
-  & .open {
-    z-index: 1;
+@media only screen and (min-width: 801px) {
+  .card {
+    height: 280px;
+    flex: 0 0 40%;
+    max-width: 40%;
+  }
+
+  .card:nth-child(4n + 1),
+  .card:nth-child(4n + 4) {
+    flex: 0 0 60%;
+    max-width: 60%;
   }
 }
-
-.open .card-image-container,
-.open .title-container {
-  z-index: 1;
-}
-
-.title-container {
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  max-width: 300px;
-  & .open {
-    z-index: 1;
-    top: 30px;
-    left: 30px;
-  }
-}
-
-
 
 @media only screen and (max-width: 800px) {
   .card {
     flex: 0 0 50%;
     max-width: 50%;
+    height: 280px;
   }
 
   .card:nth-child(4n + 1),
@@ -128,6 +106,7 @@ li {
     flex: 1 0 100%;
     max-width: 100%;
     padding: 10px 0;
+    height: 200px;
   }
 
   .card:nth-child(4n + 1),
@@ -135,13 +114,29 @@ li {
     flex: 1 0 100%;
     max-width: 100%;
   }
-
-  .card-content-container.open {
-    padding: 0;
-  }
 }
 
 /* ----- Colors ------ */
 .card-content {
   background: lighten($base-color, 52%);
 }
+
+/* ----- Dev Colors ------ */
+// .card {
+//   background: red;
+// }
+// .card-content-container {
+//   background: orange;
+//   &.open {
+//     background: orange;
+//     .card-content {
+//       background: gold;
+//     }
+//   }
+//   .card-content {
+//     background: gold;
+//   }
+//   .card-open-link {
+//     background: blue;
+//   }
+// }

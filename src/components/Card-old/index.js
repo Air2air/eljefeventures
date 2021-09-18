@@ -1,8 +1,7 @@
-import React from "react";
 import { Center, Flex, Text, Stat, StatArrow } from "@chakra-ui/react";
 import NumberFormat from "react-number-format";
 import { motion } from "framer-motion";
-import "./styles.scss"
+import "./styles.scss";
 
 export const CardYield = (props) => {
   /*

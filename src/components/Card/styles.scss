@@ -1,5 +1,12 @@
 @import "./../../styles/variables.scss";
 
+$card-closed-height-xs: 200px;
+$card-closed-height-sm: 280px;
+$card-closed-height-md: 280px;
+$card-open-height-xs: 500px;
+$card-open-height-sm: 500px;
+$card-open-height-md: 500px;
+
 /*---- list ----*/
 ul,
 li {
@@ -45,23 +52,21 @@ li {
     padding: 20px;
   }
   &.open {
+    margin: 60px auto 0 auto;
     top: 0;
     left: 0;
     right: 0;
     position: fixed;
     z-index: 1;
-    overflow: hidden;
-    padding: 40px 0;
+    width: 90vw;
+    max-width: 700px;
+    height: 500px;
+    display: flex;
+    justify-content: "center";
     .card-content {
-      height: auto;
-      width:90vw;
-      max-width: 700px;
-      overflow: hidden;
+      width: 100%;
+      height: 100%;
       pointer-events: none;
-      .content-container {
-        padding: 460px 35px 35px 35px;
-        width: 90vw;
-      }
     }
   }
 }
@@ -76,7 +81,7 @@ li {
 
 @media only screen and (min-width: 801px) {
   .card {
-    height: 280px;
+    height: $card-closed-height-md;
     flex: 0 0 40%;
     max-width: 40%;
   }
@@ -86,19 +91,33 @@ li {
     flex: 0 0 60%;
     max-width: 60%;
   }
+  .card-content-container {
+    .card-content {
+      &.open {
+        height: $card-open-height-md;
+      }
+    }
+  }
 }
 
 @media only screen and (max-width: 800px) {
   .card {
     flex: 0 0 50%;
     max-width: 50%;
-    height: 280px;
+    height: $card-closed-height-sm;
   }
 
   .card:nth-child(4n + 1),
   .card:nth-child(4n + 4) {
     flex: 0 0 50%;
     max-width: 50%;
+  }
+  .card-content-container {
+    .card-content {
+      &.open {
+        height: $card-open-height-sm;
+      }
+    }
   }
 }
 
@@ -107,13 +126,20 @@ li {
     flex: 1 0 100%;
     max-width: 100%;
     padding: 10px 0;
-    height: 200px;
+    height: $card-closed-height-xs;
   }
 
   .card:nth-child(4n + 1),
   .card:nth-child(4n + 4) {
     flex: 1 0 100%;
     max-width: 100%;
+  }
+  .card-content-container {
+    .card-content {
+      &.open {
+        height: $card-open-height-xs;
+      }
+    }
   }
 }
 
@@ -123,21 +149,21 @@ li {
 }
 
 /* ----- Dev Colors ------ */
-// .card {
-//   background: red;
-// }
-// .card-content-container {
-//   background: orange;
-//   &.open {
-//     background: orange;
-//     .card-content {
-//       background: gold;
-//     }
-//   }
-//   .card-content {
-//     background: gold;
-//   }
-//   .card-open-link {
-//     background: blue;
-//   }
-// }
+.card {
+  background: red;
+}
+.card-content-container {
+  background: orange;
+  &.open {
+    background: orange;
+    .card-content {
+      background: gold;
+    }
+  }
+  .card-content {
+    background: gold;
+  }
+  .card-open-link {
+    background: blue;
+  }
+}

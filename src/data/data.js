@@ -7,15 +7,17 @@ export const items = [
       "How my portfolio ranks against others on El Jefe. How my portfolio ranks against others on El Jefe. How my portfolio ranks against others on El Jefe. ",
     pointOfInterest: 80,
     backgroundColor: "#814A0E",
+    buttonText:"Leaderboard"
   },
   {
     id: "f",
-    category: "leaders",
-    title: "Leaders are gaining.",
+    category: "updates",
+    title: "4 new developments.",
     description:
       "See how the anonyomous leaders are doing better than you. See how the anonyomous leaders are doing better than you.",
     pointOfInterest: 120,
     backgroundColor: "#959684",
+    buttonText:"Full information"
   },
   {
     id: "a",
@@ -25,6 +27,7 @@ export const items = [
       "How my activity has affected my performance. How my activity has affected my performance. How my activity has affected my performance. ",
     pointOfInterest: 260,
     backgroundColor: "#5DBCD2",
+    buttonText:"Activity log"
   },
   {
     id: "g",
@@ -34,6 +37,7 @@ export const items = [
       "Edit and manage your portfolio. Edit and manage your portfolio.  Edit and manage your portfolio.   ",
     pointOfInterest: 200,
     backgroundColor: "#8F986D",
+    buttonText:"Manage Portfolio"
   },
   {
     id: "d",
@@ -43,6 +47,7 @@ export const items = [
       "Consensus movements and allocations. Consensus movements and allocations. Consensus movements and allocations.  ",
     pointOfInterest: 150,
     backgroundColor: "#FA6779",
+    buttonText:"All trends"
   },
   {
     id: "h",
@@ -52,5 +57,6 @@ export const items = [
       "Daily updated list of top performing funds. Daily updated list of top performing funds. Daily updated list of top performing funds. Daily updated list of top performing funds.  ",
     pointOfInterest: 60,
     backgroundColor: "#282F49",
+    buttonText:"View all funds"
   },
 ];

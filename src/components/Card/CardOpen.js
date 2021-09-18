@@ -1,10 +1,13 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { Button } from "@chakra-ui/react";
 import { items } from "../../data/data";
 import "./styles.scss";
 
 const CardOpen = ({ id }) => {
-  const { category, title, description } = items.find((item) => item.id === id);
+  const { category, title, description, buttonText } = items.find(
+    (item) => item.id === id
+  );
 
   return (
     <>
@@ -18,14 +21,21 @@ const CardOpen = ({ id }) => {
       >
         <Link to="/" />
       </motion.div>
-      <div className="card-content-container open">
+      <div className="card-container open">
         <motion.div className="card-content" layoutId={`card-container-${id}`}>
           <div className="title-container">
             <span className="category">{category}</span>
             <h2>{title}</h2>
           </div>
           <motion.div className="content-container" animate>
-            {description}
+            {buttonText ? (
+              <>
+                <div className="text">{description}</div>
+                <Button colorScheme="blue">{buttonText}</Button>
+              </>
+            ) : (
+              { description }
+            )}
           </motion.div>
         </motion.div>
       </div>

@@ -3,9 +3,9 @@
 $card-closed-height-xs: 200px;
 $card-closed-height-sm: 280px;
 $card-closed-height-md: 280px;
-$card-open-height-xs: 500px;
-$card-open-height-sm: 500px;
-$card-open-height-md: 500px;
+$card-open-height-xs: 80vh;
+$card-open-height-sm: 80vh;
+$card-open-height-md: 80vh;
 
 /*---- list ----*/
 ul,
@@ -24,7 +24,6 @@ li {
 /*---- Card ----*/
 .card {
   position: relative;
-  padding: 25px;
 }
 
 .card:nth-child(odd) {
@@ -35,11 +34,8 @@ li {
   padding-right: 0;
 }
 
-.card-content-container {
-  width: 100%;
-  height: 100%;
+.card-container {
   position: relative;
-  display: block;
   pointer-events: none;
   .card-content {
     pointer-events: auto;
@@ -47,9 +43,8 @@ li {
     border-radius: 10px;
     overflow: hidden;
     width: 100%;
-    height: 100%;
     margin: 0 auto;
-    padding: 20px;
+
   }
   &.open {
     margin: 60px auto 0 auto;
@@ -60,12 +55,12 @@ li {
     z-index: 1;
     width: 90vw;
     max-width: 700px;
-    height: 500px;
     display: flex;
-    justify-content: "center";
     .card-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       width: 100%;
-      height: 100%;
       pointer-events: none;
     }
   }
@@ -83,7 +78,9 @@ li {
   .card {
     height: $card-closed-height-md;
     flex: 0 0 40%;
+    padding: 15px;
     max-width: 40%;
+    margin-bottom:18px;
   }
 
   .card:nth-child(4n + 1),
@@ -91,9 +88,16 @@ li {
     flex: 0 0 60%;
     max-width: 60%;
   }
-  .card-content-container {
+  .card-container {
+    height: $card-closed-height-md;
     .card-content {
-      &.open {
+      padding: 28px;
+      height: $card-closed-height-md;
+    }
+    &.open {
+      height: $card-open-height-md;
+      .card-content {
+        padding: 50px;
         height: $card-open-height-md;
       }
     }
@@ -104,7 +108,9 @@ li {
   .card {
     flex: 0 0 50%;
     max-width: 50%;
+    padding: 10px;
     height: $card-closed-height-sm;
+    margin-bottom:14px;
   }
 
   .card:nth-child(4n + 1),
@@ -112,9 +118,16 @@ li {
     flex: 0 0 50%;
     max-width: 50%;
   }
-  .card-content-container {
+  .card-container {
+    height: $card-closed-height-sm;
     .card-content {
-      &.open {
+      padding: 20px;
+      height: $card-closed-height-sm;
+    }
+    &.open {
+      height: $card-open-height-sm;
+      .card-content {
+        padding: 40px;
         height: $card-open-height-sm;
       }
     }
@@ -127,6 +140,7 @@ li {
     max-width: 100%;
     padding: 10px 0;
     height: $card-closed-height-xs;
+    margin-bottom:10px;
   }
 
   .card:nth-child(4n + 1),
@@ -134,9 +148,16 @@ li {
     flex: 1 0 100%;
     max-width: 100%;
   }
-  .card-content-container {
+  .card-container {
+    height: $card-closed-height-xs;
     .card-content {
-      &.open {
+      padding: 12px;
+      height: $card-closed-height-xs;
+    }
+    &.open {
+      height: $card-open-height-xs;
+      .card-content {
+        padding: 40px;
         height: $card-open-height-xs;
       }
     }
@@ -149,21 +170,21 @@ li {
 }
 
 /* ----- Dev Colors ------ */
-.card {
-  background: red;
-}
-.card-content-container {
-  background: orange;
-  &.open {
-    background: orange;
-    .card-content {
-      background: gold;
-    }
-  }
-  .card-content {
-    background: gold;
-  }
-  .card-open-link {
-    background: blue;
-  }
-}
+// .card {
+//   background: red;
+// }
+// .card-container {
+//   background: orange;
+//   &.open {
+//     background: orange;
+//     .card-content {
+//       background: gold;
+//     }
+//   }
+//   .card-content {
+//     background: gold;
+//   }
+//   .card-open-link {
+//     background: blue;
+//   }
+// }

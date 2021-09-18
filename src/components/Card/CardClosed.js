@@ -5,7 +5,7 @@ import "./styles.scss";
 function Card({ id, title, category, theme }) {
   return (
     <li className={`card ${theme}`}>
-      <div className="card-content-container">
+      <div className="card-container">
         <motion.div className="card-content" layoutId={`card-container-${id}`}>
           <div className="title-container">
             <span className="category">{category}</span>

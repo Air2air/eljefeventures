@@ -1,62 +1,63 @@
-export const items = [
+export const dashboard = [
   {
-    id: "c",
+    id: "ranking",
     category: "Ranking",
     title: "Lost two spots.",
     description:
       "How my portfolio ranks against others on El Jefe. How my portfolio ranks against others on El Jefe. How my portfolio ranks against others on El Jefe. ",
     pointOfInterest: 80,
     backgroundColor: "#814A0E",
-    buttonText:"Leaderboard"
+    buttonText: "Leaderboard",
+    link: "/rank",
   },
   {
-    id: "f",
-    category: "updates",
+    id: "updates",
+    category: "Updates",
     title: "4 new developments.",
     description:
       "See how the anonyomous leaders are doing better than you. See how the anonyomous leaders are doing better than you.",
-    pointOfInterest: 120,
     backgroundColor: "#959684",
-    buttonText:"Full information"
+    buttonText: "Full information",
+    link: "/updates",
   },
   {
-    id: "a",
-    category: "Log",
+    id: "activity",
+    category: "Activity",
     title: "My activity.",
     description:
       "How my activity has affected my performance. How my activity has affected my performance. How my activity has affected my performance. ",
-    pointOfInterest: 260,
     backgroundColor: "#5DBCD2",
-    buttonText:"Activity log"
+    buttonText: "Activity log",
+    link: "/activity",
   },
   {
-    id: "g",
-    category: "portfolio",
+    id: "portfolio",
+    category: "Portfolio",
     title: "Portfolio up 1.2%.",
     description:
       "Edit and manage your portfolio. Edit and manage your portfolio.  Edit and manage your portfolio.   ",
-    pointOfInterest: 200,
     backgroundColor: "#8F986D",
-    buttonText:"Manage Portfolio"
+    buttonText: "Manage Portfolio",
+    link: "/portfolio",
   },
   {
-    id: "d",
-    category: "trends",
+    id: "trends",
+    category: "Trends",
     title: "Leader trends.",
     description:
       "Consensus movements and allocations. Consensus movements and allocations. Consensus movements and allocations.  ",
-    pointOfInterest: 150,
     backgroundColor: "#FA6779",
-    buttonText:"All trends"
+    buttonText: "All trends",
+    link: "/trends",
   },
   {
-    id: "h",
-    category: "funds",
+    id: "funds",
+    category: "Funds",
     title: "12 top performers.",
     description:
       "Daily updated list of top performing funds. Daily updated list of top performing funds. Daily updated list of top performing funds. Daily updated list of top performing funds.  ",
-    pointOfInterest: 60,
     backgroundColor: "#282F49",
-    buttonText:"View all funds"
+    buttonText: "View all funds",
+    link: "/funds",
   },
 ];

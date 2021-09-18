@@ -1,4 +1,4 @@
-import React from "react";
+
 import { useHistory } from "react-router-dom";
 import NumberFormat from "react-number-format";
 import { Box, Flex, Stat, StatArrow, Text, Spacer } from "@chakra-ui/react";

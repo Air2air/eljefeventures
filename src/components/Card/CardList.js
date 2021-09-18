@@ -1,4 +1,4 @@
-import { items } from "../../data/data";
+import { dashboard } from "../../data/dashboard";
 import Card from "./CardClosed";
 import "./styles.scss";
 
@@ -6,7 +6,7 @@ const CardList = ({ selectedId }) => {
   return (
     <ul className="card-list">
       <>
-        {items.map((card) => (
+        {dashboard.map((card) => (
           <Card key={card.id} {...card} isSelected={card.id === selectedId} />
         ))}
       </>

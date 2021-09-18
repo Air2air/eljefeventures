@@ -95,21 +95,19 @@
 // export default App;
 
 import { AnimateSharedLayout, AnimatePresence } from "framer-motion";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Item from "./components/Card/CardOpen";
 import CardList from "./components/Card/CardList";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import RankPage from "./pages/RankPage";
+import PortfolioPage from "./pages/PortfolioPage";
 
-function Store({ match }) {
+function Sections({ match }) {
   let { id } = match.params;
-  const imageHasLoaded = true;
-
   return (
     <>
       <CardList selectedId={id} />
-      <AnimatePresence>
-        {id && imageHasLoaded && <Item id={id} key="item" />}
-      </AnimatePresence>
+      <AnimatePresence>{id && <Item id={id} key="item" />}</AnimatePresence>
     </>
   );
 }
@@ -120,7 +118,21 @@ export default function App() {
       <AnimateSharedLayout type="crossfade">
         <Header />
         <Router>
-          <Route path={["/:id", "/"]} component={Store} />
+          <Route path={["/:id", "/"]} component={Sections} />
+          <Route
+            path={"/rank"}
+            parentLink="/rank"
+            parentName="Rank Details"
+            pageName="Rank"
+            component={RankPage}
+          />
+          <Route
+            path={"/portfolio"}
+            parentLink=""
+            parentName=""
+            pageName="Portfolio"
+            component={PortfolioPage}
+          />
         </Router>
       </AnimateSharedLayout>
     </div>

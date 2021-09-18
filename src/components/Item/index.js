@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { items } from "../../data/data";
 import "./styles.scss";
 
-export function Item({ id }) {
+const Item = ({ id })  => {
   const { category, title } = items.find((item) => item.id === id);
 
   return (
@@ -20,12 +20,13 @@ export function Item({ id }) {
       </motion.div>
       <div className="card-content-container open">
         <motion.div className="card-content" layoutId={`card-container-${id}`}>
-          <motion.div
+          {/* <motion.div
             className="card-image-container"
             layoutId={`card-image-container-${id}`}
           >
             <img className="card-image" src={`images/${id}.jpg`} alt="" />
-          </motion.div>
+          </motion.div> */}
+          Background image
           <motion.div
             className="title-container"
             layoutId={`title-container-${id}`}
@@ -41,3 +42,6 @@ export function Item({ id }) {
     </>
   );
 }
+
+
+export default Item

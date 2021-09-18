@@ -1,7 +1,9 @@
+$card-height: 400px;
+
 .card {
   position: relative;
   padding: 25px;
-  height: 460px;
+  height: $card-height;
   flex: 0 0 40%;
   max-width: 40%;
 }
@@ -26,34 +28,31 @@
   position: relative;
   display: block;
   pointer-events: none;
-}
-
-.card-content-container.open {
-  top: 0;
-  left: 0;
-  right: 0;
-  position: fixed;
-  z-index: 1;
-  overflow: hidden;
-  padding: 40px 0;
-}
-
-.card-content {
-  pointer-events: auto;
-  position: relative;
-  border-radius: 20px;
-  background: #fff;
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
-  margin: 0 auto;
-}
-
-.open .card-content {
-  height: auto;
-  max-width: 700px;
-  overflow: hidden;
-  pointer-events: none;
+  .card-content {
+    pointer-events: auto;
+    position: relative;
+    border-radius: 10px;
+    background: #ccc;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+  }
+  &.open {
+    top: 0;
+    left: 0;
+    right: 0;
+    position: fixed;
+    z-index: 1;
+    overflow: hidden;
+    padding: 40px 0;
+    .card-content {
+      height: auto;
+      max-width: 700px;
+      overflow: hidden;
+      pointer-events: none;
+    }
+  }
 }
 
 .card-open-link {
@@ -71,6 +70,9 @@
   overflow: hidden;
   height: 420px;
   width: 100vw;
+  & .open {
+    z-index: 1;
+  }
 }
 
 .open .card-image-container,
@@ -83,20 +85,17 @@
   top: 15px;
   left: 15px;
   max-width: 300px;
+  & .open {
+    z-index: 1;
+    top: 30px;
+    left: 30px;
+  }
 }
-
-.open .title-container {
-  top: 30px;
-  left: 30px;
-}
-
 
 .category {
-  color: #fff;
   font-size: 14px;
   text-transform: uppercase;
 }
-
 
 @media only screen and (max-width: 800px) {
   .card {
@@ -115,9 +114,7 @@
   .card {
     flex: 1 0 100%;
     max-width: 100%;
-    padding: 10px;
-    padding-left: 0;
-    padding-right: 0;
+    padding: 10px 0;
   }
 
   .card:nth-child(4n + 1),

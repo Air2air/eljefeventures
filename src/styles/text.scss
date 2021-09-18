@@ -1,2 +1,40 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap");
 @import "./variables.scss";
+
+body {
+  font-size: 15px;
+  font-family: "Rubik", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  p {
+    line-height: normal;
+    margin-top: 18px;
+    margin-bottom: 18px;
+    line-height: 1.5em;
+  }
+  b {
+    font-weight: 500;
+  }
+  h1 {
+    font-size: 1.3rem;
+  }
+  h2 {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+  }
+}
+
+body {
+  color: $text-color;
+  p {
+    opacity: 0.7;
+  }
+  .light {
+    opacity: 0.5;
+  }
+
+  h2 {
+    opacity: 0.5;
+  }
+}

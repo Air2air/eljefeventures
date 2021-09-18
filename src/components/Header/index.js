@@ -1,13 +1,23 @@
-import "./styles.scss"
+import { Box, Center } from "@chakra-ui/react";
+import LogoImage from "./../../images/jalapeno.svg";
+import currentDate from "./../../utilities/date";
+import "./styles.scss";
 
 const Header = () => (
-  <header>
-    <span className="date">Thursday, August 8th</span>
-    <h1>Today</h1>
-    <div className="avatar">
-      My Account
-    </div>
-  </header>
+  <Center
+    height="40px"
+    position="relative"
+    justifyContent="space-between"
+    mb={4}
+  >
+    <Box>
+      <span className="date">{currentDate()}</span>
+      <h1>Today</h1>
+    </Box>
+    <Box className="logo">
+      <img src={LogoImage} alt="El Jefe" style={{ width: 30 }} />
+    </Box>
+  </Center>
 );
 
 export default Header;

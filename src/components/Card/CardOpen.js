@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { items } from "../../data/data";
 import "./styles.scss";
 
-const CardOpen = ({ id })  => {
+const CardOpen = ({ id }) => {
   const { category, title } = items.find((item) => item.id === id);
 
   return (
@@ -18,15 +18,12 @@ const CardOpen = ({ id })  => {
       >
         <Link to="/" />
       </motion.div>
-      <div className="card-content-container open">
+      <div className="card-content-container open" >
         <motion.div className="card-content" layoutId={`card-container-${id}`}>
-          <motion.div
-            className="title-container"
-            layoutId={`title-container-${id}`}
-          >
+          <div className="title-container">
             <span className="category">{category}</span>
             <h2>{title}</h2>
-          </motion.div>
+          </div>
           <motion.div className="content-container" animate>
             Doodle Doodle Doodle Doodle Doodle Doodle Doodle Doodle Doodle
           </motion.div>
@@ -34,7 +31,6 @@ const CardOpen = ({ id })  => {
       </div>
     </>
   );
-}
+};
 
-
-export default CardOpen
+export default CardOpen;

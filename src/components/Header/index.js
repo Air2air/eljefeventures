@@ -4,12 +4,7 @@ import currentDate from "./../../utilities/date";
 import "./styles.scss";
 
 const Header = () => (
-  <Center
-    height="40px"
-    position="relative"
-    justifyContent="space-between"
-    mb={4}
-  >
+  <Center height="90px" position="relative" justifyContent="space-between">
     <Box>
       <span className="date">{currentDate()}</span>
       <h1>Today</h1>

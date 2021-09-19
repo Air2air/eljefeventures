@@ -18,6 +18,7 @@ const CardOpen = ({ id }) => {
         transition={{ duration: 0.2, delay: 0.15 }}
         style={{ pointerEvents: "auto" }}
         className="overlay"
+        key={id}
       >
         <Link to="/" />
       </motion.div>

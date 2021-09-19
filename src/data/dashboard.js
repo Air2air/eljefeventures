@@ -1,7 +1,7 @@
 export const dashboard = [
   {
     id: "ranking",
-    category: "Ranking",
+    category: "ranking",
     title: "Lost two spots.",
     description:
       "How my portfolio ranks against others on El Jefe. How my portfolio ranks against others on El Jefe. How my portfolio ranks against others on El Jefe. ",
@@ -12,7 +12,7 @@ export const dashboard = [
   },
   {
     id: "updates",
-    category: "Updates",
+    category: "updates",
     title: "4 new developments.",
     description:
       "See how the anonyomous leaders are doing better than you. See how the anonyomous leaders are doing better than you.",
@@ -22,7 +22,7 @@ export const dashboard = [
   },
   {
     id: "activity",
-    category: "Activity",
+    category: "activity",
     title: "My activity.",
     description:
       "How my activity has affected my performance. How my activity has affected my performance. How my activity has affected my performance. ",
@@ -32,7 +32,7 @@ export const dashboard = [
   },
   {
     id: "portfolio",
-    category: "Portfolio",
+    category: "portfolio",
     title: "Portfolio up 1.2%.",
     description:
       "Edit and manage your portfolio. Edit and manage your portfolio.  Edit and manage your portfolio.   ",
@@ -42,7 +42,7 @@ export const dashboard = [
   },
   {
     id: "trends",
-    category: "Trends",
+    category: "trends",
     title: "Leader trends.",
     description:
       "Consensus movements and allocations. Consensus movements and allocations. Consensus movements and allocations.  ",
@@ -52,7 +52,7 @@ export const dashboard = [
   },
   {
     id: "funds",
-    category: "Funds",
+    category: "funds",
     title: "12 top performers.",
     description:
       "Daily updated list of top performing funds. Daily updated list of top performing funds. Daily updated list of top performing funds. Daily updated list of top performing funds.  ",

@@ -9,36 +9,39 @@ import {
 } from "./../Display";
 import "./styles.scss";
 
-const CardClosed = ({ id, title, category, theme }) => {
-
-  const displayType = (category) => {
-    if (category === "Portfolio") {
-      return <DisplayChange />
-    }
-    else if (category === "Ranking") {
-      return <DisplayRank />
-    }
-    else if (category === "Activity" || category === "Updates" || category === "Log" || category === "Trends" || category === "Funds") {
-      return <DisplayList />
-    }
-    else {
-      return <DisplayList />
-    }
-
-  };
+//const CardClosed = ({ id, title, category, description }) => {
+const CardClosed = (props) => {
+  // const displayType = (props) => {
+  //   if (props.category === "portfolio") {
+  //     // return <DisplayChange />;
+  //     return "Doodle"
+  //   } else if (props.category === "ranking") {
+  //     return <DisplayRank />;
+  //   } else {
+  //     return <DisplayList />;
+  //   }
+  // };
 
   return (
-    <li className="card" key={id}>
+    <li className="card" key={props.id}>
       <div className="card-container">
-        <motion.div className="card-content" layoutId={`card-container-${id}`}>
+        <motion.div
+          className="card-content"
+          layoutId={`card-container-${props.id}`}
+        >
           <div className="title-container">
-            <span className="category">{category}</span>
-            <h2>{title}</h2>
+            <span className="category">{props.category}</span>
+            <h2>{props.title}</h2>
           </div>
-          {displayType({category})}
+          {props.category === "ranking" && (
+            <DisplayRank currVal={9} prevVal={7} places={35} />
+          )}
+          {props.category === "portfolio" && (
+            <DisplayYield currVal={2.353} prevVal={4.662}/>
+          )}
         </motion.div>
       </div>
-      <Link to={id} className={`card-open-link`} />
+      <Link to={props.id} className={`card-open-link`} />
     </li>
   );
 };

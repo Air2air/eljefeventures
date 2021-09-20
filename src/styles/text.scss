@@ -2,7 +2,7 @@
 @import "./variables.scss";
 
 body {
-  font-size: 15px;
+  font-size: 16px;
   font-family: "Rubik", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -22,7 +22,7 @@ body {
   h2 {
     font-size: 1.3rem;
   }
-  .category {
+  .caption {
     font-size: 14px;
     text-transform: uppercase;
     color: $muted;

@@ -1,45 +1,38 @@
-import { Center, Flex, Text, Stat, StatArrow } from "@chakra-ui/react";
+import { Center, Flex, Text, Stat } from "@chakra-ui/react";
 import NumberFormat from "react-number-format";
-import { motion } from "framer-motion";
 import { GoTriangleUp, GoTriangleDown } from "react-icons/go";
-// import "./styles.scss";
+import { activity } from "../../data/activity";
+import "./styles.scss";
 
 export const DisplayChange = (props) => {
   // label, val, prevVal
   return (
     <>
-      <motion.div
-        initial={{ opacity: 0, scaleY: 0 }}
-        animate={{ opacity: 1, scaleY: 1 }}
-        transition={{ duration: 0.1, delay: 0.2 }}
-      >
-        <Center w="100%" h={100}>
-          <Flex px={3} mr={5} align="center">
-            <Text fontSize="sm" mr={2}>
-              {props.label}
-            </Text>
-            <Text fontSize="3xl">{props.val}</Text>
-          </Flex>
-        </Center>
-      </motion.div>
+      <Center w="100%">
+        <Flex px={3} mr={5} align="center">
+          <Text fontSize="sm" mr={2}>
+            {props.label}
+          </Text>
+          <Text fontSize="3xl">{props.val}</Text>
+        </Flex>
+      </Center>
     </>
   );
 };
 
-export const DisplayList = (label, val, prevVal) => {
+export const DisplayActivity = () => {
   return (
     <>
-      <motion.div
-        initial={{ opacity: 0, scaleY: 0 }}
-        animate={{ opacity: 1, scaleY: 1 }}
-        transition={{ duration: 0.1, delay: 0.2 }}
+      <Flex
+        height="100%"
+        pb={9}
+        justifyContent="space-evenly"
+        flexDirection="column"
       >
-        <Center w="100%" h={100} color="white" bg="gray.600">
-          <Flex px={3} mr={5} align="center">
-            List Stuff
-          </Flex>
-        </Center>
-      </motion.div>
+        {activity.slice(0, 3).map((item) => (
+          <div key={item.id}><span className="caption">{item.date}&nbsp;</span>&nbsp;{item.description}</div>
+        ))}
+      </Flex>
     </>
   );
 };
@@ -48,9 +41,9 @@ export const DisplayRank = (props) => {
   // rankVal={9} prevVal={11} places={35}
   return (
     <>
-      <Center w="100%" h={100}>
-      <Flex justify="center" align="center" fontSize="5em">
-      <Stat>
+      <Center w="100%">
+        <Flex justify="center" align="center" fontSize="4.5em">
+          <Stat>
             {props.currVal > props.prevVal ? (
               <GoTriangleDown style={{ color: "red", fontSize: ".7em" }} />
             ) : (
@@ -71,7 +64,7 @@ export const DisplayRank = (props) => {
 export const DisplayStat = (label, val) => {
   return (
     <>
-      <Center w="100%" h={100} color="white" bg="gray.500">
+      <Center w="100%" color="white" bg="gray.500">
         <Flex align="center">
           <Text fontSize="sm" mr={2}>
             {label}
@@ -92,8 +85,8 @@ export const DisplayYield = (props) => {
   // currVal, prevVal
   return (
     <>
-      <Center w="100%" h={100}>
-        <Flex justify="center" align="center" fontSize="5em">
+      <Center w="100%">
+        <Flex justify="center" align="center" fontSize="4.5em">
           <Stat>
             {props.currVal > props.prevVal ? (
               <GoTriangleDown style={{ color: "red", fontSize: ".7em" }} />

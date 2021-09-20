@@ -1,5 +1,3 @@
-import { withDefaultColorScheme } from "@chakra-ui/react";
-
 export const activity = [
   {
     id: "1",
@@ -22,8 +20,7 @@ export const activity = [
     id: "3",
     category: "portfolio",
     date: "Sat Sep. 7",
-    description:
-      "You sold half of your position in MSFT. ",
+    description: "You sold half of your position in MSFT. ",
     buttonText: "portfolio",
     link: "/portfolio",
   },
@@ -32,7 +29,7 @@ export const activity = [
     category: "activity",
     date: "Mon Sep. 9",
     description:
-      "How my activity has affected my performance. How my activity has affected my performance. How my activity has affected my performance. ",
+      "You adjusted your position in MSFT to follow one of the top performing funds.",
     buttonText: "Activity log",
     link: "/activity",
   },
@@ -42,7 +39,7 @@ export const activity = [
     category: "trends",
     date: "Wed Sep. 11",
     description:
-      "Consensus movements and allocations. Consensus movements and allocations. Consensus movements and allocations.  ",
+      "You added 2,000 shares of INT to your portfolio at a basis of $34.26.",
     buttonText: "All trends",
     link: "/trends",
   },
@@ -51,7 +48,7 @@ export const activity = [
     category: "funds",
     date: "Fri Sep. 13",
     description:
-      "Daily updated list of top performing funds. Daily updated list of top performing funds. Daily updated list of top performing funds. Daily updated list of top performing funds.  ",
+      "You finalized your portfolio and achieved a rank of #15 out of 32 other funds.",
     buttonText: "View all funds",
     link: "/funds",
   },

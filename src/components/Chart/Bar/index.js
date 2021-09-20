@@ -1,7 +1,7 @@
-import React from "react";
 import { ResponsiveBar } from "@nivo/bar";
 import text from "./../../../styles/text.scss";
 import colors from "./../../../styles/variables.scss";
+// import { bardata1 } from "./../../../data/bardata.js";
 
 const theme = {
   background: "none",
@@ -27,7 +27,7 @@ const theme = {
   labels: {
     text: {
       fontSize: text.fontSize,
-      fill: colors.textColor
+      fill: colors.textColor,
     },
   },
   grid: {
@@ -36,7 +36,6 @@ const theme = {
     },
   },
 };
-
 
 const legends = [
   {
@@ -66,11 +65,11 @@ const legends = [
   },
 ];
 
-const ChartBar = (props) => (
+const ChartBar = () => (
   <div className="chart-wrapper">
     <ResponsiveBar
       margin={{ top: 10, right: 30, bottom: 80, left: 30 }}
-      data={props.dataSource}
+      data={bardata1}
       keys={["me", "benchmark"]}
       indexBy="map"
       axisLeft={null}
@@ -78,7 +77,7 @@ const ChartBar = (props) => (
       labelSkipHeight={12}
       enableGridX={false}
       padding={0.3}
-      colors={{"scheme":"paired"}}
+      colors={{ scheme: "paired" }}
       theme={theme}
       legends={legends}
       animate={true}
@@ -86,5 +85,50 @@ const ChartBar = (props) => (
     />
   </div>
 );
+
+const bardata1 = [
+  {
+    map: "Stocks",
+    me: 5,
+    benchmark: 10,
+  },
+  {
+    map: "Bonds",
+    me: 8,
+    benchmark: 6,
+  },
+  {
+    map: "Mutuals",
+    me: 9,
+    benchmark: 2,
+  },
+  {
+    map: "ETF",
+    me: 3,
+    benchmark: 4,
+  },
+  {
+    map: "Options",
+    me: 8,
+    benchmark: 7,
+  },
+  {
+    map: "Annuities",
+    me: 2,
+    benchmark: 6,
+  },
+  {
+    map: "Cash",
+    me: 4,
+    benchmark: 3,
+  },
+  {
+    map: "Real Estate",
+    me: 7,
+    benchmark: 1,
+  },
+];
+
+
 
 export default ChartBar;

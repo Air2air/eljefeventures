@@ -1,3 +1,5 @@
+
+
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
@@ -11,6 +13,9 @@ import {
 import "./styles.scss";
 
 const CardClosed = (props) => {
+
+  const isClosed = true
+
   return (
     <li className="card" key={props.id}>
       <div className="card-container">
@@ -22,7 +27,7 @@ const CardClosed = (props) => {
             <span className="caption">{props.category}</span>
             <h2>{props.title}</h2>
           </div>
-          {props.category === "activity" && <DisplayActivity id={props.id} />}
+          {props.category === "activity" && <DisplayActivity slice={3} id={props.id} />}
           {props.category === "ranking" && (
             <DisplayRank currVal={9} prevVal={7} places={35} />
           )}

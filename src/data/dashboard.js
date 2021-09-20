@@ -2,7 +2,7 @@ export const dashboard = [
   {
     id: "ranking",
     category: "ranking",
-    title: "Lost two spots:",
+    title: "My rank declined two spots:",
     description:
       "How my portfolio ranks against others on El Jefe. How my portfolio ranks against others on El Jefe. How my portfolio ranks against others on El Jefe. ",
     pointOfInterest: 80,
@@ -13,9 +13,9 @@ export const dashboard = [
   {
     id: "portfolio",
     category: "portfolio",
-    title: "Portfolio up:",
+    title: "My portfolio is up:",
     description:
-      "Edit and manage your portfolio. Edit and manage your portfolio.  Edit and manage your portfolio.   ",
+      "Edit and manage my portfolio. Edit and manage my portfolio.  Edit and manage my portfolio.   ",
     backgroundColor: "#8F986D",
     buttonText: "Manage Portfolio",
     link: "/portfolio",
@@ -33,7 +33,7 @@ export const dashboard = [
   {
     id: "activity",
     category: "activity",
-    title: "Activity that affected your ranking:",
+    title: "Activity that affected my ranking:",
     description:
       "How my activity has affected my performance. How my activity has affected my performance. How my activity has affected my performance. ",
     backgroundColor: "#5DBCD2",

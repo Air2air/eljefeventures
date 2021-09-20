@@ -8,7 +8,6 @@ import { linedata1, linedata2 } from "../../../data/linedata.js";
 import "./styles.scss";
 
 const ChartWrapper = (props) => {
-
   const [active, setActive] = useState(0);
 
   let dataSource1 = [];

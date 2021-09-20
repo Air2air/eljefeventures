@@ -1,8 +1,8 @@
 import { Center, Flex, Text, Stat } from "@chakra-ui/react";
 import NumberFormat from "react-number-format";
 import { GoTriangleUp, GoTriangleDown } from "react-icons/go";
+import ChartBar from "./../Chart/Bar";
 import { activity } from "../../data/activity";
-import "./styles.scss";
 
 export const DisplayChange = (props) => {
   // label, val, prevVal
@@ -20,7 +20,8 @@ export const DisplayChange = (props) => {
   );
 };
 
-export const DisplayActivity = () => {
+export const DisplayActivity = (props) => {
+  const slice = 0;
   return (
     <>
       <Flex
@@ -29,8 +30,11 @@ export const DisplayActivity = () => {
         justifyContent="space-evenly"
         flexDirection="column"
       >
-        {activity.slice(0, 3).map((item) => (
-          <div key={item.id}><span className="caption">{item.date}&nbsp;</span>&nbsp;{item.description}</div>
+        {activity.slice(0, props.slice).map((item) => (
+          <div key={item.id}>
+            <span className="caption">{item.date}&nbsp;</span>&nbsp;
+            {item.description}
+          </div>
         ))}
       </Flex>
     </>
@@ -38,7 +42,6 @@ export const DisplayActivity = () => {
 };
 
 export const DisplayRank = (props) => {
-  // rankVal={9} prevVal={11} places={35}
   return (
     <>
       <Center w="100%">
@@ -56,6 +59,7 @@ export const DisplayRank = (props) => {
           </Text>
           <Text color="gray.500">{props.places}</Text>
         </Flex>
+        <ChartBar />
       </Center>
     </>
   );

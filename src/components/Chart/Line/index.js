@@ -5,8 +5,6 @@ import { theme, axisBottom, legends } from "./config.js";
 const ChartLine = (props) => {
   let [items, setItems] = useState([]);
 
-
-
   return (
     <>
       {items.map(({ label, value }) => (

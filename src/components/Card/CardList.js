@@ -1,5 +1,5 @@
 import { dashboard } from "../../data/dashboard";
-import Card from "./CardClosed";
+import { CardClosed } from "./Card";
 import "./styles.scss";
 
 const CardList = ({ selectedId }) => {
@@ -7,7 +7,11 @@ const CardList = ({ selectedId }) => {
     <ul className="card-list">
       <>
         {dashboard.map((card) => (
-          <Card key={card.id} {...card} isSelected={card.id === selectedId} />
+          <CardClosed
+            key={card.id}
+            {...card}
+            isSelected={card.id === selectedId}
+          />
         ))}
       </>
     </ul>

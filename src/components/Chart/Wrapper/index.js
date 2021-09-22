@@ -40,7 +40,7 @@ const ChartWrapper = (props) => {
               {textButton1}
             </Button>
             <Button
-              className={active ? "btn  mr-2 " : "btn mr-2 active"}
+              className={active ? "btn mr-2 " : "btn mr-2 active"}
               onClick={() => setActive(0)}
             >
               {textButton2}

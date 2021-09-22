@@ -1,7 +1,7 @@
 export const dashboard = [
   {
-    id: "ranking",
-    category: "ranking",
+    id: "rank",
+    category: "rank",
     title: "My rank declined two spots:",
     description:
       "How my portfolio ranks against others on El Jefe. How my portfolio ranks against others on El Jefe. How my portfolio ranks against others on El Jefe. ",
@@ -33,7 +33,7 @@ export const dashboard = [
   {
     id: "activity",
     category: "activity",
-    title: "Activity that affected my ranking:",
+    title: "Activity that affected my rank:",
     description:
       "How my activity has affected my performance. How my activity has affected my performance. How my activity has affected my performance. ",
     backgroundColor: "#5DBCD2",

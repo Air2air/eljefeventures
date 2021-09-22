@@ -49,8 +49,8 @@ const LeadersStatLarge = (props) => (
     fontSize="1.2em"
     style={{ borderRadius: 8 }}
   >
-    <Text>{props.currPlace}</Text>
-    <Flex justify="center" align="center" mx={4}>
+    <Text w="24px">{props.currPlace}</Text>
+    <Flex justify="center" align="center" mx={2} w="30px">
       {props.currPlace > props.prevPlace ? (
         <>
           <GoTriangleDown style={{ color: "red", fontSize: ".7em" }} />
@@ -67,10 +67,10 @@ const LeadersStatLarge = (props) => (
         </>
       )}
     </Flex>
-    <Text color="gray.500" >
+    <Text color="gray.500" w="160px" maxWidth="160px" isTruncated>
       {props.userName}
     </Text>
-    <Text color="gray.500" mx={4} isTruncated maxWidth="50%">
+    <Text color="gray.500" maxWidth="200px"isTruncated >
       {props.description}
     </Text>
     <FaChevronRight />
@@ -147,13 +147,13 @@ export const DisplayLeadersLarge = () => {
         <LeadersStatLarge
           currPlace={5}
           prevPlace={4}
-          userName="DefinanceBlock"
-          description="What this guy did recently"
+          userName="ArmchairGeneral"
+          description="Reduced exposure within the insurance sector"
         />
         <LeadersStatLarge
           currPlace={6}
           prevPlace={13}
-          userName="DefinanceBlock"
+          userName="LaterAlligator"
           description="What this guy did recently"
         />
       </Flex>

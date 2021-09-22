@@ -21,24 +21,24 @@ export const dashboard = [
     link: "/portfolio",
   },
   {
-    id: "updates",
-    category: "updates",
-    title: "Developments impacting you:",
-    description:
-      "See how the anonyomous leaders are doing better than you. See how the anonyomous leaders are doing better than you.",
-    backgroundColor: "#959684",
-    buttonText: "Full information",
-    link: "/updates",
-  },
-  {
     id: "activity",
     category: "activity",
-    title: "Activity that affected my rank:",
+    title: "What affected me:",
     description:
       "How my activity has affected my performance. How my activity has affected my performance. How my activity has affected my performance. ",
     backgroundColor: "#5DBCD2",
     buttonText: "Activity log",
     link: "/activity",
+  },
+  {
+    id: "leaders",
+    category: "leaders",
+    title: "See what the leaders are doing:",
+    description:
+      "See how the anonyomous leaders are doing better than you. See how the anonyomous leaders are doing better than you.",
+    backgroundColor: "#959684",
+    buttonText: "Full information",
+    link: "/leaders",
   },
   {
     id: "trends",

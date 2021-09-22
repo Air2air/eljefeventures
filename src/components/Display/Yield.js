@@ -1,35 +1,52 @@
-import { Center, Flex, Text, Stat } from "@chakra-ui/react";
+import { Box, Center, Flex, Text } from "@chakra-ui/react";
 import NumberFormat from "react-number-format";
 import { GoTriangleUp, GoTriangleDown } from "react-icons/go";
-
+import { DisplayButton } from "./Button";
 import { activity } from "../../data/activity";
 
-export const DisplayYieldSmall = (props) => {
-  // currVal, prevVal
-  return (
-    <>
-      <Center w="100%">
-        <Flex justify="center" align="center" fontSize="4.5em">
-          <Stat>
-            {props.currVal > props.prevVal ? (
-              <GoTriangleDown style={{ color: "red", fontSize: ".7em" }} />
-            ) : (
-              <GoTriangleUp style={{ color: "green", fontSize: ".7em" }} />
-            )}
-          </Stat>
-          <Text>
+const YieldStat = ({ currVal, prevVal }) => (
+  <Flex justify="center" align="center" fontSize="4em">
+  <Flex justify="center" align="center" >
+      {currVal > prevVal ? (
+        <>
+          <GoTriangleDown style={{ color: "red", fontSize: ".5em" }} />
+          <Text color="green">
             <NumberFormat
-              value={props.currVal}
+              value={currVal}
               displayType={"text"}
               decimalScale={2}
               allowNegative={true}
             />
           </Text>
-          <Text fontSize="4xl" color="gray.500" px={1}>
-            %
+        </>
+      ) : (
+        <>
+          <GoTriangleUp style={{ color: "green", fontSize: ".5em" }} />
+          <Text color="green">
+            <NumberFormat
+              value={currVal}
+              displayType={"text"}
+              decimalScale={2}
+              allowNegative={true}
+            />
           </Text>
-        </Flex>
-      </Center>
+        </>
+      )}
+    </Flex>
+ 
+    <Text fontSize="4xl" color="gray.500" px={1}>
+      %
+    </Text>
+  </Flex>
+);
+
+export const DisplayYieldSmall = (props) => {
+  // currVal, prevVal
+  return (
+    <>
+      <Flex flexDirection="column" h="100%" justifyContent="space-between">
+        <YieldStat currVal={props.currVal} prevVal={props.prevVal} />
+      </Flex>
     </>
   );
 };
@@ -38,28 +55,11 @@ export const DisplayYieldLarge = (props) => {
   // currVal, prevVal
   return (
     <>
-      <Center w="100%">
-        <Flex justify="center" align="center" fontSize="4.5em">
-          <Stat>
-            {props.currVal > props.prevVal ? (
-              <GoTriangleDown style={{ color: "red", fontSize: ".7em" }} />
-            ) : (
-              <GoTriangleUp style={{ color: "green", fontSize: ".7em" }} />
-            )}
-          </Stat>
-          <Text>
-            <NumberFormat
-              value={props.currVal}
-              displayType={"text"}
-              decimalScale={2}
-              allowNegative={true}
-            />
-          </Text>
-          <Text fontSize="4xl" color="gray.500" px={1}>
-            %
-          </Text>
-        </Flex>
-      </Center>
+      <Flex flexDirection="column" h="100%" justifyContent="space-around">
+        <YieldStat currVal={props.currVal} prevVal={props.prevVal} />
+        <DisplayButton count={6} influence="me" />
+        <DisplayButton count={4} influence="external" />
+      </Flex>
     </>
   );
 };

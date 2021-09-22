@@ -41,32 +41,4 @@ export const DisplayStat = (label, val) => {
   );
 };
 
-export const DisplayYield = (props) => {
-  // currVal, prevVal
-  return (
-    <>
-      <Center w="100%">
-        <Flex justify="center" align="center" fontSize="4.5em">
-          <Stat>
-            {props.currVal > props.prevVal ? (
-              <GoTriangleDown style={{ color: "red", fontSize: ".7em" }} />
-            ) : (
-              <GoTriangleUp style={{ color: "green", fontSize: ".7em" }} />
-            )}
-          </Stat>
-          <Text>
-            <NumberFormat
-              value={props.currVal}
-              displayType={"text"}
-              decimalScale={2}
-              allowNegative={true}
-            />
-          </Text>
-          <Text fontSize="4xl" color="gray.500" px={1}>
-            %
-          </Text>
-        </Flex>
-      </Center>
-    </>
-  );
-};
+

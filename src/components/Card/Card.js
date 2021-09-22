@@ -7,6 +7,7 @@ import {
 } from "../Display/Activity";
 import { DisplayYieldSmall, DisplayYieldLarge } from "../Display/Yield";
 import { DisplayRankSmall, DisplayRankLarge } from "../Display/Rank";
+import { DisplayLeadersSmall, DisplayLeadersLarge } from "../Display/Leaders";
 import "./styles.scss";
 import { dashboard } from "../../data/dashboard";
 
@@ -45,6 +46,7 @@ export const CardClosed = (props) => {
           {props.category === "portfolio" && (
             <DisplayYieldSmall currVal={2.353} prevVal={4.662} />
           )}
+          {props.category === "leaders" && <DisplayLeadersSmall />}
         </motion.div>
       </div>
       <Link to={props.id} className={`card-open-link`} />
@@ -74,6 +76,7 @@ export const CardOpen = ({ id }) => {
           {items.category === "portfolio" && (
             <DisplayYieldLarge currVal={2.353} prevVal={4.662} />
           )}
+          {items.category === "leaders" && <DisplayLeadersLarge />}
         </motion.div>
       </div>
     </>

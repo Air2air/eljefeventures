@@ -4,7 +4,7 @@ import { DisplayButton } from "./Button";
 import { activity } from "../../data/activity";
 
 const RankStat = ({ currVal, prevVal, places }) => (
-  <Flex justify="center" align="center" fontSize="4.5em">
+  <Flex justify="center" align="center" fontSize="4em">
     <Flex justify="center" align="center">
       {currVal > prevVal ? (
         <>
@@ -19,12 +19,12 @@ const RankStat = ({ currVal, prevVal, places }) => (
       )}
     </Flex>
 
-    <Text px={3} fontSize=".6em" color="gray.500">
+    <Text px={7} fontSize=".6em" color="gray.500">
       to
     </Text>
-    <Text fontSize=".6em">#</Text>
+    <Text px={1} color="gray.500" fontSize=".6em">#</Text>
     <Text>{currVal} </Text>
-    <Text color="gray.500">/</Text>
+    <Text color="gray.500" fontSize=".8em" >/</Text>
     <Text color="gray.500">{places}</Text>
   </Flex>
 );

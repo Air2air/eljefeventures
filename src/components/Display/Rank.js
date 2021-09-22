@@ -1,28 +1,44 @@
-import { Center, Flex, Text, Stat } from "@chakra-ui/react";
-import NumberFormat from "react-number-format";
+import { Box, Center, Flex, Text } from "@chakra-ui/react";
 import { GoTriangleUp, GoTriangleDown } from "react-icons/go";
-import ChartBar from "../Chart/Bar";
+import { DisplayButton } from "./Button";
 import { activity } from "../../data/activity";
+
+const RankStat = ({ currVal, prevVal, places }) => (
+  <Flex justify="center" align="center" fontSize="4.5em">
+    <Flex justify="center" align="center">
+      {currVal > prevVal ? (
+        <>
+          <GoTriangleDown style={{ color: "red", fontSize: ".5em" }} />
+          <Text color="red">{currVal - prevVal} </Text>
+        </>
+      ) : (
+        <>
+          <GoTriangleUp style={{ color: "green", fontSize: ".5em" }} />
+          <Text color="green">{currVal - prevVal} </Text>
+        </>
+      )}
+    </Flex>
+
+    <Text px={3} fontSize=".6em" color="gray.500">
+      to
+    </Text>
+    <Text fontSize=".6em">#</Text>
+    <Text>{currVal} </Text>
+    <Text color="gray.500">/</Text>
+    <Text color="gray.500">{places}</Text>
+  </Flex>
+);
 
 export const DisplayRankSmall = (props) => {
   return (
     <>
-      <Center w="100%">
-        <Flex justify="center" align="center" fontSize="4.5em">
-          <Stat>
-            {props.currVal > props.prevVal ? (
-              <GoTriangleDown style={{ color: "red", fontSize: ".7em" }} />
-            ) : (
-              <GoTriangleUp style={{ color: "green", fontSize: ".7em" }} />
-            )}
-          </Stat>
-          <Text>{props.currVal}</Text>
-          <Text mx={1} color="gray.500">
-            /
-          </Text>
-          <Text color="gray.500">{props.places}</Text>
-        </Flex>
-      </Center>
+      <Flex flexDirection="column" h="100%" justifyContent="space-between">
+        <RankStat
+          currVal={props.currVal}
+          prevVal={props.prevVal}
+          places={props.places}
+        />
+      </Flex>
     </>
   );
 };
@@ -30,31 +46,15 @@ export const DisplayRankSmall = (props) => {
 export const DisplayRankLarge = (props) => {
   return (
     <>
-      <div className="title-container">
-        <span className="caption">{props.category}</span>
-        <h2>{props.title}</h2>
-      </div>
-      <Flex flexDirection="column">
-        <Flex justify="center" align="center" fontSize="4.5em">
-          <Stat>
-            {props.currVal > props.prevVal ? (
-              <GoTriangleDown style={{ color: "red", fontSize: ".7em" }} />
-            ) : (
-              <GoTriangleUp style={{ color: "green", fontSize: ".7em" }} />
-            )}
-          </Stat>
-          <Text>{props.currVal}</Text>
-          <Text mx={1} color="gray.500">
-            /
-          </Text>
-          <Text color="gray.500">{props.places}</Text>
-        </Flex>
-        <Flex justify="center" align="center" fontSize="4.5em">
-          <h1>Due to increased performance by the leaders</h1>
-          <h1>Not due to your actions</h1>
-        </Flex>
-
-        {/* <ChartBar /> */}
+      <Flex flexDirection="column" h="100%" justifyContent="space-around">
+        <RankStat
+          currVal={props.currVal}
+          prevVal={props.prevVal}
+          places={props.places}
+        />
+        <DisplayButton count={0} influence="me" />
+        <DisplayButton count={2} influence="others" />
+        <DisplayButton count={4} influence="external" />
       </Flex>
     </>
   );

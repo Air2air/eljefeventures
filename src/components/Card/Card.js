@@ -36,16 +36,18 @@ export const CardClosed = (props) => {
             <span className="caption">{props.category}</span>
             <h2>{props.title}</h2>
           </div>
-          {props.category === "activity" && (
-            <DisplayActivitySmall slice={3} id={props.id} />
-          )}
-          {props.category === "rank" && (
-            <DisplayRankSmall currVal={9} prevVal={7} places={35} />
-          )}
-          {props.category === "portfolio" && (
-            <DisplayYieldSmall currVal={2.353} prevVal={4.662} />
-          )}
-          {props.category === "leaders" && <DisplayLeadersSmall />}
+          <div className="display-container">
+            {props.category === "activity" && (
+              <DisplayActivitySmall slice={3} id={props.id} />
+            )}
+            {props.category === "rank" && (
+              <DisplayRankSmall currVal={9} prevVal={7} places={35} />
+            )}
+            {props.category === "portfolio" && (
+              <DisplayYieldSmall currVal={2.353} prevVal={4.662} />
+            )}
+            {props.category === "leaders" && <DisplayLeadersSmall />}
+          </div>
         </motion.div>
       </div>
       <Link to={props.id} className={`card-open-link`} />
@@ -65,17 +67,18 @@ export const CardOpen = ({ id }) => {
             <span className="caption">{items.category}</span>
             <h2>{items.title}</h2>
           </div>
-
-          {items.category === "activity" && (
-            <DisplayActivityLarge slice={8} id={items.id} />
-          )}
-          {items.category === "rank" && (
-            <DisplayRankLarge currVal={9} prevVal={7} places={35} />
-          )}
-          {items.category === "portfolio" && (
-            <DisplayYieldLarge currVal={2.353} prevVal={4.662} />
-          )}
-          {items.category === "leaders" && <DisplayLeadersLarge />}
+          <div className="display-container">
+            {items.category === "activity" && (
+              <DisplayActivityLarge slice={8} id={items.id} />
+            )}
+            {items.category === "rank" && (
+              <DisplayRankLarge currVal={9} prevVal={7} places={35} />
+            )}
+            {items.category === "portfolio" && (
+              <DisplayYieldLarge currVal={2.353} prevVal={4.662} />
+            )}
+            {items.category === "leaders" && <DisplayLeadersLarge />}
+          </div>
         </motion.div>
       </div>
     </>

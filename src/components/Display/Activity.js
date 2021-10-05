@@ -9,10 +9,11 @@ export const DisplayActivitySmall = (props) => {
         pb={9}
         justifyContent="space-evenly"
         flexDirection="column"
+        fontSize="1em"
       >
         {activity.slice(0, props.slice).map((item) => (
           <div key={item.id}>
-            <span className="caption">{item.date}&nbsp;</span>&nbsp;
+            <div className="caption">{item.date}</div>
             {item.description}
           </div>
         ))}
@@ -25,14 +26,15 @@ export const DisplayActivityLarge = (props) => {
   return (
     <>
       <Flex
+        justify="space-between"
         height="100%"
-        pb={9}
         justifyContent="space-evenly"
         flexDirection="column"
+        fontSize="1.1em"
       >
         {activity.slice(0, props.slice).map((item) => (
           <div key={item.id}>
-            <span className="caption">{item.date}&nbsp;</span>&nbsp;
+            <div className="caption">{item.date}</div>
             {item.description}
           </div>
         ))}

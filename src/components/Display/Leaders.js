@@ -1,16 +1,12 @@
-import { Box, Center, Flex, Text } from "@chakra-ui/react";
+import { Flex, Text } from "@chakra-ui/react";
 import { GoTriangleUp, GoTriangleDown } from "react-icons/go";
 import { FaChevronRight } from "react-icons/fa";
-import { DisplayButton } from "./Button";
-import { activity } from "../../data/activity";
 
 const LeadersStatSmall = (props) => (
   <Flex
-    justify="start"
     align="center"
-    h="20px"
+    h="40px"
     fontSize="1em"
-    style={{ borderRadius: 8 }}
   >
     <Text>{props.currPlace}</Text>
     <Flex justify="center" align="center" mx={4}>
@@ -44,10 +40,9 @@ const LeadersStatLarge = (props) => (
     justify="space-between"
     align="center"
     h="80px"
-    bg="white"
+    mb={2}
     px={6}
-    fontSize="1.2em"
-    style={{ borderRadius: 8 }}
+    fontSize="1.1em"
   >
     <Text w="24px">{props.currPlace}</Text>
     <Flex justify="center" align="center" mx={2} w="30px">
@@ -84,7 +79,6 @@ export const DisplayLeadersSmall = () => {
         flexDirection="column"
         h="60%"
         mt={5}
-        justifyContent="space-between"
         isTruncated
       >
         <LeadersStatSmall

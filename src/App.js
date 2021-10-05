@@ -15,9 +15,9 @@ export default function App() {
       <AnimateSharedLayout type="crossfade">
 
         <Router>
-          <Route exact path={"/"} component={HomePage} />
-          {/* <Route path={["sections/:id", "/sections"]} component={SectionsPage} /> */}
-          <Route path={"/sections"} component={SectionsPage} />
+          {/* <Route exact path={"/"} component={HomePage} /> */}
+          <Route path={["/:id", "/"]} component={SectionsPage} />
+          {/* <Route path={"/sections"} component={SectionsPage} /> */}
           {/* <Route
             path={"/rank"}
             parentLink="/rank"

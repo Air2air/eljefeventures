@@ -1,13 +1,14 @@
 @import "./../../styles/variables.scss";
 
+$card-gutter: 20px;
 $card-closed-height-xs: 200px;
-$card-closed-height-sm: 280px;
-$card-closed-height-md: 280px;
+$card-closed-height-sm: 340px;
+$card-closed-height-md: 340px;
 $card-open-height-xs: 80vh;
 $card-open-height-sm: 80vh;
 $card-open-height-md: 80vh;
 
-/*---- list ----*/
+/*---- CardList ----*/
 ul,
 li {
   list-style: none;
@@ -21,17 +22,9 @@ li {
   align-content: flex-start;
 }
 
-/*---- Card ----*/
+/*---- Card Row ----*/
 .card {
   position: relative;
-}
-
-.card:nth-child(odd) {
-  padding-left: 0;
-}
-
-.card:nth-child(even) {
-  padding-right: 0;
 }
 
 .card-container {
@@ -44,7 +37,9 @@ li {
     overflow: hidden;
     width: 100%;
     margin: 0 auto;
-
+  }
+  .display-container {
+    height:100%;
   }
   &.open {
     margin: 60px auto 0 auto;
@@ -66,7 +61,6 @@ li {
   }
 }
 
-
 .card-open-link {
   position: absolute;
   top: 0;
@@ -79,9 +73,8 @@ li {
   .card {
     height: $card-closed-height-md;
     flex: 0 0 40%;
-    padding: 15px;
     max-width: 40%;
-    margin-bottom:18px;
+    margin-bottom: $card-gutter;
   }
 
   .card:nth-child(4n + 1),
@@ -89,6 +82,14 @@ li {
     flex: 0 0 60%;
     max-width: 60%;
   }
+
+  .card:nth-child(4n + 1) {
+    padding-right: $card-gutter;
+  }
+  .card:nth-child(4n + 4) {
+    padding-left: $card-gutter;
+  }
+
   .card-container {
     height: $card-closed-height-md;
     .card-content {
@@ -109,9 +110,9 @@ li {
   .card {
     flex: 0 0 50%;
     max-width: 50%;
-    padding: 10px;
+    //adding: 10px;
     height: $card-closed-height-sm;
-    margin-bottom:14px;
+    margin-bottom: $card-gutter;
   }
 
   .card:nth-child(4n + 1),
@@ -119,6 +120,14 @@ li {
     flex: 0 0 50%;
     max-width: 50%;
   }
+
+  .card:nth-child(4n + 1) {
+    padding-right: $card-gutter;
+  }
+  .card:nth-child(4n + 4) {
+    padding-left: $card-gutter;
+  }
+
   .card-container {
     height: $card-closed-height-sm;
     .card-content {
@@ -139,15 +148,14 @@ li {
   .card {
     flex: 1 0 100%;
     max-width: 100%;
-    padding: 10px 0;
     height: $card-closed-height-xs;
-    margin-bottom:10px;
+    margin-bottom: $card-gutter;
   }
-
   .card:nth-child(4n + 1),
   .card:nth-child(4n + 4) {
     flex: 1 0 100%;
     max-width: 100%;
+    padding: 0;
   }
   .card-container {
     height: $card-closed-height-xs;
@@ -175,15 +183,17 @@ li {
 //   background: red;
 // }
 // .card-container {
-//   background: orange;
 //   &.open {
-//     background: orange;
-//     .card-content {
-//       background: gold;
-//     }
+//     background: green;
 //   }
 //   .card-content {
 //     background: gold;
+//     .title-container {
+//       background: blue;
+//     }
+//     .display-container {
+//       background: red;
+//     }
 //   }
 //   .card-open-link {
 //     background: blue;

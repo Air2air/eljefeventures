@@ -23,7 +23,7 @@ export const dashboard = [
   {
     id: "activity",
     category: "activity",
-    title: "What affected me:",
+    title: "What I did:",
     description:
       "How my activity has affected my performance. How my activity has affected my performance. How my activity has affected my performance. ",
     backgroundColor: "#5DBCD2",
@@ -40,24 +40,5 @@ export const dashboard = [
     buttonText: "Full information",
     link: "/leaders",
   },
-  {
-    id: "trends",
-    category: "trends",
-    title: "Leader trends:",
-    description:
-      "Consensus movements and allocations. Consensus movements and allocations. Consensus movements and allocations.  ",
-    backgroundColor: "#FA6779",
-    buttonText: "All trends",
-    link: "/trends",
-  },
-  {
-    id: "funds",
-    category: "funds",
-    title: "12 top performers:",
-    description:
-      "Daily updated list of top performing funds. Daily updated list of top performing funds. Daily updated list of top performing funds. Daily updated list of top performing funds.  ",
-    backgroundColor: "#282F49",
-    buttonText: "View all funds",
-    link: "/funds",
-  },
+
 ];

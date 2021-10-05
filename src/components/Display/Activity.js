@@ -1,11 +1,7 @@
-import { Center, Flex, Text, Stat } from "@chakra-ui/react";
-import NumberFormat from "react-number-format";
-import { GoTriangleUp, GoTriangleDown } from "react-icons/go";
-import ChartBar from "../Chart/Bar";
+import { Flex } from "@chakra-ui/react";
 import { activity } from "../../data/activity";
 
 export const DisplayActivitySmall = (props) => {
-  const slice = 0;
   return (
     <>
       <Flex
@@ -26,7 +22,6 @@ export const DisplayActivitySmall = (props) => {
 };
 
 export const DisplayActivityLarge = (props) => {
-  const slice = 0;
   return (
     <>
       <Flex

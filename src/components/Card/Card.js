@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { DisplayChange, DisplayList, DisplayStat } from "../Display";
 import {
   DisplayActivitySmall,
   DisplayActivityLarge,

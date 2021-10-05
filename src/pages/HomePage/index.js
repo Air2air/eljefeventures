@@ -3,7 +3,7 @@ import logo from "./../../images/text_logo.svg";
 import { motion } from "framer-motion";
 import "./styles.scss";
 
-const Home = () => {
+const HomePage = () => {
   return (
     <>
       <div className="full-screen">
@@ -20,4 +20,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomePage;

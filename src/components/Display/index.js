@@ -1,7 +1,6 @@
-import { Center, Flex, Text, Stat } from "@chakra-ui/react";
+import { Center, Flex, Text } from "@chakra-ui/react";
 import NumberFormat from "react-number-format";
-import { GoTriangleUp, GoTriangleDown } from "react-icons/go";
-import ChartBar from "./../Chart/Bar";
+
 
 export const DisplayChange = (props) => {
   // label, val, prevVal

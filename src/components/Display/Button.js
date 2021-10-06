@@ -16,10 +16,9 @@ export const DisplayButton = ({ count, influence }) => {
       <Center
         h={100}
         w="100%"
-        to="/activity"
         style={{ borderRadius: 7 }}
         fontSize={23}
-        bg="white"
+        bg="gray.50"
         color="gray.500"
       >
         <Text fontSize={36} fontWeight="normal" color="black" px={4}>

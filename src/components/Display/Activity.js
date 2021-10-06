@@ -1,23 +1,18 @@
-import { Flex } from "@chakra-ui/react";
+import { Center, Text } from "@chakra-ui/react";
 import { activity } from "../../data/activity";
 
 export const DisplayActivitySmall = (props) => {
   return (
     <>
-      <Flex
-        height="100%"
-        pb={9}
-        justifyContent="space-evenly"
-        flexDirection="column"
-        fontSize="1em"
-      >
-        {activity.slice(0, props.slice).map((item) => (
-          <div key={item.id}>
-            <div className="caption">{item.date}</div>
+      {activity.slice(0, props.slice).map((item) => (
+        <Center h="50px" key={item.id}>
+
+          <Text isTruncated maxWidth="100%" key={item.id}>
+          <div className="caption">{item.date}</div>
             {item.description}
-          </div>
-        ))}
-      </Flex>
+          </Text>
+        </Center>
+      ))}
     </>
   );
 };
@@ -25,20 +20,12 @@ export const DisplayActivitySmall = (props) => {
 export const DisplayActivityLarge = (props) => {
   return (
     <>
-      <Flex
-        justify="space-between"
-        height="100%"
-        justifyContent="space-evenly"
-        flexDirection="column"
-        fontSize="1.1em"
-      >
-        {activity.slice(0, props.slice).map((item) => (
-          <div key={item.id}>
-            <div className="caption">{item.date}</div>
-            {item.description}
-          </div>
-        ))}
-      </Flex>
+      {activity.slice(0, props.slice).map((item) => (
+        <div key={item.id}>
+          <div className="caption">{item.date}</div>
+          {item.description}
+        </div>
+      ))}
     </>
   );
 };

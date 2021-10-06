@@ -4,9 +4,29 @@ $card-gutter: 20px;
 $card-closed-height-xs: 200px;
 $card-closed-height-sm: 340px;
 $card-closed-height-md: 340px;
-$card-open-height-xs: 80vh;
-$card-open-height-sm: 80vh;
-$card-open-height-md: 80vh;
+
+$card-open-height-xs: 500px;
+$card-open-height-sm: 600px;
+$card-open-height-md: 700px;
+
+$card-padding-xs: 20px;
+$card-padding-sm: 30px;
+$card-padding-md: 40px;
+
+$card-title-height: 54px;
+$card-display-height-closed-xs: $card-closed-height-xs - ($card-padding-xs * 2) -
+  $card-title-height;
+$card-display-height-closed-sm: $card-closed-height-sm - ($card-padding-sm * 2) -
+  $card-title-height;
+$card-display-height-closed-md: $card-closed-height-md - ($card-padding-md * 2) -
+  $card-title-height;
+
+$card-display-height-open-xs: $card-open-height-xs - ($card-padding-xs * 2) -
+  $card-title-height;
+$card-display-height-open-sm: $card-open-height-sm - ($card-padding-sm * 2) -
+  $card-title-height;
+$card-display-height-open-md: $card-open-height-md - ($card-padding-md * 2) -
+  $card-title-height;
 
 /*---- CardList ----*/
 ul,
@@ -28,18 +48,21 @@ li {
 }
 
 .card-container {
-  position: relative;
+  //position: relative;
   pointer-events: none;
   .card-content {
     pointer-events: auto;
     position: relative;
     border-radius: 10px;
-    overflow: hidden;
-    width: 100%;
-    margin: 0 auto;
+    //overflow: hidden;
+    // width: 100%;
+    // margin: 0 auto;
+  }
+  .title-container {
+    height: $card-title-height;
   }
   .display-container {
-    height:100%;
+    height: 100%;
   }
   &.open {
     margin: 60px auto 0 auto;
@@ -69,6 +92,8 @@ li {
   bottom: 0;
 }
 
+/*-------- Media Queries ----------*/
+
 @media only screen and (min-width: 801px) {
   .card {
     height: $card-closed-height-md;
@@ -76,31 +101,34 @@ li {
     max-width: 40%;
     margin-bottom: $card-gutter;
   }
-
   .card:nth-child(4n + 1),
   .card:nth-child(4n + 4) {
     flex: 0 0 60%;
     max-width: 60%;
   }
-
   .card:nth-child(4n + 1) {
     padding-right: $card-gutter;
   }
   .card:nth-child(4n + 4) {
     padding-left: $card-gutter;
   }
-
   .card-container {
     height: $card-closed-height-md;
     .card-content {
-      padding: 28px;
+      padding: $card-padding-md;
       height: $card-closed-height-md;
+      .display-container {
+        height: $card-display-height-closed-md;
+      }
     }
     &.open {
       height: $card-open-height-md;
       .card-content {
-        padding: 50px;
+        padding: $card-padding-md;
         height: $card-open-height-md;
+        .display-container {
+          height: $card-display-height-open-md;
+        }
       }
     }
   }
@@ -110,7 +138,6 @@ li {
   .card {
     flex: 0 0 50%;
     max-width: 50%;
-    //adding: 10px;
     height: $card-closed-height-sm;
     margin-bottom: $card-gutter;
   }
@@ -131,14 +158,20 @@ li {
   .card-container {
     height: $card-closed-height-sm;
     .card-content {
-      padding: 20px;
+      padding: $card-padding-sm;
       height: $card-closed-height-sm;
+      .display-container {
+        height: $card-display-height-closed-sm;
+      }
     }
     &.open {
       height: $card-open-height-sm;
       .card-content {
-        padding: 40px;
+        padding: $card-padding-sm;
         height: $card-open-height-sm;
+        .display-container {
+          height: $card-display-height-open-sm;
+        }
       }
     }
   }
@@ -160,14 +193,20 @@ li {
   .card-container {
     height: $card-closed-height-xs;
     .card-content {
-      padding: 12px;
+      padding: $card-padding-xs;
       height: $card-closed-height-xs;
+      .display-container {
+        height: $card-display-height-closed-xs;
+      }
     }
     &.open {
       height: $card-open-height-xs;
       .card-content {
-        padding: 40px;
+        padding: $card-padding-xs;
         height: $card-open-height-xs;
+        .display-container {
+          height: $card-display-height-open-xs;
+        }
       }
     }
   }

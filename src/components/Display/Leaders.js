@@ -3,11 +3,7 @@ import { GoTriangleUp, GoTriangleDown } from "react-icons/go";
 import { FaChevronRight } from "react-icons/fa";
 
 const LeadersStatSmall = (props) => (
-  <Flex
-    align="center"
-    h="40px"
-    fontSize="1em"
-  >
+  <Flex align="center" fontSize="1em" h="26px" >
     <Text>{props.currPlace}</Text>
     <Flex justify="center" align="center" mx={4}>
       {props.currPlace > props.prevPlace ? (
@@ -26,7 +22,7 @@ const LeadersStatSmall = (props) => (
         </>
       )}
     </Flex>
-    <Text color="gray.500" w="25%">
+    <Text color="gray.500" w="25%" isTruncated maxWidth="25%">
       {props.userName}
     </Text>
     <Text color="gray.500" mx={4} isTruncated maxWidth="50%">
@@ -36,14 +32,7 @@ const LeadersStatSmall = (props) => (
 );
 
 const LeadersStatLarge = (props) => (
-  <Flex
-    justify="space-between"
-    align="center"
-    h="80px"
-    mb={2}
-    px={6}
-    fontSize="1.1em"
-  >
+  <Flex justify="space-between" align="center" h="30px" mb={2} px={6} fontSize="1.1em">
     <Text w="24px">{props.currPlace}</Text>
     <Flex justify="center" align="center" mx={2} w="30px">
       {props.currPlace > props.prevPlace ? (
@@ -65,7 +54,7 @@ const LeadersStatLarge = (props) => (
     <Text color="gray.500" w="160px" maxWidth="160px" isTruncated>
       {props.userName}
     </Text>
-    <Text color="gray.500" maxWidth="200px"isTruncated >
+    <Text color="gray.500" maxWidth="200px" isTruncated>
       {props.description}
     </Text>
     <FaChevronRight />
@@ -75,37 +64,30 @@ const LeadersStatLarge = (props) => (
 export const DisplayLeadersSmall = () => {
   return (
     <>
-      <Flex
-        flexDirection="column"
-        h="60%"
-        mt={5}
-        isTruncated
-      >
-        <LeadersStatSmall
-          currPlace={1}
-          prevPlace={4}
-          userName="Soldotna"
-          description="Reduced Tech to 10%.  Added positions in commodities"
-        />
-        <LeadersStatSmall
-          currPlace={2}
-          prevPlace={1}
-          userName="Air2air"
-          description="Added 12% UBS to portfolio from Vanguard. "
-        />
-        <LeadersStatSmall
-          currPlace={3}
-          prevPlace={1}
-          userName="Chataqua7"
-          description="Added rare earth minerals to portfolio, reducing exposure to Chinese inflation"
-        />
-        <LeadersStatSmall
-          currPlace={4}
-          prevPlace={7}
-          userName="DefinanceBlock"
-          description="Exited positions in homebuilders and mortgage"
-        />
-      </Flex>
+      <LeadersStatSmall
+        currPlace={1}
+        prevPlace={4}
+        userName="Soldotna"
+        description="Reduced Tech to 10%.  Added positions in commodities"
+      />
+      <LeadersStatSmall
+        currPlace={2}
+        prevPlace={1}
+        userName="Air2air"
+        description="Added 12% UBS to portfolio from Vanguard. "
+      />
+      <LeadersStatSmall
+        currPlace={3}
+        prevPlace={1}
+        userName="Chataqua7"
+        description="Added rare earth minerals to portfolio, reducing exposure to Chinese inflation"
+      />
+      <LeadersStatSmall
+        currPlace={4}
+        prevPlace={7}
+        userName="DefinanceBlock"
+        description="Exited positions in homebuilders and mortgage"
+      />
     </>
   );
 };
@@ -113,44 +95,42 @@ export const DisplayLeadersSmall = () => {
 export const DisplayLeadersLarge = () => {
   return (
     <>
-      <Flex flexDirection="column" h="85%" justifyContent="space-between">
-        <LeadersStatLarge
-          currPlace={1}
-          prevPlace={4}
-          userName="Soldotna"
-          description="Reduced Tech to 10%.  Added positions in commodities"
-        />
-        <LeadersStatLarge
-          currPlace={2}
-          prevPlace={1}
-          userName="Air2air"
-          description="Added 12% UBS to portfolio from Vanguard. "
-        />
-        <LeadersStatLarge
-          currPlace={3}
-          prevPlace={1}
-          userName="Chataqua7"
-          description="Added rare earth minerals to portfolio, reducing exposure to Chinese inflation"
-        />
-        <LeadersStatLarge
-          currPlace={4}
-          prevPlace={7}
-          userName="DefinanceBlock"
-          description="Exited positions in homebuilders and mortgage"
-        />
-        <LeadersStatLarge
-          currPlace={5}
-          prevPlace={4}
-          userName="ArmchairGeneral"
-          description="Reduced exposure within the insurance sector"
-        />
-        <LeadersStatLarge
-          currPlace={6}
-          prevPlace={13}
-          userName="LaterAlligator"
-          description="What this guy did recently"
-        />
-      </Flex>
+      <LeadersStatLarge
+        currPlace={1}
+        prevPlace={4}
+        userName="Soldotna"
+        description="Reduced Tech to 10%.  Added positions in commodities"
+      />
+      <LeadersStatLarge
+        currPlace={2}
+        prevPlace={1}
+        userName="Air2air"
+        description="Added 12% UBS to portfolio from Vanguard. "
+      />
+      <LeadersStatLarge
+        currPlace={3}
+        prevPlace={1}
+        userName="Chataqua7"
+        description="Added rare earth minerals to portfolio, reducing exposure to Chinese inflation"
+      />
+      <LeadersStatLarge
+        currPlace={4}
+        prevPlace={7}
+        userName="DefinanceBlock"
+        description="Exited positions in homebuilders and mortgage"
+      />
+      <LeadersStatLarge
+        currPlace={5}
+        prevPlace={4}
+        userName="ArmchairGeneral"
+        description="Reduced exposure within the insurance sector"
+      />
+      <LeadersStatLarge
+        currPlace={6}
+        prevPlace={13}
+        userName="LaterAlligator"
+        description="What this guy did recently"
+      />
     </>
   );
 };

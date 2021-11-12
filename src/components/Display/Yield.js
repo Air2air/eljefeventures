@@ -1,3 +1,5 @@
+
+import React from "react";
 import { Flex, Text } from "@chakra-ui/react";
 import NumberFormat from "react-number-format";
 import { GoTriangleUp, GoTriangleDown } from "react-icons/go";

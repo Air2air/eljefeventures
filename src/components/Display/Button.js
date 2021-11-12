@@ -1,3 +1,5 @@
+
+import React from "react";
 import { Center, Text } from "@chakra-ui/react";
 
 export const DisplayButton = ({ count, influence }) => {

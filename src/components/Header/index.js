@@ -1,3 +1,5 @@
+
+import React from "react";
 import { Box, Center } from "@chakra-ui/react";
 import LogoImage from "./../../images/jalapeno.svg";
 import currentDate from "./../../utilities/date";

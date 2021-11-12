@@ -1,3 +1,5 @@
+
+import React from "react";
 import { Flex, Text } from "@chakra-ui/react";
 import { GoTriangleUp, GoTriangleDown } from "react-icons/go";
 import { FaChevronRight } from "react-icons/fa";

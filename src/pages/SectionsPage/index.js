@@ -1,3 +1,6 @@
+
+
+import React from "react";
 import Header from "./../../components/Header";
 import { AnimatePresence } from "framer-motion";
 import { CardOpen } from "./../../components/Card/Card";

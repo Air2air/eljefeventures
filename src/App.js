@@ -1,12 +1,14 @@
+
+import React from "react";
+
 import { AnimateSharedLayout, AnimatePresence } from "framer-motion";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 // import { CardOpen } from "./components/Card/Card";
 // import CardList from "./components/Card/CardList";
-import RankPage from "./pages/RankPage";
 import PortfolioPage from "./pages/PortfolioPage";
 import SectionsPage from "./pages/SectionsPage";
-import HomePage from "./pages/HomePage";
+
 
 
 export default function App() {

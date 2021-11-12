@@ -162,6 +162,12 @@ li {
       height: $card-closed-height-sm;
       .display-container {
         height: $card-display-height-closed-sm;
+        // p {
+        //   font-size: 0.8em;
+        //   &.to {
+        //     font-size: 0.6em;
+        //   }
+        // }
       }
     }
     &.open {
@@ -197,6 +203,12 @@ li {
       height: $card-closed-height-xs;
       .display-container {
         height: $card-display-height-closed-xs;
+        // p {
+        //   font-size: 0.9em;
+        //   &.to {
+        //     font-size: 0.6em;
+        //   }
+        // }
       }
     }
     &.open {

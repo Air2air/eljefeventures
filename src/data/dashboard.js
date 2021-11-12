@@ -2,7 +2,7 @@ export const dashboard = [
   {
     id: "rank",
     category: "rank",
-    title: "I went down two spots",
+    title: "I'm down two spots",
     description:
       "How my portfolio ranks against others on El Jefe. How my portfolio ranks against others on El Jefe. How my portfolio ranks against others on El Jefe. ",
     pointOfInterest: 80,

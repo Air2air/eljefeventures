@@ -1,3 +1,5 @@
+
+import React from "react";
 import { dashboard } from "../../data/dashboard";
 import { CardClosed } from "./Card";
 import "./styles.scss";

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import {
-  Box,
+  div,
   Button,
   Collapse,
   Flex,
@@ -11,7 +11,7 @@ import {
   Text,
   useToast,
   useDisclosure,
-} from "@chakra-ui/react";
+} from "@emotion/react";
 import { FaPlus } from "react-icons/fa";
 import ElJefeAPI from "../../../api/elJefeApi";
 
@@ -64,15 +64,15 @@ const AddFund = () => {
 
   return (
     <>
-      <Box mb={3} bg="gray.50" _hover={{ bg: "gray.100" }} align="center">
-        <Flex h="60px" px={5} align="center" justify="flex-end" onClick={onToggle}>
-          <Text fontSize="lg" mr={3}>Add a Fund</Text>
+      <div mb={3} bg="gray.50" _hover={{ bg: "gray.100" }} align="center">
+        <div className="flex"  h="60px" px={5} align="center" justify="flex-end" onClick={onToggle}>
+          <div fontSize="lg" mr={3}>Add a Fund</div>
           <FaPlus fontSize=".9em" />
-        </Flex>
-        <Collapse in={isOpen}>
-          <Box p={3} pt={0}>
+        </div>
+        <div in={isOpen}>
+          <div p={3} pt={0}>
             <form>
-              <Flex h="90px">
+              <div className="flex"  h="90px">
                 <FormControl id="fundName" mr={4}>
                   <FormLabel>Name</FormLabel>
                   <Input
@@ -119,19 +119,19 @@ const AddFund = () => {
                     _hover={{ color: "gray.900", bg: "white" }}
                   />
                 </FormControl>
-              </Flex>
-              <Flex justifyContent="space-between">
+              </div>
+              <div className="flex"  justifyContent="space-between">
                 <Button colorScheme="red" onClick={onToggle}>
                   Cancel
                 </Button>
                 <Button colorScheme="green" onClick={saveNewFund}>
                   Add Fund
                 </Button>
-              </Flex>
+              </div>
             </form>
-          </Box>
-        </Collapse>
-      </Box>
+          </div>
+        </div>
+      </div>
     </>
   );
 };

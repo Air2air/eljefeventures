@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ElJefeAPI from "../../../api/elJefeApi";
-import { Fade } from "@chakra-ui/react";
+import { div } from "@emotion/react";
 import { motion } from "framer-motion";
 import PortfolioRow from "./PortfolioHeader";
 import FundRow from "../Edit/FundRow";
@@ -40,13 +40,13 @@ const FundsList = () => {
 
   return (
     <>
-      <Fade in offsetY="-100px" delay={0.05}>
+      <div in offsetY="-100px" delay={0.05}>
         <PortfolioRow
           portfolioTotalValue={sumValue}
           portfolioTotalBasis={sumBasis}
           pctGain={pctGain}
         />
-        </Fade>
+        </div>
         {funds &&
           funds.map((fund, i) => (
             <motion.div
@@ -68,7 +68,7 @@ const FundsList = () => {
           ))}
 
         <AddFund />
-      {/* </Box> */}
+      {/* </div> */}
     </>
   );
 };

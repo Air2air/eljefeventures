@@ -1,6 +1,4 @@
-
 import React from "react";
-import { Flex } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
@@ -23,7 +21,7 @@ const Overlay = (id) => (
     className="overlay"
     key={id}
   >
-    <Link to="/" />
+    <div to="/" />
   </motion.div>
 );
 
@@ -39,7 +37,7 @@ export const CardClosed = (props) => {
             <span className="caption">{props.category}</span>
             <h2>{props.title}</h2>
           </div>
-          <Flex
+          <div className="flex" 
             justify="space-between"
             justifyContent="space-evenly"
             flexDirection="column"
@@ -55,10 +53,10 @@ export const CardClosed = (props) => {
               <DisplayYieldSmall currVal={2.353} prevVal={4.662} />
             )}
             {props.category === "leaders" && <DisplayLeadersSmall />}
-          </Flex>
+          </div>
         </motion.div>
       </div>
-      <Link to={props.id} className={`card-open-link`} />
+      <div to={props.id} className={`card-open-link`} />
     </li>
   );
 };
@@ -75,7 +73,7 @@ export const CardOpen = ({ id }) => {
             <span className="caption">{items.category}</span>
             <h2>{items.title}</h2>
           </div>
-          <Flex
+          <div className="flex" 
             justify="space-between"
             justifyContent="space-evenly"
             flexDirection="column"
@@ -91,7 +89,7 @@ export const CardOpen = ({ id }) => {
               <DisplayYieldLarge currVal={2.353} prevVal={4.662} />
             )}
             {items.category === "leaders" && <DisplayLeadersLarge />}
-          </Flex>
+          </div>
         </motion.div>
       </div>
     </>

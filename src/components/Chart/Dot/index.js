@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Button } from "@chakra-ui/react";
+import { Button } from "@emotion/react";
 import { dotData1, dotData2 } from "../../../data/dot";
 import Dot from "./dot";
 import "./index.scss";

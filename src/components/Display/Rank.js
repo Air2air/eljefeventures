@@ -1,47 +1,45 @@
-
 import React from "react";
-import { Flex, Text } from "@chakra-ui/react";
 import { GoTriangleUp, GoTriangleDown } from "react-icons/go";
 import { DisplayButton } from "./Button";
 
 const RankStat = ({ currVal, prevVal, places }) => (
-  <Flex justify="center" align="center" fontSize="4em">
-    <Flex justify="center" align="center">
+  <div className="flex"  justify="center" align="center" fontSize="4em">
+    <div className="flex"  justify="center" align="center">
       {currVal > prevVal ? (
         <>
           <GoTriangleDown style={{ color: "red", fontSize: ".5em" }} />
-          <Text color="red" fontSize={[".7em", ".8em", ".9em"]}>
+          <div color="red" fontSize={[".7em", ".8em", ".9em"]}>
             {currVal - prevVal}{" "}
-          </Text>
+          </div>
         </>
       ) : (
         <>
           <GoTriangleUp style={{ color: "green", fontSize: ".5em" }} />
-          <Text color="green" fontSize={[".7em", ".8em", ".9em"]}>
+          <div color="green" fontSize={[".7em", ".8em", ".9em"]}>
             {currVal - prevVal}{" "}
-          </Text>
+          </div>
         </>
       )}
-    </Flex>
+    </div>
 
-    <Text
+    <div
       px={["2", "2", "4"]}
       fontSize={[".5em", ".6em", ".7em"]}
       color="gray.500"
     >
       to
-    </Text>
-    <Text px={1} color="gray.500" fontSize=".6em">
+    </div>
+    <div px={1} color="gray.500" fontSize=".6em">
       #
-    </Text>
-    <Text fontSize={[".7em", ".8em", ".9em"]}>{currVal} </Text>
-    <Text color="gray.500" fontSize={["20px", ".7em", ".7em"]}>
+    </div>
+    <div fontSize={[".7em", ".8em", ".9em"]}>{currVal} </div>
+    <div color="gray.500" fontSize={["20px", ".7em", ".7em"]}>
       /
-    </Text>
-    <Text color="gray.500" fontSize={[".7em", ".8em", ".9em"]}>
+    </div>
+    <div color="gray.500" fontSize={[".7em", ".8em", ".9em"]}>
       {places}
-    </Text>
-  </Flex>
+    </div>
+  </div>
 );
 
 export const DisplayRankSmall = (props) => {

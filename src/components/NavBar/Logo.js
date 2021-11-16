@@ -1,11 +1,11 @@
-import React from "react";
-import { Box } from "@chakra-ui/react";
+
+
 import LogoImage from "./../../images/jalapeno.svg";
 
 export default function Logo(props) {
   return (
-    <Box {...props}>
+    <div {...props}>
       <img src={LogoImage} alt="El Jefe" style={{ width: 30 }} />
-    </Box>
+    </div>
   );
 }

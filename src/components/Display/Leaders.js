@@ -1,66 +1,64 @@
-
 import React from "react";
-import { Flex, Text } from "@chakra-ui/react";
 import { GoTriangleUp, GoTriangleDown } from "react-icons/go";
 import { FaChevronRight } from "react-icons/fa";
 
 const LeadersStatSmall = (props) => (
-  <Flex align="center" fontSize="1em" h="26px" >
-    <Text>{props.currPlace}</Text>
-    <Flex justify="center" align="center" mx={4}>
+  <div className="flex"  align="center" fontSize="1em" h="26px" >
+    <div>{props.currPlace}</div>
+    <div className="flex"  justify="center" align="center" mx={4}>
       {props.currPlace > props.prevPlace ? (
         <>
           <GoTriangleDown style={{ color: "red", fontSize: ".7em" }} />
-          <Text color="red" px={1}>
+          <div color="red" px={1}>
             {props.prevPlace}
-          </Text>
+          </div>
         </>
       ) : (
         <>
           <GoTriangleUp style={{ color: "green", fontSize: ".7em" }} />
-          <Text color="green" px={1}>
+          <div color="green" px={1}>
             {props.prevPlace}
-          </Text>
+          </div>
         </>
       )}
-    </Flex>
-    <Text color="gray.500" w="25%" isTruncated maxWidth="25%">
+    </div>
+    <div color="gray.500" w="25%" isTruncated maxWidth="25%">
       {props.userName}
-    </Text>
-    <Text color="gray.500" mx={4} isTruncated maxWidth="50%">
+    </div>
+    <div color="gray.500" mx={4} isTruncated maxWidth="50%">
       {props.description}
-    </Text>
-  </Flex>
+    </div>
+  </div>
 );
 
 const LeadersStatLarge = (props) => (
-  <Flex justify="space-between" align="center" h="30px" mb={2} px={6} fontSize="1.1em">
-    <Text w="24px">{props.currPlace}</Text>
-    <Flex justify="center" align="center" mx={2} w="30px">
+  <div className="flex"  justify="space-between" align="center" h="30px" mb={2} px={6} fontSize="1.1em">
+    <div w="24px">{props.currPlace}</div>
+    <div className="flex"  justify="center" align="center" mx={2} w="30px">
       {props.currPlace > props.prevPlace ? (
         <>
           <GoTriangleDown style={{ color: "red", fontSize: ".7em" }} />
-          <Text color="red" px={1}>
+          <div color="red" px={1}>
             {props.prevPlace}
-          </Text>
+          </div>
         </>
       ) : (
         <>
           <GoTriangleUp style={{ color: "green", fontSize: ".7em" }} />
-          <Text color="green" px={1}>
+          <div color="green" px={1}>
             {props.prevPlace}
-          </Text>
+          </div>
         </>
       )}
-    </Flex>
-    <Text color="gray.500" w="160px" maxWidth="160px" isTruncated>
+    </div>
+    <div color="gray.500" w="160px" maxWidth="160px" isTruncated>
       {props.userName}
-    </Text>
-    <Text color="gray.500" maxWidth="200px" isTruncated>
+    </div>
+    <div color="gray.500" maxWidth="200px" isTruncated>
       {props.description}
-    </Text>
+    </div>
     <FaChevronRight />
-  </Flex>
+  </div>
 );
 
 export const DisplayLeadersSmall = () => {

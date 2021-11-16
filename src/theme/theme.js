@@ -1,4 +1,4 @@
-import { extendTheme } from "@chakra-ui/react";
+import { extendTheme } from "@emotion/react";
 
 // const lightColors = {
 //   primary: "#5798b2",

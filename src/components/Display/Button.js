@@ -1,6 +1,4 @@
 
-import React from "react";
-import { Center, Text } from "@chakra-ui/react";
 
 export const DisplayButton = ({ count, influence }) => {
   let buttonText = "";
@@ -15,7 +13,7 @@ export const DisplayButton = ({ count, influence }) => {
 
   return (
     <>
-      <Center
+      <div
         h={100}
         w="100%"
         style={{ borderRadius: 7 }}
@@ -23,11 +21,11 @@ export const DisplayButton = ({ count, influence }) => {
         bg="gray.50"
         color="gray.500"
       >
-        <Text fontSize={36} fontWeight="normal" color="black" px={4}>
+        <div fontSize={36} fontWeight="normal" color="black" px={4}>
           {count}
-        </Text>
+        </div>
         {buttonText}
-      </Center>
+      </div>
     </>
   );
 };

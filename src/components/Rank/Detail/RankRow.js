@@ -1,7 +1,7 @@
 
 import { useHistory } from "react-router-dom";
 import NumberFormat from "react-number-format";
-import { Box, Flex, Stat, StatArrow, Text, Spacer } from "@chakra-ui/react";
+import { div, Flex, Stat, StatArrow, Text, Spacer } from "@emotion/react";
 import { FaUser, FaChevronRight } from "react-icons/fa";
 
 const RankRow = (props) => {
@@ -13,7 +13,7 @@ const RankRow = (props) => {
 
   return (
     <>
-      <Box
+      <div
         mb={3}
         bg={props.isUser === "true" ? "gray.500" : "gray.50"}
         color={props.isUser === "true" ? "gray.50" : "gray.800"}
@@ -23,58 +23,58 @@ const RankRow = (props) => {
         align="center"
         onClick={handleOnClick}
       >
-        <Flex h="70px" px={5} align="center">
-          <Flex w={170} pr={1}>
-            <Flex w="16px" align="center">
-              <Stat>
+        <div className="flex"  h="70px" px={5} align="center">
+          <div className="flex"  w={170} pr={1}>
+            <div className="flex"  w="16px" align="center">
+              <div>
                 {props?.fundBasis > props?.fundValue ? (
-                  <StatArrow type="decrease" />
+                  <divArrow type="decrease" />
                 ) : (
-                  <StatArrow type="increase" />
+                  <divArrow type="increase" />
                 )}
-              </Stat>
-            </Flex>
+              </div>
+            </div>
 
-            <Flex w={140} mr={10} align="center" justify="center">
-              <Text fontSize="xl">
+            <div className="flex"  w={140} mr={10} align="center" justify="center">
+              <div fontSize="xl">
                 <NumberFormat
                   value={pctGain}
                   displayType={"text"}
                   decimalScale={2}
                   allowNegative={true}
                 />
-              </Text>
-              <Text color="gray.500" px={1}>
+              </div>
+              <div color="gray.500" px={1}>
                 {" "}
                 %
-              </Text>
-            </Flex>
-          </Flex>
+              </div>
+            </div>
+          </div>
 
-          <Flex w={170} px={3} mr={5} align="center">
-          <Text
+          <div className="flex"  w={170} px={3} mr={5} align="center">
+          <div
               fontSize="sm"
               mr={3}
               color={props.isUser === "true" ? "gray.300" : "gray.400"}
             >
               {props?.fundBasis > props?.fundValue ? "LOSS:" : "GAIN:"}
-            </Text>
+            </div>
             <NumberFormat
               value={gainAmt}
               displayType={"text"}
               thousandSeparator={true}
               prefix={props?.fundBasis > props?.fundValue ? "$" : "+$"}
             />
-          </Flex>
+          </div>
 
-          <Flex w={170} px={3} mr={5} align="center">
-            <Text
+          <div className="flex"  w={170} px={3} mr={5} align="center">
+            <div
               fontSize="sm"
               mr={3}
               color={props.isUser === "true" ? "gray.300" : "gray.400"}
             >
               VALUE:
-            </Text>
+            </div>
 
             <NumberFormat
               value={props.fundValue}
@@ -82,23 +82,23 @@ const RankRow = (props) => {
               thousandSeparator={true}
               prefix="$"
             />
-          </Flex>
+          </div>
 
-          <Flex px={3} align="center">
-          <Text
+          <div className="flex"  px={3} align="center">
+          <div
               fontSize="sm"
               mr={3}
               color={props.isUser === "true" ? "gray.300" : "gray.400"}
             >
               <FaUser />
-            </Text>
-            <Text fontSize="md">{props.fundName}</Text>
-          </Flex>
+            </div>
+            <div fontSize="md">{props.fundName}</div>
+          </div>
 
           <Spacer />
           <FaChevronRight />
-        </Flex>
-      </Box>
+        </div>
+      </div>
     </>
   );
 };

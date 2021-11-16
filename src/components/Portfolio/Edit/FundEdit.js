@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import ElJefeAPI from "../../../api/elJefeApi";
 
 import {
-  Box,
+  div,
   Button,
   Flex,
   FormControl,
@@ -10,7 +10,7 @@ import {
   Input,
   useToast,
   useDisclosure,
-} from "@chakra-ui/react";
+} from "@emotion/react";
 
 const EditFund = (props) => {
 
@@ -81,9 +81,9 @@ const EditFund = (props) => {
 
   return (
     <>
-      <Box p={3} pt={0}>
+      <div p={3} pt={0}>
         <form>
-          <Flex h="90px">
+          <div className="flex"  h="90px">
             <FormControl id="fundName" mr={4}>
               <FormLabel>Name</FormLabel>
               <Input
@@ -129,17 +129,17 @@ const EditFund = (props) => {
                 _hover={{ color: "gray.900", bg: "white" }}
               />
             </FormControl>
-          </Flex>
-          <Flex justifyContent="space-between">
+          </div>
+          <div className="flex"  justifyContent="space-between">
             <Button colorScheme="red" onClick={deletePortfolio}>
               Delete
             </Button>
             <Button colorScheme="green" onClick={updatePortfolio}>
               Submit Edits
             </Button>
-          </Flex>
+          </div>
         </form>
-      </Box>
+      </div>
     </>
   );
 };

@@ -1,42 +1,40 @@
-
 import React from "react";
-import { Flex, Text } from "@chakra-ui/react";
 import NumberFormat from "react-number-format";
 import { GoTriangleUp, GoTriangleDown } from "react-icons/go";
 import { DisplayButton } from "./Button";
 
 const YieldStat = ({ currVal, prevVal }) => (
-  <Flex justify="center" align="center" fontSize="4em">
+  <div className="flex"  justify="center" align="center" fontSize="4em">
     {currVal > prevVal ? (
       <>
         <GoTriangleDown style={{ color: "red", fontSize: ".5em" }} />
-        <Text color="green">
+        <div color="green">
           <NumberFormat
             value={currVal}
             displayType={"text"}
             decimalScale={2}
             allowNegative={true}
           />
-        </Text>
+        </div>
       </>
     ) : (
       <>
         <GoTriangleUp style={{ color: "green", fontSize: ".5em" }} />
-        <Text color="green">
+        <div color="green">
           <NumberFormat
             value={currVal}
             displayType={"text"}
             decimalScale={2}
             allowNegative={true}
           />
-        </Text>
+        </div>
       </>
     )}
 
-    <Text fontSize="4xl" color="gray.500" px={1}>
+    <div fontSize="4xl" color="gray.500" px={1}>
       %
-    </Text>
-  </Flex>
+    </div>
+  </div>
 );
 
 export const DisplayYieldSmall = (props) => {

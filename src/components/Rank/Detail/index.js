@@ -1,5 +1,5 @@
 import React from "react";
-import { Fade } from "@chakra-ui/react";
+import { div } from "@emotion/react";
 import RankHeader from "./RankHeader";
 import RankRow from "./RankRow";
 
@@ -7,7 +7,7 @@ const RankDetail = () => {
 
   return (
     <>
-      <Fade in offsetY="-100px" delay={0.05}>
+      <div in offsetY="-100px" delay={0.05}>
         <RankHeader
           currentRank={5}
           previousRank={4}
@@ -16,7 +16,7 @@ const RankDetail = () => {
           portfolioTotalBasis={12365656}
           pctGain={0.02}
         />
-      </Fade>
+      </div>
       <RankRow
         fundName="Air2air"
         fundBasis={22757243}

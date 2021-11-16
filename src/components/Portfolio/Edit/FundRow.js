@@ -1,7 +1,7 @@
 import React from "react";
 import EditFund from "./FundEdit";
 import {
-  Box,
+  div,
   Collapse,
   Flex,
   Spacer,
@@ -9,7 +9,7 @@ import {
   StatArrow,
   Text,
   useDisclosure,
-} from "@chakra-ui/react";
+} from "@emotion/react";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import { HiChartBar } from "react-icons/hi";
 import NumberFormat from "react-number-format";
@@ -21,83 +21,83 @@ const FundRow = (props) => {
 
   return (
     <>
-      <Box mb={3} bg="gray.50" _hover={{ bg: "gray.200" }} align="center">
-        <Flex
+      <div mb={3} bg="gray.50" _hover={{ bg: "gray.200" }} align="center">
+        <div className="flex" 
           h="70px"
           px={5}
           align="center"
           onClick={onToggle}
           style={{ opacity: isOpen ? 0.3 : 1 }}
         >
-          <Flex w={170} pr={1}>
-            <Flex w="16px" align="center">
-              <Stat>
+          <div className="flex"  w={170} pr={1}>
+            <div className="flex"  w="16px" align="center">
+              <div>
                 {props?.fundBasis > props?.fundValue ? (
-                  <StatArrow type="decrease" />
+                  <divArrow type="decrease" />
                 ) : (
-                  <StatArrow type="increase" />
+                  <divArrow type="increase" />
                 )}
-              </Stat>
-            </Flex>
-            <Flex w={140} mr={10} align="center" justify="center">
-              <Text fontSize="xl">
+              </div>
+            </div>
+            <div className="flex"  w={140} mr={10} align="center" justify="center">
+              <div fontSize="xl">
                 <NumberFormat
                   value={pctGain}
                   displayType={"text"}
                   decimalScale={2}
                   allowNegative={true}
                 />
-              </Text>
-              <Text color="gray.500" px={1}>
+              </div>
+              <div color="gray.500" px={1}>
                 {" "}
                 %
-              </Text>
-            </Flex>
-          </Flex>
+              </div>
+            </div>
+          </div>
 
-          <Flex w={170} px={3} mr={5} align="center">
-            <Text fontSize="sm" mr={2} color="gray.500">
+          <div className="flex"  w={170} px={3} mr={5} align="center">
+            <div fontSize="sm" mr={2} color="gray.500">
               {props?.fundBasis > props?.fundValue ? "LOSS:" : "GAIN:"}
-            </Text>
+            </div>
             <NumberFormat
               value={props?.fundValue - props?.fundBasis}
               displayType={"text"}
               thousandSeparator={true}
               prefix={props?.fundBasis > props?.fundValue ? "$" : "+$"}
             />
-          </Flex>
+          </div>
 
-          <Flex w={170} px={3} mr={5} align="center">
-            <Text fontSize="sm" mr={2} color="gray.500">
+          <div className="flex"  w={170} px={3} mr={5} align="center">
+            <div fontSize="sm" mr={2} color="gray.500">
               VALUE:
-            </Text>
+            </div>
             <NumberFormat
               value={props?.fundValue}
               displayType={"text"}
               thousandSeparator={true}
               prefix="$"
             />
-          </Flex>
+          </div>
 
-          <Flex px={3} align="center">
-            <Text fontSize="sm" mr={3} color="gray.300">
+          <div className="flex"  px={3} align="center">
+            <div fontSize="sm" mr={3} color="gray.300">
               <HiChartBar />
-            </Text>
-            <Text fontSize="md">{props.fundName}</Text>
-          </Flex>
+            </div>
+            <div fontSize="md">{props.fundName}</div>
+          </div>
 
           <Spacer />
           {!isOpen ? <FaChevronDown /> : <FaChevronUp />}
-        </Flex>
-        <Collapse in={isOpen}>
+        </div>
+        <div in={isOpen}>
           <EditFund
             id={props?.id}
             fundName={props?.fundName}
             fundValue={props?.fundValue}
             fundBasis={props?.fundBasis}
           />
-        </Collapse>
-      </Box>
+        </div>
+      </div>
     </>
   );
 };

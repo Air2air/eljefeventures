@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Box, Flex, Text, Stack } from "@chakra-ui/react";
+
 import Logo from "./Logo";
 
 const NavBar = (props) => {
@@ -7,16 +7,16 @@ const NavBar = (props) => {
   const toggle = () => setIsOpen(!isOpen);
 
   return (
-    <NavBarContainer {...props}>
+    <NavBardiv {...props}>
       <Logo w="100px" color={["white", "white", "gray.500", "gray.500"]} />
       <MenuToggle toggle={toggle} isOpen={isOpen} />
       <MenuLinks isOpen={isOpen} />
-    </NavBarContainer>
+    </NavBardiv>
   );
 };
 
 const CloseIcon = () => (
-  <svg width="24" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+  <svg width="24" viewdiv="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
     <label>Close</label>
     <path
       fill="white"
@@ -28,7 +28,7 @@ const CloseIcon = () => (
 const MenuIcon = () => (
   <svg
     width="28px"
-    viewBox="0 0 20 20"
+    viewdiv="0 0 20 20"
     xmlns="http://www.w3.org/2000/svg"
     fill="white"
   >
@@ -39,29 +39,29 @@ const MenuIcon = () => (
 
 const MenuToggle = ({ toggle, isOpen }) => {
   return (
-    <Box display={{ base: "block", md: "none" }} onClick={toggle}>
+    <div display={{ base: "block", md: "none" }} onClick={toggle}>
       {isOpen ? <CloseIcon /> : <MenuIcon />}
-    </Box>
+    </div>
   );
 };
 
 const MenuItem = ({ children, isLast, to = "/", ...rest }) => {
   return (
-    <Link href={to}>
-      <Text display="block" {...rest}>
+    <div href={to}>
+      <div display="block" {...rest}>
         {children}
-      </Text>
-    </Link>
+      </div>
+    </div>
   );
 };
 
 const MenuLinks = ({ isOpen }) => {
   return (
-    <Box
+    <div
       display={{ base: isOpen ? "block" : "none", md: "block" }}
       flexBasis={{ base: "100%", md: "auto" }}
     >
-      <Stack
+      <div
         spacing={8}
         align="center"
         justify={["center", "space-between", "flex-end", "flex-end"]}
@@ -75,14 +75,14 @@ const MenuLinks = ({ isOpen }) => {
         <MenuItem to="/portfolio-detail" isLast>
           Portfolio detail
         </MenuItem>
-      </Stack>
-    </Box>
+      </div>
+    </div>
   );
 };
 
-const NavBarContainer = ({ children, ...props }) => {
+const NavBardiv = ({ children, ...props }) => {
   return (
-    <Flex
+    <div className="flex" 
       as="nav"
       align="center"
       justify="space-between"
@@ -96,7 +96,7 @@ const NavBarContainer = ({ children, ...props }) => {
       {...props}
     >
       {children}
-    </Flex>
+    </div>
   );
 };
 

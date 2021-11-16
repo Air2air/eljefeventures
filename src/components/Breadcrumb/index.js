@@ -1,5 +1,4 @@
-import React from "react";
-import { Flex, Link, Fade } from "@chakra-ui/react";
+import { React, Link} from "react";
 
 const Breadcrumb = (props) => {
   // parentName = ""
@@ -8,10 +7,10 @@ const Breadcrumb = (props) => {
 
   return (
     <>
-      <Fade in offsetY="100px">
-        <Flex my={4} align="center">
+      <div in offsetY="100px">
+        <div className="flex"  my={4} align="center">
           {props.parentName &&
-            `<Link
+            `<div
             fontSize="xl"
             mr={2}
             fontWeight="500"
@@ -19,14 +18,14 @@ const Breadcrumb = (props) => {
             href=${props.parentLink}
           >
             ${props.parentName}
-          </Link>
+          </div>
           <FaChevronRight size=".7em" color="gray.400" />`}
 
-          <Link fontSize="xl" mx={2} fontWeight="500" color="gray.700" href="#">
+          <div fontSize="xl" mx={2} fontWeight="500" color="gray.700" href="#">
             {props.activeName}
-          </Link>
-        </Flex>
-      </Fade>
+          </div>
+        </div>
+      </div>
     </>
   );
 };
